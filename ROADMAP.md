@@ -41,3 +41,6 @@ Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R
 **R15–R16 partiels (10/10/2026) :** trois schémas SVG originaux et modifiables sont insérés dans C08/C09/C11, sans validation visuelle Quarto ; le mini-projet V01 possède un dossier de référence (exigences, ADR, matrice), avec 12 tests d'intégration **NOT_EXECUTED**. Aucun volume ni rendu PDF/EPUB n'est finalisé.
 
 **R13 — revue de cohérence du 10/10/2026 :** première passe statique réussie sur 12 brouillons V01 (~32 101 mots, 38 liens relatifs contrôlés, 69 termes de glossaire, six ateliers ajoutés). L'approfondissement vers la qualité d'un livre complet reste ouvert ; ne pas assimiler ce PASS à une validation scientifique ou à la cible de 280 pages. Voir `volumes/01-ai-foundations/R13_REVIEW_REPORT_2026-10-10.md`.
+
+
+**R14 — progrès du 10/10/2026.** Les laboratoires C05 (dérivées et gradient) et C06 (attention Q/K/V) ont été créés avec leurs guides et 37 tests locaux PASS (17 + 20). Les quatre SHA des fichiers testés correspondent aux blobs GitHub ; voir `evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md`. Le Volume 01 reste en DRAFT. **CI GitHub et tests d'intégration non prouvés ; R14 PARTIAL.** Aucun PDF/EPUB généré.
