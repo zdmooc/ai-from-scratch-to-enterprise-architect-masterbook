@@ -1,0 +1,132 @@
+# Chapitre 02 — Variables, types et expressions Python
+
+> **DRAFT — Python depuis zéro.** Exemples simples, sans bibliothèques externes.
+
+## Objectifs
+
+Déclarer des variables ; reconnaître des entiers, réels, chaînes, booléens et collections ; utiliser les opérations courantes ; tester une condition ; éviter les erreurs classiques des nombres à virgule flottante.
+
+## 1. Une variable relie un nom à une valeur
+
+En Python, on affecte une valeur avec le signe égal :
+
+~~~python
+nombre_documents = 3
+duree_minutes = 4.5
+statut = "en cours"
+valide = True
+~~~
+
+Le nom \`nombre_documents\` fait référence ici à un entier (\`int\`). La durée est un nombre flottant (\`float\`), le statut une chaîne (\`str\`) et la validation un booléen (\`bool\`).
+
+Pour inspecter ces types :
+
+~~~python
+print(type(nombre_documents))
+print(type(duree_minutes))
+~~~
+
+Une affectation n'est pas une équation mathématique. \`x = x + 1\` signifie : calculer l'ancienne valeur de x plus 1, puis associer le nom x au résultat.
+
+## 2. Entiers et nombres flottants
+
+Les entiers représentent des valeurs sans partie fractionnaire. Les nombres flottants utilisent une représentation binaire approximative. Ainsi :
+
+~~~python
+valeur = 0.1 + 0.2
+print(valeur == 0.3)  # False sur les Python usuels
+~~~
+
+Ce phénomène n'est pas propre à Python : certains nombres décimaux ne peuvent pas être représentés exactement avec une mantisse binaire finie.
+
+Comparer des résultats approximatifs demande souvent \`math.isclose\`, avec une tolérance adaptée. Pour des montants financiers où le centime et des règles d'arrondi comptent, préférer des entiers dans une unité minimale ou un type décimal correctement configuré ; un simple float n'est pas un modèle monétaire fiable.
+
+## 3. Opérations de base
+
+~~~python
+a = 7
+b = 2
+print(a + b)   # 9
+print(a - b)   # 5
+print(a * b)   # 14
+print(a / b)   # 3.5
+print(a // b)  # 3, division entière
+print(a % b)   # 1, reste
+print(a ** b)  # 49, puissance
+~~~
+
+Les parenthèses aident à expliciter le calcul. La division par zéro soulève une exception. On ne doit pas supprimer silencieusement une ligne problématique pour afficher un résultat.
+
+## 4. Comparaisons et logique
+
+~~~python
+nombre = 5
+print(nombre > 3)             # True
+print(nombre == 5)            # True
+print(nombre != 0)            # True
+print(nombre > 3 and nombre < 10)  # True
+~~~
+
+L'opérateur \`==\` compare l'égalité des valeurs ; l'opérateur \`=\` effectue une affectation. Les opérations \`and\`, \`or\` et \`not\` servent à former des conditions.
+
+Ces mécanismes sont très utiles même dans un système IA avancé : ils permettent de vérifier explicitement un résultat et de bloquer un comportement interdit.
+
+## 5. Chaînes et collections
+
+Une chaîne est du texte. Une liste peut regrouper des observations dans un ordre précis :
+
+~~~python
+durees = [2, 5, 8]
+total = sum(durees)
+moyenne = total / len(durees)
+print(moyenne)  # 5.0
+~~~
+
+La liste peut être modifiée ; le tuple est une séquence immuable. Le dictionnaire associe des clés à des valeurs :
+
+~~~python
+dossier = {"id": "SYN-001", "documents": 3}
+print(dossier["documents"])
+~~~
+
+Les valeurs de cet exemple sont synthétiques. Les chapitres suivants apprendront à parcourir les collections et à traiter les erreurs quand une clé manque.
+
+## 6. Types et qualité de données
+
+Lire un nombre venant d'un fichier texte n'en fait pas automatiquement un entier. La chaîne \`"42"\` est différente de l'entier \`42\`.
+
+~~~python
+chaine = "42"
+nombre = int(chaine)
+assert nombre + 1 == 43
+~~~
+
+Il faut valider la forme des entrées et anticiper les conversions invalides. Une donnée faussement typée peut produire une erreur plus loin dans un pipeline ML ou un mauvais calcul de dimensionnement.
+
+## 7. Exercices corrigés
+
+**A.** Que vaut \`(3 + 2) * 4\` ?
+
+*Correction.* 20.
+
+**B.** Quel est le type de \`"8"\` et celui de \`8\` ?
+
+*Correction.* Respectivement \`str\` et \`int\`.
+
+**C.** Calculer la moyenne de \`[1, 3, 5, 7]\`.
+
+*Correction.* 4.0.
+
+**D.** Pourquoi \`0.1 + 0.2 == 0.3\` n'est-il pas un test approprié ?
+
+*Correction.* Les nombres flottants sont approximatifs. Pour des résultats calculés, comparer avec une tolérance adaptée et définir une règle d'arrondi explicite si le domaine l'exige.
+
+**E.** Quelle est la différence entre \`x = 3\` et \`x == 3\` ?
+
+*Correction.* La première expression affecte une valeur ; la deuxième compare.
+
+## 8. Vers une première application scientifique
+
+Dans le [laboratoire Python débutant](../../../labs/v03-python-basics/README.md), le lecteur manipulera une liste de valeurs, calculera une moyenne, vérifiera un input et lancera des tests sur des exemples reproductibles.
+
+**À vérifier avant publication :** compatibilité versions Python, tests, figures pédagogiques originales et relecture du code par un lecteur débutant.
