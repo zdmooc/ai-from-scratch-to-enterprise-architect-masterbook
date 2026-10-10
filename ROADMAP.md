@@ -14,7 +14,7 @@
 **Ne pas assimiler les 6 étapes de démarrage aux 24 volumes achevés.** La rédaction complète est un programme long qui doit être suivi séparément volume par volume.
 
 ## État
-- I01 : **STRUCTURE_CI_PASS / QUARTO_RENDER_NOT_YET_PROVEN** ; 24 volumes planifiés et CI statique PASS, mais aucun PDF/EPUB validé.
+- I01 : **STRUCTURE_VALIDATED / CI_PRE_PRIVATE_PASS / PRIVATE_RUNNER_BLOCKED_UNDIAGNOSED / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a réussi sur le dernier commit public `65069e1`. Depuis le passage privé, les exécutions se terminent en échec sans aucune étape exécutée ni runner affecté ; raison précise à vérifier dans Actions et facturation/limites GitHub. Ne pas attribuer ces échecs au code sans logs.
 - I02 : **IN_PROGRESS** ; dépôt confirmé PRIVATE le 2026-10-10. Rapport archivé dans `sources/audits/`; inventaires structurés : 77 fichiers Drive (61 tomes, 14 Ai_OneAgent, 2 racine), 79 dépôts GitHub ; 34 arborescences examinées / 45 non examinées ; qualification technique, droits et conversions restant à faire.
 - I03–I06 : **NOT_STARTED** ; les sources ne sont pas importées automatiquement et aucun volume n'est achevé.
 

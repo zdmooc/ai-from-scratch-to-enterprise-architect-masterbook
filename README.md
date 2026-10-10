@@ -40,4 +40,4 @@ Les dépôts techniques ne sont **ni fusionnés ni supprimés**. Leurs concepts 
 ## Qualité et droits
 Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt privé sans validation des droits ou autorisation éditoriale.
 
-**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure et CI validées, build réel PDF/EPUB non exécuté ; I02 inventaire en cours (77 fichiers Drive, 79 dépôts GitHub). Aucun des 24 volumes n'est terminé.
+**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure validée, CI réussie avant passage privé ; nouvelles exécutions CI en échec avant démarrage des étapes (diagnostic en cours) ; build réel PDF/EPUB non exécuté ; I02 inventaire en cours (77 fichiers Drive, 79 dépôts GitHub). Aucun des 24 volumes n'est terminé.
