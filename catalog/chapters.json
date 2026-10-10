@@ -1,6 +1,6 @@
 {
   "collection": "Bible IA 2026–2030",
-  "status": "I04_FIRST_PASS_EDITORIAL_PLAN",
+  "status": "I04_FIRST_PASS_TOC_AND_NINE_DRAFTS",
   "chapters_total": 288,
   "volumes": [
     {
@@ -19,25 +19,25 @@
         {
           "id": "C02",
           "title": "Repères historiques et ruptures scientifiques",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C03",
           "title": "IA symbolique, logique, recherche et moteurs de règles",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C04",
           "title": "Apprentissage statistique et données d'entraînement",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C05",
           "title": "Deep Learning expliqué sans prérequis",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
@@ -94,13 +94,13 @@
         {
           "id": "C01",
           "title": "Prérequis d'algèbre et méthode de calcul",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C02",
           "title": "Vecteurs, normes, distances et similarités",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
@@ -175,13 +175,13 @@
         {
           "id": "C01",
           "title": "Installer Python et un environnement reproductible",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C02",
           "title": "Types, variables, opérateurs et expressions",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
@@ -1947,5 +1947,7 @@
         }
       ]
     }
-  ]
+  ],
+  "chapters_drafted": 9,
+  "chapters_planned_not_written": 279
 }
