@@ -1,0 +1,219 @@
+# Chapitre 11 — Concevoir une première expérimentation mesurable
+
+> **DRAFT — cours original.** Les données ci-dessous sont entièrement synthétiques ; aucune performance professionnelle n'est revendiquée.
+
+## 1. Objectifs
+
+Formuler une hypothèse testable, construire une baseline, définir un découpage temporel correct, calculer une métrique, proposer des tests négatifs et rédiger un rapport qui distingue résultats attendus, résultats observés et limites.
+
+## 2. Un POC commence par une question
+
+« Déployer une IA » n'est pas une question expérimentale. « Prédire la durée de traitement du prochain dossier mieux qu'une méthode de référence, selon un protocole identique » est une hypothèse vérifiable.
+
+Avant de commencer, définir :
+- les utilisateurs et la décision à éclairer ;
+- les données disponibles à l'instant de prédiction ;
+- la population cible, la période et les cas exclus ;
+- les alternatives simples sans IA complexe ;
+- les métriques et seuils d'acceptation approuvés ;
+- les conséquences des erreurs ;
+- la reproductibilité des données et de l'exécution.
+
+L'objectif doit être approuvé avant de regarder les résultats. Sinon l'équipe risque de reformuler les critères jusqu'à donner artificiellement l'impression de réussir.
+
+## 3. Notre dataset synthétique
+
+Nous créons dix observations fictives ordonnées par jour :
+
+| Jour | Durée réelle en minutes |
+|---|---:|
+| J01 | 3 |
+| J02 | 5 |
+| J03 | 4 |
+| J04 | 6 |
+| J05 | 5 |
+| J06 | 7 |
+| J07 | 6 |
+| J08 | 8 |
+| J09 | 7 |
+| J10 | 9 |
+
+Les six premières observations forment la période d'entraînement et les quatre dernières servent à l'évaluation. Un jeu si court n'est pas adapté à un benchmark industriel : nous l'utilisons pour rendre chaque calcul transparent.
+
+Dans un vrai projet, un protocole devrait également prévoir une phase de validation pour choisir les méthodes, une taille représentative et des mesures d'incertitude.
+
+## 4. Baseline A : moyenne historique
+
+La moyenne de l'entraînement vaut :
+
+$$
+\overline{y}=\frac{3+5+4+6+5+7}{6}=5.
+$$
+
+La méthode A prédit donc 5 minutes pour chacun des quatre cas futurs. Les durées réelles sont 6, 8, 7 et 9 minutes. Les erreurs absolues sont respectivement 1, 3, 2, 4.
+
+L'erreur absolue moyenne vaut :
+
+$$
+MAE_A=\frac{1+3+2+4}{4}=2{,}5\ \mathrm{min}.
+$$
+
+Une MAE de 2,5 minutes n'est ni bonne ni mauvaise sans objectif métier : une erreur de 2 minutes pourrait être négligeable pour certains usages et inacceptable pour d'autres.
+
+## 5. Baseline B : dernière observation disponible
+
+Nous proposons une deuxième méthode appelée persistance : pour prédire la durée du prochain jour, utiliser la dernière durée observée.
+
+Dans une évaluation **pas à pas**, la série de prédictions J07 à J10 est :
+
+| Jour prédit | Valeur précédente accessible | Prédiction | Durée réelle | Erreur absolue |
+|---|---:|---:|---:|---:|
+| J07 | J06 = 7 | 7 | 6 | 1 |
+| J08 | J07 = 6 | 6 | 8 | 2 |
+| J09 | J08 = 8 | 8 | 7 | 1 |
+| J10 | J09 = 7 | 7 | 9 | 2 |
+
+$$
+MAE_B=\frac{1+2+1+2}{4}=1{,}5\ \mathrm{min}.
+$$
+
+Le mot **accessible** est indispensable. Si le modèle doit produire quatre prédictions au soir de J06, il ne peut pas connaître J07, J08 et J09. Ici nous évaluons une prévision **à un seul pas**, effectuée à chaque nouveau jour après la réception de l'observation précédente.
+
+Comparer les deux méthodes avec un autre protocole pourrait changer le résultat. L'architecture des données doit donc décrire la fréquence de collecte et la disponibilité des informations.
+
+## 6. Exprimer le résultat sans lui faire dire trop
+
+La baisse absolue de MAE entre A et B vaut :
+
+$$
+2{,}5-1{,}5=1{,}0\ \mathrm{min}.
+$$
+
+La baisse relative vaut :
+
+$$
+\frac{2{,}5-1{,}5}{2{,}5}=40\,\%.
+$$
+
+La conclusion autorisée est : **sur ces quatre observations synthétiques, selon le protocole à un pas, la MAE de la baseline B est inférieure de 40 % à celle de A**.
+
+Cette expérience ne démontre pas :
+- une réduction de 40 % du temps réel de traitement ;
+- un bénéfice financier de 40 % ;
+- une généralisation à une population future ;
+- le respect d'un SLO de production ;
+- le fonctionnement d'un service IA sur GPU.
+
+Une bonne preuve inclut autant les limites que les chiffres.
+
+## 7. Baselines, paramètres et sélection
+
+Une baseline représente un point de comparaison. Elle peut être simple et déterministe : dernière valeur, moyenne, règle de seuil ou recherche classique.
+
+Un modèle plus complexe n'est justifié que s'il améliore suffisamment les critères de décision pour compenser ses coûts et risques. Les paramètres peuvent être ajustés sur l'entraînement ; les hyperparamètres sont comparés sur la validation.
+
+Il faut préserver un **test indépendant**. Si l'équipe modifie le modèle après chaque consultation des résultats du jeu de test, celui-ci finit par influencer indirectement la sélection et perd sa valeur d'évaluation finale.
+
+Pour les séries temporelles, le découpage chronologique doit empêcher une information future de se retrouver dans une prédiction du passé.
+
+## 8. Laboratoire Python reproductible
+
+Le lab proposé se trouve dans [LAB V01 — évaluation de deux baselines](../../../labs/v01-experiment/README.md). Il utilise Python standard, sans GPU, sans comptes cloud et sans information client.
+
+Depuis la racine du Masterbook :
+
+~~~bash
+python -m unittest discover -s labs/v01-experiment -p 'test_*.py' -v
+python labs/v01-experiment/experiment.py
+~~~
+
+Le laboratoire doit fournir la séparation temporelle, les deux MAE, les prédictions de chaque méthode et les tests d'entrées invalides.
+
+**La présence de commandes n'est pas une preuve de leur exécution.** Les résultats seront considérés comme observés uniquement après un test documenté avec les fichiers et versions exacts.
+
+## 9. Tests positifs, négatifs et qualité des preuves
+
+Un test positif vérifie un cas attendu. Un test négatif vérifie qu'une entrée invalide ou un scénario interdit est correctement refusé.
+
+Pour notre expérience, contrôler au minimum :
+
+1. la moyenne des six premières valeurs vaut 5 ;
+2. les prédictions A valent toujours 5 ;
+3. les prédictions B n'utilisent que la dernière observation disponible ;
+4. les MAE calculées valent 2,5 et 1,5 ;
+5. une liste vide est rejetée ;
+6. des longueurs de séries différentes sont rejetées ;
+7. une valeur non finie est rejetée ;
+8. le découpage entraînement/test respecte l'ordre déclaré.
+
+Dans une application à enjeux élevés, des tests supplémentaires sont nécessaires : protection des données, droits des utilisateurs, cas rares, indisponibilité d'un service et restauration après incident.
+
+## 10. Rapport de preuve minimal
+
+| Champ | Valeur |
+|---|---|
+| Tâche | Prédire une durée, en minutes |
+| Dataset | Série fictive J01–J10 versionnée |
+| Historique | J01–J06 |
+| Test | J07–J10 |
+| Baseline A | Moyenne fixe calculée sur historique |
+| Baseline B | Persistance, prédiction à un pas |
+| Métrique | MAE en minutes |
+| Résultats calculés manuellement | A = 2,5 ; B = 1,5 |
+| Mesure de coûts | Non réalisée pour ce cours |
+| Exécution logicielle | À consigner séparément après passage des tests |
+| Limites | Jeu minuscule, entièrement synthétique |
+
+Une preuve runtime doit identifier l'environnement, la commande, la version du code et ses résultats réels. Le même formalisme sera repris dans les volumes de MLOps et d'évaluation.
+
+## 11. Pourquoi le protocole se complique avec les LLM
+
+Un système génératif produit souvent des réponses dont la correction exige plusieurs contrôles : exactitude des faits, fidélité aux sources, refus d'information interdite, utilité et robustesse.
+
+Un corpus d'évaluation peut inclure :
+- questions simples avec réponse vérifiable ;
+- documents contradictoires ;
+- questions sans source ;
+- documents non autorisés ;
+- instructions hostiles injectées dans des données ;
+- requêtes longues, simultanées ou répétées.
+
+Chaque cas a une attente définie. Un évaluateur humain peut intervenir lorsque l'exactitude ne peut être résumée à une égalité simple, mais les propriétés de permissions doivent rester contrôlées par des tests techniques.
+
+## 12. Coût, temps et consommation
+
+Un modèle peut réduire l'erreur tout en multipliant le temps de calcul et le coût. Le protocole doit donc prévoir, si ces critères sont pertinents, des mesures de latence, de débit, de mémoire, d'énergie et de coût par résultat valide.
+
+Un résultat de benchmark emprunté à une autre machine n'est pas automatiquement transposable à l'environnement du projet. Le CPU, le GPU, les versions, le batch et les entrées réelles peuvent changer les performances.
+
+Notre premier lab utilise des calculs élémentaires sur CPU : il prépare la méthode de mesure, pas un comparatif matériel.
+
+## 13. Exercices corrigés
+
+**A.** Un prédicteur annonce 4 minutes pour trois durées réelles 2, 6 et 4. Calculer la MAE.
+
+*Correction.* Erreurs 2, 2 et 0 ; MAE = 4/3, environ 1,33 minute.
+
+**B.** Une équipe optimise son modèle après consultation répétée du test. Pourquoi le protocole est-il affaibli ?
+
+*Correction.* Le test a influencé le choix du modèle ; il faut préserver une mesure indépendante.
+
+**C.** La MAE baisse de 2 à 1. Peut-on dire que l'entreprise traite deux fois plus vite ses dossiers ?
+
+*Correction.* Non. Une erreur de prévision n'est pas une durée réellement économisée.
+
+**D.** Une méthode prédit une période future en utilisant la durée déjà mesurée de cette période. Qu'a-t-elle introduit ?
+
+*Correction.* Une fuite temporelle. Les données futures ne sont pas disponibles à l'instant de prévision.
+
+**E.** Un modèle a une excellente moyenne sur les cas ordinaires mais échoue sur tous les cas critiques. Est-il prêt ?
+
+*Correction.* Non. Les risques, sous-populations et critères éliminatoires sont à évaluer séparément.
+
+## 14. Synthèse
+
+Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
+
+**Avant publication :** exécuter et enregistrer le laboratoire sur le commit final, recontrôler chaque formule, ajouter une figure originale montrant la séparation temporelle et relire les conditions d'utilisation du protocole.
+
+Le chapitre 12 réunit ces réflexes dans un mini-projet d'architecture.
