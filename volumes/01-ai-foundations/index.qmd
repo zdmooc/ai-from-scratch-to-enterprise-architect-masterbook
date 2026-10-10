@@ -1,6 +1,6 @@
 # V01 — Introduction à l'intelligence artificielle
 
-> **DRAFT_IN_PROGRESS — 5 chapitres de travail sur 12 planifiés ; LIVRE NON TERMINÉ.**  
+> **DRAFT_IN_PROGRESS — 6 chapitres de travail sur 12 planifiés ; LIVRE NON TERMINÉ.**  
 > Partie 1/6 : Fondations scientifiques et informatiques.  
 > Pagination cible indicative : **280 pages A4** (non rédigées).
 
@@ -11,8 +11,9 @@
 - C03 — IA symbolique, logique et moteurs de règles — **DRAFT**, avec [lab Python](../../labs/v01-symbolic-ai/README.md)
 - C04 — Apprentissage statistique et données d'entraînement — **DRAFT**
 - C05 — Deep Learning expliqué sans prérequis — **DRAFT**
+- C06 — Premiers repères sur NLP, Transformers et LLM — **DRAFT**
 
-Les chapitres C06 à C12 restent **PLANNED** ; aucune version n'est publiée. Consulter le [plan détaillé](CHAPTER_PLAN.md) pour leurs intitulés.
+Les chapitres C07 à C12 restent **PLANNED** ; aucune version n'est publiée. Consulter le [plan détaillé](CHAPTER_PLAN.md) pour leurs intitulés.
 
 ## Finalité
 
@@ -43,4 +44,4 @@ Ce volume est une composante de la collection *AI From Scratch to Enterprise Arc
 - Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
 - QA HTML, PDF, EPUB et version gelée avant une release.
 
-**État réel du manuscrit :** cinq chapitres en brouillon, sept chapitres absents. Laboratoire symbolique recopié et testé localement ; compilation HTML/PDF/EPUB non validée.
+**État réel du manuscrit :** six chapitres en brouillon, six chapitres absents. Laboratoire symbolique recopié et testé localement ; compilation HTML/PDF/EPUB non validée.

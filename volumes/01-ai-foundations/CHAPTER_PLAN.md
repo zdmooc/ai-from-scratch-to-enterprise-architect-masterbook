@@ -1,13 +1,13 @@
 # Plan détaillé préliminaire — V01: Introduction à l'intelligence artificielle
 
-**État : I04_DRAFT_TOC / NOT_PUBLISHED.** 12 chapitres proposés, cible indicative 280 pages A4 pour l'ensemble du volume.
+**État : V01_C01_TO_C06_DRAFT_REVIEW_REQUIRED / NOT_PUBLISHED.** 12 chapitres proposés, cible indicative 280 pages A4 pour l'ensemble du volume.
 
 1. **C01** — Définir l'intelligence artificielle et ses frontières — `DRAFT_REVIEW_REQUIRED`
-2. **C02** — Repères historiques et ruptures scientifiques — `PLANNED`
-3. **C03** — IA symbolique, logique, recherche et moteurs de règles — `PLANNED`
-4. **C04** — Apprentissage statistique et données d'entraînement — `PLANNED`
-5. **C05** — Deep Learning expliqué sans prérequis — `PLANNED`
-6. **C06** — Premiers repères sur NLP, Transformers et LLM — `PLANNED`
+2. **C02** — Repères historiques et ruptures scientifiques — `DRAFT_REVIEW_REQUIRED`
+3. **C03** — IA symbolique, logique, recherche et moteurs de règles — `DRAFT_REVIEW_REQUIRED`
+4. **C04** — Apprentissage statistique et données d'entraînement — `DRAFT_REVIEW_REQUIRED`
+5. **C05** — Deep Learning expliqué sans prérequis — `DRAFT_REVIEW_REQUIRED`
+6. **C06** — Premiers repères sur NLP, Transformers et LLM — `DRAFT_REVIEW_REQUIRED`
 7. **C07** — IA générative : textes, images, audio et limites — `PLANNED`
 8. **C08** — Agents IA, outils et autonomie contrôlée — `PLANNED`
 9. **C09** — Panorama des cas d'usage et alternatives sans IA — `PLANNED`

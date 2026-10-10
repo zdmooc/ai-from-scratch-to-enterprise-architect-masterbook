@@ -1,6 +1,6 @@
 {
   "collection": "Bible IA 2026–2030",
-  "status": "I04_FIRST_PASS_TOC_AND_NINE_DRAFTS",
+  "status": "I04_TOC_AND_TEN_DRAFT_MANUSCRIPTS",
   "chapters_total": 288,
   "volumes": [
     {
@@ -43,7 +43,7 @@
         {
           "id": "C06",
           "title": "Premiers repères sur NLP, Transformers et LLM",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
@@ -1948,6 +1948,6 @@
       ]
     }
   ],
-  "chapters_drafted": 9,
-  "chapters_planned_not_written": 279
+  "chapters_drafted": 10,
+  "chapters_planned_not_written": 278
 }
