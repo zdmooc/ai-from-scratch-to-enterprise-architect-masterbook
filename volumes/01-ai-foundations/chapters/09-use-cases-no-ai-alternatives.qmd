@@ -187,7 +187,37 @@ Un modèle plus lourd diminue une erreur moyenne de façon marginale, mais exige
 
 **Correction.** Comparer la **valeur métier du gain**, son incertitude, les risques, le coût total, les émissions selon un périmètre défini et les alternatives d'optimisation du modèle plus petit. La sobriété ne se réduit pas à choisir la plus faible consommation brute si les résultats ne sont pas équivalents.
 
-## 13. Synthèse
+## 13. Atelier supplémentaire — critères éliminatoires avant notation
+
+Une matrice multicritère ne doit pas autoriser une application à compenser une fuite de données par un bon score de coût ou de facilité d'utilisation.
+
+### Deux temps pour décider
+
+**Premier temps : admissibilité.** Vérifier l'authentification, les droits documentaires, l'absence d'outils interdits et la gestion des questions sans réponse. Une option qui viole un critère essentiel n'entre pas dans la comparaison finale.
+
+**Deuxième temps : comparaison loyale.** Pour les options restantes, mesurer sur les mêmes tâches la qualité, le coût, la latence et les coûts d'exploitation. Ne pas confondre une description d'architecture et un résultat d'essai.
+
+| Question | Recherche simple A | RAG B | Agent C |
+|---|---|---|---|
+| ACL démontrées ? | Pas encore | Pas encore | Pas encore |
+| Source de réponse identifiée ? | Prévue | Prévue | À définir |
+| Mutation nécessaire ? | Non | Non | Non démontrée |
+| Complexité relative | Faible | Intermédiaire | Plus élevée |
+| Décision provisoire | Tester la baseline | Reporter avant mesures | Refuser sans besoin d'outils |
+
+L'équipe ne peut pas inscrire PASS pour les ACL : aucune campagne d'intégration n'a eu lieu. Ce tableau présente des **hypothèses**.
+
+### Sensibilité du résultat
+
+Un score composite dépend des poids choisis. Si une option est gagnante uniquement avec un poids très faible accordé au coût, le comité doit connaître ce compromis. Il faut pouvoir expliquer les raisons de la pondération et relier les notes à des données.
+
+**Exercice.** Une option répond plus vite, mais permet de lire un document hors permission. Son score total dépasse les autres. Peut-elle être retenue ?
+
+**Correction.** Non. La sécurité de l'accès peut constituer une condition éliminatoire. Corriger, tester et réévaluer l'architecture avant toute décision.
+
+La [matrice des risques C10](10-responsible-ai-risks.qmd) et l'[ADR du mini-projet](../case-study/ADR-001-search-before-rag.md) documentent les critères complémentaires.
+
+## 14. Synthèse
 
 **Question centrale :** quel est le système le plus simple qui satisfait les exigences vérifiées, les contraintes de sécurité, la résilience et la valeur métier ?
 

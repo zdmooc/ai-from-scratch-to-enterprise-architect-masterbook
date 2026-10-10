@@ -190,7 +190,40 @@ Une diffusion entièrement automatique serait difficile à justifier si les risq
 
 *Correction.* Le gain métier, les cas difficiles, la latence sous charge, la robustesse, les droits, les ressources et les coûts réels ; aucune conclusion universelle n'est possible sans protocole.
 
-## 13. Autoévaluation et synthèse
+## 13. Atelier supplémentaire — vérifier une sortie multimodale de bout en bout
+
+### Le scénario
+
+Une équipe fictive reçoit dix photographies d'équipements et dix commentaires oraux. Elle souhaite produire une fiche qui associe à chaque image une transcription et une référence à une procédure applicable.
+
+Une chaîne de modèles peut sembler simple, mais elle comporte plusieurs risques : image floue, inversion d'une négation dans la transcription, association erronée entre audio et photographie, exposition d'identifiants visibles et citation d'une procédure périmée.
+
+### Valider les éléments séparément
+
+| Étape | Défaut possible | Contrôle |
+|---|---|---|
+| Acquisition | Image floue ou donnée sensible | Qualité et confidentialité |
+| ASR | « ne pas » omis dans la transcription | Référence transcrite et examen ciblé |
+| Association | Fichier audio lié à la mauvaise image | Identifiants de provenance |
+| Recherche | Procédure ancienne ou hors droits | Version, date et ACL |
+| Génération | Conseil inventé | Vérification des sources et abstention |
+| Restitution | Texte inaccessible | Description alternative, relecture |
+
+Même un générateur qui suit fidèlement son entrée peut reproduire une erreur grave de l'étape précédente. Les contrôles doivent donc couvrir **chaque transformation**, et pas seulement le résultat final.
+
+### Quand choisir une application sans génération
+
+Si le besoin consiste à afficher une photographie, sa transcription vérifiée et le lien vers une procédure, un assemblage déterministe peut suffire. Une génération libre sera justifiée par un gain mesuré sur le même corpus de tests, sans dégradation des permissions et de l'exactitude.
+
+### Exercice et correction
+
+**Question.** La transcription indique « débrancher la pompe », alors que le locuteur a dit « ne pas débrancher la pompe ». Le résumé final reproduit la transcription. Quel contrôle manque ?
+
+**Correction.** La défaillance d'ASR est critique, mais la chaîne doit aussi valider les recommandations dangereuses contre la source officielle et prévoir une confirmation humaine appropriée. Une synthèse textuelle fidèle à une mauvaise transcription ne rend pas l'action sûre.
+
+Le [chapitre 10](10-responsible-ai-risks.qmd) approfondit les conséquences des erreurs et le [chapitre 12](12-capstone-and-exercises.qmd) propose les tests d'architecture associés.
+
+## 14. Autoévaluation et synthèse
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 

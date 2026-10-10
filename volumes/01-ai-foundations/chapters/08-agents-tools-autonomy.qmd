@@ -247,7 +247,43 @@ Le [laboratoire Python de garde-fous en lecture seule](../../../labs/v01-agent-g
 
 Les tests du laboratoire ne prouvent pas la sécurité d'un agent réel : l'identité et les permissions doivent également être imposées **côté API cible**. La [preuve locale de test](../../../evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md) concerne uniquement le simulateur et les scénarios testés.
 
-## 15. Conclusion et ressources
+## 15. Atelier supplémentaire — reprise et résultat incertain
+
+### L'ambiguïté du timeout
+
+Un agent prépare la création d'un ticket de support et transmet une demande à une API d'écriture habilitée. La réponse réseau n'arrive pas. On ne sait pas si le ticket a été créé.
+
+**L'absence de réponse n'est pas une preuve d'absence d'effet.** Une nouvelle création automatique pourrait produire un doublon.
+
+### Reprise explicitement gouvernée
+
+1. Construire une demande avec un identifiant d'opération stable.
+2. Vérifier autorisation, cible et approbation éventuelle.
+3. Soumettre l'opération à l'API habilitée.
+4. En cas de timeout, consulter un état fiable si le contrat le permet.
+5. Ne répéter que si un protocole d'idempotence testé garantit le résultat ou si une procédure de récupération autorise la tentative.
+6. Après une limite d'essais, arrêter et signaler le résultat incertain.
+7. Journaliser les événements sans exposer les secrets.
+
+Une clé d'idempotence n'a de sens que si **le serveur** en définit et applique la sémantique. Une phrase du modèle n'apporte aucune garantie transactionnelle.
+
+| Résultat | Interprétation sûre |
+|---|---|
+| Succès confirmé | Résultat attesté selon le contrat |
+| Échec confirmé | Réponse négative valide selon le contrat |
+| Résultat inconnu | Réconciliation ou escalade nécessaire |
+
+Dans les paiements, confondre le dernier état avec un échec pourrait entraîner la répétition dangereuse d'une opération financière.
+
+### Rattachement au laboratoire
+
+Le [lab d'agent en lecture seule](../../../labs/v01-agent-guardrails/README.md) ne possède **aucun outil d'écriture** et n'exécute aucun scénario de timeout transactionnel. Il montre seulement des permissions synthétiques et des limites d'étapes. Il ne faut pas transformer la réussite de ces tests en preuve de fiabilité d'une API de mutation.
+
+**Exercice.** Un document récupéré demande au modèle de redémarrer une application. Est-ce une approbation ?
+
+**Correction.** Non. Le texte est une donnée de moindre confiance. Le redémarrage doit relever d'un workflow séparé avec contrôle d'accès, approbation lorsqu'elle est requise, validation de la cible et procédure de récupération.
+
+## 16. Conclusion et ressources
 
 Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
 
