@@ -249,7 +249,7 @@ La décision est justifiée par **la tâche**, **les données**, **les conséque
 
 ---
 
-## 9. Références documentaires pour révision
+## 15. Références documentaires pour révision
 
 - Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
 - Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955/1956), archive historique.
