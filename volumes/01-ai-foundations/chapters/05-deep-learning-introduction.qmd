@@ -256,7 +256,17 @@ Le réseau n'est pas le point de départ obligatoire. Il est une **option à dé
 
 ---
 
-## 15. À retenir
+## 15. Laboratoire pratique : dérivées et descente de gradient
+
+Le [laboratoire Python sans GPU](../../../labs/v01-gradient-descent/README.md) reprend L(w) = (w - 4)². Il compare la dérivée analytique à une différence finie centrale, puis calcule les poids et les pertes sur trois pas : (0, 16), (2, 4), (3, 1) et (3,5, 0,25).
+
+Il va ensuite plus loin avec une régression linéaire y = wx + b sur quatre données synthétiques : x = (0, 1, 2, 3), y = (1, 3, 5, 7). Au point w = 0 et b = 0, la MSE vaut 21 et les gradients par rapport à w et b sont respectivement -17 et -8.
+
+**Exercice corrigé.** Pour w = 2 sur L(w) = (w - 4)², le gradient vaut -4. Avec un taux d'apprentissage de 0,25, le poids suivant vaut 3. Le lecteur peut vérifier ce calcul avec le programme et comparer la dérivée analytique au gradient numérique.
+
+Les [17 tests locaux](../../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md) vérifient ces petits calculs, sans prouver un entraînement de Deep Learning industriel.
+
+## 16. À retenir
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
