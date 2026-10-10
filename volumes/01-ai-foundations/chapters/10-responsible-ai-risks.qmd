@@ -1,0 +1,199 @@
+# Chapitre 10 — Éthique, risques, biais et erreurs des systèmes IA
+
+> **DRAFT pédagogique original — les références réglementaires doivent être revalidées à la date de publication.** Ce chapitre ne délivre ni conseil juridique ni attestation de conformité.
+
+## Objectifs
+
+Reconnaître les risques de biais, confidentialité, sécurité, sûreté, manque d'explicabilité et surconfiance ; distinguer erreur statistique et injustice ; analyser les conséquences d'une décision ; construire un registre des risques et préparer un contrôle humain proportionné.
+
+## 1. Pourquoi une IA « utile » peut néanmoins être inacceptable
+
+Un système peut produire un bon résultat moyen mais échouer précisément dans les situations importantes. Un assistant de conseil médical générant des informations fausses ou un système de tri de dossiers défavorisant systématiquement un groupe pourrait présenter des conséquences graves malgré de bonnes notes globales.
+
+Il faut donc distinguer **performance moyenne**, **performance par sous-population**, **sécurité**, **légalité**, **responsabilité** et **acceptabilité métier**.
+
+L'éthique ne se réduit pas à une phrase générale « être responsable ». Elle doit influencer les exigences, le choix des données, la procédure d'évaluation, les permissions et la gouvernance.
+
+## 2. Les biais ont plusieurs origines
+
+Le terme **biais** est polysémique. En statistiques, il peut décrire un écart systématique d'un estimateur. Dans la gouvernance des applications IA, il peut aussi renvoyer à des différences indésirables de traitement ou d'effet entre des groupes.
+
+Quelques sources possibles :
+
+1. **Collecte** : certains cas ne sont pas représentés dans les données.
+2. **Mesure** : une variable est approximative ou mal définie.
+3. **Historique** : les décisions passées contiennent des pratiques inéquitables.
+4. **Label** : des annotateurs attribuent des catégories incohérentes.
+5. **Modèle** : l'objectif d'optimisation favorise une métrique au détriment d'autres.
+6. **Déploiement** : les utilisateurs n'emploient pas le système comme prévu.
+7. **Retour d'information** : les décisions du système influencent les futures données d'entraînement.
+
+Une évaluation exhaustive doit examiner le processus, et non supposer que tout biais est un défaut mathématique d'un unique modèle.
+
+## 3. Un exemple de biais dans un système de traitement
+
+Une organisation fictive veut prévoir quels dossiers nécessiteront une revue supplémentaire. Les données historiques comprennent la fréquence des revues réalisées par les équipes.
+
+Si certaines catégories ont été plus fréquemment examinées par le passé en raison d'une politique non justifiée, les labels peuvent refléter cette pratique. Entraîner le modèle pour reproduire ces labels revient potentiellement à **automatiser l'histoire**, pas à améliorer la justice du processus.
+
+Avant toute utilisation, demander :
+
+- les labels décrivent-ils un événement objectif ou une décision humaine ?
+- les critères historiques étaient-ils justifiés ?
+- peut-on mesurer les erreurs et leurs conséquences selon des sous-populations pertinentes ?
+- existe-t-il un recours ou une correction humaine ?
+- quelles variables sensibles ou proxies risquent d'être exploitées ?
+
+Les mesures de *fairness* peuvent présenter des compromis et ne correspondent pas à une seule définition universelle. Les choix doivent être explicités dans le contexte légal et métier.
+
+## 4. Confidentialité et minimisation
+
+Un système IA peut traiter des documents, des journaux, des conversations et des données personnelles. Le fait de pouvoir exploiter techniquement une donnée ne signifie pas que son utilisation soit justifiée ou autorisée.
+
+Une approche de minimisation demande :
+
+1. Quelle donnée est réellement nécessaire à la tâche ?
+2. Qui a le droit de la fournir et de la consulter ?
+3. Peut-elle être anonymisée ou remplacée par une donnée synthétique ?
+4. Pendant combien de temps doit-elle être conservée ?
+5. Quels systèmes ou prestataires la reçoivent-ils ?
+6. Comment gérer accès, rectification ou effacement lorsque cela s'applique ?
+
+L'anonymisation revendiquée doit être évaluée : retirer simplement un nom ou un identifiant n'élimine pas toujours la possibilité de réidentifier une personne.
+
+## 5. Prompt injection et données non fiables
+
+Les applications de RAG et d'agents consomment des textes qui peuvent contenir de mauvaises informations ou des instructions hostiles. Une page documentaire malveillante peut tenter d'inciter le système à révéler un secret ou à appeler un outil.
+
+Il faut traiter le contenu externe comme de la **donnée**, pas comme une instruction privilégiée. Les contrôles incluent permissions réelles, validation de provenance, limites d'outils, isolation des secrets et tests d'attaque.
+
+La sécurité n'est pas prouvée par une démonstration réussie. Elle exige également des **tests négatifs** et des mécanismes de limitation des dommages.
+
+## 6. Erreur de modèle et conséquence métier
+
+Deux systèmes peuvent avoir le même taux d'erreur et des risques très différents.
+
+Exemple fictif :
+
+- système A : erreur dans une suggestion de titre d'article ;
+- système B : erreur dans l'explication d'un statut de paiement ;
+- système C : erreur qui déclenche une action non autorisée.
+
+La gravité dépend de **la nature du dommage**, de la probabilité, de la possibilité de détection, de la réversibilité et de l'exposition.
+
+Un registre peut classer les risques selon :
+
+| Champ | Question |
+|---|---|
+| Événement redouté | Que pourrait-il se produire ? |
+| Cause | Erreur de source, modèle, permission, exploitation ? |
+| Impact | Effet sur une personne, une opération ou un service |
+| Probabilité | Quelle estimation et avec quelle incertitude ? |
+| Contrôle préventif | Qu'empêche-t-on techniquement ? |
+| Détection | Comment repère-t-on l'erreur ? |
+| Réponse | Abstention, escalade, rollback, réparation |
+| Propriétaire | Qui accepte ou refuse le risque résiduel ? |
+
+Une note de risque seule ne suffit pas. Chaque contrôle devrait pouvoir être relié à une preuve de mise en œuvre ou à un plan explicite.
+
+## 7. Transparence et explicabilité
+
+Il existe plusieurs niveaux d'explication :
+
+- **explication de procédure** : comment la demande est-elle traitée ?
+- **explication de décision** : quels critères ont contribué au résultat ?
+- **provenance** : quelles données et versions ont été utilisées ?
+- **limitation** : que le système ne peut-il pas établir ?
+- **droit au recours** : comment signaler une erreur et demander une revue ?
+
+Un LLM qui écrit « j'ai pris en compte tous les risques » ne constitue pas une trace fiable de son mécanisme interne. Il faut éviter de confondre sa narration avec un journal d'événements techniques.
+
+Le système doit pouvoir fournir à l'utilisateur les informations pertinentes sans divulguer de secrets ou de données qu'il ne peut pas consulter.
+
+## 8. Gouvernance et normes : des cadres à articuler
+
+Plusieurs références contribuent à penser les risques, mais elles ne sont pas interchangeables.
+
+Le **NIST AI RMF** propose une démarche de gestion du risque autour des fonctions *GOVERN*, *MAP*, *MEASURE* et *MANAGE*. Il s'agit d'un cadre de référence, non d'une certification automatique.
+
+La norme **ISO/IEC 42001** porte sur un système de management de l'IA et doit être interprétée dans son périmètre propre. Une organisation ne peut pas se déclarer certifiée parce qu'elle possède un dossier de principes inspiré de la norme.
+
+Le **règlement européen sur l'IA (AI Act)** définit notamment des obligations dépendant des catégories et rôles des acteurs, avec des calendriers d'application qui nécessitent une vérification à la date de l'édition. Le **RGPD** traite notamment la protection des données personnelles, avec des obligations distinctes.
+
+Dans les services financiers, **DORA** concerne des dimensions de résilience opérationnelle numérique. Il ne remplace ni l'analyse de risques d'IA ni les autres règles applicables.
+
+**Il faut contrôler le texte officiel en vigueur, les rôles de fournisseur/déployeur et les dates exactes avant de publier un tableau d'obligations juridiques.**
+
+## 9. Human-in-the-Loop et responsabilité
+
+Le terme **HITL** signifie qu'une personne participe à certaines étapes de décision ou d'exécution. Mais afficher un bouton de confirmation n'apporte pas nécessairement une supervision effective.
+
+Une revue humaine utile suppose notamment :
+
+- une personne formée et autorisée ;
+- le contexte et les preuves nécessaires ;
+- une possibilité réelle de refuser et de corriger ;
+- un temps compatible avec l'enjeu ;
+- une journalisation de la décision ;
+- un dispositif de retour d'expérience.
+
+Si des centaines de décisions sont soumises à un opérateur sans informations suffisantes, celui-ci risque de simplement valider les suggestions. La supervision doit être conçue comme un **processus**, pas comme un artifice d'interface.
+
+## 10. Biais et dérive après la mise en service
+
+Même un modèle bien évalué peut se dégrader lorsque la population, le comportement utilisateur ou la source de données changent. La surveillance doit donc analyser les erreurs dans le temps, y compris sur les cas rares, avec les permissions nécessaires pour collecter les métriques.
+
+La remédiation peut inclure une correction de source, un ajustement de seuil, une revue de politique, le retrait du modèle ou une nouvelle formation du personnel. Réentraîner automatiquement le modèle n'est pas toujours la bonne première réponse.
+
+## 11. Atelier : registre de risques d'un assistant documentaire
+
+### Situation
+
+Une entreprise fictive propose un assistant de recherche dans ses procédures. Les documents contiennent des consignes internes ; certains sont réservés à des équipes spécialisées.
+
+**Travail demandé :** produire au moins cinq risques, associer un contrôle préventif et un test à chacun, puis classer les trois plus graves selon le contexte retenu.
+
+### Correction indicative
+
+| Risque | Contrôle | Test |
+|---|---|---|
+| Document non autorisé divulgué | Filtrage ACL avant récupération | Requête utilisateur sans droits |
+| Procédure ancienne citée | Version et date d'effet | Requête sur procédure remplacée |
+| Réponse inventée | Validation sources, abstention | Question sans source accessible |
+| Prompt injection via document | Isolation des outils et permissions | Document avec instruction malveillante |
+| Journal contenant un secret | Minimisation et masquage | Contrôle des traces d'une demande sensible |
+| Confusion d'identité | Authentification et contrôle serveur | Requête avec identité invalide |
+
+Le classement de priorité dépend de la probabilité et de l'impact dans le contexte choisi. Une fuite de donnée confidentielle peut constituer un **critère éliminatoire**, même si la qualité moyenne des réponses est élevée.
+
+## 12. Exercices corrigés
+
+**A.** Un taux d'exactitude global de 98 % prouve-t-il que toutes les sous-populations sont traitées équitablement ?
+
+*Correction.* Non. Il faut examiner les distributions, erreurs et effets spécifiques, puis interpréter les métriques pertinentes pour le cas.
+
+**B.** Une revue humaine systématique, mais sans informations suffisantes, protège-t-elle automatiquement les utilisateurs ?
+
+*Correction.* Non. Le superviseur doit disposer des éléments, de l'autorité, du temps et d'une possibilité réelle de correction.
+
+**C.** Quel est le problème si l'outil d'IA transforme les historiques de décisions humaines en labels sans vérifier leur provenance ?
+
+*Correction.* Il peut reproduire des décisions historiques injustifiées ou biaisées, et présenter cette reproduction comme une prévision neutre.
+
+**D.** Une équipe cite le NIST AI RMF dans son README. Peut-elle annoncer être certifiée conforme à ce cadre ?
+
+*Correction.* Non. Une référence méthodologique n'est pas une certification.
+
+**E.** Un document de moindre confiance contient une instruction de transfert d'argent. Quelles protections doivent empêcher une exécution ?
+
+*Correction.* Outils et permissions limités, séparation entre données et instructions, validation d'actions sensibles et interdiction côté API.
+
+## 13. Conclusion et références
+
+La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de communication. Elle influence les données, les méthodes, la sécurité, les droits des utilisateurs et les décisions de mise en service.
+
+**Références primaires à contrôler avant la version finale :** [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework), [texte du règlement européen sur l'IA sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj), [RGPD sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [DORA sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2022/2554/oj), [ISO/IEC 42001 — notice ISO](https://www.iso.org/standard/81230.html).
+
+**Avant publication** : tableau de conformité daté, revue des définitions de fairness et des biais, cas de test documentés et contrôle des droits de toute donnée d'exercice.
+
+**Transition :** le chapitre 11 montrera comment organiser un premier POC où les critères, le jeu de test et les résultats sont reproductibles.
