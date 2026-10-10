@@ -1,0 +1,306 @@
+{
+  "date": "2026-10-10",
+  "stage": "TREE_ONLY_NOT_CONTENT_AUDIT",
+  "results": [
+    {
+      "name": "assessment-was-openshift",
+      "status": "TREE_READ",
+      "files": 356,
+      "md": 19,
+      "py": 11,
+      "truncated": false,
+      "interesting_paths": [
+        "_archive/ASSESSMENT_FINAL_CHAIN_V1.md"
+      ]
+    },
+    {
+      "name": "formation-was",
+      "status": "TREE_READ",
+      "files": 590,
+      "md": 35,
+      "py": 65,
+      "truncated": false,
+      "interesting_paths": [
+        "phase-09-spring-boot-was/spring-customer-was/docs/01-architecture-spring.md",
+        "phase-09-spring-boot-was/spring-customer-was/docs/04-greenops.md",
+        "phase-09-springboot-was-complete-09-1-to-09-5/docs/PHASE09_ARCHITECTURE.md",
+        "phase-10-spring-data-datasource-was-liberty/README.md",
+        "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_ARCHITECTURE.md",
+        "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_COMMANDES.md",
+        "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_DATASOURCE_WAS_CONSOLE.md",
+        "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_FIN_DE_PHASE_CRITERES.md",
+        "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_TROUBLESHOOTING.md",
+        "phase-10-spring-data-datasource-was-liberty/liberty/README_LIBERTY_TARGET.md",
+        "phase-11-spring-batch-filesystem-partage/docs/PHASE11_ARCHITECTURE.md",
+        "phase-12-ear-ejb-transactions-jta/docs/PHASE12_ARCHITECTURE.md",
+        "phase-13-jms-mdb-transactionnel-ibm-mq/docs/PHASE13_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "name": "oracle-infra-architecture-ha-dr-labs",
+      "status": "TREE_READ",
+      "files": 156,
+      "md": 118,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "04_network_datacenter_oracle/01_flux_oracle_reference.md",
+        "04_network_datacenter_oracle/02_checklist_reseau_oracle.md",
+        "04_network_datacenter_oracle/README.md",
+        "05_storage_san_nas_block_file/01_matrice_stockage_oracle.md",
+        "05_storage_san_nas_block_file/02_checklist_stockage_oracle.md",
+        "05_storage_san_nas_block_file/03_processus_diagnostic_stockage_oracle.md",
+        "05_storage_san_nas_block_file/README.md",
+        "07_oracle_grid_infrastructure/01_processus_demarrage_cluster.md",
+        "08_oracle_database_architecture/01_cycle_transaction_recovery.md",
+        "08_oracle_database_architecture/02_checklist_database_architecture.md",
+        "08_oracle_database_architecture/README.md",
+        "10_rman_backup_restore/03_zdlra_architecture.md",
+        "11_oracle_dataguard/01_checklist_dataguard.md",
+        "11_oracle_dataguard/02_runbook_switchover_failover.md",
+        "11_oracle_dataguard/03_architecture_dataguard_complete.md",
+        "11_oracle_dataguard/04_troubleshooting_dataguard_lag_gap.md",
+        "11_oracle_dataguard/05_matrice_decision_dataguard.md",
+        "11_oracle_dataguard/README.md"
+      ]
+    },
+    {
+      "name": "oracle-exadata-infra-ha-dr-course-labs-v5",
+      "status": "TREE_READ",
+      "files": 149,
+      "md": 117,
+      "py": 2,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/05-glossaire-exadata.md",
+        "labs/01-inventory-exadata-read-only.md",
+        "labs/07-hcc-flash-cache-storage-indexes.md",
+        "labs/10-storage-cell-healthcheck.md",
+        "labs/13-ha-dr-data-guard-design.md",
+        "labs/17-bulk-data-loading-plan.md",
+        "modules/00-introduction-au-workshop-exadata.md",
+        "modules/02-architecture.md",
+        "modules/04-site-planning-et-integration-datacenter.md",
+        "modules/06-exadata-storage-server-configuration.md",
+        "modules/12-migration-to-exadata.md",
+        "modules/13-bulk-data-loading.md",
+        "modules/15-monitoring-exadata-system-software.md",
+        "modules/17-monitoring-storage-servers.md",
+        "modules/18-monitoring-database-servers.md",
+        "modules/24-maintenance-tasks.md",
+        "modules/27-exadata-cloud-service-et-cloud-customer.md",
+        "modules/questions-reponses-module-00-exadata.md"
+      ]
+    },
+    {
+      "name": "wero-organisme-poc",
+      "status": "TREE_READ",
+      "files": 216,
+      "md": 52,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/adr/ADR-002-unknown-is-not-failed.md",
+        "docs/architecture/00-architecture-v0.md",
+        "docs/architecture/01-single-immediate-v1.md",
+        "docs/architecture/02-state-ledger-reconciliation-v2.md",
+        "docs/architecture/03-kafka-outbox-events-v2b.md",
+        "docs/architecture/04-security-consent-sca-v3.md",
+        "docs/architecture/05-api-gateway-zero-trust-v3b.md",
+        "docs/architecture/06-observability-e2e-v4.md",
+        "docs/architecture/07-gitops-argocd-v5.md",
+        "docs/architecture/08-spof-chaos-ha-v6.md",
+        "docs/architecture/09-sct-inst-shared-state-v6-b4.md",
+        "docs/architecture/10-wero-outage-controlled-recovery-v6-b5-b6.md",
+        "docs/architecture/11-concurrent-controlled-recovery-v6-b7.md",
+        "docs/architecture/12-degraded-modes-v6-b8.md",
+        "docs/architecture/13-production-ha-topology-v7-c1.md",
+        "docs/architecture/14-postgresql-ha-v7-c2.md",
+        "docs/architecture/15-postgresql-backup-pitr-v7-c2.md",
+        "docs/architecture/16-redpanda-ha-v7-c3.md"
+      ]
+    },
+    {
+      "name": "cadrage_202682030",
+      "status": "TREE_READ",
+      "files": 114,
+      "md": 113,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "architecture/ADR_CAPABILITY_CONSUMPTION_RUNTIME_PROJECTION_2026-10-04.md",
+        "architecture/AI_ARCHITECT_WORKBENCH_2026-10-01.md",
+        "architecture/AI_FIRST_TARGET_2030.md",
+        "architecture/CAAS_CICD_RUNNER_STRATEGY_2026-09-19.md",
+        "architecture/HYBRID_DEPLOYMENT_STRATEGY.md",
+        "architecture/LOCAL_CRC_CAPACITY_SIZING_2026-09-19.md",
+        "architecture/LOCAL_DUAL_PLATFORM_CRC_KIND_SWITCHING_2026-09-28.md",
+        "architecture/MAYABANK_EPHEMERAL_CLOUD_PLATFORM_STRATEGY_2026-10-01.md",
+        "architecture/SHARED_PLATFORM_SERVICES_OPENSHIFT_2026-09-26.md",
+        "architecture/SIZING_FINOPS_GREENOPS.md",
+        "domains/insurance/INSURANCE_AI_USE_CASES_2030.md",
+        "domains/insurance/INSURANCE_TRANSFORMATION_MASTER_MAP.md",
+        "domains/payments/EUROPEAN_PAYMENTS_MASTER_MAP.md",
+        "market/DAILY_RESEARCH_LOG.md",
+        "portfolio/AGENTIC_AI_PLATFORM_ARCHITECT_MISSION_ALIGNMENT_2026-10-04.md",
+        "portfolio/AI_INFRAOPS_ASYNC_WORKLOAD_MISSION_ALIGNMENT_2026-10-04.md",
+        "portfolio/AI_PLATFORM_EXECUTION_PLAN_2026-10-02.md",
+        "portfolio/AI_PORTFOLIO_AUDIT_2026-10-10.md"
+      ]
+    },
+    {
+      "name": "mayabank-servicenow-csdm-cmdb-architecture",
+      "status": "TREE_READ",
+      "files": 146,
+      "md": 132,
+      "py": 5,
+      "truncated": false,
+      "interesting_paths": [
+        "01-servicenow-foundations/data-model-basics.md",
+        "03-csdm/domains.md",
+        "05-discovery/credentials-network-security.md",
+        "07-cmdb-health/lifecycle-data-manager.md",
+        "09-rest-api/auth-security.md",
+        "12-openshift/integration-architecture.md",
+        "13-enterprise-architecture/README.md",
+        "13-enterprise-architecture/csdm-togaf-archimate.md",
+        "13-enterprise-architecture/ea-apm.md",
+        "13-enterprise-architecture/hopex-leanix-sparx.md",
+        "13-enterprise-architecture/portfolio-lifecycle.md",
+        "14-security/README.md",
+        "14-security/mid-credentials-secrets.md",
+        "14-security/oauth-api-security.md",
+        "14-security/rbac-acl.md",
+        "15-governance/README.md",
+        "15-governance/data-ownership.md",
+        "15-governance/governance-operating-model.md"
+      ]
+    },
+    {
+      "name": "oracle-exadata-x11m-solution-architecture",
+      "status": "TREE_READ",
+      "files": 81,
+      "md": 81,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "05-x11m-architecture/README.md",
+        "10-ha-dr-dataguard/README.md",
+        "10-ha-dr-dataguard/dataguard-advanced-broker-fsfo-farsync.md",
+        "10-ha-dr-dataguard/maa-application-continuity.md",
+        "12-security-tde-wallet/README.md",
+        "12-security-tde-wallet/security-enterprise-cyber-resilience.md",
+        "16-cost-licensing/finops-tco-unit-economics.md",
+        "16-cost-licensing/licensing-architecture.md",
+        "17-greenit-capacity/README.md",
+        "17-greenit-capacity/advanced-power-management.md",
+        "17-greenit-capacity/finops-greenops-resilience.md",
+        "17-greenit-capacity/greenit-methodology.md",
+        "17-greenit-capacity/greenops-operating-model.md",
+        "19-adrs/ADR-003-dataguard-sync-vs-async.md",
+        "20-reference-architectures/RA-01-dual-x11m-onprem.md",
+        "20-reference-architectures/README.md",
+        "21-bank-case-study/finops-greenops-dashboard.md",
+        "22-labs/LAB-23-finops-greenops-licensing.md"
+      ]
+    },
+    {
+      "name": "pega-8.4-personal-edition-audit",
+      "status": "TREE_READ",
+      "files": 5,
+      "md": 1,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "pega-exit-reverse-engineering-reference",
+      "status": "TREE_READ",
+      "files": 114,
+      "md": 91,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "00-governance/30-day-plan.md",
+        "00-governance/assumptions.md",
+        "00-governance/mission-context.md",
+        "00-governance/public-sources.md",
+        "00-governance/scope.md",
+        "01-business-as-is/06-domain-data/domain-model.md",
+        "01-business-as-is/08-security/business-access-model.md",
+        "02-pega-as-is/PEGA-AS-IS-ARCHITECTURE-BOOK.md",
+        "02-pega-as-is/data-and-blob-extraction-playbook.md",
+        "02-pega-as-is/data-integration-security-operations.md",
+        "03-target-logical/TARGET-LOGICAL-ARCHITECTURE.md",
+        "03-target-logical/domain-workflow-rule-model.md",
+        "03-target-logical/security-integration-nfr.md",
+        "04-target-technical/TARGET-TECHNICAL-ARCHITECTURE.md",
+        "04-target-technical/api-and-data-contracts.md",
+        "04-target-technical/architecture-decision-register.md",
+        "04-target-technical/architecture-style-decision-framework.md",
+        "07-pega-knowledge-base/01-architecture-packaging-ecs.md"
+      ]
+    },
+    {
+      "name": "synae-enterprise-architecture",
+      "status": "TREE_READ",
+      "files": 1,
+      "md": 1,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "mayabank-market-access-algorithmic-trading-architecture",
+      "status": "TREE_READ",
+      "files": 53,
+      "md": 41,
+      "py": 9,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/01-reference-architecture.md",
+        "docs/06-security-controls.md",
+        "docs/i01/01-domain-and-actors.md"
+      ]
+    },
+    {
+      "name": "mayabank-energy-grid-functional-architecture",
+      "status": "TREE_READ",
+      "files": 21,
+      "md": 9,
+      "py": 4,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/E2_PROCESS_DATA_INTEGRATION.md",
+        "docs/E3_ARCHITECTURE_DECISION.md",
+        "docs/E4_ARCHITECTURE_BOARD_REHEARSAL.md"
+      ]
+    },
+    {
+      "name": "mayabank-low-latency-authorization-engine",
+      "status": "TREE_READ",
+      "files": 19,
+      "md": 11,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/architecture/HLD_AND_OPTIONS.md",
+        "docs/architecture/RESILIENCE_AND_LIMITS.md",
+        "docs/security/THREAT_MODEL.md"
+      ]
+    },
+    {
+      "name": "ai-from-scratch-to-enterprise-architect-masterbook",
+      "status": "TREE_READ",
+      "files": 50,
+      "md": 14,
+      "py": 2,
+      "truncated": false,
+      "interesting_paths": [
+        "governance/CHAPTER_TEMPLATE.md",
+        "governance/CI_STATUS_2026-10-10.md",
+        "governance/EDITORIAL_GOVERNANCE.md"
+      ]
+    }
+  ]
+}
