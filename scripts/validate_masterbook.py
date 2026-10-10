@@ -63,7 +63,19 @@ def validate():
             headings = [int(m.group(1)) for m in re.finditer(r"^## (\d+)\.", data, re.M)]
             assert headings == list(range(1, len(headings) + 1)), (
                 f"V{volume['id']}: nonsequential numbered section in {source}")
-            assert data.count("$$") % 2 == 0, f"unbalanced display math in {source}"
+            assert data.count("$") % 2 == 0, f"unbalanced display math in {source}"
+            # Check that each local Markdown asset link resolves from its source
+            # file directory. External links are reviewed separately.
+            local_links = re.findall(r"!?\\[[^\\]]*\\]\\(([^)]+)\\)", data)
+            for target in local_links:
+                if target.startswith(("https://", "http://", "#", "mailto:")):
+                    continue
+                relpath = target.split("#", 1)[0].strip()
+                if not relpath:
+                    continue
+                assert (source.parent / relpath).resolve().is_file(), (
+                    f"broken local source link in {source}: {target}")
+
 
     mapping = json.loads((ROOT / "sources" / "consolidation" /
                           "historical_manuscript_mapping_2026-10-10.json").read_text(encoding="utf-8"))
@@ -72,8 +84,21 @@ def validate():
     assert len(mapping["source_unit_catalog"]) == 56
     assert all(not x["publish_approval"] for x in mapping["source_unit_catalog"])
 
+    for required in ("diagrams/v01/architecture-options.svg",
+                     "diagrams/v01/agent-trust-boundaries.svg",
+                     "diagrams/v01/chronological-evaluation.svg",
+                     "volumes/01-ai-foundations/case-study/requirements.md",
+                     "volumes/01-ai-foundations/case-study/ADR-001-search-before-rag.md",
+                     "volumes/01-ai-foundations/case-study/verification-matrix.md",
+                     "volumes/01-ai-foundations/R13_GAP_REGISTER.md"):
+        assert (ROOT / required).is_file(), f"missing V01 source asset: {required}"
+
     for path in ("labs/v01-symbolic-ai/rule_engine.py",
                  "labs/v01-symbolic-ai/test_rule_engine.py",
+                 "labs/v01-agent-guardrails/agent_dispatcher.py",
+                 "labs/v01-agent-guardrails/test_agent_dispatcher.py",
+                 "labs/v01-experiment/experiment.py",
+                 "labs/v01-experiment/test_experiment.py",
                  "labs/v02-vectors/vector_math.py",
                  "labs/v02-vectors/test_vector_math.py",
                  "labs/v03-python-basics/statistics_basics.py",
