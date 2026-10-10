@@ -59,3 +59,11 @@ Ce volume est une composante de la collection *AI From Scratch to Enterprise Arc
 - [Rapport d'harmonisation R13 — première passe](R13_REVIEW_REPORT_2026-10-10.md)
 
 **R13 — premier contrôle statique réalisé ; approfondissement, relecture scientifique et composition restent à faire.**
+
+## Laboratoires fondamentaux R14
+
+- [Calcul des dérivées, descente de gradient et régression linéaire](../../labs/v01-gradient-descent/README.md) — 17 tests locaux PASS.
+- [Attention Q/K/V, softmax stable et masques causaux](../../labs/v01-attention-qkv/README.md) — 20 tests locaux PASS.
+- [Preuve locale R14 et empreintes Git vérifiées](../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md).
+
+Ces deux modules ne requièrent aucun GPU. Leur validation reste limitée à des données et programmes synthétiques.
