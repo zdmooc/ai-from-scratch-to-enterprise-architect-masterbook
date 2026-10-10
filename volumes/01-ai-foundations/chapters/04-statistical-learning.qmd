@@ -99,7 +99,166 @@ Un score numérique élevé n'autorise pas à affirmer qu'un système « compren
 
 *Correction.* Non. Il faut confronter le gain métier, le SLO, le coût, la capacité opérationnelle et les risques.
 
-## 8. Pourquoi ce chapitre prépare l'architecture IA
+## 8. Séparer correctement les données : apprendre sans regarder les réponses
+
+Revenons à l'entreprise fictive qui prévoit la durée d'un dossier. Les observations proviennent de plusieurs mois de fonctionnement, pendant lesquels l'organisation du service a pu changer. La validation doit donc répondre à une question précise : **que pourra prédire le modèle sur des cas qu'il n'a pas encore vus, dans les conditions réelles d'utilisation ?**
+
+### Pourquoi trois ensembles ?
+
+Le **jeu d'entraînement** sert à ajuster les paramètres. Le **jeu de validation** permet de comparer les méthodes ou les hyperparamètres, par exemple la complexité d'un arbre ou l'intensité d'une régularisation. Le **jeu de test** donne une mesure finale sur des cas tenus à l'écart de ces choix.
+
+Si l'on modifie le modèle chaque fois qu'il échoue sur le jeu de test, celui-ci finit par guider l'apprentissage. On doit alors réserver un nouveau jeu indépendant ou revoir le protocole. La valeur du test dépend de la discipline de l'équipe, pas seulement de l'existence d'un dossier nommé « test ».
+
+### Un exemple de séparation temporelle
+
+Imaginons un historique de janvier à juin, avec une prédiction destinée à être utilisée en juillet. Une évaluation cohérente pourrait entraîner sur les premiers mois, choisir le modèle sur une période suivante et tester sur des dossiers plus récents, sans laisser filtrer des informations futures.
+
+Une autre difficulté provient des **entités répétées**. Si plusieurs lignes concernent le même client ou le même équipement, une séparation aléatoire peut placer dans le test des cas très semblables à ceux de l'entraînement. Pour mesurer la généralisation à de nouveaux clients, il peut être préférable de séparer par groupe, selon la question métier.
+
+Le bon protocole dépend donc du futur réellement visé : nouveau dossier, nouveau client, nouveau site ou nouvelle période.
+
+## 9. Classer des cas : lire une matrice de confusion
+
+La régression prévoit une quantité. Pour un modèle de **classification binaire**, la sortie est une catégorie parmi deux possibilités, par exemple « anomalie à examiner » et « pas d'alerte ». Ce modèle ne prouve ni une fraude ni une faute : il propose une classification selon une méthode évaluée.
+
+Sur un jeu de test fictif de **20 opérations** dont la catégorie réelle a été établie selon un protocole donné, supposons la matrice suivante :
+
+| Réalité \ Prédiction | Alerte | Pas d'alerte |
+|---|---:|---:|
+| Anomalie | 6 | 2 |
+| Pas d'anomalie | 3 | 9 |
+
+Nous obtenons :
+
+- **Vrais positifs (TP)** : 6 anomalies signalées ;
+- **Faux négatifs (FN)** : 2 anomalies manquées ;
+- **Faux positifs (FP)** : 3 alertes injustifiées ;
+- **Vrais négatifs (TN)** : 9 cas sans anomalie correctement non signalés.
+
+L'exactitude globale (*accuracy*) vaut :
+
+$
+\frac{TP+TN}{TP+TN+FP+FN}
+=\frac{6+9}{20}=75\,\%.
+$
+
+La **précision** sur les alertes vaut :
+
+$
+P = \frac{TP}{TP+FP} = \frac{6}{9} \approx 66{,}7\,\%.
+$
+
+Le **rappel** des anomalies vaut :
+
+$
+R = \frac{TP}{TP+FN} = \frac{6}{8} = 75\,\%.
+$
+
+La précision indique quelle part des alertes correspond à de véritables anomalies dans cet exemple ; le rappel indique quelle part des anomalies réelles a été détectée. Les deux notions ne sont pas interchangeables.
+
+### Le coût des erreurs change la décision
+
+Si manquer une anomalie coûte beaucoup plus cher que déclencher une vérification supplémentaire, l'équipe peut privilégier un rappel plus élevé. Mais elle doit mesurer l'effet sur le nombre de faux positifs, la charge des analystes et les conséquences pour les utilisateurs.
+
+Inversement, bloquer automatiquement une transaction sur un faux positif peut avoir des conséquences importantes. Le seuil de décision doit donc résulter d'un arbitrage métier, technique et réglementaire ; un score de modèle seul ne suffit pas.
+
+### Les classes rares compliquent les métriques
+
+Supposons un problème avec 990 cas ordinaires et 10 anomalies. Un classifieur qui annonce systématiquement « cas ordinaire » obtient une accuracy de 99 %, tout en ne détectant **aucune anomalie**. Il constitue une baseline utile pour démontrer pourquoi l'accuracy ne suffit pas.
+
+Les indicateurs appropriés dépendent de la fréquence des cas, de la définition des labels et du coût des erreurs. Les données de production peuvent aussi être déséquilibrées différemment de celles utilisées dans l'évaluation.
+
+## 10. Score, seuil et probabilité : trois objets différents
+
+Un modèle de classification peut produire un score numérique. La politique de décision utilise ensuite, parfois, un **seuil** : au-dessus de celui-ci, le dossier est marqué pour vérification.
+
+Une sortie de 0,85 n'est pas automatiquement la probabilité réelle qu'un événement se produise. Pour soutenir cette interprétation, il faut examiner la **calibration** du modèle : parmi les cas recevant une probabilité annoncée proche de 0,8, la fréquence observée de l'événement est-elle effectivement proche de 80 %, sous des conditions de test pertinentes ?
+
+La calibration dépend du dataset, de la population, du mode de sélection des exemples et du contexte opérationnel. Si la population change, la calibration peut elle aussi évoluer.
+
+### Exemple de politique graduée
+
+Dans un dossier synthétique, on pourrait définir :
+
+- score faible : procédure ordinaire ;
+- score intermédiaire : demande d'information supplémentaire ;
+- score élevé : examen prioritaire par un opérateur autorisé.
+
+Cette gradation est seulement une **architecture de démonstration**. Des seuils opérationnels exigeraient une analyse spécifique, une validation des risques et une détermination explicite des responsabilités.
+
+## 11. Données, labels et équité
+
+Les observations historiques ne représentent pas toujours le futur. Certaines catégories peuvent être sous-représentées ; des décisions humaines antérieures peuvent avoir introduit des biais dans les labels ; une donnée collectée pour un usage peut ne pas être licite ou appropriée pour un autre.
+
+Il faut se demander :
+
+1. Comment les données ont-elles été collectées ?
+2. Pour quel objectif et avec quelles permissions ?
+3. Qui définit les labels et comment sont traités les désaccords ?
+4. Quelles populations et quels cas rares sont absents ?
+5. Quelle dérive est possible dans le temps ?
+6. Peut-on démontrer l'absence de fuite d'information dans le protocole ?
+
+Ces questions concernent autant la gouvernance des données que le Machine Learning. Une plateforme technique performante ne corrige pas, à elle seule, un dataset non représentatif ou une cible mal définie.
+
+## 12. Atelier de conception d'un benchmark raisonnable
+
+### Situation
+
+Une équipe souhaite prédire si un ticket sera résolu dans une journée. Elle possède les champs suivants : catégorie du ticket, priorité à sa création, groupe de traitement, date de clôture, nombre final de transferts et réponse finale du support.
+
+**Travail demandé :**
+
+1. Identifier une cible cohérente.
+2. Classer les champs selon qu'ils existent à la création ou seulement à la résolution.
+3. Choisir une baseline sans apprentissage complexe.
+4. Définir une séparation des données qui respecte le temps.
+5. Décrire les erreurs qui poseraient le plus de problèmes au métier.
+6. Préparer un test négatif de non-régression.
+
+### Correction indicative
+
+**Cible :** « résolu en moins de 24 heures après création », en précisant la règle de calcul et la gestion des tickets annulés.
+
+**Entrées candidates :** catégorie, priorité initiale et groupe effectivement connu lors de la prédiction. **Fuites potentielles :** date de clôture, nombre final de transferts et réponse finale. Même le groupe de traitement pourrait être une fuite si l'affectation intervient après la prédiction : il faut vérifier la chronologie du processus.
+
+**Baseline :** prédire la classe majoritaire par catégorie ou appliquer des statistiques historiques simples sur la période d'entraînement.
+
+**Validation :** entraîner sur une période antérieure, vérifier sur une période suivante et tester sur des dossiers ultérieurs. Contrôler le traitement des mêmes tickets et des éventuels groupes récurrents.
+
+**Erreurs :** un délai annoncé trop optimiste peut désorganiser l'équipe et induire une attente irréaliste ; des alertes trop nombreuses peuvent saturer le support. Les métriques doivent être rapportées à ces effets.
+
+**Test négatif :** supprimer de la sélection toute variable renseignée après l'instant de prédiction. Une amélioration spectaculaire due à l'ajout d'une telle variable doit être rejetée, pas célébrée comme un succès du modèle.
+
+### Grille de correction
+
+| Compétence | Débutant | Maîtrise attendue |
+|---|---|---|
+| Formuler la cible | Parle vaguement de « performance » | Définit une sortie observable et datée |
+| Identifier les données | Accepte toutes les colonnes | Repère labels, features et fuites |
+| Définir la baseline | Compare seulement deux modèles complexes | Compare avec une méthode simple |
+| Choisir les métriques | Utilise seulement l'accuracy | Justifie métriques et conséquences métier |
+| Tester la généralisation | Évalue sur entraînement | Sépare correctement validation et test |
+
+## 13. Application à la méthode d'architecte de solution
+
+L'architecte n'a pas besoin de régler lui-même chaque hyperparamètre pour poser les bonnes questions : il doit comprendre la définition du problème, la qualité des sources, les conditions de généralisation et le coût d'une erreur.
+
+Le dossier d'architecture peut donc demander les éléments suivants :
+
+- un contrat de données et un dictionnaire des champs disponibles à l'inférence ;
+- une description versionnée de l'entraînement, de la validation et du test ;
+- une baseline simple, documentée ;
+- une matrice de coûts d'erreurs, validée par le métier ;
+- les ressources nécessaires et les limites de l'inférence ;
+- un plan de surveillance de la qualité et de la dérive ;
+- la procédure de retrait ou de retour à une version antérieure.
+
+Ces éléments préparent les volumes 05 (Machine Learning), 13 (évaluation) et 14 (MLOps).
+
+---
+
+## 14. Pourquoi ce chapitre prépare l'architecture IA
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
