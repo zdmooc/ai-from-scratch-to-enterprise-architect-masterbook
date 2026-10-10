@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Static editorial structure validation: no external packages, network, model or cloud."""
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,8 +60,7 @@ def validate():
                 f"V{volume['id']}: unexpected filename {source.name}")
             data = source.read_text(encoding="utf-8")
             assert "DRAFT" in data and len(data) >= 2800, f"invalid draft {source}"
-            import re
-            headings = [int(m.group(1)) for m in re.finditer(r"^## (\\d+)\\.", data, re.M)]
+            headings = [int(m.group(1)) for m in re.finditer(r"^## (\d+)\.", data, re.M)]
             assert headings == list(range(1, len(headings) + 1)), (
                 f"V{volume['id']}: nonsequential numbered section in {source}")
             assert data.count("$$") % 2 == 0, f"unbalanced display math in {source}"
