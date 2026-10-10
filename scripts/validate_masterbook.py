@@ -38,12 +38,42 @@ def validate():
         assert len({c["title"] for c in details["chapters"]}) == 12
         assert (ROOT / "volumes" / v["slug"] / "CHAPTER_PLAN.md").is_file()
     manuscripts = sorted((ROOT / "volumes" / "01-ai-foundations" / "chapters").glob("*.qmd"))
-    assert len(manuscripts) >= 3, "V01 first 3 chapters missing"
+    assert len(manuscripts) == 5, "V01 must have exactly 5 draft chapters"
     for source in manuscripts:
-        assert len(source.read_text(encoding="utf-8")) >= 5000, f"draft unexpectedly short: {source}"
+        assert len(source.read_text(encoding="utf-8")) >= 2800, f"draft unexpectedly short: {source}"
         assert "DRAFT" in source.read_text(encoding="utf-8"), f"draft label missing: {source}"
+    drafted = {"01": 5, "02": 2, "03": 2}
+    for volume, expected in drafted.items():
+        parent = next(v for v in volumes if v["id"] == volume)
+        files = sorted((ROOT / "volumes" / parent["slug"] / "chapters").glob("*.qmd"))
+        assert len(files) == expected, f"V{volume}: expected {expected} drafts, found {len(files)}"
+        assert parent["status"] == "DRAFT"
+        for i, path in enumerate(files, start=1):
+            assert path.name.startswith(f"{i:02d}-"), f"V{volume}: expected C{i:02d}"
+            draft = path.read_text(encoding="utf-8")
+            assert "DRAFT" in draft and len(draft) >= 2800, f"draft invalid: {path}"
+    for item in chapters["volumes"]:
+        expected = drafted.get(item["volume"], 0)
+        observed = sum(chapter["status"] == "DRAFT_REVIEW_REQUIRED" for chapter in item["chapters"])
+        assert observed == expected, f"status mismatch for V{item['volume']}"
+        if not expected:
+            assert next(v for v in volumes if v["id"] == item["volume"])["status"] == "PLANNED"
+    assert chapters["chapters_drafted"] == 9
+    assert chapters["chapters_planned_not_written"] == 279
+
+    mapping = json.loads((ROOT / "sources" / "consolidation" /
+                          "historical_manuscript_mapping_2026-10-10.json").read_text(encoding="utf-8"))
+    assert mapping["unique_source_units"] == 56
+    assert mapping["physical_files"] == 61
+    assert len(mapping["source_unit_catalog"]) == 56
+    assert all(not x["publish_approval"] for x in mapping["source_unit_catalog"])
+
     for path in ("labs/v01-symbolic-ai/rule_engine.py",
                  "labs/v01-symbolic-ai/test_rule_engine.py",
+                 "labs/v02-vectors/vector_math.py",
+                 "labs/v02-vectors/test_vector_math.py",
+                 "labs/v03-python-basics/statistics_basics.py",
+                 "labs/v03-python-basics/test_statistics_basics.py",
                  "catalog/chapters.json"):
         assert (ROOT / path).is_file(), f"missing {path}"
 
@@ -53,7 +83,7 @@ def validate():
                      "sources/PUBLIC_GITHUB_REFERENCES.md",
                      "governance/EDITORIAL_GOVERNANCE.md"):
         assert (ROOT / required).is_file(), f"missing {required}"
-    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} chapters_planned=288 v01_drafts={len(manuscripts)} parts=6 page_target={total} status=EDITORIAL_DRAFT")
+    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} chapters_planned=288 v01_drafts={len(manuscripts)} parts=6 page_target={total} status=EDITORIAL_DRAFT drafted=9")
 
 if __name__ == "__main__":
     validate()
