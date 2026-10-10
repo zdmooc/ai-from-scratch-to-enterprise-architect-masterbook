@@ -16,9 +16,9 @@
 ## État
 - I01 : **STRUCTURE_VALIDATED / CI_PRE_PRIVATE_PASS / PRIVATE_RUNNER_BLOCKED_UNDIAGNOSED / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a réussi sur le dernier commit public `65069e1`. Depuis le passage privé, les exécutions se terminent en échec sans aucune étape exécutée ni runner affecté ; raison précise à vérifier dans Actions et facturation/limites GitHub. Ne pas attribuer ces échecs au code sans logs.
 - I02 : **TREE_INVENTORY_COMPLETE / CONTENT_REVIEW_OPEN** ; visibilité PRIVATE confirmée, 77 fichiers Drive et 79 dépôts GitHub inventoriés ; **79/79 arbres examinés**, aucune ligne de code ou équation de l'ensemble des sources certifiée. Voir `sources/audits/I02_GITHUB_COVERAGE_MATRIX_2026-10-10.md`. Droits, doublons, conversions et qualification technique restent à traiter.
-- I03 : **NOT_STARTED** ; aucune copie Word/PDF source importée, contrôles de licence/conversion en attente.
-- I04 : **FIRST_PASS_TOC_DRAFT** ; 288 chapitres planifiés dans `catalog/chapters.json` et sommaires individuels, revue détaillée des prérequis ouverte.
-- I05 : **V01_DRAFT_IN_PROGRESS / LOCAL_LAB_REPRODUCTION_PASS / PUBLICATION_NOT_PROVEN** ; 3 brouillons originaux V01 + un lab Python et 7 tests reproduits localement sous Python 3.13.5. Compilation Quarto HTML/PDF/EPUB non vérifiée.
+- I03 : **SOURCE_MAPPING_COMPLETE / CONVERSION_NOT_STARTED** ; 56 unités historiques cartographiées vers les 24 volumes (61 fichiers T1-T5). Aucun original Drive importé ni modifié.
+- I04 : **FIRST_PASS_TOC_DRAFT / STATUS_SYNCED** ; 288 chapitres dont 9 en brouillon et 279 à écrire. Sommaires et catalogue synchronisés.
+- I05 : **V01_V02_V03_DRAFT_IN_PROGRESS / LOCAL_LAB_TESTS_PASS / PUBLICATION_NOT_PROVEN** ; 9 chapitres : V01=5, V02=2, V03=2. Tests V02/V03 : 17/17 PASS sous Python 3.13.5, fichiers strictement identiques aux blobs GitHub. Build PDF/EPUB non vérifié ; GitHub Actions privées encore bloquées avant runner.
 - I06 : **NOT_STARTED** ; aucun des 24 volumes achevé, aucune publication.
 
 ## Première livraison utile
