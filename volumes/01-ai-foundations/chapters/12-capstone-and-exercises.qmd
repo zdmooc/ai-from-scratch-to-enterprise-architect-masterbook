@@ -1,0 +1,270 @@
+# Chapitre 12 — Synthèse, exercices corrigés et mini-projet d'architecture
+
+> **DRAFT — scénario fictif.** Ce projet pédagogique ne prouve ni le déploiement d'un système réel ni une conformité réglementaire.
+
+## 1. Compétences visées
+
+Le lecteur doit maintenant pouvoir formuler un besoin, choisir entre règles, ML, RAG et agents, décrire une architecture simple, distinguer données d'autorité et synthèse générée, définir des tests négatifs, comparer le coût des options et reconnaître ce qui reste à prouver.
+
+## 2. Le parcours parcouru dans V01
+
+Les onze premiers chapitres ont introduit les bases nécessaires à la lecture de la suite de notre Bible IA.
+
+| Famille | Ce qu'elle apporte | Ce qu'elle ne garantit pas |
+|---|---|---|
+| Algorithmes et règles | Calculs et politiques explicites | Vérité des données d'entrée |
+| Machine Learning | Apprendre des relations depuis des exemples | Généralisation sans évaluation |
+| Deep Learning | Représentations par réseaux multicouches | Précision ou faible coût universels |
+| NLP et Transformers | Traitement des séquences et du langage | Compréhension humaine ou véracité |
+| IA générative | Production de contenu conditionné | Provenance et droits automatiques |
+| RAG | Appui sur des documents récupérés | Autorisation sans ACL ni fidélité garantie |
+| Agents | Orchestration et appels d'outils | Sûreté des actions ni fin garantie |
+| Gouvernance | Risques, rôles et contrôles | Certification sans preuve |
+| Évaluation | Mesure sur un corpus défini | Identité des résultats en production |
+
+Cette synthèse n'est pas un classement hiérarchique. Un produit peut associer plusieurs familles, et une solution sans modèle IA peut rester la meilleure option.
+
+## 3. Mini-projet : assistant documentaire d'une équipe technique
+
+Une organisation fictive veut aider ses techniciens à retrouver des procédures de support et expliquer le statut de tickets. Cent utilisateurs potentiels se connectent à un portail. Certains documents sont internes généraux, d'autres réservés à des équipes spécialisées.
+
+**But métier :** réduire le temps de recherche tout en protégeant les documents et en conservant des références vérifiables.
+
+**Autorisations envisagées :** lecture, recherche, synthèse de documents consultables, préparation de brouillons.
+
+**Interdictions :** modification de configurations en production, relance de paiement, création de secrets, export de documents restreints, exécution d'actions sans la procédure approuvée.
+
+La première décision n'est pas de choisir un modèle : c'est de savoir ce que la nouvelle application doit prouver pour être meilleure que la recherche existante.
+
+## 4. Décrire les besoins fonctionnels
+
+Un besoin fonctionnel décrit ce que le système doit faire, sous conditions claires.
+
+- **F01** — Identifier l'utilisateur avant la recherche.
+- **F02** — Contrôler les permissions sur chaque document.
+- **F03** — Rechercher par mots-clés et métadonnées.
+- **F04** — Fournir l'identifiant et la version de chaque document cité.
+- **F05** — Présenter une abstention lorsque la réponse est introuvable.
+- **F06** — Permettre de signaler une réponse erronée.
+- **F07** — Aucune opération de mutation de production disponible depuis cette application.
+
+Chaque exigence doit être reliée à un scénario testable, et pas seulement à une description marketing.
+
+## 5. Rendre les NFR mesurables
+
+L'architecte doit demander au métier et à l'exploitation de définir leurs contraintes :
+
+| Qualité | Question à résoudre |
+|---|---|
+| Disponibilité | Quelles heures de service, quels modes dégradés ? |
+| Latence | Quel P95 à quelle charge et avec quel périmètre de mesure ? |
+| Confidentialité | Quelles classifications et quelles permissions documentaires ? |
+| Audit | Quelles traces sont nécessaires et combien de temps ? |
+| Réversibilité | Peut-on remplacer un modèle ou moteur de recherche ? |
+| Coût | Quel budget sur quel horizon et à quelle charge ? |
+| Sobriété | Quelle énergie mesurée par résultat réellement utile ? |
+| Maintenabilité | Qui met à jour les procédures, contrats et évaluations ? |
+
+Une exigence « réponse rapide » n'est pas une exigence testable. Il faut fixer une valeur, une population et un protocole avant de déclarer un succès. Pour ce cas fictif, nous ne fabriquons pas de SLA contractuel.
+
+## 6. Comparer trois architectures
+
+### Option A — Recherche documentaire traditionnelle
+
+~~~text
+Technicien -> Identité -> API avec ACL
+                           |
+                           v
+                   Index documentaire
+                           |
+                           v
+                 Sources et références
+~~~
+
+Cette architecture sans LLM peut déjà répondre à une part importante des besoins. Elle est plus facile à circonscrire et à expliquer.
+
+### Option B — Recherche suivie d'une synthèse LLM
+
+L'API récupère d'abord des passages autorisés. Le modèle n'obtient que le contexte nécessaire, puis propose une réponse. Une validation applicative vérifie les références et gère les questions sans preuve.
+
+L'ajout du LLM n'autorise pas à lui confier les permissions ou à prétendre que les documents cités sont forcément pertinents.
+
+### Option C — Agent outillé
+
+Un agent pourrait interroger plusieurs bases ou préparer un ticket. Cela multiplie les chemins possibles, les frontières de confiance et les risques de répétition. Pour une tâche limitée à la consultation, ce surcroît de complexité n'est pas automatiquement justifié.
+
+Le choix doit être documenté dans un ADR, avec une baseline et des critères de rejet.
+
+## 7. Sources de vérité et responsabilités
+
+| Fait | Système d'autorité | Ce que l'IA peut faire |
+|---|---|---|
+| Identité | Service IAM | Utiliser l'identité attestée, pas l'inventer |
+| Permission | Politique et API cible | Ne pas créer de droit |
+| Procédure | Référentiel documentaire versionné | Résumer les extraits autorisés |
+| Statut du ticket | API métier | Expliquer le statut obtenu |
+| Déploiement | Workflow d'exploitation habilité | Préparer une recommandation sans l'appliquer |
+| Décision de production | Gouvernance et responsables désignés | Fournir des éléments, pas s'auto-approuver |
+
+Une source de vérité est responsable d'un type de fait donné. Elle ne transforme pas le LLM en moteur transactionnel.
+
+## 8. Décrire le flux nominal
+
+1. Le demandeur ouvre une session et se fait authentifier.
+2. L'application valide ses permissions de recherche.
+3. L'index filtre les documents autorisés.
+4. La recherche récupère des références versionnées.
+5. Si l'option B est retenue, le LLM reçoit uniquement les passages nécessaires et autorisés.
+6. Les citations sont vérifiées contre les documents récupérés.
+7. La réponse est présentée, avec ses limites et un mécanisme de signalement.
+8. Une trace proportionnée est enregistrée sans divulguer de secret.
+
+Aucun appel d'outil de production n'est autorisé dans ce flux.
+
+## 9. Prévoir les chemins d'échec
+
+Une bonne architecture ne se limite pas au scénario heureux.
+
+- **E01 — Source absente :** signaler que l'information manque.
+- **E02 — Document hors ACL :** ne pas exposer un document non autorisé, même par son extrait.
+- **E03 — Procédures contradictoires :** signaler le conflit et consulter la date d'effet.
+- **E04 — LLM indisponible :** proposer la recherche sans génération si cela reste sûr.
+- **E05 — Prompt injection :** le contenu récupéré ne peut pas octroyer de permission.
+- **E06 — Citation fictive :** refuser de présenter le texte comme sourcé.
+- **E07 — Session invalide :** bloquer l'accès avant récupération.
+- **E08 — Demande de modification :** refuser l'opération ou rediriger vers un workflow séparé et habilité.
+
+Les échecs doivent être aussi testables que les réussites.
+
+## 10. Jeu de tests de référence
+
+Nous définissons dix scénarios fictifs dont la réussite pourra être vérifiée ultérieurement :
+
+| Test | Entrée synthétique | Attente |
+|---|---|---|
+| T01 | Procédure accessible connue | Bonne source affichée |
+| T02 | Aucune procédure disponible | Abstention |
+| T03 | Utilisateur sans droit | Aucune divulgation |
+| T04 | Procédure nouvelle remplaçant ancienne | Version pertinente |
+| T05 | Deux documents contradictoires | Conflit signalé |
+| T06 | Instruction hostile dans document | Aucune mutation |
+| T07 | LLM indisponible | Mode dégradé sûr |
+| T08 | Requête de modification | Refus technique |
+| T09 | Citation inexistante | Pas de réponse prétendument sourcée |
+| T10 | Demande répétée | Absence d'effet de bord |
+
+Ce tableau est une **spécification**, pas un registre de résultats PASS. Les tests doivent être implémentés et exécutés sur un environnement décrit.
+
+## 11. Première analyse de risques
+
+Quatre risques structurants :
+
+**Divulgation.** Un utilisateur peut-il accéder à une procédure confidentielle ? Les ACL doivent être appliquées par les services documentaires.
+
+**Fausse réponse.** Le modèle peut-il inventer une instruction ? Contrôler les sources, l'abstention et la vérification humaine selon les enjeux.
+
+**Permission excessive.** Un agent possède-t-il un outil de mutation que le cas d'usage ne justifie pas ? La liste des outils et les comptes de service doivent respecter le moindre privilège.
+
+**Obsolescence.** L'index conserve-t-il des documents retirés ou remplacés ? Prévoir versionnement, synchronisation et procédure de retrait.
+
+Le propriétaire du risque résiduel doit être identifié avant mise en service.
+
+## 12. Coût et économie du service
+
+Une estimation simplifiée :
+
+$$
+C_{total}=C_{infra}+C_{inference}+C_{stockage}
++C_{reseau}+C_{operations}+C_{securite}.
+$$
+
+Les composantes doivent être définies sans double comptage, avec un horizon de temps, un profil de charge et une hypothèse de tarification datée.
+
+Le coût par **réponse utile** est plus représentatif que le coût par texte produit : une génération fausse peut entraîner un travail de correction et un risque supplémentaire.
+
+Une comparaison correcte des options A, B et C inclut les coûts de développement, mise à jour, exploitation, validation et gestion des incidents.
+
+## 13. Green AI : définir un périmètre
+
+On peut suivre, sous hypothèses déclarées :
+
+$$
+\text{Efficacité énergétique} =
+\frac{\text{énergie consommée sur le périmètre}}
+{\text{réponses jugées utiles selon le protocole}}.
+$$
+
+Cet indicateur nécessite une méthode de mesure, un périmètre énergétique et une définition opérationnelle de réponse utile. Il ne suffit pas pour estimer toute l'empreinte carbone du cycle de vie : la fabrication des équipements et la durée d'usage peuvent aussi compter.
+
+Le choix d'une recherche classique, d'un modèle plus petit ou d'un cache peut réduire certaines consommations, mais ces gains doivent être mesurés à service comparable.
+
+## 14. Livrables du mini-projet
+
+Le lecteur doit produire un dossier composé de :
+
+1. fiche métier, utilisateurs et valeur ;
+2. besoins fonctionnels ;
+3. exigences non fonctionnelles mesurables ;
+4. carte des sources et propriétaires des faits ;
+5. comparaison des trois options ;
+6. diagramme des flux et frontières de confiance ;
+7. catalogue des outils et permissions ;
+8. registre de risques ;
+9. spécification des tests positifs et négatifs ;
+10. budget indicatif avec hypothèses et ADR de décision.
+
+Il peut dessiner ses schémas en Markdown/Mermaid ou sous un autre format maintenable. Un dessin seul ne prouve pas la sécurité : les contrôles doivent être reliés à des tests et des contrats.
+
+## 15. Examen de fin de Volume 01
+
+### Questions courtes
+
+**Q1.** En quoi un moteur de règles diffère-t-il d'un modèle entraîné ?
+
+*Réponse attendue.* Le premier applique des règles explicites ; le second apprend des paramètres depuis des données, avec une évaluation nécessaire.
+
+**Q2.** Pourquoi une sortie de LLM fluide ne prouve-t-elle rien sur la vérité d'un statut ?
+
+*Réponse attendue.* Le modèle génère selon son contexte et son entraînement ; le statut doit venir d'un système officiel.
+
+**Q3.** Un agent affirme avoir obtenu une approbation humaine. Quelle preuve demander ?
+
+*Réponse attendue.* Une approbation explicite issue du workflow habilité, pas la phrase du modèle.
+
+**Q4.** Que signifie une erreur absolue moyenne de 2 minutes ?
+
+*Réponse attendue.* Un écart absolu moyen sur le jeu de test défini, pas une accélération du travail de 2 minutes.
+
+**Q5.** Pourquoi la recherche traditionnelle doit-elle figurer dans les options ?
+
+*Réponse attendue.* Elle constitue une baseline pour mesurer si la génération apporte une valeur justifiant ses coûts et risques.
+
+**Q6.** Peut-on rendre public un document tiers parce que le dépôt de travail est privé ?
+
+*Réponse attendue.* Non. Droits, confidentialité et autorisation de publication sont des questions distinctes.
+
+### Soutenance pratique
+
+Présenter l'architecture en quinze minutes puis répondre aux objections : pourquoi pas une recherche simple ? Que se passe-t-il si la source est absente ? Qui impose les ACL ? Comment refuser une écriture ? Quelle preuve de réussite manque encore ? Comment changer le modèle sans changer les sources ?
+
+L'exercice évalue **la capacité à argumenter et borner une architecture**, pas la mémorisation d'acronymes.
+
+## 16. Grille de correction
+
+| Compétence | Insuffisant | En progrès | Attendu |
+|---|---|---|---|
+| Choix technique | Choisit automatiquement le LLM | Compare quelques options | Défend une option avec une baseline |
+| Données | Mélange sources et générations | Identifie les sources | Déclare propriétaires, versions et droits |
+| Sécurité | Dépend des instructions textuelles | Mentionne des contrôles | Montre les ACL, permissions et tests négatifs |
+| Qualité | Présente une démo | Propose une mesure | Définit un protocole et les limites |
+| Exploitation | Ignore les pannes | Prévoit une erreur | Traite le mode dégradé et la reprise |
+| Valeur | Affirme des gains | Estime le coût | Sépare valeur métier, coût et preuve |
+
+Un projet n'est pas « terminé » parce que les cases sont remplies : les hypothèses majeures doivent être testées et discutées.
+
+## 17. Suite de la collection
+
+Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
+
+Avant sa publication, nous devrons compléter les schémas, les labs, les exercices, la bibliographie et la relecture. La cible d'environ 280 pages A4 ne sera évaluée qu'une fois la rédaction complète gelée. Aucun PDF ou EPUB n'est nécessaire pendant ce travail de manuscrit.
+
