@@ -60,3 +60,9 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 
 - [Dossier de référence du mini-projet V01 (HLD, ADR, tests non exécutés)](volumes/01-ai-foundations/case-study/README.md)
 - [Schémas vectoriels originaux V01](diagrams/v01/README.md)
+
+### Harmonisation V01 — R13
+- [Glossaire V01 — 69 termes](volumes/01-ai-foundations/GLOSSARY.md)
+- [Carte des prérequis et frontières de chapitres](volumes/01-ai-foundations/READING_MAP.md)
+- [Rapport R13 avec résultats et lacunes](volumes/01-ai-foundations/R13_REVIEW_REPORT_2026-10-10.md)
+- [Guide de rédaction réutilisable pour les 24 volumes](governance/AI_PEDAGOGICAL_STYLE_GUIDE.md)

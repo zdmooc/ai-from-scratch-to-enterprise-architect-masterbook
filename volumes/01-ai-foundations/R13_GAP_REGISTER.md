@@ -50,3 +50,7 @@ Douze manuscrits Quarto C01–C12 sont présents, **29 119 mots** approximatifs 
 
 ### Ajout après l'audit initial
 Le laboratoire C08 de simulation d'outils en lecture seule a été créé et ses **16 tests synthétiques ont passé localement avec comparaison SHA**. Voir [preuve V01 Agent Guardrails](../../evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md). Ce contrôle ne clôt ni la relecture scientifique de R13 ni l'ensemble des laboratoires R14.
+
+## Mise à jour R13 — harmonisation initiale du 10/10/2026
+
+Le [rapport de revue R13](R13_REVIEW_REPORT_2026-10-10.md) constate un total approximatif de **32 101 mots** après harmonisation des 12 chapitres. Le registre ci-dessus conserve les chiffres de l'audit initial comme **baseline historique**. Les ajouts comprennent six ateliers spécialisés, 12 contrats de portée et 69 définitions de glossaire. Les contrôles statiques trouvent 0 lien local cassé sur 38 et aucun doublon exact de long paragraphe. Ces contrôles ne vérifient pas les équations, la qualité pédagogique ni les droits. **R13 reste ouvert pour la profondeur du contenu** ; R18–R21 traiteront les gates scientifiques et éditoriaux.

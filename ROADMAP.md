@@ -39,3 +39,5 @@ Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R
 **Avancement R13–R14 :** audit initial des lacunes enregistré, à approfondir ; simulateur pédagogique d'agent lecture seule C08 validé localement avec 16 tests PASS (blobs GitHub SHA identiques), laboratoire C11 avec 12 tests PASS. **R13 non clos, R14 partiel**. Aucun PDF, EPUB ou HTML de publication, aucun coût GPU/cloud engagé.
 
 **R15–R16 partiels (10/10/2026) :** trois schémas SVG originaux et modifiables sont insérés dans C08/C09/C11, sans validation visuelle Quarto ; le mini-projet V01 possède un dossier de référence (exigences, ADR, matrice), avec 12 tests d'intégration **NOT_EXECUTED**. Aucun volume ni rendu PDF/EPUB n'est finalisé.
+
+**R13 — revue de cohérence du 10/10/2026 :** première passe statique réussie sur 12 brouillons V01 (~32 101 mots, 38 liens relatifs contrôlés, 69 termes de glossaire, six ateliers ajoutés). L'approfondissement vers la qualité d'un livre complet reste ouvert ; ne pas assimiler ce PASS à une validation scientifique ou à la cible de 280 pages. Voir `volumes/01-ai-foundations/R13_REVIEW_REPORT_2026-10-10.md`.

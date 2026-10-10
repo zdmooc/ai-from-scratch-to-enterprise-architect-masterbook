@@ -51,3 +51,11 @@ Ce volume est une composante de la collection *AI From Scratch to Enterprise Arc
 - QA HTML, PDF, EPUB et version gelée avant une release.
 
 **État réel du manuscrit :** douze chapitres rédigés en brouillon ; approfondissement, harmonisation, validation des labs, figures, relecture scientifique et publication restent ouverts. Laboratoire symbolique recopié et testé localement ; compilation HTML/PDF/EPUB non validée.
+
+## Parcours d'étude et harmonisation
+
+- [Glossaire des 69 notions fondamentales](GLOSSARY.md)
+- [Parcours de lecture et répartition des compétences](READING_MAP.md)
+- [Rapport d'harmonisation R13 — première passe](R13_REVIEW_REPORT_2026-10-10.md)
+
+**R13 — premier contrôle statique réalisé ; approfondissement, relecture scientifique et composition restent à faire.**

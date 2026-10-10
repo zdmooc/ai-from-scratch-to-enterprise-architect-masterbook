@@ -16,7 +16,7 @@
 | R10 | C10 — Éthique, biais, erreurs et risques | DRAFT_AUTHORED | Manuscrit, sources primaires et cas |
 | R11 | C11 — Première expérience mesurable | DRAFT_AUTHORED | Chapitre, dataset synthétique, protocole |
 | R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
-| R13 | Consolidation de cohérence et densification C01–C12 | INITIAL_AUDIT_IN_PROGRESS | Aucun prérequis manquant, aucune contradiction |
+| R13 | Consolidation de cohérence et densification C01–C12 | FIRST_PASS_QA_PASS_DEPTH_OPEN | Aucun prérequis manquant, aucune contradiction |
 | R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_LABS_TESTED | Tests exécutés, aucun matériel lourd imposé |
 | R15 | Schémas et illustrations originaux | PARTIAL_3_SVG_AUTHORED | Lisibilité, licence, version, source |
 | R16 | Études de cas métier et dossiers d'architecture | PARTIAL_REFERENCE_DOSSIER | Métier vs technique, ADR, options |
@@ -58,3 +58,6 @@ Trois SVG originaux et éditables sont présents dans [diagrams/v01](../../diagr
 
 ### R16 — Dossier d'architecture commencé
 Le [mini-projet documentaire](case-study/README.md) contient exigences, décision ADR-001 et matrice de douze scénarios **NOT_EXECUTED**. Le dossier est pédagogique, à enrichir et à relire ; il n'apporte aucune preuve runtime. **R16 reste ouvert.**
+
+### R13 — Rapport après harmonisation
+[Rapport R13](R13_REVIEW_REPORT_2026-10-10.md) : 12 chapitres structurés, environ 32 101 mots, 38 liens internes valides, 69 définitions de glossaire, 6 ateliers complémentaires et absence de duplicata exact de paragraphe long. **Première passe PASS**, approfondissement jusqu'au niveau d'un vrai livre et relecture scientifique **encore ouverts**. Aucun PDF/EPUB rendu.
