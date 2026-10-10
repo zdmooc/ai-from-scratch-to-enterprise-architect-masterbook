@@ -1,0 +1,50 @@
+# Chapitre 01 — Qu'appelle-t-on intelligence artificielle ?
+
+> **ÉBAUCHE PÉDAGOGIQUE — non révisée, non publiée.**  
+> Volume 01, chapitre de démonstration du format. Ne pas lui attribuer une pagination finale.
+
+## Objectifs
+
+À la fin de ce chapitre, le lecteur devra pouvoir distinguer un programme déterministe, un modèle appris sur des données, un système d'IA générative et un agent doté d'outils. Il devra aussi savoir pourquoi un résultat convaincant n'est pas toujours correct.
+
+## 1. Quatre types de systèmes à ne pas confondre
+
+**Règle déterministe.** Un programme suit une règle explicite. Exemple : si une facture dépasse un plafond contractuel, une validation humaine est exigée. Tant que les entrées et le code sont identiques, la réponse est déterminée par les mêmes règles.
+
+**Machine Learning (ML).** On entraîne un modèle sur des observations pour apprendre une relation statistique. Une banque fictive peut entraîner un classifieur d'anomalies sur des opérations **synthétiques**, puis évaluer ses faux positifs et faux négatifs. Les prédictions ne doivent pas outrepasser les contrôles réglementaires.
+
+**IA générative.** Un modèle de langage produit une sortie en fonction d'un contexte et d'un mécanisme statistique de génération. Son texte fluide n'établit ni sa vérité ni sa conformité ; il faut des données de référence et des validations.
+
+**Agent IA.** Une application combine modèle, état, outils et politiques d'autorisation afin d'effectuer des étapes de travail. L'outil peut être consultatif ou agir sur un système : dans les cas sensibles, les droits d'accès, la limitation d'autonomie et l'approbation humaine sont primordiaux.
+
+## 2. Pourquoi une architecture compte
+
+Considérons un cas fictif : « expliquer pourquoi un paiement instantané n'a pas été confirmé ». Il faut distinguer les données bancaires faisant autorité, les événements d'infrastructure, les règles du schéma de paiement et les documents d'aide à l'exploitation.
+
+Un assistant purement génératif peut proposer une explication plausible mais fausse. Un assistant **avec récupération de sources** peut améliorer la traçabilité, à condition de contrôler les autorisations d'accès et l'actualité de ses documents. Une couche **déterministe** garde la responsabilité des actions critiques (statut officiel du paiement, accès, limites, transactions).
+
+## 3. Exercice de classification
+
+Pour chaque cas, identifier la catégorie dominante :
+
+1. Un calculateur d'intérêts applique une formule contractuelle.
+2. Un modèle prédit une probabilité de fraude à partir d'exemples.
+3. Un assistant résume un rapport et fournit des citations vers les passages utilisés.
+4. Un assistant appelle une API de changement de quota uniquement après une approbation explicite.
+
+### Correction guidée
+
+1. Logiciel déterministe : la formule et les données d'entrée suffisent à calculer le résultat.
+2. Machine Learning : le classifieur apprend à partir d'exemples et doit être évalué.
+3. Application GenAI avec récupération/citations, si le résumé provient réellement d'une recherche documentaire contrôlée.
+4. Agent ou workflow outillé avec **Human-in-the-Loop** ; le contrôle d'autorisation doit être implémenté côté système, pas demandé uniquement au modèle.
+
+## 4. Ce qui reste à approfondir
+
+Les chapitres ultérieurs traiteront séparément la théorie de l'apprentissage, l'architecture des modèles, la mesure d'incertitude, la gouvernance des données, la sécurité des outils et la reproductibilité des preuves.
+
+## Références de cadrage
+
+- [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — référence pédagogique externe à vérifier avant publication.
+- [Référentiel d'architecture IA interne](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — conception et classification des preuves.
+- [Modèle éditorial Wero](https://github.com/zdmooc/wero-epi-reference-architecture-handbook) — modèle de publication, pas preuve du contenu IA.

@@ -1,0 +1,35 @@
+# V09 — NLP, Transformers et fondements des LLM
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 3/6 : IA générative, LLM, RAG et agents.  
+> Pagination cible indicative : **420 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Tokenisation.
+2. embeddings.
+3. attention.
+4. Q/K/V.
+5. Transformers.
+6. modèles de langage.
+
+## Compétences visées
+
+- Expliquer tokenisation et attention.
+- Calculer Q/K/V sur un mini-exemple.
+- Décrire limites du contexte.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

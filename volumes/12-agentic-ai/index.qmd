@@ -1,0 +1,37 @@
+# V12 — Agentic AI et systèmes multi-agents
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 3/6 : IA générative, LLM, RAG et agents.  
+> Pagination cible indicative : **440 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Tool calling.
+2. MCP.
+3. orchestration.
+4. mémoire.
+5. workflows.
+6. multi-agents.
+7. HITL.
+8. A2A.
+
+## Compétences visées
+
+- Différencier agent, workflow et orchestration.
+- Concevoir un contrat MCP et un HITL.
+- Tester les refus d'outils.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

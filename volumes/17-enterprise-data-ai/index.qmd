@@ -1,0 +1,36 @@
+# V17 — Architecture Data & AI d'entreprise
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 5/6 : Sécurité, gouvernance et Green AI.  
+> Pagination cible indicative : **360 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Lakehouse.
+2. streaming.
+3. Kafka.
+4. API.
+5. Data Governance.
+6. metadata.
+7. data contracts.
+
+## Compétences visées
+
+- Différencier system of record et index dérivé.
+- Gouverner flux/batch et contracts.
+- Tracer le lineage.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

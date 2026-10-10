@@ -1,0 +1,36 @@
+# V07 — Computer Vision, séries temporelles et IA multimodale
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 2/6 : Machine Learning et Deep Learning.  
+> Pagination cible indicative : **350 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. CNN.
+2. Vision Transformers.
+3. prévisions.
+4. images.
+5. vidéo.
+6. audio.
+7. fusion multimodale.
+
+## Compétences visées
+
+- Comparer images, audio et séries temporelles.
+- Concevoir une évaluation multimodale.
+- Analyser les limites des modalités.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

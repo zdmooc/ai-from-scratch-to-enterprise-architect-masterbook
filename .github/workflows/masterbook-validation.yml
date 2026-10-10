@@ -1,0 +1,23 @@
+name: masterbook-validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate editorial structure
+        run: python scripts/validate_masterbook.py
+      - name: Check V01 preview configuration without writing
+        run: python scripts/build_volume.py --volume 01 --format html --dry-run

@@ -1,0 +1,36 @@
+# V13 — Évaluation, benchmarks et qualité de l'IA
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 4/6 : Industrialisation, MLOps et infrastructure IA.  
+> Pagination cible indicative : **340 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Golden datasets.
+2. qualité.
+3. hallucinations.
+4. robustesse.
+5. red teaming.
+6. tests.
+7. régression.
+
+## Compétences visées
+
+- Écrire un jeu de cas de référence.
+- Évaluer qualité/coût/latence.
+- Distinguer CI et preuve runtime.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

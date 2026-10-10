@@ -1,0 +1,42 @@
+name: volume-preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      volume_id:
+        description: "Volume number 01..24"
+        type: string
+        default: "01"
+        required: true
+      format:
+        description: "Preview output"
+        type: choice
+        default: "html"
+        options: [html, pdf, epub]
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+      - name: Validate sources
+        run: python scripts/validate_masterbook.py
+      - name: Render selected volume (preview only)
+        run: python scripts/build_volume.py --volume "${{ inputs.volume_id }}" --format "${{ inputs.format }}"
+      - name: Collect draft previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: draft-volume-${{ inputs.volume_id }}-${{ inputs.format }}
+          path: volumes/**/_book/
+          if-no-files-found: error
+          retention-days: 14

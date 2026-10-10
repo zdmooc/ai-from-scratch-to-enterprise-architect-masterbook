@@ -1,0 +1,37 @@
+# V22 — Architectures IA hybrides, multicloud et résilientes
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 6/6 : Architecte IA d'entreprise expert.  
+> Pagination cible indicative : **420 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. On-prem.
+2. AWS.
+3. Azure.
+4. GCP.
+5. souveraineté.
+6. haute disponibilité.
+7. PRA.
+8. FinOps.
+
+## Compétences visées
+
+- Comparer on-prem et trois clouds.
+- Définir scénarios HA/PRA.
+- Décrire réversibilité et frontières de souveraineté.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

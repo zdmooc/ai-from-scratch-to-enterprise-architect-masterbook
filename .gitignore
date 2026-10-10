@@ -1,0 +1,15 @@
+# Build outputs / local tools
+**/_quarto.yml
+**/_book/
+**/.quarto/
+_site/
+build/
+*.aux
+*.log
+*.toc
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example

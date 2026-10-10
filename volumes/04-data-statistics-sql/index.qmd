@@ -1,0 +1,35 @@
+# V04 — Statistiques, données et SQL
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 1/6 : Fondations scientifiques et informatiques.  
+> Pagination cible indicative : **320 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Statistiques.
+2. pandas.
+3. préparation des données.
+4. SQL.
+5. qualité.
+6. analyse exploratoire.
+
+## Compétences visées
+
+- Nettoyer des données.
+- Interroger une base SQL.
+- Établir des statistiques descriptives fiables.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

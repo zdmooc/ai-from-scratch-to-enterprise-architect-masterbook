@@ -1,0 +1,36 @@
+# V21 — Méthodes d'architecture IA d'entreprise
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 6/6 : Architecte IA d'entreprise expert.  
+> Pagination cible indicative : **450 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. TOGAF.
+2. ArchiMate.
+3. C4.
+4. FR/NFR.
+5. ADR.
+6. dossiers de choix.
+7. transformation.
+
+## Compétences visées
+
+- Produire un dossier d'architecture/ADR.
+- Défendre les qualités non fonctionnelles.
+- Préparer un comité d'architecture.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

@@ -1,0 +1,38 @@
+# V15 — LLM Serving et ingénierie de l'inférence
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 4/6 : Industrialisation, MLOps et infrastructure IA.  
+> Pagination cible indicative : **380 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Ollama.
+2. vLLM.
+3. KServe.
+4. KV cache.
+5. batching.
+6. quantification.
+7. latence.
+8. débit.
+9. SLO.
+
+## Compétences visées
+
+- Dimensionner TTFT/throughput/KV cache.
+- Comparer vLLM et KServe.
+- Mettre en place SLO et scénarios de charge.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.

@@ -1,0 +1,443 @@
+{
+  "collection": "AI From Scratch to Enterprise Architect",
+  "reference_date": "2026-10-10",
+  "status": "EDITORIAL_BOOTSTRAP",
+  "target_total_pages": 9530,
+  "page_count_note": "Planning estimates only; no volume is considered complete based on page count.",
+  "parts": [
+    {
+      "part": 1,
+      "name": "Fondations scientifiques et informatiques"
+    },
+    {
+      "part": 2,
+      "name": "Machine Learning et Deep Learning"
+    },
+    {
+      "part": 3,
+      "name": "IA générative, LLM, RAG et agents"
+    },
+    {
+      "part": 4,
+      "name": "Industrialisation, MLOps et infrastructure IA"
+    },
+    {
+      "part": 5,
+      "name": "Sécurité, gouvernance et Green AI"
+    },
+    {
+      "part": 6,
+      "name": "Architecte IA d'entreprise expert"
+    }
+  ],
+  "volumes": [
+    {
+      "id": "01",
+      "slug": "01-ai-foundations",
+      "title": "Introduction à l'intelligence artificielle",
+      "part": 1,
+      "target_pages": 280,
+      "status": "PLANNED",
+      "scope": [
+        "Histoire",
+        "IA symbolique",
+        "machine learning",
+        "deep learning",
+        "GenAI",
+        "agents",
+        "cas d'usage et limites"
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "02-mathematics",
+      "title": "Mathématiques pour l'IA",
+      "part": 1,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "scope": [
+        "Algèbre linéaire",
+        "calcul différentiel",
+        "probabilités",
+        "optimisation",
+        "gradients"
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "03-python",
+      "title": "Python et ingénierie logicielle pour l'IA",
+      "part": 1,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "scope": [
+        "Python depuis zéro",
+        "structures de données",
+        "algorithmes",
+        "NumPy",
+        "tests",
+        "Git",
+        "API"
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "04-data-statistics-sql",
+      "title": "Statistiques, données et SQL",
+      "part": 1,
+      "target_pages": 320,
+      "status": "PLANNED",
+      "scope": [
+        "Statistiques",
+        "pandas",
+        "préparation des données",
+        "SQL",
+        "qualité",
+        "analyse exploratoire"
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "05-classical-ml",
+      "title": "Machine Learning classique",
+      "part": 2,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "scope": [
+        "Régression",
+        "classification",
+        "clustering",
+        "arbres",
+        "XGBoost",
+        "validation",
+        "métriques"
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "06-deep-learning",
+      "title": "Deep Learning et réseaux neuronaux",
+      "part": 2,
+      "target_pages": 440,
+      "status": "PLANNED",
+      "scope": [
+        "Neurones",
+        "backpropagation",
+        "PyTorch",
+        "TensorFlow",
+        "entraînement",
+        "régularisation"
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "07-multimodal-vision-series",
+      "title": "Computer Vision, séries temporelles et IA multimodale",
+      "part": 2,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "scope": [
+        "CNN",
+        "Vision Transformers",
+        "prévisions",
+        "images",
+        "vidéo",
+        "audio",
+        "fusion multimodale"
+      ]
+    },
+    {
+      "id": "08",
+      "slug": "08-reinforcement-learning",
+      "title": "Reinforcement Learning et optimisation avancée",
+      "part": 2,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "scope": [
+        "MDP",
+        "Q-learning",
+        "Deep RL",
+        "politiques",
+        "récompenses",
+        "optimisation",
+        "simulation"
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "09-nlp-transformers-llm",
+      "title": "NLP, Transformers et fondements des LLM",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "scope": [
+        "Tokenisation",
+        "embeddings",
+        "attention",
+        "Q/K/V",
+        "Transformers",
+        "modèles de langage"
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "10-llm-training-adaptation",
+      "title": "Entraînement et adaptation des LLM",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "scope": [
+        "Pré-entraînement",
+        "SFT",
+        "LoRA",
+        "QLoRA",
+        "quantification",
+        "distillation",
+        "alignement"
+      ]
+    },
+    {
+      "id": "11",
+      "slug": "11-rag-knowledge",
+      "title": "RAG et architectures de connaissance",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "scope": [
+        "Vector DB",
+        "ingestion",
+        "chunking",
+        "hybrid search",
+        "reranking",
+        "GraphRAG",
+        "évaluation"
+      ]
+    },
+    {
+      "id": "12",
+      "slug": "12-agentic-ai",
+      "title": "Agentic AI et systèmes multi-agents",
+      "part": 3,
+      "target_pages": 440,
+      "status": "PLANNED",
+      "scope": [
+        "Tool calling",
+        "MCP",
+        "orchestration",
+        "mémoire",
+        "workflows",
+        "multi-agents",
+        "HITL",
+        "A2A"
+      ]
+    },
+    {
+      "id": "13",
+      "slug": "13-evaluation-quality",
+      "title": "Évaluation, benchmarks et qualité de l'IA",
+      "part": 4,
+      "target_pages": 340,
+      "status": "PLANNED",
+      "scope": [
+        "Golden datasets",
+        "qualité",
+        "hallucinations",
+        "robustesse",
+        "red teaming",
+        "tests",
+        "régression"
+      ]
+    },
+    {
+      "id": "14",
+      "slug": "14-mlops-llmops-gitops",
+      "title": "MLOps, LLMOps et GitOps",
+      "part": 4,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "scope": [
+        "MLflow",
+        "pipelines",
+        "registres",
+        "CI/CD",
+        "Argo CD",
+        "traçabilité",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "15",
+      "slug": "15-llm-serving-inference",
+      "title": "LLM Serving et ingénierie de l'inférence",
+      "part": 4,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "scope": [
+        "Ollama",
+        "vLLM",
+        "KServe",
+        "KV cache",
+        "batching",
+        "quantification",
+        "latence",
+        "débit",
+        "SLO"
+      ]
+    },
+    {
+      "id": "16",
+      "slug": "16-gpu-openshift-cloud",
+      "title": "Infrastructure IA : GPU, OpenShift AI et Cloud",
+      "part": 4,
+      "target_pages": 470,
+      "status": "PLANNED",
+      "scope": [
+        "CPU",
+        "GPU",
+        "HBM",
+        "CUDA",
+        "RDMA",
+        "stockage",
+        "RHOAI",
+        "Kubernetes",
+        "cloud",
+        "sizing"
+      ]
+    },
+    {
+      "id": "17",
+      "slug": "17-enterprise-data-ai",
+      "title": "Architecture Data & AI d'entreprise",
+      "part": 5,
+      "target_pages": 360,
+      "status": "PLANNED",
+      "scope": [
+        "Lakehouse",
+        "streaming",
+        "Kafka",
+        "API",
+        "Data Governance",
+        "metadata",
+        "data contracts"
+      ]
+    },
+    {
+      "id": "18",
+      "slug": "18-ai-security-zero-trust",
+      "title": "Cybersécurité et Zero Trust pour l'IA",
+      "part": 5,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "scope": [
+        "IAM",
+        "secrets",
+        "prompt injection",
+        "RAG/agents",
+        "software supply chain",
+        "isolation"
+      ]
+    },
+    {
+      "id": "19",
+      "slug": "19-responsible-ai-regulation",
+      "title": "IA responsable, risques et réglementation",
+      "part": 5,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "scope": [
+        "EU AI Act",
+        "RGPD",
+        "ISO 42001",
+        "NIST AI RMF",
+        "DORA",
+        "audit",
+        "explicabilité"
+      ]
+    },
+    {
+      "id": "20",
+      "slug": "20-green-ai-finops",
+      "title": "Green AI, FinOps et efficacité énergétique",
+      "part": 5,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "scope": [
+        "Énergie GPU",
+        "empreinte fabrication/usage",
+        "PUE",
+        "coût par token",
+        "ACV",
+        "optimisation"
+      ]
+    },
+    {
+      "id": "21",
+      "slug": "21-enterprise-ai-methods",
+      "title": "Méthodes d'architecture IA d'entreprise",
+      "part": 6,
+      "target_pages": 450,
+      "status": "PLANNED",
+      "scope": [
+        "TOGAF",
+        "ArchiMate",
+        "C4",
+        "FR/NFR",
+        "ADR",
+        "dossiers de choix",
+        "transformation"
+      ]
+    },
+    {
+      "id": "22",
+      "slug": "22-hybrid-multicloud-resilience",
+      "title": "Architectures IA hybrides, multicloud et résilientes",
+      "part": 6,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "scope": [
+        "On-prem",
+        "AWS",
+        "Azure",
+        "GCP",
+        "souveraineté",
+        "haute disponibilité",
+        "PRA",
+        "FinOps"
+      ]
+    },
+    {
+      "id": "23",
+      "slug": "23-critical-industries",
+      "title": "Architectures IA critiques : banque, paiement et assurance",
+      "part": 6,
+      "target_pages": 480,
+      "status": "PLANNED",
+      "scope": [
+        "Fraude",
+        "scoring",
+        "paiements",
+        "BRMS",
+        "agents",
+        "conformité",
+        "résilience",
+        "intégration SI"
+      ]
+    },
+    {
+      "id": "24",
+      "slug": "24-master-capstone",
+      "title": "Master Capstone — Architecte Expert IA",
+      "part": 6,
+      "target_pages": 500,
+      "status": "PLANNED",
+      "scope": [
+        "Architecture de référence complète",
+        "dossiers de choix",
+        "implémentation",
+        "tests",
+        "coûts",
+        "soutenance"
+      ]
+    }
+  ]
+}

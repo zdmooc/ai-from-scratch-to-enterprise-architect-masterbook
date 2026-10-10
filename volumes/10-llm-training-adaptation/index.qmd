@@ -1,0 +1,36 @@
+# V10 — Entraînement et adaptation des LLM
+
+> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> Partie 3/6 : IA générative, LLM, RAG et agents.  
+> Pagination cible indicative : **420 pages A4** (non rédigées).
+
+## Finalité
+
+Ce volume est une composante de la collection *AI From Scratch to Enterprise Architect* : du raisonnement fondamental à la conception et aux preuves d'architecture.
+
+## Sujets à traiter
+
+1. Pré-entraînement.
+2. SFT.
+3. LoRA.
+4. QLoRA.
+5. quantification.
+6. distillation.
+7. alignement.
+
+## Compétences visées
+
+- Comparer SFT, LoRA, RAG et pré-entraînement.
+- Estimer ressources et contraintes.
+- Tester une adaptation de modèle.
+
+## Contrat éditorial à satisfaire avant publication
+
+- Cours originaux autonomes et prérequis expliqués.
+- Démonstrations/formules lorsque nécessaires, exemples commentés et code testé.
+- Exercices progressifs, corrigés, cas métier et laboratoire(s) reproductible(s).
+- Architectures et schémas originaux versionnés.
+- Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
+- QA HTML, PDF, EPUB et version gelée avant une release.
+
+**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.
