@@ -1,0 +1,41 @@
+# AI From Scratch to Enterprise Architect — Masterbook
+
+**Bible de l'intelligence artificielle · collection de 24 volumes · éditions évolutives 2026–2030 et au-delà**
+
+Ce dépôt est la **source éditoriale canonique** de la collection. Il organise un parcours complet de zéro (mathématiques, Python, données, ML) à l'architecture IA d'entreprise (LLM, RAG, agents, OpenShift AI, sécurité, gouvernance, FinOps et Green AI).
+
+## État actuel
+**INITIALISATION / PLAN DIRECTEUR — aucun volume achevé ou publié.**
+
+- 6 parties, 24 volumes
+- objectif éditorial indicatif : **9 530 pages A4 cumulées**, sans obligation de pagination artificielle
+- ouvrages autonomes, exemples et exercices originaux, laboratoires reproductibles
+- publication cible : site HTML, PDF et EPUB **par volume**, avec versions indépendantes
+- aucune importation automatique des documents Google Drive, aucune suppression des sources
+
+## Commencer
+- [Sommaire des 24 volumes](MASTER_TOC.md)
+- [Charte et cible éditoriale](MASTER_PLAN.md)
+- [Roadmap](ROADMAP.md)
+- [Sources Google Drive](sources/GOOGLE_DRIVE_INVENTORY.md)
+- [Dépôts internes de référence](sources/INTERNAL_GITHUB_SOURCES.md)
+- [Sources publiques comparables](sources/PUBLIC_GITHUB_REFERENCES.md)
+- [Règles de vérité, de preuve et de publication](governance/EDITORIAL_GOVERNANCE.md)
+
+## Répartition des responsabilités
+
+| Espace | Propriétaire des faits et livrables |
+| --- | --- |
+| **Ce Masterbook** | manuscrits originaux, figures, sommaires, exercices, metadata, publication |
+| Google Drive / `architecteAI` | originaux DOCX/PDF et références visuelles, **conservés** |
+| `maya-ai-agentic-architecture-reference` | architecture IA, principes, ADR et référentiel de connaissance |
+| `TradeOps-GenAI-Integration` | runtime RAG/agents/MCP/CRC et preuves d'exécution |
+| Autres dépôts spécialisés | plateformes et applications, données synthétiques, Green AI, sécurité, banque/assurance |
+| `cadrage_202682030` | gouvernance transverse et décisions de programme |
+
+Les dépôts techniques ne sont **ni fusionnés ni supprimés**. Leurs concepts sont expliqués de manière autonome dans les livres; le code complexe et les preuves sont cités avec leurs limitations.
+
+## Qualité et droits
+Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt public.
+
+**Statut :** dépôt en phase d'initialisation, pas encore une collection de livres terminés.
