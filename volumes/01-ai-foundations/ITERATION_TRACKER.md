@@ -19,7 +19,7 @@
 | R13 | Consolidation de cohérence et densification C01–C12 | INITIAL_AUDIT_IN_PROGRESS | Aucun prérequis manquant, aucune contradiction |
 | R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_LABS_TESTED | Tests exécutés, aucun matériel lourd imposé |
 | R15 | Schémas et illustrations originaux | PARTIAL_3_SVG_AUTHORED | Lisibilité, licence, version, source |
-| R16 | Études de cas métier et dossiers d'architecture | NOT_STARTED | Métier vs technique, ADR, options |
+| R16 | Études de cas métier et dossiers d'architecture | PARTIAL_REFERENCE_DOSSIER | Métier vs technique, ADR, options |
 | R17 | Évaluations et corrigés de tous les chapitres | NOT_STARTED | Couverture des compétences mesurable |
 | R18 | Relecture scientifique et vérification des formules | NOT_STARTED | Revue indépendante ou traçable |
 | R19 | Bibliographie et propriété intellectuelle | NOT_STARTED | Références primaires, attribution et droits |
@@ -55,3 +55,6 @@ Un volume n'est déclarable `RELEASED` que lorsque ses 12 chapitres sont rédig�
 
 ### R15 — Figures commencées
 Trois SVG originaux et éditables sont présents dans [diagrams/v01](../../diagrams/v01/README.md) et référencés depuis C08/C09/C11. La vérification visuelle et le rendu Quarto ne sont **pas encore réalisés**, et plusieurs figures manquent. **R15 reste ouvert.**
+
+### R16 — Dossier d'architecture commencé
+Le [mini-projet documentaire](case-study/README.md) contient exigences, décision ADR-001 et matrice de douze scénarios **NOT_EXECUTED**. Le dossier est pédagogique, à enrichir et à relire ; il n'apporte aucune preuve runtime. **R16 reste ouvert.**

@@ -198,6 +198,10 @@ Cet indicateur nécessite une méthode de mesure, un périmètre énergétique e
 
 Le choix d'une recherche classique, d'un modèle plus petit ou d'un cache peut réduire certaines consommations, mais ces gains doivent être mesurés à service comparable.
 
+## Dossier d'architecture éditable lié à ce mini-projet
+
+Le [dossier de référence du mini-projet](../case-study/README.md) contient quatre documents : cadrage, exigences, ADR-001 et matrice de vérification. Il s'agit de **conceptions pédagogiques** ; les tests d'intégration y sont explicitement marqués **NOT_EXECUTED**. Cette distinction empêche de présenter un dossier bien rédigé comme une architecture déployée.
+
 ## 14. Livrables du mini-projet
 
 Le lecteur doit produire un dossier composé de :

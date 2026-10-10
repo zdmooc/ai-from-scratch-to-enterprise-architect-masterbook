@@ -57,3 +57,6 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 - [Itérations R01–R22 et gates](volumes/01-ai-foundations/ITERATION_TRACKER.md) : R01–R12, rédaction en brouillon ; R13–R22 encore ouverts. Aucun PDF/EPUB généré.
 
 **Qualité V01 :** les douze chapitres sont au stade DRAFT, R13 audit initial en cours et R14 labs partiellement testés (C11 : 12 tests, C08 : 16 tests, tous locaux). Voir [registre R13](volumes/01-ai-foundations/R13_GAP_REGISTER.md) et [preuve C08](evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md).
+
+- [Dossier de référence du mini-projet V01 (HLD, ADR, tests non exécutés)](volumes/01-ai-foundations/case-study/README.md)
+- [Schémas vectoriels originaux V01](diagrams/v01/README.md)
