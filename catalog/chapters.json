@@ -1,0 +1,1951 @@
+{
+  "collection": "Bible IA 2026–2030",
+  "status": "I04_FIRST_PASS_EDITORIAL_PLAN",
+  "chapters_total": 288,
+  "volumes": [
+    {
+      "volume": "01",
+      "title": "Introduction à l'intelligence artificielle",
+      "part": 1,
+      "target_pages": 280,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Définir l'intelligence artificielle et ses frontières",
+          "status": "DRAFT_REVIEW_REQUIRED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Repères historiques et ruptures scientifiques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "IA symbolique, logique, recherche et moteurs de règles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Apprentissage statistique et données d'entraînement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Deep Learning expliqué sans prérequis",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Premiers repères sur NLP, Transformers et LLM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "IA générative : textes, images, audio et limites",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Agents IA, outils et autonomie contrôlée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Panorama des cas d'usage et alternatives sans IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Éthique, risques, biais et erreurs des systèmes IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Concevoir une première expérimentation mesurable",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Synthèse, exercices corrigés et mini-projet",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "02",
+      "title": "Mathématiques pour l'IA",
+      "part": 1,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Prérequis d'algèbre et méthode de calcul",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Vecteurs, normes, distances et similarités",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Matrices et opérations fondamentales",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Espaces vectoriels et projections",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Dérivées et dérivées partielles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Gradients, règle de chaîne et backpropagation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Probabilités conditionnelles et loi de Bayes",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Variables aléatoires et distributions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Espérance, variance, covariance et corrélation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Optimisation convexe, descente de gradient et régularisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Numérique, stabilité et calcul approché",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Problèmes corrigés et preuves de compréhension",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "03",
+      "title": "Python et ingénierie logicielle pour l'IA",
+      "part": 1,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Installer Python et un environnement reproductible",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Types, variables, opérateurs et expressions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Conditions, boucles, fonctions et modules",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Listes, dictionnaires, ensembles et itérateurs",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Fichiers, formats de données et exceptions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Classes, interfaces et principes de conception",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "NumPy et calcul vectorisé",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "pandas et transformation de données",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Visualisation, graphiques et notebooks",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Tests, typage, linters et débogage",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Git, packaging, API et sécurité du code",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Projet Python IA entièrement testé",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "04",
+      "title": "Statistiques, données et SQL",
+      "part": 1,
+      "target_pages": 320,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Données : types, provenance et qualité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Statistique descriptive et exploratoire",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Échantillonnage et biais de sélection",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Probabilités et incertitudes des données",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Estimation, intervalles et tests d'hypothèses",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "SQL : modèle relationnel et requêtes de base",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "SQL avancé, jointures, fenêtres et plans",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Nettoyage, normalisation et valeurs manquantes",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Préparation des données avec pandas",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Visualisation responsable et analyse exploratoire",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Confidentialité, contrats et versionnement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Étude de cas et dossier de qualité de données",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "05",
+      "title": "Machine Learning classique",
+      "part": 2,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Formuler un problème de Machine Learning",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Fonctions objectif et constitution d'un dataset",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Train/validation/test et fuites de données",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Régression linéaire et régularisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Classification logistique et seuils de décision",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "k-NN, naïve Bayes et SVM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Arbres, forêts et gradient boosting",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Clustering, PCA et réduction de dimension",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Métriques, calibration et coût des erreurs",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Interprétabilité, robustesse et biais",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Mise en production minimale et monitoring",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Projet complet, exercices et comparaison justifiée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "06",
+      "title": "Deep Learning et réseaux neuronaux",
+      "part": 2,
+      "target_pages": 440,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Le perceptron et les réseaux multicouches",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Tenseurs, formes et calcul différentiable",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Fonctions d'activation et initialisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Forward pass, loss et backpropagation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Optimiseurs, learning rates et schedulers",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "PyTorch et boucle d'entraînement reproductible",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Convolutions et réseaux pour images",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Réseaux récurrents et attention",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Regularisation, dropout, batch norm et généralisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Distributed training : notions et limites",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Optimisation expérimentale et profilage",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Lab complet : entraîner, tester, expliquer",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "07",
+      "title": "Computer Vision, séries temporelles et IA multimodale",
+      "part": 2,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Panorama des données multimodales",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Image numérique, couleurs et prétraitement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "CNN, augmentation et transfert de connaissances",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Vision Transformers et représentations d'images",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Détection, segmentation et OCR",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Séries temporelles : tendances et saisonnalités",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Prédiction, anomalies et validation chronologique",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Audio, parole et reconnaissance",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Modèles texte-image et embeddings partagés",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Génération multimodale et architectures VLM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Évaluations, biais, confidentialité des modalités",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Capstone : pipeline multimodal mesurable",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "08",
+      "title": "Reinforcement Learning et optimisation avancée",
+      "part": 2,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Décisions séquentielles et contrôle",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Chaînes de Markov et processus de décision",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Valeur, récompense et équation de Bellman",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Dynamic programming et exploration",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Q-learning et SARSA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Deep Q-Networks et replay buffer",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Policy gradient et actor-critic",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Planification, simulation et model-based RL",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Optimisation multiobjectif et contraintes",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Sûreté des systèmes et évaluation off-policy",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Réduction de coût énergétique par décision contrôlée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Projet de simulation et confrontation aux heuristiques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "09",
+      "title": "NLP, Transformers et fondements des LLM",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Du texte brut aux représentations numériques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Tokenisation, segmentation et vocabulaire",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Embeddings et modèles de langage statistiques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Self-attention et produit Q/K/V",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Transformers encodeur, décodeur, encodeur-décodeur",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Positions, masques et attention multi-têtes",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Pré-entraînement autoregressif et prédiction du token",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Contexte, limites et alternatives au long contexte",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Architecture dense, MoE et multimodal",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Échantillonnage, température et contraintes",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Mesurer qualité, biais et erreur factuelle",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Construire un mini-Transformer didactique",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "10",
+      "title": "Entraînement et adaptation des LLM",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Collecter et filtrer les corpus d'entraînement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Pré-entraînement et objectifs de modélisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Tokenizers, données et contamination",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Entraînement distribué et checkpoints",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Supervised fine-tuning et jeux d'instructions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "LoRA, QLoRA et parameter-efficient fine-tuning",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Préférences, alignement et boucles de feedback",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Quantification, pruning et distillation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Adaptation : RAG ou fine-tuning ?",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Sécurité, licensing, provenance et évaluation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "FinOps du cycle de vie des modèles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Lab reproductible d'adaptation à budget borné",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "11",
+      "title": "RAG et architectures de connaissance",
+      "part": 3,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "RAG : promesse, architecture et risques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Inventaire des sources, ACL et classification",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Ingestion, OCR, parsing et segmentation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Embeddings, index et vector databases",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Recherche lexicale, dense et hybride",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Reranking, fusion et query transformation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Contexte, citations et génération ancrée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "GraphRAG et données structurées",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Actualisation, suppression, provenance et lineage",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Évaluer recall, précision, fidélité et coût",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Sécurité anti-injection et multi-tenancy",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Projet RAG entreprise : tests et dossiers d'architecture",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "12",
+      "title": "Agentic AI et systèmes multi-agents",
+      "part": 3,
+      "target_pages": 440,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Agent, workflow et programme déterministe",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Modèle, outils, observations et machine à états",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Function calling et schémas des outils",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "MCP : serveurs, clients et frontières de confiance",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Planification, ReAct et orchestration à états",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Mémoire, stockage et gestion du contexte",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Coopération multi-agents et protocoles A2A",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Autonomie graduée, HITL et approbations",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Durabilité, retries, idempotence et rollback",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Prompt injection via outils et minimisation des droits",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Evals d'agents et tests de défaillance",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Capstone : agent outillé gouverné de bout en bout",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "13",
+      "title": "Évaluation, benchmarks et qualité de l'IA",
+      "part": 4,
+      "target_pages": 340,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Définir la qualité d'un système IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Jeux de référence et golden datasets",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Métriques ML et métriques LLM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Évaluation RAG : retrieval et génération",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Évaluation d'agents : tâches et outils",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Tests de robustesse, régression et adversarial",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "LLM-as-judge : biais et calibration humaine",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Bancs de performance, TTFT et débit",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Cohérence des expériences et reproductibilité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Red teaming, sécurité et hallucinations",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "SLO, observabilité et release gates",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Construire une usine d'évaluation vérifiable",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "14",
+      "title": "MLOps, LLMOps et GitOps",
+      "part": 4,
+      "target_pages": 400,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "De la recherche au produit ML gouverné",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Data pipelines, contrats et qualité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Tracking d'expériences et MLflow",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Model registry et chaîne de promotion",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "CI/CD pour code, données, modèles et prompts",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "GitOps, Argo CD, Kubernetes et OpenShift",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Pipelines d'entraînement, orchestration et Kueue",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Observabilité, drift et boucles de feedback",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Canary, rollback et gestion des incidents",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Sécurité supply chain, SBOM et AIBOM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Coûts, conformité et maintenance des versions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Lab MLOps : promotion vérifiée de bout en bout",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "15",
+      "title": "LLM Serving et ingénierie de l'inférence",
+      "part": 4,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Architecture d'inférence et objectifs SLO",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Calculs, tokens, prefilling et decoding",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "KV cache, context windows et concurrence",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Batching, scheduling et optimisations de latence",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Précision, quantification et qualité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Ollama, runtimes locaux et API compatibles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "vLLM, tensor parallelism et serving distribué",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "KServe, OpenShift AI et routing",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Model cache, autoscaling et warm starts",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Benchmarks reproductibles et capacity planning",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Observabilité, disponibilité et coûts par requête",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Lab de serving avec charge et critères d'acceptation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "16",
+      "title": "Infrastructure IA : GPU, OpenShift AI et Cloud",
+      "part": 4,
+      "target_pages": 470,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Du service métier à l'architecture GPU",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Serveurs, CPU, NUMA, PCIe et mémoire",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "GPU, CUDA, ROCm, HBM et VRAM",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "MIG, MPS, time slicing et isolation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "NVLink, NVSwitch, RDMA et fabrics réseau",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Stockage objet, NVMe et checkpoints",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Kubernetes : GPU Operator et scheduling",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Red Hat OpenShift AI et ses opérateurs",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Pipelines, notebooks, serving, registry",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Cloud GPU : options, quotas et souveraineté",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Siting, puissance, refroidissement, résilience",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Sizing calculé et HLD d'infrastructure IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "17",
+      "title": "Architecture Data & AI d'entreprise",
+      "part": 5,
+      "target_pages": 360,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Besoins data d'une architecture IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Domaines de données et systèmes de référence",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "ETL, ELT, streaming et CDC",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Data lake, data warehouse et lakehouse",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Kafka et contrats événementiels",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "API, gateways, intégration et observabilité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Catalogues, metadata, lineage et gouvernance",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Données vectorielles et index dérivés",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Sécurité, qualité, ACL et rétention",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Architecture hybride Data/AI et localisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Résilience, FinOps et coûts de la donnée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Capstone de plateforme Data & AI",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "18",
+      "title": "Cybersécurité et Zero Trust pour l'IA",
+      "part": 5,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Actifs, menaces et modèle de confiance IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "IAM, OIDC, RBAC et Zero Trust",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Données, secrets, chiffrement et isolation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Menaces des modèles et des poids",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Prompt injection et empoisonnement de RAG",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Tool calling, MCP et frontières d'autorisation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Risques des agents, permissions et HITL",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Supply chain IA : SBOM/AIBOM/signatures",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Sécurité des conteneurs, GPU et workloads",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Red teaming et tests adversariaux",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Incident response, logs et evidence",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Architecture sécurité IA : dossier de contrôle",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "19",
+      "title": "IA responsable, risques et réglementation",
+      "part": 5,
+      "target_pages": 380,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "IA responsable : principes et responsabilités",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Inventaire des systèmes et classification des risques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "EU AI Act : structure et obligations par date",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "RGPD, confidentialité et décisions automatisées",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "NIST AI RMF et gestion du risque",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "ISO/IEC 42001 et gouvernance du SMIA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "DORA et résilience ICT dans les services financiers",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Biais, transparence, explicabilité et fairness",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Documentation, datasets, impacts et traçabilité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "HITL, supervision et limites de l'autonomie",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Audits, incidents, reporting et contrôles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Cas pratique : comité d'acceptation des risques IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "20",
+      "title": "Green AI, FinOps et efficacité énergétique",
+      "part": 5,
+      "target_pages": 350,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Économie physique et opérationnelle de l'IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "TCO : achat, cloud, colocation et amortissement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "FinOps : modèle de coût par workload",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "GPU, énergie et efficacité de calcul",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "PUE, WUE, réseaux et refroidissement",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Empreinte de fabrication et ACV équipements",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Émissions opérationnelles et facteurs régionaux",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Coût et CO2e par token ou résultat fiable",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Optimisation modèles : quantification, caching, batching",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Placement carbon-aware et décisions multicritères",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Gouvernance FinOps/GreenOps et tableaux de bord",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Étude banque/assurance : scénario de décision chiffrée",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "21",
+      "title": "Méthodes d'architecture IA d'entreprise",
+      "part": 6,
+      "target_pages": 450,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Méthode d'architecture du besoin à la décision",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Cadrage métier, opportunité et alternative sans IA",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "TOGAF, gouvernance, rôles et responsabilités",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "ArchiMate, C4 et vues documentées",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Exigences fonctionnelles et NFR mesurables",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Data et model strategy, options et restrictions",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Patterns RAG/agents/services et ADR",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Risques, threat model, conformité et souveraineté",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Trade-offs capacité, coûts, carbone et SLO",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "15 livrables du dossier d'architecture",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Architecture Review Board et arbitrage",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Soutenance simulée et corrections du dossier",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "22",
+      "title": "Architectures IA hybrides, multicloud et résilientes",
+      "part": 6,
+      "target_pages": 420,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Niveaux de placement : edge, on-prem, cloud",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Critères de cloud, souveraineté et réglementation",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Architecture hybride OpenShift et multicloud",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "AWS : fondations réseau/identité/inférence",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Azure : landing zone, IA et services associés",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "GCP : GPU VM et services managés",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Réseau privé, stockage et transferts intersites",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "GitOps, infrastructure as code et réversibilité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "HA multi-AZ / multi-région / multi-cluster",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "PRA, RPO/RTO et scénarios de panne",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "FinOps, quotas, coûts egress et carbone",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Capstone : arbitrage multicritère et plan de reprise",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "23",
+      "title": "Architectures IA critiques : banque, paiement et assurance",
+      "part": 6,
+      "target_pages": 480,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Contexte bancaire et caractéristiques de criticité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Paiements instantanés, ISO 20022 et événements",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Gestion des transactions et états inconnus",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Détection de fraude et ML scorers gouvernés",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Décisions règles+IA : IBM ODM, audit et HITL",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Assurance : documents, sinistres et workflow",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Agent d'investigation en lecture seule",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "API, MQ, Kafka et intégration du legacy",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Sécurité, RGPD, DORA et EU AI Act",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Résilience, observabilité et N3 incident",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Evaluation des données synthétiques et coût",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Dossier de comité : plateforme IA critique",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    },
+    {
+      "volume": "24",
+      "title": "Master Capstone — Architecte Expert IA",
+      "part": 6,
+      "target_pages": 500,
+      "status": "PLANNED",
+      "chapters": [
+        {
+          "id": "C01",
+          "title": "Choisir un cas d'usage et la valeur cible",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C02",
+          "title": "Définir périmètre, critères d'acceptation et acteurs",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C03",
+          "title": "Composer les 15 livrables d'architecte",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C04",
+          "title": "Définir données, modèles et stratégie RAG/agents",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C05",
+          "title": "Dessiner architecture C4, flux et frontières",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C06",
+          "title": "Dimensionner CPU, GPU, réseau et stockage",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C07",
+          "title": "Estimer coût, carbone et risques",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C08",
+          "title": "Construire les labs de validation reproductibles",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C09",
+          "title": "Implémenter tests, évaluation et observabilité",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C10",
+          "title": "Préparer HA/PRA, sécurité et opérations",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C11",
+          "title": "Revue contradictoire et réponse aux objections",
+          "status": "PLANNED",
+          "estimated_pages": null
+        },
+        {
+          "id": "C12",
+          "title": "Soutenance, corrections et portefeuille de preuves",
+          "status": "PLANNED",
+          "estimated_pages": null
+        }
+      ]
+    }
+  ]
+}
