@@ -1,8 +1,15 @@
 # V03 — Python et ingénierie logicielle pour l'IA
 
-> **PLANNED — PLAN DE VOLUME, NON UN LIVRE TERMINÉ.**  
+> **DRAFT_IN_PROGRESS — 2 chapitres de travail sur 12 ; LIVRE NON TERMINÉ.**  
 > Partie 1/6 : Fondations scientifiques et informatiques.  
 > Pagination cible indicative : **380 pages A4** (non rédigées).
+
+## Chapitres disponibles en rédaction
+
+- C01 — Installer Python et un environnement reproductible — **DRAFT**
+- C02 — Types, variables, opérateurs et expressions — **DRAFT**, avec [lab Python](../../labs/v03-python-basics/README.md)
+
+Les chapitres C03 à C12 restent **PLANNED** ; aucun livre n'est publié.
 
 ## Finalité
 
@@ -33,4 +40,4 @@ Ce volume est une composante de la collection *AI From Scratch to Enterprise Arc
 - Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
 - QA HTML, PDF, EPUB et version gelée avant une release.
 
-**État réel du manuscrit :** planification. Le sommaire détaillé et le contenu intégral restent à rédiger.
+**État réel du manuscrit :** deux chapitres en brouillon, dix non rédigés. Laboratoire Python local validé ; compilation Quarto non vérifiée.
