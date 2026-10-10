@@ -101,6 +101,154 @@ L'ensemble illustre **la coexistence de plusieurs générations d'approches**. C
 
 *Correction.* Inspecter les contrats d'outils, les comptes de service, les permissions et les journaux ; exécuter des tests négatifs prouvant que l'action interdite est refusée.
 
+## 9. Lire l'histoire comme une succession de problèmes scientifiques
+
+Les approches de l'IA ne sont pas nécessairement des générations qui se remplacent. Plusieurs courants ont souvent progressé en parallèle. Pour comprendre leur intérêt, il faut identifier **la question de recherche**, **la représentation utilisée** et **la méthode de validation**.
+
+### Le raisonnement et la recherche dans un espace d'états
+
+Un ordinateur peut résoudre un problème en énumérant des configurations possibles et en appliquant des transformations. Par exemple, dans un labyrinthe représenté par une grille, un état est la position courante, une action est un déplacement autorisé et l'objectif est d'atteindre une case donnée.
+
+Cette idée précède les LLM et ne nécessite pas l'apprentissage de poids à partir de grandes bases de données. En revanche, les espaces de possibilités peuvent grandir très vite. On emploie alors des heuristiques : des estimations qui aident à choisir quelles possibilités explorer d'abord.
+
+Une **heuristique** n'est pas une garantie de vérité. Un mauvais indicateur peut faire passer un algorithme à côté d'une solution ou consommer beaucoup de ressources, selon la méthode employée.
+
+### Le problème de la connaissance explicite
+
+Un moteur expert peut être très performant si ses règles correspondent à un domaine stable et bien défini. Toutefois, certaines situations résistent à l'énumération complète :
+
+- les images présentent des variations de lumière et de perspective ;
+- les langues contiennent des ambiguïtés et de nombreuses formulations ;
+- les systèmes complexes produisent des cas rares ;
+- les règles métier changent, parfois plus rapidement que les procédures sont mises à jour.
+
+Ce constat explique en partie l'intérêt pour des méthodes capables d'**apprendre des régularités** plutôt que de demander à des experts de programmer chaque exception.
+
+### Les modèles statistiques ne remplacent pas toute la connaissance explicite
+
+Un modèle entraîné peut repérer des régularités qui n'ont pas été codées manuellement. Mais il peut aussi échouer lorsque les conditions changent. La bonne solution peut consister à combiner règles de sûreté, apprentissage statistique et surveillance des résultats.
+
+Ainsi, un modèle peut suggérer qu'un paiement fictif mérite une investigation tandis qu'une règle déterministe interdit de modifier son statut officiel sans une procédure autorisée.
+
+## 10. Comment un résultat scientifique devient une plateforme technique
+
+Une innovation algorithmique n'est pas une solution industrielle immédiatement exploitable. Son passage vers la production implique d'autres progrès : données, matériel, outils, validation et exploitation.
+
+Prenons un modèle de reconnaissance d'image.
+
+1. **Recherche** : définir une architecture et une méthode d'entraînement.
+2. **Jeu d'évaluation** : préciser les images, catégories, métriques et éventuelles limites.
+3. **Calcul** : entraîner sur une plateforme adaptée au coût et à la mémoire.
+4. **Ingénierie** : rendre l'inférence accessible au travers d'une interface fiable.
+5. **Sécurité** : valider les entrées, limiter les accès, protéger les données.
+6. **Opérations** : surveiller les erreurs, les versions, les ressources et la dérive.
+7. **Gouvernance** : documenter la responsabilité, les risques, les changements et la décision de déploiement.
+
+**Une publication scientifique prouve ce qu'elle a effectivement testé**, dans les limites de son protocole. Elle ne prouve pas directement le bon fonctionnement de notre application, notre niveau de conformité ou notre disponibilité future.
+
+### Quatre types de preuves à ne pas confondre
+
+| Affirmation | Preuve correspondante |
+|---|---|
+| L'algorithme est décrit dans un article scientifique | Référence précise à l'article et à son protocole |
+| Un programme s'exécute sur une machine donnée | Trace d'exécution et versions de dépendances |
+| Un service atteint un objectif de latence | Mesure sur un profil de charge déclaré |
+| Une solution respecte des obligations applicables | Analyse juridique et contrôles documentés, actualisés à la date pertinente |
+
+De la même façon, voir un modèle fonctionner dans une démonstration interactive n'autorise pas à annoncer qu'il peut être exploité sans supervision dans un processus à fort enjeu.
+
+## 11. Trois études historiques pour apprendre à vérifier les sources
+
+### 11.1 — Le texte de Turing, publié en 1950
+
+Le texte de Turing dans la revue *Mind* a une portée philosophique et méthodologique. Il examine la formulation de la question relative à l'intelligence des machines, et le célèbre **jeu de l'imitation**. Nous devons éviter de transformer ce texte en affirmation selon laquelle tous les problèmes d'intelligence sont résolus par un simple test conversationnel.
+
+Pour citer correctement un travail historique, on relève l'auteur, le titre, la revue, le volume, la date et, si possible, le DOI. Le texte publié dans *Mind*, volume LIX, numéro 236, pages 433–460, dispose d'un identifiant bibliographique stable : **10.1093/mind/LIX.236.433**.
+
+### 11.2 — La proposition de Dartmouth en 1955 et le projet de 1956
+
+Une confusion fréquente consiste à attribuer une seule date à la naissance du domaine. La proposition pour le projet d'été porte la date du **31 août 1955** ; le projet de recherche a lieu en **1956**. Ces deux jalons se réfèrent à deux événements différents.
+
+L'important n'est pas de mémoriser une date sans contexte, mais de comprendre le type d'ambition scientifique affiché : explorer la représentation du langage, des abstractions, des concepts et des procédures de résolution de problèmes par des machines.
+
+La revue *AI Magazine* a publié une reproduction commentée de la proposition initiale. Le DOI de cette publication est **10.1609/aimag.v27i4.1904**. Lorsqu'on cite le document originel, il faut distinguer sa **date de rédaction** de la **date de republication**.
+
+### 11.3 — Le Transformer en 2017
+
+L'article *Attention Is All You Need* de Vaswani et ses collègues est un jalon de recherche publié en 2017. Il présente une architecture fondée sur l'attention qui a profondément influencé les modèles de langage ultérieurs.
+
+Il ne démontre pas que tous les systèmes de 2026 sont des copies inchangées de l'architecture de 2017. Il ne signifie pas non plus que l'attention serait la seule architecture utile à tous les domaines.
+
+**Référence primaire :** [Vaswani et al., Attention Is All You Need](https://arxiv.org/abs/1706.03762).
+
+### Comment vérifier une affirmation technique
+
+Pour chaque récit historique, demander :
+
+- Quelle source primaire établit la date et la nature du résultat ?
+- S'agit-il d'une publication de recherche, d'une démonstration, d'un produit ou d'un déploiement réel ?
+- Le résultat a-t-il été reproduit indépendamment ?
+- Quelles métriques et quelles données ont été utilisées ?
+- Que ne peut-on **pas** déduire de la publication ?
+
+Ce questionnement sera réutilisé dans le volume 13 consacré aux évaluations et aux benchmarks.
+
+## 12. Une chronologie comparée plutôt qu'une marche triomphale
+
+| Jalon | Problème ou ambition illustrés | Ce qu'il ne faut pas conclure |
+|---|---|---|
+| 1950 — Turing | Débattre des critères d'intelligence des machines | Qu'un dialogue suffit à prouver toutes les capacités cognitives |
+| 1955/1956 — Dartmouth | Donner une identité à un programme de recherche IA | Que l'apprentissage automatique naît à cette date |
+| 1958 — Perceptron et travaux neuronaux | Apprendre certains séparateurs à partir d'exemples | Que l'on pouvait déjà entraîner les LLM contemporains |
+| 1980s — diffusion de la rétropropagation | Apprendre des couches successives | Que la question des données et du calcul était résolue |
+| 1997 — Deep Blue | Résoudre un problème spécialisé par recherche et évaluation | Que le programme possédait une intelligence générale |
+| 2012 — AlexNet/ImageNet | Combiner architecture neuronale, données et accélération | Que tous les problèmes nécessitent du Deep Learning |
+| 2017 — Transformer | Modéliser des relations dans des séquences par attention | Que l'attention rend inutiles les autres approches |
+| 2022 — accès public à ChatGPT | Diffusion massive d'interfaces de génération conversationnelle | Que les modèles garantissent automatiquement la vérité |
+
+Les jalons sont **sélectifs** : des recherches sur la probabilité, la robotique, les jeux, la logique, la vision et la linguistique existent dans de nombreuses périodes intermédiaires. Une histoire sérieuse ne doit pas effacer ces travaux pour fabriquer une progression artificiellement linéaire.
+
+## 13. Atelier d'analyse critique d'une annonce technologique
+
+Une entreprise fictive diffuse cette annonce :
+
+> « Notre nouvel agent résout toutes les demandes grâce à un modèle 100 fois plus grand que le précédent. Il peut remplacer les règles métier et garantit un traitement sans erreur. »
+
+Le lecteur doit analyser cette annonce sans se fier à son style commercial.
+
+### Travail demandé
+
+1. Identifier les expressions impossibles à interpréter sans protocole de mesure.
+2. Déterminer quelles tâches peuvent être confiées à un programme déterministe.
+3. Proposer une baseline sans agent ni LLM.
+4. Nommer trois scénarios négatifs à tester.
+5. Préciser ce qui constituerait une preuve de réussite raisonnable.
+
+### Correction indicative
+
+- « Toutes les demandes » ne définit ni une population ni une liste de tâches. « Sans erreur » demande des critères et des preuves particulièrement solides.
+- Les règles de contrôle explicites, en particulier permissions et validations, ne sont pas remplacées par le modèle.
+- Une base de connaissances dotée de recherche, de procédures versionnées et de filtres par droits peut constituer une baseline.
+- Tester au moins : document manquant, utilisateur non autorisé, outil critique indisponible.
+- Fournir un jeu de cas représentatif, une évaluation comparative et une trace d'exécution avec versions et limites.
+
+## 14. Synthèse : l'histoire comme outil d'architecture
+
+Connaître l'histoire de l'IA aide à éviter deux erreurs. La première consiste à croire que tout problème doit être traité par un LLM ; la seconde consiste à supposer que les anciennes techniques sont toujours inférieures aux plus récentes.
+
+Une architecture d'entreprise peut associer :
+
+- recherche et planification pour des processus structurés ;
+- moteurs de règles pour des contrôles explicites ;
+- modèles statistiques pour des prévisions ;
+- réseaux neuronaux pour certaines formes de perception et de représentation ;
+- RAG et modèles de langage pour des synthèses contrôlées ;
+- orchestration avec outils et approbation humaine pour certains processus multi-étapes.
+
+La décision est justifiée par **la tâche**, **les données**, **les conséquences d'une erreur** et **la preuve** que la solution satisfait les critères d'acceptation. Aucun jalon historique ne remplace ces vérifications.
+
+---
+
 ## 9. Références documentaires pour révision
 
 - Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
