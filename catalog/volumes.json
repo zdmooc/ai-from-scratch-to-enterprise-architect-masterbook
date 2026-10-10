@@ -37,7 +37,7 @@
       "title": "Introduction à l'intelligence artificielle",
       "part": 1,
       "target_pages": 280,
-      "status": "PLANNED",
+      "status": "DRAFT",
       "scope": [
         "Histoire",
         "IA symbolique",
@@ -54,7 +54,7 @@
       "title": "Mathématiques pour l'IA",
       "part": 1,
       "target_pages": 400,
-      "status": "PLANNED",
+      "status": "DRAFT",
       "scope": [
         "Algèbre linéaire",
         "calcul différentiel",
@@ -69,7 +69,7 @@
       "title": "Python et ingénierie logicielle pour l'IA",
       "part": 1,
       "target_pages": 380,
-      "status": "PLANNED",
+      "status": "DRAFT",
       "scope": [
         "Python depuis zéro",
         "structures de données",
