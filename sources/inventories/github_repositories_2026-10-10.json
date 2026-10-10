@@ -1,10 +1,11 @@
 {
   "generated_date": "2026-10-10",
-  "status": "I02_PORTFOLIO_METADATA_INVENTORY",
+  "status": "I02_TREE_INVENTORY_COMPLETE_CONTENT_AUDIT_OPEN",
   "counts": {
     "repositories": 79,
-    "trees_examined": 34,
-    "trees_not_examined": 45
+    "trees_examined": 79,
+    "trees_not_examined": 0,
+    "content_exhaustively_audited": 0
   },
   "repositories": [
     {
@@ -12,9 +13,17 @@
       "url": "https://github.com/zdmooc/prorealtime",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 18,
+        "md": 0,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/gcparchitect",
@@ -30,18 +39,43 @@
       "url": "https://github.com/zdmooc/odm-cloudnative-2025-2029",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 135,
+        "md": 14,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "SECURITY_PROVENANCE.md",
+          "odm-docker/Architecture/odm_architecture_bilan.md",
+          "odm-docker/Architecture/oidc/Readme Oidc Integration.md",
+          "odm-docker/Architecture/oidc/pigfideratevskeycloak.md",
+          "odm-docker/Architecture/readmeold.md",
+          "odm-docker/Architecture/ruledesigner.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/ansible-ils",
       "url": "https://github.com/zdmooc/ansible-ils",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 39,
+        "md": 3,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "SECURITY.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/openshift-platform-blueprints",
@@ -57,81 +91,181 @@
       "url": "https://github.com/zdmooc/argocd-complete-masterclass",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 37,
+        "md": 10,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/docker-podman-complete-masterclass",
       "url": "https://github.com/zdmooc/docker-podman-complete-masterclass",
       "visibility": "public",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 31,
+        "md": 5,
+        "python": 1,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/kafka-socle-gouvernance-lab",
       "url": "https://github.com/zdmooc/kafka-socle-gouvernance-lab",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 53,
+        "md": 17,
+        "python": 2,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/01-ARCHITECTURE.md",
+          "docs/02-GOVERNANCE.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/argocd-expert-pack",
       "url": "https://github.com/zdmooc/argocd-expert-pack",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 94,
+        "md": 44,
+        "python": 1,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/governance/O5_PLAN.md",
+          "docs/governance/OWNERSHIP.md",
+          "evidence/CLAIM_EVIDENCE_MATRIX.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/kafka-data-engineer-kafkaops-topic-service-crc",
       "url": "https://github.com/zdmooc/kafka-data-engineer-kafkaops-topic-service-crc",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 88,
+        "md": 27,
+        "python": 16,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/10-architecture.md",
+          "docs/30-security.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/modernis-dat-repo",
       "url": "https://github.com/zdmooc/modernis-dat-repo",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 62,
+        "md": 38,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "adr/004-s3-storage.md",
+          "docs/HYPOTHESES_CONSTRAINTS.md",
+          "governance/COMITE_ARCHI_TEMPLATE.md",
+          "governance/CR_COMITE_TEMPLATE.md",
+          "governance/PROD_ARCH_REVIEW.md",
+          "rfp/CDC-S3-Storage.md",
+          "security/COMPLIANCE_CHECKLIST.md",
+          "security/SECRETS_MANAGEMENT.md",
+          "security/SECURITY_SHEET.md",
+          "security/THREAT_MODEL.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/java21-jvm-expert-leadtech",
       "url": "https://github.com/zdmooc/java21-jvm-expert-leadtech",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 84,
+        "md": 33,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/appservers-socle-expert-repo",
       "url": "https://github.com/zdmooc/appservers-socle-expert-repo",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 64,
+        "md": 38,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "SECURITY.md",
+          "docs/01-architecture.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/elk-log-data-platform",
       "url": "https://github.com/zdmooc/elk-log-data-platform",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 40,
+        "md": 14,
+        "python": 3,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/01-cadrage-kpis-usages.md",
+          "docs/02-architecture-cible.md",
+          "docs/adr/0003-ilm-and-data-tiers.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/k8s-openshift-cluster-factory",
@@ -147,36 +281,78 @@
       "url": "https://github.com/zdmooc/dynatrace-observability-senior-project",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 49,
+        "md": 40,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/01-cadrage/00-perimetre-et-objectifs.md",
+          "docs/01-cadrage/01-architecture-cible.md",
+          "docs/02-installation/02-03-oneagent-linux.md",
+          "docs/02-installation/02-04-oneagent-windows.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/dynatrace-crc-lab",
       "url": "https://github.com/zdmooc/dynatrace-crc-lab",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 27,
+        "md": 14,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/pega-docker-repo",
       "url": "https://github.com/zdmooc/pega-docker-repo",
       "visibility": "public",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 11,
+        "md": 1,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/tomcat11-jakarta-prodready-repo",
       "url": "https://github.com/zdmooc/tomcat11-jakarta-prodready-repo",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 42,
+        "md": 25,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/04-architecture-multi-instance.md",
+          "labs/04-jndi-datasource.md",
+          "labs/05-security-tls-hardening.md",
+          "runbooks/rb-startup-failure.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/TradeOps-GenAI-Integration",
@@ -192,36 +368,92 @@
       "url": "https://github.com/zdmooc/openshift2026-openshift-local-trading-gateway",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 47,
+        "md": 5,
+        "python": 6,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/architecture.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/iam-etat-de-lart-2026",
       "url": "https://github.com/zdmooc/iam-etat-de-lart-2026",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 54,
+        "md": 35,
+        "python": 1,
+        "truncated": false,
+        "interesting_paths": [
+          "architecture/ADR-001-authn-authz-boundaries.md",
+          "architecture/HLD.md",
+          "architecture/LLD.md",
+          "docs/03-reference-architecture.md",
+          "docs/04-patterns/api-security-oauth.md",
+          "evidence/CLAIM-EVIDENCE-MATRIX.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/openshift-migration-framework",
       "url": "https://github.com/zdmooc/openshift-migration-framework",
       "visibility": "private",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 305,
+        "md": 48,
+        "python": 4,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/02-target-architecture.md",
+          "docs/07-storage-persistence.md",
+          "docs/08-security-iam.md",
+          "docs/governance/O4_PLAN.md",
+          "docs/governance/OWNERSHIP.md",
+          "evidence/CLAIM_EVIDENCE_MATRIX.md",
+          "migration/assessment/QUESTIONNAIRE.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/kubernetes-the-hard-way-multicloud",
       "url": "https://github.com/zdmooc/kubernetes-the-hard-way-multicloud",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 131,
+        "md": 50,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/architecture/kubernetes-v6-specialisation-cloud-on-prem.md",
+          "docs/governance/O7_COMPLETION_RECORD.md",
+          "docs/governance/O7_OWNERSHIP.md",
+          "docs/governance/O7_SECURITY_FINDINGS.md",
+          "docs/onprem-vagrant/rebuild-kit/docs/diagrams/architecture.md",
+          "evidence/CLAIM_EVIDENCE_MATRIX.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/MayaBank-V2",
@@ -237,117 +469,420 @@
       "url": "https://github.com/zdmooc/togaf-archimate-cert-prep-v2",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 53,
+        "md": 49,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/00-strategie/planning-12-semaines.md",
+          "docs/00-strategie/readiness-plans/plan-16-semaines-confort.md",
+          "docs/00-strategie/readiness-plans/plan-8-semaines-intensif.md",
+          "docs/02-togaf-part2/case-studies/case-02-security-exception.md",
+          "docs/05-cross-training/case-studies/maif-odm-modernization-case.md",
+          "docs/05-cross-training/case-studies/openshift-migration-case.md",
+          "docs/05-cross-training/modeling-prompts/prompt-01-odm.md",
+          "docs/05-cross-training/modeling-prompts/prompt-02-openshift.md",
+          "docs/05-cross-training/modeling-prompts/prompt-03-iam.md",
+          "docs/05-cross-training/togaf-archimate-bridges.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/togaf10-pt1-companion-repo-v3",
       "url": "https://github.com/zdmooc/togaf10-pt1-companion-repo-v3",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 91,
+        "md": 86,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "chapter-notes/chapter-01-introduction-detaillee.md",
+          "chapter-notes/chapter-02-concepts-cles-detaillee.md",
+          "chapter-notes/chapter-03-adm-detaillee.md",
+          "chapter-notes/chapter-04-techniques-detaillee.md",
+          "chapter-notes/chapter-05-applying-adm-detaillee.md",
+          "chapter-notes/chapter-06-governance-detaillee.md",
+          "chapter-notes/chapter-07-content-framework-detaillee.md",
+          "chapter-notes/worksheets/worksheet-03-governance-content.md",
+          "daily-plan/day-01.md",
+          "daily-plan/day-02.md",
+          "daily-plan/day-03.md",
+          "daily-plan/day-04.md",
+          "daily-plan/day-05.md",
+          "daily-plan/day-06.md",
+          "daily-plan/day-07.md",
+          "daily-plan/day-08.md",
+          "daily-plan/day-09.md",
+          "daily-plan/day-10.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/archimate-level2-companion-repo",
       "url": "https://github.com/zdmooc/archimate-level2-companion-repo",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 103,
+        "md": 102,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "daily-plan/day-01.md",
+          "daily-plan/day-02.md",
+          "daily-plan/day-03.md",
+          "daily-plan/day-04.md",
+          "daily-plan/day-05.md",
+          "daily-plan/day-06.md",
+          "daily-plan/day-07.md",
+          "daily-plan/day-08.md",
+          "daily-plan/day-09.md",
+          "daily-plan/day-10.md",
+          "daily-plan/day-11.md",
+          "daily-plan/day-12.md",
+          "daily-plan/day-13.md",
+          "daily-plan/day-14.md",
+          "daily-plan/day-15.md",
+          "daily-plan/day-16.md",
+          "daily-plan/day-17.md",
+          "daily-plan/day-18.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/archimate-level1-companion-repo",
       "url": "https://github.com/zdmooc/archimate-level1-companion-repo",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 92,
+        "md": 60,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "daily-plan/day-01.md",
+          "daily-plan/day-02.md",
+          "daily-plan/day-03.md",
+          "daily-plan/day-04.md",
+          "daily-plan/day-05.md",
+          "daily-plan/day-06.md",
+          "daily-plan/day-07.md",
+          "daily-plan/day-08.md",
+          "daily-plan/day-09.md",
+          "daily-plan/day-10.md",
+          "daily-plan/day-11.md",
+          "daily-plan/day-12.md",
+          "daily-plan/day-13.md",
+          "daily-plan/day-14.md",
+          "daily-plan/day-15.md",
+          "daily-plan/day-16.md",
+          "daily-plan/day-17.md",
+          "daily-plan/day-18.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/keycloak-enterprise-roadmap-v7",
       "url": "https://github.com/zdmooc/keycloak-enterprise-roadmap-v7",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 327,
+        "md": 190,
+        "python": 1,
+        "truncated": false,
+        "interesting_paths": [
+          "SECURITY.md",
+          "architecture/adr/ADR-0001-repo-scope.md",
+          "architecture/adr/ADR-001-topology-decision.md",
+          "architecture/decision-records/README.md",
+          "architecture/diagrams/README.md",
+          "architecture/support-matrix/README.md",
+          "docs/01-fundamentals/01-iam-oidc-oauth2-saml-basics.md",
+          "docs/01-fundamentals/02-keycloak-architecture-overview.md",
+          "docs/02-admin-and-realm-design/06-fine-grained-admin-permissions.md",
+          "docs/03-security/01-production-security-baseline.md",
+          "docs/03-security/02-hostname-v2-and-reverse-proxy.md",
+          "docs/03-security/03-tls-truststore-mtls.md",
+          "docs/03-security/04-client-policies.md",
+          "docs/03-security/05-client-secret-rotation.md",
+          "docs/03-security/06-token-exchange.md",
+          "docs/03-security/07-passkeys-and-webauthn.md",
+          "docs/03-security/08-recovery-codes-step-up-authentication.md",
+          "docs/03-security/09-service-accounts-and-machine-to-machine.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/kafka-expert",
       "url": "https://github.com/zdmooc/kafka-expert",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 30,
+        "md": 11,
+        "python": 3,
+        "truncated": false,
+        "interesting_paths": [
+          "architecture/DDL_Kafka.md",
+          "architecture/HLD_Kafka.md",
+          "architecture/README.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/kubernetes-the-hard-way-vagrant-architect-v29",
       "url": "https://github.com/zdmooc/kubernetes-the-hard-way-vagrant-architect-v29",
       "visibility": "public",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 411,
+        "md": 220,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "SECURITY.md",
+          "docs/01-architecture/access-and-security-boundaries.md",
+          "docs/01-architecture/api-flow.md",
+          "docs/01-architecture/control-plane.md",
+          "docs/01-architecture/failure-domains.md",
+          "docs/01-architecture/full-oidc-end-to-end-architecture.md",
+          "docs/01-architecture/global-cluster-architecture.md",
+          "docs/01-architecture/identity-and-access-federation.md",
+          "docs/01-architecture/identity-rbac-and-audit-architecture.md",
+          "docs/01-architecture/reconciliation-loop.md",
+          "docs/01-architecture/trust-zones-and-access-paths.md",
+          "docs/01-architecture/worker-node.md",
+          "docs/02-concepts/security.md",
+          "docs/02-concepts/storage.md",
+          "docs/03-bootstrap/21-logging-loki-promtail.md",
+          "docs/04-diagnostics/security-runbook.md",
+          "docs/04-diagnostics/storage-runbook.md",
+          "docs/05-audit/awx-and-ansible-governance-checklist.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/digital-sustainability-devsecops-quality-security",
       "url": "https://github.com/zdmooc/digital-sustainability-devsecops-quality-security",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 91,
+        "md": 75,
+        "python": 7,
+        "truncated": false,
+        "interesting_paths": [
+          "00_EXECUTIVE/01_note_de_cadrage.md",
+          "02_ARCHITECTURE/01_vue_si_critique_generique.md",
+          "02_ARCHITECTURE/02_patterns_architecture_neutralises.md",
+          "03_METHOD/03_methode_diagnostic_detaille.md",
+          "03_METHOD/06_methode_maturite_quality_security.md",
+          "04_TEMPLATES/04_template_inventaire_cicd.md",
+          "04_TEMPLATES/10_fiche_risque_detaillee.md",
+          "04_TEMPLATES/11_grille_adoption_quality_security.md",
+          "04_TEMPLATES/12_registre_derogations_quality_security.md",
+          "04_TEMPLATES/13_suivi_anomalies_quality_security.md",
+          "04_TEMPLATES/15_questionnaire_couverture_cicd.md",
+          "05_DIAGRAMS/03_architecture_generique_si_critique.md",
+          "05_DIAGRAMS/07_cicd_quality_security_flow.md",
+          "06_DASHBOARDS/02_dashboard_quality_security.md",
+          "06_DASHBOARDS/generated/cicd_coverage_report.md",
+          "07_BACKLOG/02_backlog_actions_detaille.md",
+          "09_REPORTING/02_support_comite_hebdomadaire.md",
+          "11_GOVERNANCE/01_conventions.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/digital-sustainability-infrastructure-assessment",
       "url": "https://github.com/zdmooc/digital-sustainability-infrastructure-assessment",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 91,
+        "md": 75,
+        "python": 7,
+        "truncated": false,
+        "interesting_paths": [
+          "00_EXECUTIVE/01_note_de_cadrage.md",
+          "02_ARCHITECTURE/01_vue_si_critique_generique.md",
+          "02_ARCHITECTURE/02_patterns_architecture_neutralises.md",
+          "03_METHOD/03_methode_diagnostic_detaille.md",
+          "04_TEMPLATES/04_template_comparaison_infrastructure.md",
+          "04_TEMPLATES/10_fiche_risque_detaillee.md",
+          "05_DIAGRAMS/03_architecture_generique_si_critique.md",
+          "05_DIAGRAMS/07_architecture_source_cible.md",
+          "07_BACKLOG/02_backlog_actions_detaille.md",
+          "09_REPORTING/02_support_comite_hebdomadaire.md",
+          "10_EXPERT_PLAYBOOKS/PLAYBOOK_03_INFRASTRUCTURE_EXADATA_GES_COMPLET.md",
+          "11_GOVERNANCE/01_conventions.md",
+          "11_GOVERNANCE/02_modele_comites.md",
+          "11_GOVERNANCE/03_modele_execution_mission.md",
+          "12_SECURITY_PRIVACY/01_confidentialite_anonymisation.md",
+          "90_REFERENCES/01_glossaire_neutralise.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/digital-sustainability-platform-modernization",
       "url": "https://github.com/zdmooc/digital-sustainability-platform-modernization",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 91,
+        "md": 75,
+        "python": 7,
+        "truncated": false,
+        "interesting_paths": [
+          "00_EXECUTIVE/01_note_de_cadrage.md",
+          "02_ARCHITECTURE/01_vue_si_critique_generique.md",
+          "02_ARCHITECTURE/02_patterns_architecture_neutralises.md",
+          "03_METHOD/03_methode_diagnostic_detaille.md",
+          "03_METHOD/07_methode_gain_risque_modernisation.md",
+          "04_TEMPLATES/10_fiche_risque_detaillee.md",
+          "04_TEMPLATES/16_questionnaire_complexite_modernisation.md",
+          "05_DIAGRAMS/03_architecture_generique_si_critique.md",
+          "05_DIAGRAMS/07_architecture_actuelle_cible.md",
+          "05_DIAGRAMS/09_scoring_complexite_faisabilite.md",
+          "07_BACKLOG/02_backlog_actions_detaille.md",
+          "09_REPORTING/02_support_comite_hebdomadaire.md",
+          "11_GOVERNANCE/01_conventions.md",
+          "11_GOVERNANCE/02_modele_comites.md",
+          "11_GOVERNANCE/03_modele_execution_mission.md",
+          "12_SECURITY_PRIVACY/01_confidentialite_anonymisation.md",
+          "90_REFERENCES/01_glossaire_neutralise.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/assessment-was-openshift",
       "url": "https://github.com/zdmooc/assessment-was-openshift",
       "visibility": "private",
       "initial_role": "PLATFORM_ENABLER_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 356,
+        "md": 19,
+        "python": 11,
+        "truncated": false,
+        "interesting_paths": [
+          "_archive/ASSESSMENT_FINAL_CHAIN_V1.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/formation-was",
       "url": "https://github.com/zdmooc/formation-was",
       "visibility": "private",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 590,
+        "md": 35,
+        "python": 65,
+        "truncated": false,
+        "interesting_paths": [
+          "phase-09-spring-boot-was/spring-customer-was/docs/01-architecture-spring.md",
+          "phase-09-spring-boot-was/spring-customer-was/docs/04-greenops.md",
+          "phase-09-springboot-was-complete-09-1-to-09-5/docs/PHASE09_ARCHITECTURE.md",
+          "phase-10-spring-data-datasource-was-liberty/README.md",
+          "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_ARCHITECTURE.md",
+          "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_COMMANDES.md",
+          "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_DATASOURCE_WAS_CONSOLE.md",
+          "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_FIN_DE_PHASE_CRITERES.md",
+          "phase-10-spring-data-datasource-was-liberty/docs/PHASE10_TROUBLESHOOTING.md",
+          "phase-10-spring-data-datasource-was-liberty/liberty/README_LIBERTY_TARGET.md",
+          "phase-11-spring-batch-filesystem-partage/docs/PHASE11_ARCHITECTURE.md",
+          "phase-12-ear-ejb-transactions-jta/docs/PHASE12_ARCHITECTURE.md",
+          "phase-13-jms-mdb-transactionnel-ibm-mq/docs/PHASE13_ARCHITECTURE.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/oracle-infra-architecture-ha-dr-labs",
       "url": "https://github.com/zdmooc/oracle-infra-architecture-ha-dr-labs",
       "visibility": "private",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 156,
+        "md": 118,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "04_network_datacenter_oracle/01_flux_oracle_reference.md",
+          "04_network_datacenter_oracle/02_checklist_reseau_oracle.md",
+          "04_network_datacenter_oracle/README.md",
+          "05_storage_san_nas_block_file/01_matrice_stockage_oracle.md",
+          "05_storage_san_nas_block_file/02_checklist_stockage_oracle.md",
+          "05_storage_san_nas_block_file/03_processus_diagnostic_stockage_oracle.md",
+          "05_storage_san_nas_block_file/README.md",
+          "07_oracle_grid_infrastructure/01_processus_demarrage_cluster.md",
+          "08_oracle_database_architecture/01_cycle_transaction_recovery.md",
+          "08_oracle_database_architecture/02_checklist_database_architecture.md",
+          "08_oracle_database_architecture/README.md",
+          "10_rman_backup_restore/03_zdlra_architecture.md",
+          "11_oracle_dataguard/01_checklist_dataguard.md",
+          "11_oracle_dataguard/02_runbook_switchover_failover.md",
+          "11_oracle_dataguard/03_architecture_dataguard_complete.md",
+          "11_oracle_dataguard/04_troubleshooting_dataguard_lag_gap.md",
+          "11_oracle_dataguard/05_matrice_decision_dataguard.md",
+          "11_oracle_dataguard/README.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/payment-hub-iso20022-opf-reference",
@@ -363,18 +898,72 @@
       "url": "https://github.com/zdmooc/oracle-exadata-infra-ha-dr-course-labs-v5",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 149,
+        "md": 117,
+        "python": 2,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/05-glossaire-exadata.md",
+          "labs/01-inventory-exadata-read-only.md",
+          "labs/07-hcc-flash-cache-storage-indexes.md",
+          "labs/10-storage-cell-healthcheck.md",
+          "labs/13-ha-dr-data-guard-design.md",
+          "labs/17-bulk-data-loading-plan.md",
+          "modules/00-introduction-au-workshop-exadata.md",
+          "modules/02-architecture.md",
+          "modules/04-site-planning-et-integration-datacenter.md",
+          "modules/06-exadata-storage-server-configuration.md",
+          "modules/12-migration-to-exadata.md",
+          "modules/13-bulk-data-loading.md",
+          "modules/15-monitoring-exadata-system-software.md",
+          "modules/17-monitoring-storage-servers.md",
+          "modules/18-monitoring-database-servers.md",
+          "modules/24-maintenance-tasks.md",
+          "modules/27-exadata-cloud-service-et-cloud-customer.md",
+          "modules/questions-reponses-module-00-exadata.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/wero-organisme-poc",
       "url": "https://github.com/zdmooc/wero-organisme-poc",
       "visibility": "private",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 216,
+        "md": 52,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/adr/ADR-002-unknown-is-not-failed.md",
+          "docs/architecture/00-architecture-v0.md",
+          "docs/architecture/01-single-immediate-v1.md",
+          "docs/architecture/02-state-ledger-reconciliation-v2.md",
+          "docs/architecture/03-kafka-outbox-events-v2b.md",
+          "docs/architecture/04-security-consent-sca-v3.md",
+          "docs/architecture/05-api-gateway-zero-trust-v3b.md",
+          "docs/architecture/06-observability-e2e-v4.md",
+          "docs/architecture/07-gitops-argocd-v5.md",
+          "docs/architecture/08-spof-chaos-ha-v6.md",
+          "docs/architecture/09-sct-inst-shared-state-v6-b4.md",
+          "docs/architecture/10-wero-outage-controlled-recovery-v6-b5-b6.md",
+          "docs/architecture/11-concurrent-controlled-recovery-v6-b7.md",
+          "docs/architecture/12-degraded-modes-v6-b8.md",
+          "docs/architecture/13-production-ha-topology-v7-c1.md",
+          "docs/architecture/14-postgresql-ha-v7-c2.md",
+          "docs/architecture/15-postgresql-backup-pitr-v7-c2.md",
+          "docs/architecture/16-redpanda-ha-v7-c3.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/Maya",
@@ -435,27 +1024,108 @@
       "url": "https://github.com/zdmooc/cadrage_202682030",
       "visibility": "private",
       "initial_role": "PORTFOLIO_GOVERNANCE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 114,
+        "md": 113,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "architecture/ADR_CAPABILITY_CONSUMPTION_RUNTIME_PROJECTION_2026-10-04.md",
+          "architecture/AI_ARCHITECT_WORKBENCH_2026-10-01.md",
+          "architecture/AI_FIRST_TARGET_2030.md",
+          "architecture/CAAS_CICD_RUNNER_STRATEGY_2026-09-19.md",
+          "architecture/HYBRID_DEPLOYMENT_STRATEGY.md",
+          "architecture/LOCAL_CRC_CAPACITY_SIZING_2026-09-19.md",
+          "architecture/LOCAL_DUAL_PLATFORM_CRC_KIND_SWITCHING_2026-09-28.md",
+          "architecture/MAYABANK_EPHEMERAL_CLOUD_PLATFORM_STRATEGY_2026-10-01.md",
+          "architecture/SHARED_PLATFORM_SERVICES_OPENSHIFT_2026-09-26.md",
+          "architecture/SIZING_FINOPS_GREENOPS.md",
+          "domains/insurance/INSURANCE_AI_USE_CASES_2030.md",
+          "domains/insurance/INSURANCE_TRANSFORMATION_MASTER_MAP.md",
+          "domains/payments/EUROPEAN_PAYMENTS_MASTER_MAP.md",
+          "market/DAILY_RESEARCH_LOG.md",
+          "portfolio/AGENTIC_AI_PLATFORM_ARCHITECT_MISSION_ALIGNMENT_2026-10-04.md",
+          "portfolio/AI_INFRAOPS_ASYNC_WORKLOAD_MISSION_ALIGNMENT_2026-10-04.md",
+          "portfolio/AI_PLATFORM_EXECUTION_PLAN_2026-10-02.md",
+          "portfolio/AI_PORTFOLIO_AUDIT_2026-10-10.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/mayabank-servicenow-csdm-cmdb-architecture",
       "url": "https://github.com/zdmooc/mayabank-servicenow-csdm-cmdb-architecture",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 146,
+        "md": 132,
+        "python": 5,
+        "truncated": false,
+        "interesting_paths": [
+          "01-servicenow-foundations/data-model-basics.md",
+          "03-csdm/domains.md",
+          "05-discovery/credentials-network-security.md",
+          "07-cmdb-health/lifecycle-data-manager.md",
+          "09-rest-api/auth-security.md",
+          "12-openshift/integration-architecture.md",
+          "13-enterprise-architecture/README.md",
+          "13-enterprise-architecture/csdm-togaf-archimate.md",
+          "13-enterprise-architecture/ea-apm.md",
+          "13-enterprise-architecture/hopex-leanix-sparx.md",
+          "13-enterprise-architecture/portfolio-lifecycle.md",
+          "14-security/README.md",
+          "14-security/mid-credentials-secrets.md",
+          "14-security/oauth-api-security.md",
+          "14-security/rbac-acl.md",
+          "15-governance/README.md",
+          "15-governance/data-ownership.md",
+          "15-governance/governance-operating-model.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/oracle-exadata-x11m-solution-architecture",
       "url": "https://github.com/zdmooc/oracle-exadata-x11m-solution-architecture",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 81,
+        "md": 81,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "05-x11m-architecture/README.md",
+          "10-ha-dr-dataguard/README.md",
+          "10-ha-dr-dataguard/dataguard-advanced-broker-fsfo-farsync.md",
+          "10-ha-dr-dataguard/maa-application-continuity.md",
+          "12-security-tde-wallet/README.md",
+          "12-security-tde-wallet/security-enterprise-cyber-resilience.md",
+          "16-cost-licensing/finops-tco-unit-economics.md",
+          "16-cost-licensing/licensing-architecture.md",
+          "17-greenit-capacity/README.md",
+          "17-greenit-capacity/advanced-power-management.md",
+          "17-greenit-capacity/finops-greenops-resilience.md",
+          "17-greenit-capacity/greenit-methodology.md",
+          "17-greenit-capacity/greenops-operating-model.md",
+          "19-adrs/ADR-003-dataguard-sync-vs-async.md",
+          "20-reference-architectures/RA-01-dual-x11m-onprem.md",
+          "20-reference-architectures/README.md",
+          "21-bank-case-study/finops-greenops-dashboard.md",
+          "22-labs/LAB-23-finops-greenops-licensing.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/mayabank-api-management-architecture",
@@ -516,9 +1186,17 @@
       "url": "https://github.com/zdmooc/pega-8.4-personal-edition-audit",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 5,
+        "md": 1,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/maya-ai-agentic-architecture-reference",
@@ -552,18 +1230,53 @@
       "url": "https://github.com/zdmooc/pega-exit-reverse-engineering-reference",
       "visibility": "private",
       "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 114,
+        "md": 91,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "00-governance/30-day-plan.md",
+          "00-governance/assumptions.md",
+          "00-governance/mission-context.md",
+          "00-governance/public-sources.md",
+          "00-governance/scope.md",
+          "01-business-as-is/06-domain-data/domain-model.md",
+          "01-business-as-is/08-security/business-access-model.md",
+          "02-pega-as-is/PEGA-AS-IS-ARCHITECTURE-BOOK.md",
+          "02-pega-as-is/data-and-blob-extraction-playbook.md",
+          "02-pega-as-is/data-integration-security-operations.md",
+          "03-target-logical/TARGET-LOGICAL-ARCHITECTURE.md",
+          "03-target-logical/domain-workflow-rule-model.md",
+          "03-target-logical/security-integration-nfr.md",
+          "04-target-technical/TARGET-TECHNICAL-ARCHITECTURE.md",
+          "04-target-technical/api-and-data-contracts.md",
+          "04-target-technical/architecture-decision-register.md",
+          "04-target-technical/architecture-style-decision-framework.md",
+          "07-pega-knowledge-base/01-architecture-packaging-ecs.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/synae-enterprise-architecture",
       "url": "https://github.com/zdmooc/synae-enterprise-architecture",
       "visibility": "private",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 1,
+        "md": 1,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": []
+      }
     },
     {
       "repository": "zdmooc/mayabank-instant-payments-resilience-platform",
@@ -642,9 +1355,21 @@
       "url": "https://github.com/zdmooc/mayabank-market-access-algorithmic-trading-architecture",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 53,
+        "md": 41,
+        "python": 9,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/01-reference-architecture.md",
+          "docs/06-security-controls.md",
+          "docs/i01/01-domain-and-actors.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/trading-perso",
@@ -678,18 +1403,42 @@
       "url": "https://github.com/zdmooc/mayabank-energy-grid-functional-architecture",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 21,
+        "md": 9,
+        "python": 4,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/E2_PROCESS_DATA_INTEGRATION.md",
+          "docs/E3_ARCHITECTURE_DECISION.md",
+          "docs/E4_ARCHITECTURE_BOARD_REHEARSAL.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/mayabank-low-latency-authorization-engine",
       "url": "https://github.com/zdmooc/mayabank-low-latency-authorization-engine",
       "visibility": "public",
       "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 19,
+        "md": 11,
+        "python": 0,
+        "truncated": false,
+        "interesting_paths": [
+          "docs/architecture/HLD_AND_OPTIONS.md",
+          "docs/architecture/RESILIENCE_AND_LIMITS.md",
+          "docs/security/THREAT_MODEL.md"
+        ]
+      }
     },
     {
       "repository": "zdmooc/ysteria-ai-autonomous-business-platform",
@@ -714,9 +1463,26 @@
       "url": "https://github.com/zdmooc/ai-from-scratch-to-enterprise-architect-masterbook",
       "visibility": "private",
       "initial_role": "EDITORIAL_MASTERBOOK",
-      "tree_examined_2026_10_10": false,
+      "tree_examined_2026_10_10": true,
       "content_exhaustively_audited": false,
-      "rights_and_license": "REVIEW_REQUIRED"
+      "rights_and_license": "REVIEW_REQUIRED",
+      "tree_scan_summary": {
+        "status": "TREE_READ",
+        "files": 50,
+        "md": 14,
+        "python": 2,
+        "truncated": false,
+        "interesting_paths": [
+          "governance/CHAPTER_TEMPLATE.md",
+          "governance/CI_STATUS_2026-10-10.md",
+          "governance/EDITORIAL_GOVERNANCE.md"
+        ]
+      }
     }
+  ],
+  "notes": [
+    "An arborescence scan is not a full review of each source file.",
+    "46? initial scan count not reliable for counts of code authorship; rely on file metadata and separate rights review.",
+    "All readbacks performed via GitHub HEAD tree; private repo content was not copied into manuscript."
   ]
 }
