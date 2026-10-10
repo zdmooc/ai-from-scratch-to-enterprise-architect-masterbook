@@ -1,0 +1,722 @@
+{
+  "generated_date": "2026-10-10",
+  "status": "I02_PORTFOLIO_METADATA_INVENTORY",
+  "counts": {
+    "repositories": 79,
+    "trees_examined": 34,
+    "trees_not_examined": 45
+  },
+  "repositories": [
+    {
+      "repository": "zdmooc/prorealtime",
+      "url": "https://github.com/zdmooc/prorealtime",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/gcparchitect",
+      "url": "https://github.com/zdmooc/gcparchitect",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/odm-cloudnative-2025-2029",
+      "url": "https://github.com/zdmooc/odm-cloudnative-2025-2029",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/ansible-ils",
+      "url": "https://github.com/zdmooc/ansible-ils",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/openshift-platform-blueprints",
+      "url": "https://github.com/zdmooc/openshift-platform-blueprints",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/argocd-complete-masterclass",
+      "url": "https://github.com/zdmooc/argocd-complete-masterclass",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/docker-podman-complete-masterclass",
+      "url": "https://github.com/zdmooc/docker-podman-complete-masterclass",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/kafka-socle-gouvernance-lab",
+      "url": "https://github.com/zdmooc/kafka-socle-gouvernance-lab",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/argocd-expert-pack",
+      "url": "https://github.com/zdmooc/argocd-expert-pack",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/kafka-data-engineer-kafkaops-topic-service-crc",
+      "url": "https://github.com/zdmooc/kafka-data-engineer-kafkaops-topic-service-crc",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/modernis-dat-repo",
+      "url": "https://github.com/zdmooc/modernis-dat-repo",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/java21-jvm-expert-leadtech",
+      "url": "https://github.com/zdmooc/java21-jvm-expert-leadtech",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/appservers-socle-expert-repo",
+      "url": "https://github.com/zdmooc/appservers-socle-expert-repo",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/elk-log-data-platform",
+      "url": "https://github.com/zdmooc/elk-log-data-platform",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/k8s-openshift-cluster-factory",
+      "url": "https://github.com/zdmooc/k8s-openshift-cluster-factory",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/dynatrace-observability-senior-project",
+      "url": "https://github.com/zdmooc/dynatrace-observability-senior-project",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/dynatrace-crc-lab",
+      "url": "https://github.com/zdmooc/dynatrace-crc-lab",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/pega-docker-repo",
+      "url": "https://github.com/zdmooc/pega-docker-repo",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/tomcat11-jakarta-prodready-repo",
+      "url": "https://github.com/zdmooc/tomcat11-jakarta-prodready-repo",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/TradeOps-GenAI-Integration",
+      "url": "https://github.com/zdmooc/TradeOps-GenAI-Integration",
+      "visibility": "public",
+      "initial_role": "CANONICAL_AI_EXECUTABLE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/openshift2026-openshift-local-trading-gateway",
+      "url": "https://github.com/zdmooc/openshift2026-openshift-local-trading-gateway",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/iam-etat-de-lart-2026",
+      "url": "https://github.com/zdmooc/iam-etat-de-lart-2026",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/openshift-migration-framework",
+      "url": "https://github.com/zdmooc/openshift-migration-framework",
+      "visibility": "private",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/kubernetes-the-hard-way-multicloud",
+      "url": "https://github.com/zdmooc/kubernetes-the-hard-way-multicloud",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/MayaBank-V2",
+      "url": "https://github.com/zdmooc/MayaBank-V2",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/togaf-archimate-cert-prep-v2",
+      "url": "https://github.com/zdmooc/togaf-archimate-cert-prep-v2",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/togaf10-pt1-companion-repo-v3",
+      "url": "https://github.com/zdmooc/togaf10-pt1-companion-repo-v3",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/archimate-level2-companion-repo",
+      "url": "https://github.com/zdmooc/archimate-level2-companion-repo",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/archimate-level1-companion-repo",
+      "url": "https://github.com/zdmooc/archimate-level1-companion-repo",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/keycloak-enterprise-roadmap-v7",
+      "url": "https://github.com/zdmooc/keycloak-enterprise-roadmap-v7",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/kafka-expert",
+      "url": "https://github.com/zdmooc/kafka-expert",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/kubernetes-the-hard-way-vagrant-architect-v29",
+      "url": "https://github.com/zdmooc/kubernetes-the-hard-way-vagrant-architect-v29",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/digital-sustainability-devsecops-quality-security",
+      "url": "https://github.com/zdmooc/digital-sustainability-devsecops-quality-security",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/digital-sustainability-infrastructure-assessment",
+      "url": "https://github.com/zdmooc/digital-sustainability-infrastructure-assessment",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/digital-sustainability-platform-modernization",
+      "url": "https://github.com/zdmooc/digital-sustainability-platform-modernization",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/assessment-was-openshift",
+      "url": "https://github.com/zdmooc/assessment-was-openshift",
+      "visibility": "private",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/formation-was",
+      "url": "https://github.com/zdmooc/formation-was",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/oracle-infra-architecture-ha-dr-labs",
+      "url": "https://github.com/zdmooc/oracle-infra-architecture-ha-dr-labs",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/payment-hub-iso20022-opf-reference",
+      "url": "https://github.com/zdmooc/payment-hub-iso20022-opf-reference",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/oracle-exadata-infra-ha-dr-course-labs-v5",
+      "url": "https://github.com/zdmooc/oracle-exadata-infra-ha-dr-course-labs-v5",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/wero-organisme-poc",
+      "url": "https://github.com/zdmooc/wero-organisme-poc",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/Maya",
+      "url": "https://github.com/zdmooc/Maya",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/Maya-gitops",
+      "url": "https://github.com/zdmooc/Maya-gitops",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-kafka-ddd-openshift",
+      "url": "https://github.com/zdmooc/mayabank-kafka-ddd-openshift",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/togaf-ogea-103-combined-certification-prep",
+      "url": "https://github.com/zdmooc/togaf-ogea-103-combined-certification-prep",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/archimate-3-2-foundation-practitioner-masterbook",
+      "url": "https://github.com/zdmooc/archimate-3-2-foundation-practitioner-masterbook",
+      "visibility": "private",
+      "initial_role": "EDITORIAL_REFERENCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-azure-cloud-ai-platform",
+      "url": "https://github.com/zdmooc/mayabank-azure-cloud-ai-platform",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/cadrage_202682030",
+      "url": "https://github.com/zdmooc/cadrage_202682030",
+      "visibility": "private",
+      "initial_role": "PORTFOLIO_GOVERNANCE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-servicenow-csdm-cmdb-architecture",
+      "url": "https://github.com/zdmooc/mayabank-servicenow-csdm-cmdb-architecture",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/oracle-exadata-x11m-solution-architecture",
+      "url": "https://github.com/zdmooc/oracle-exadata-x11m-solution-architecture",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-api-management-architecture",
+      "url": "https://github.com/zdmooc/mayabank-api-management-architecture",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-ibm-odm-ai-decision-architecture",
+      "url": "https://github.com/zdmooc/mayabank-ibm-odm-ai-decision-architecture",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-carbon-aware-decision-architecture",
+      "url": "https://github.com/zdmooc/mayabank-carbon-aware-decision-architecture",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/hopex-aquila-enterprise-architecture-masterbook",
+      "url": "https://github.com/zdmooc/hopex-aquila-enterprise-architecture-masterbook",
+      "visibility": "public",
+      "initial_role": "EDITORIAL_REFERENCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-ibm-mq-native-ha-openshift-eda-platform",
+      "url": "https://github.com/zdmooc/mayabank-ibm-mq-native-ha-openshift-eda-platform",
+      "visibility": "private",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-pega-ai-case-management-openshift",
+      "url": "https://github.com/zdmooc/mayabank-pega-ai-case-management-openshift",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/pega-8.4-personal-edition-audit",
+      "url": "https://github.com/zdmooc/pega-8.4-personal-edition-audit",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/maya-ai-agentic-architecture-reference",
+      "url": "https://github.com/zdmooc/maya-ai-agentic-architecture-reference",
+      "visibility": "public",
+      "initial_role": "CANONICAL_AI_ARCHITECTURE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/maya-freelance-mission-intelligence",
+      "url": "https://github.com/zdmooc/maya-freelance-mission-intelligence",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-gcp-event-driven-cloud-architecture",
+      "url": "https://github.com/zdmooc/mayabank-gcp-event-driven-cloud-architecture",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/pega-exit-reverse-engineering-reference",
+      "url": "https://github.com/zdmooc/pega-exit-reverse-engineering-reference",
+      "visibility": "private",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/synae-enterprise-architecture",
+      "url": "https://github.com/zdmooc/synae-enterprise-architecture",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-instant-payments-resilience-platform",
+      "url": "https://github.com/zdmooc/mayabank-instant-payments-resilience-platform",
+      "visibility": "private",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/dora-operational-resilience-architecture-masterbook",
+      "url": "https://github.com/zdmooc/dora-operational-resilience-architecture-masterbook",
+      "visibility": "public",
+      "initial_role": "EDITORIAL_REFERENCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/maya-secure-agentic-devsecops-platform",
+      "url": "https://github.com/zdmooc/maya-secure-agentic-devsecops-platform",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/enterprise-data-lakehouse-kubernetes-openshift",
+      "url": "https://github.com/zdmooc/enterprise-data-lakehouse-kubernetes-openshift",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/wero-epi-reference-architecture-handbook",
+      "url": "https://github.com/zdmooc/wero-epi-reference-architecture-handbook",
+      "visibility": "public",
+      "initial_role": "EDITORIAL_REFERENCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-european-payment-processing-platform",
+      "url": "https://github.com/zdmooc/mayabank-european-payment-processing-platform",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-customer-identity-kyc-digital-banking-architecture",
+      "url": "https://github.com/zdmooc/mayabank-customer-identity-kyc-digital-banking-architecture",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/shared-platform-services-openshift",
+      "url": "https://github.com/zdmooc/shared-platform-services-openshift",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-market-access-algorithmic-trading-architecture",
+      "url": "https://github.com/zdmooc/mayabank-market-access-algorithmic-trading-architecture",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/trading-perso",
+      "url": "https://github.com/zdmooc/trading-perso",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-multicloud-migration-finops",
+      "url": "https://github.com/zdmooc/mayabank-multicloud-migration-finops",
+      "visibility": "public",
+      "initial_role": "PLATFORM_ENABLER_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/maya-health-nutrition-intelligence",
+      "url": "https://github.com/zdmooc/maya-health-nutrition-intelligence",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-energy-grid-functional-architecture",
+      "url": "https://github.com/zdmooc/mayabank-energy-grid-functional-architecture",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/mayabank-low-latency-authorization-engine",
+      "url": "https://github.com/zdmooc/mayabank-low-latency-authorization-engine",
+      "visibility": "public",
+      "initial_role": "RELATED_OR_OUTSIDE_SCOPE_UNASSESSED",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/ysteria-ai-autonomous-business-platform",
+      "url": "https://github.com/zdmooc/ysteria-ai-autonomous-business-platform",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/enterprise-ai-infrastructure-reference-architecture",
+      "url": "https://github.com/zdmooc/enterprise-ai-infrastructure-reference-architecture",
+      "visibility": "public",
+      "initial_role": "AI_OR_DOMAIN_SOURCE_CANDIDATE",
+      "tree_examined_2026_10_10": true,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    },
+    {
+      "repository": "zdmooc/ai-from-scratch-to-enterprise-architect-masterbook",
+      "url": "https://github.com/zdmooc/ai-from-scratch-to-enterprise-architect-masterbook",
+      "visibility": "private",
+      "initial_role": "EDITORIAL_MASTERBOOK",
+      "tree_examined_2026_10_10": false,
+      "content_exhaustively_audited": false,
+      "rights_and_license": "REVIEW_REQUIRED"
+    }
+  ]
+}

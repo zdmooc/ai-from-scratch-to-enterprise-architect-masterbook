@@ -1,0 +1,1401 @@
+{
+  "generated_date": "2026-10-10",
+  "status": "I02_METADATA_INVENTORY_NO_ORIGINAL_IMPORTED",
+  "visibility": "PRIVATE_CONFIRMED",
+  "counts": {
+    "files": 77,
+    "tomes": 61,
+    "ai_oneagent": 14,
+    "root_files": 2
+  },
+  "folder_counts": {
+    "T1": 10,
+    "T2": 10,
+    "T3": 11,
+    "T4": 13,
+    "T5": 17,
+    "Ai_OneAgent": 14,
+    "architecteAI": 2
+  },
+  "files": [
+    {
+      "folder": "T1",
+      "source_id": "1e8GrDge6dDuv9yhcb9PiMU0_ppac9W-A",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre6.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 584014,
+      "modified_time": "2026-08-23T11:17:21.000Z",
+      "original_url": "https://docs.google.com/document/d/1e8GrDge6dDuv9yhcb9PiMU0_ppac9W-A/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C06",
+      "proposed_volumes": [
+        "V09",
+        "V10"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1ZJHUB9l_CQmR9Ifrk1o8klgEb4DddVWt",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre10.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1124376,
+      "modified_time": "2026-08-23T08:49:03.000Z",
+      "original_url": "https://docs.google.com/document/d/1ZJHUB9l_CQmR9Ifrk1o8klgEb4DddVWt/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C10",
+      "proposed_volumes": [
+        "V13",
+        "V16",
+        "V21"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1QzB17LbC-kQHNNDm6Ibj2CfBkUajXpMJ",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre9.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 469667,
+      "modified_time": "2026-08-23T08:36:31.000Z",
+      "original_url": "https://docs.google.com/document/d/1QzB17LbC-kQHNNDm6Ibj2CfBkUajXpMJ/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C09",
+      "proposed_volumes": [
+        "V10",
+        "V16",
+        "V21"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "12DbmjYrT_tv8tOWdeHJxxMizNjby38l-",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre8.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 500292,
+      "modified_time": "2026-08-22T20:17:25.000Z",
+      "original_url": "https://docs.google.com/document/d/12DbmjYrT_tv8tOWdeHJxxMizNjby38l-/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C08",
+      "proposed_volumes": [
+        "V10",
+        "V11"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1NiTjS375Ne0283-C0QlNlO1pDps9GuvY",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre7.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 534823,
+      "modified_time": "2026-08-22T19:45:37.000Z",
+      "original_url": "https://docs.google.com/document/d/1NiTjS375Ne0283-C0QlNlO1pDps9GuvY/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C07",
+      "proposed_volumes": [
+        "V09",
+        "V11",
+        "V15"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1ZxS42sTx1-p2HR9zntJJwCWCCLwszGTF",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre5.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2566438,
+      "modified_time": "2026-08-22T18:51:22.000Z",
+      "original_url": "https://docs.google.com/document/d/1ZxS42sTx1-p2HR9zntJJwCWCCLwszGTF/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C05",
+      "proposed_volumes": [
+        "V09"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre4.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2045302,
+      "modified_time": "2026-08-22T18:40:33.000Z",
+      "original_url": "https://docs.google.com/document/d/18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C04",
+      "proposed_volumes": [
+        "V06"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1vsYvwHqSNjdLDKMDktxD1ASlF61Ov0SC",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre3.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1326343,
+      "modified_time": "2026-08-22T18:23:35.000Z",
+      "original_url": "https://docs.google.com/document/d/1vsYvwHqSNjdLDKMDktxD1ASlF61Ov0SC/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C03",
+      "proposed_volumes": [
+        "V05"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1n-j9t6i7Jq25eaD8V-sjhYnYhQ2GHKLn",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre2.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 960007,
+      "modified_time": "2026-08-22T18:04:23.000Z",
+      "original_url": "https://docs.google.com/document/d/1n-j9t6i7Jq25eaD8V-sjhYnYhQ2GHKLn/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C02",
+      "proposed_volumes": [
+        "V01",
+        "V16",
+        "V21"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T1",
+      "source_id": "1KyvpmOuIFU4JI0ldcZDZdNnvwCk3sf_2",
+      "name": "Architecte_Solution_AI_OnPremise_Tome1_Chapitre1.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 550609,
+      "modified_time": "2026-08-22T17:49:52.000Z",
+      "original_url": "https://docs.google.com/document/d/1KyvpmOuIFU4JI0ldcZDZdNnvwCk3sf_2/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T1-C01",
+      "proposed_volumes": [
+        "V01",
+        "V21"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "197pPF51fiHgt4QZCaVHF7pcKCyQIUi7G",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre10.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2995669,
+      "modified_time": "2026-08-23T11:45:54.000Z",
+      "original_url": "https://docs.google.com/document/d/197pPF51fiHgt4QZCaVHF7pcKCyQIUi7G/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C10",
+      "proposed_volumes": [
+        "V16",
+        "V20",
+        "V22"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1A1tuF9_MSNah4DojXtoV6HEUYbx2dDML",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre9.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2387135,
+      "modified_time": "2026-08-23T11:36:22.000Z",
+      "original_url": "https://docs.google.com/document/d/1A1tuF9_MSNah4DojXtoV6HEUYbx2dDML/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C09",
+      "proposed_volumes": [
+        "V16",
+        "V17"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1nTYLISsuIvL_VV-Y4KODuKUTsVadP1wJ",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre8.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1821489,
+      "modified_time": "2026-08-23T11:26:19.000Z",
+      "original_url": "https://docs.google.com/document/d/1nTYLISsuIvL_VV-Y4KODuKUTsVadP1wJ/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C08",
+      "proposed_volumes": [
+        "V16",
+        "V22"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1F-26iNqHeE-oQ_R-hpEWvX9QnojIJs3u",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre7.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 693881,
+      "modified_time": "2026-08-23T11:19:55.000Z",
+      "original_url": "https://docs.google.com/document/d/1F-26iNqHeE-oQ_R-hpEWvX9QnojIJs3u/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C07",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1f72O4kbAZ-4hTsB14YXKk8YiGkJr4GRV",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre6.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 568677,
+      "modified_time": "2026-08-23T11:08:01.000Z",
+      "original_url": "https://docs.google.com/document/d/1f72O4kbAZ-4hTsB14YXKk8YiGkJr4GRV/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C06",
+      "proposed_volumes": [
+        "V16",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1AFGXhef4he0Zs73GHZiOwSnwpfkuhQko",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre5.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 546345,
+      "modified_time": "2026-08-23T10:51:35.000Z",
+      "original_url": "https://docs.google.com/document/d/1AFGXhef4he0Zs73GHZiOwSnwpfkuhQko/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C05",
+      "proposed_volumes": [
+        "V15",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1kljYCmaUXnFZC5SotTa3Gjt4KV7E5iZ8",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre4.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1342097,
+      "modified_time": "2026-08-23T10:35:52.000Z",
+      "original_url": "https://docs.google.com/document/d/1kljYCmaUXnFZC5SotTa3Gjt4KV7E5iZ8/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C04",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1QA7JDaY3TfrQvmrxiFzeraFLVxq3EEiy",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre3.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 639230,
+      "modified_time": "2026-08-23T10:25:53.000Z",
+      "original_url": "https://docs.google.com/document/d/1QA7JDaY3TfrQvmrxiFzeraFLVxq3EEiy/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C03",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1k2rVVIr2LKnphiLpEkFO6gdTisnhbYnO",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre2.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2968960,
+      "modified_time": "2026-08-23T09:29:16.000Z",
+      "original_url": "https://docs.google.com/document/d/1k2rVVIr2LKnphiLpEkFO6gdTisnhbYnO/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C02",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T2",
+      "source_id": "1lUl75q3cYHiBUtZ4B0NLnggeqbP35Z7I",
+      "name": "Architecte_Solution_AI_OnPremise_Tome2_Chapitre1.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2161285,
+      "modified_time": "2026-08-23T09:17:17.000Z",
+      "original_url": "https://docs.google.com/document/d/1lUl75q3cYHiBUtZ4B0NLnggeqbP35Z7I/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T2-C01",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1P7RoF9sRDXo_3rKMzlkqx36CP6Qx_CxQ",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre10.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 878831,
+      "modified_time": "2026-08-23T14:21:40.000Z",
+      "original_url": "https://docs.google.com/document/d/1P7RoF9sRDXo_3rKMzlkqx36CP6Qx_CxQ/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C10",
+      "proposed_volumes": [
+        "V14",
+        "V16",
+        "V22"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1es2v1zUcJqvdcwCdlYr8jp83fxxf3pYb",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre9.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 862023,
+      "modified_time": "2026-08-23T14:12:04.000Z",
+      "original_url": "https://docs.google.com/document/d/1es2v1zUcJqvdcwCdlYr8jp83fxxf3pYb/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C09",
+      "proposed_volumes": [
+        "V13",
+        "V14",
+        "V19"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1YCSLQy5cUGTmW3wiAXNNtCIV6wvYxN3n",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre8.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 973119,
+      "modified_time": "2026-08-23T14:02:08.000Z",
+      "original_url": "https://docs.google.com/document/d/1YCSLQy5cUGTmW3wiAXNNtCIV6wvYxN3n/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C08",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "13frJihWlUGUABVSA9Yn8SQ5E0NFqB61h",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre7 (1).docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1069427,
+      "modified_time": "2026-08-23T13:49:22.000Z",
+      "original_url": "https://docs.google.com/document/d/13frJihWlUGUABVSA9Yn8SQ5E0NFqB61h/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C07",
+      "proposed_volumes": [
+        "V14"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_COPY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1QZ6e0Cti-0p60PqTjZOttZ32vJmvuoQo",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre7.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1069427,
+      "modified_time": "2026-08-23T13:49:00.000Z",
+      "original_url": "https://docs.google.com/document/d/1QZ6e0Cti-0p60PqTjZOttZ32vJmvuoQo/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C07",
+      "proposed_volumes": [
+        "V14"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_PRIMARY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1_0TiQbsD7SgY7YTEY7UmiQ3GpYwjE_xl",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre6.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1132640,
+      "modified_time": "2026-08-23T13:38:37.000Z",
+      "original_url": "https://docs.google.com/document/d/1_0TiQbsD7SgY7YTEY7UmiQ3GpYwjE_xl/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C06",
+      "proposed_volumes": [
+        "V15",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "153Fq1AJzBmAUpwp2XVVSqpVIz-zmndWh",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre5.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1597994,
+      "modified_time": "2026-08-23T13:26:08.000Z",
+      "original_url": "https://docs.google.com/document/d/153Fq1AJzBmAUpwp2XVVSqpVIz-zmndWh/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C05",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1OUwFJz8vuB-nRrllOop_EWjMb_kUCvPt",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre4.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 798589,
+      "modified_time": "2026-08-23T13:09:01.000Z",
+      "original_url": "https://docs.google.com/document/d/1OUwFJz8vuB-nRrllOop_EWjMb_kUCvPt/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C04",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1pyH0SqHIlpDb5l1IQ4F1mlyaxuO54I4F",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre3.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 838502,
+      "modified_time": "2026-08-23T13:00:11.000Z",
+      "original_url": "https://docs.google.com/document/d/1pyH0SqHIlpDb5l1IQ4F1mlyaxuO54I4F/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C03",
+      "proposed_volumes": [
+        "V16",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "10T7CTn_koo2FSfVJzFaPe9dpujXihU9N",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre2.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 3226459,
+      "modified_time": "2026-08-23T12:27:15.000Z",
+      "original_url": "https://docs.google.com/document/d/10T7CTn_koo2FSfVJzFaPe9dpujXihU9N/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C02",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T3",
+      "source_id": "1NhyCP3scySCf7_chyGyKfBwJlWtOPP7r",
+      "name": "Architecte_Solution_AI_OnPremise_Tome3_Chapitre1.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1661849,
+      "modified_time": "2026-08-23T12:15:48.000Z",
+      "original_url": "https://docs.google.com/document/d/1NhyCP3scySCf7_chyGyKfBwJlWtOPP7r/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T3-C01",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1JouIC_hd65OUnju4Kk1pGcqwv0iL5GIK",
+      "name": "Tome_4_Chapitre_12_Architecture_Reference_Finale_Plateforme_IA_Entreprise.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 7443926,
+      "modified_time": "2026-08-23T18:25:44.000Z",
+      "original_url": "https://docs.google.com/document/d/1JouIC_hd65OUnju4Kk1pGcqwv0iL5GIK/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C12",
+      "proposed_volumes": [
+        "V21",
+        "V24"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "10gGjWVW5fqS2_Qt17aagriKFrIZg0rqq",
+      "name": "Tome_4_Chapitre_11_FinOps_GreenOps_Couts_Efficacite_Energetique_IA.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 6359606,
+      "modified_time": "2026-08-23T18:16:12.000Z",
+      "original_url": "https://docs.google.com/document/d/10gGjWVW5fqS2_Qt17aagriKFrIZg0rqq/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C11",
+      "proposed_volumes": [
+        "V20"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1zrltSJ_gxf8wXTxL5eDBCSvpAoVH6QQ6",
+      "name": "Tome_4_Chapitre_10_Integration_IA_SI_Entreprise_API_Kafka_IAM_CMDB_ServiceNow_Git.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 5368443,
+      "modified_time": "2026-08-23T17:58:23.000Z",
+      "original_url": "https://docs.google.com/document/d/1zrltSJ_gxf8wXTxL5eDBCSvpAoVH6QQ6/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C10",
+      "proposed_volumes": [
+        "V17",
+        "V21",
+        "V23"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1g9fgzQdz2E2Iz7j4Obu3cXooKNW0eX9w",
+      "name": "Tome_4_Chapitre_9_Architecture_Hybride_Souveraine_MultiCluster_PRA_IA.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 4433287,
+      "modified_time": "2026-08-23T16:41:54.000Z",
+      "original_url": "https://docs.google.com/document/d/1g9fgzQdz2E2Iz7j4Obu3cXooKNW0eX9w/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C09",
+      "proposed_volumes": [
+        "V22"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1urs-R7TKxKjp3eUvemwVd-p_8sVuiKGI",
+      "name": "Tome_4_Chapitre_8_Architecture_Plateforme_IA_Entreprise_OpenShift_AI.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 3214951,
+      "modified_time": "2026-08-23T16:23:25.000Z",
+      "original_url": "https://docs.google.com/document/d/1urs-R7TKxKjp3eUvemwVd-p_8sVuiKGI/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C08",
+      "proposed_volumes": [
+        "V16",
+        "V21"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1DcB4K9C7elp4nl1ffHeCg_kUrXsNIhF8",
+      "name": "Tome_4_Chapitre_7_Architecture_GPU_Sizing_Performance_Capacity_Planning_IA.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2712218,
+      "modified_time": "2026-08-23T16:11:24.000Z",
+      "original_url": "https://docs.google.com/document/d/1DcB4K9C7elp4nl1ffHeCg_kUrXsNIhF8/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C07",
+      "proposed_volumes": [
+        "V15",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "131Xo3t25fMNkd46JuVRPdPRBlHmSXDvi",
+      "name": "Tome_4_Chapitre_6_LLMOps_Observabilite_Evaluation_Cycle_Vie_Production.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2238834,
+      "modified_time": "2026-08-23T15:51:13.000Z",
+      "original_url": "https://docs.google.com/document/d/131Xo3t25fMNkd46JuVRPdPRBlHmSXDvi/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C06",
+      "proposed_volumes": [
+        "V13",
+        "V14"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1MeEMEMVVSQOTiAp7m6CN2nJnevFaTkAL",
+      "name": "Tome_4_Chapitre_5_Agents_IA_Tool_Calling_MCP_Orchestration.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1850432,
+      "modified_time": "2026-08-23T15:35:16.000Z",
+      "original_url": "https://docs.google.com/document/d/1MeEMEMVVSQOTiAp7m6CN2nJnevFaTkAL/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C05",
+      "proposed_volumes": [
+        "V12"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1VLcLb9u9rgeo4zAmlB9z_Wah4nOYEFDn",
+      "name": "Tome_4_Chapitre_4_Securite_GenAI_Guardrails_Gouvernance_LLM.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1411554,
+      "modified_time": "2026-08-23T15:13:22.000Z",
+      "original_url": "https://docs.google.com/document/d/1VLcLb9u9rgeo4zAmlB9z_Wah4nOYEFDn/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C04",
+      "proposed_volumes": [
+        "V18",
+        "V19"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1NeUqtB2UmcsyQtfZ__fhSA2bscLvekWR",
+      "name": "Tome_4_Chapitre_3_Vector_Databases_Embeddings_Retrieval_Avance.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 971099,
+      "modified_time": "2026-08-23T15:02:53.000Z",
+      "original_url": "https://docs.google.com/document/d/1NeUqtB2UmcsyQtfZ__fhSA2bscLvekWR/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C03",
+      "proposed_volumes": [
+        "V11"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1vwciUuvnHxFIweI8dxO1KaDgxz6IU2ZW",
+      "name": "Tome 4 — Chapitre 2.md",
+      "mime_type": "text/markdown",
+      "size_bytes": 37111,
+      "modified_time": "2026-08-23T14:48:56.000Z",
+      "original_url": "https://drive.google.com/file/d/1vwciUuvnHxFIweI8dxO1KaDgxz6IU2ZW/view?usp=drivesdk",
+      "source_unit": "T4-C02",
+      "proposed_volumes": [
+        "V11"
+      ],
+      "preliminary_dedup": "ALTERNATIVE_MD_TEXT_NOT_IDENTICAL",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1xdQbbiA6mPSTKcbwrseXdYhJnpLObFWt",
+      "name": "Architecte_Solution_AI_OnPremise_Tome4_Chapitre2.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 847507,
+      "modified_time": "2026-08-23T14:43:46.000Z",
+      "original_url": "https://docs.google.com/document/d/1xdQbbiA6mPSTKcbwrseXdYhJnpLObFWt/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C02",
+      "proposed_volumes": [
+        "V11"
+      ],
+      "preliminary_dedup": "DOCX_VARIANT_TEXT_NOT_IDENTICAL",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T4",
+      "source_id": "1LYQ8zB3hi3TheP_ajre43L_i2gIBeblP",
+      "name": "Architecte_Solution_AI_OnPremise_Tome4_Chapitre1.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 839018,
+      "modified_time": "2026-08-23T14:31:01.000Z",
+      "original_url": "https://docs.google.com/document/d/1LYQ8zB3hi3TheP_ajre43L_i2gIBeblP/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T4-C01",
+      "proposed_volumes": [
+        "V09",
+        "V15"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1eU-B4sIuPO3_Rh4XHpbsKSzeoyyRGAzE",
+      "name": "Tome_5_Lab_15_FinOps_GreenOps_IA_Couts_GPU_Tokens_Energie_Carbone (1).docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 7518896,
+      "modified_time": "2026-08-24T18:50:42.000Z",
+      "original_url": "https://docs.google.com/document/d/1eU-B4sIuPO3_Rh4XHpbsKSzeoyyRGAzE/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB15",
+      "proposed_volumes": [
+        "V20"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_COPY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1tYkTLWr9JJ_qb_-VnJP_d7DvRvPf_NoT",
+      "name": "Tome_5_Lab_15_FinOps_GreenOps_IA_Couts_GPU_Tokens_Energie_Carbone.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 7518896,
+      "modified_time": "2026-08-24T18:06:48.000Z",
+      "original_url": "https://docs.google.com/document/d/1tYkTLWr9JJ_qb_-VnJP_d7DvRvPf_NoT/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB15",
+      "proposed_volumes": [
+        "V20"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_PRIMARY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1wVi0wGemufntfXjbbc4oREytd1iPDKai",
+      "name": "Tome_5_Lab_14_Securite_Conformite_Zero_Trust_Supply_Chain_AI_Governance.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 6448862,
+      "modified_time": "2026-08-24T17:51:08.000Z",
+      "original_url": "https://docs.google.com/document/d/1wVi0wGemufntfXjbbc4oREytd1iPDKai/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB14",
+      "proposed_volumes": [
+        "V18",
+        "V19"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1s4RBUDBTPs6_rBvz2DTvcAc2LtCnRiHN",
+      "name": "Tome_5_Lab_13_HA_PRA_MultiCluster_OpenShift_ODF_OADP_Kafka_GSLB.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 5685628,
+      "modified_time": "2026-08-24T17:41:49.000Z",
+      "original_url": "https://docs.google.com/document/d/1s4RBUDBTPs6_rBvz2DTvcAc2LtCnRiHN/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB13",
+      "proposed_volumes": [
+        "V22"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1uBey20_kKQb9W00l93nSYj-mvwV7Mrvy",
+      "name": "Tome_5_Lab_12_Integration_Agent_SI_Kafka_ServiceNow_CMDB_Git_Vault_3scale_Incident.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 4663594,
+      "modified_time": "2026-08-24T10:20:36.000Z",
+      "original_url": "https://docs.google.com/document/d/1uBey20_kKQb9W00l93nSYj-mvwV7Mrvy/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB12",
+      "proposed_volumes": [
+        "V12",
+        "V17",
+        "V23"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1-o7AJ5yfawVRE90ZiM1Mg3M6SkypxO6U",
+      "name": "Tome_5_Lab_11_Agents_IA_Production_Tool_Calling_MCP_HITL_Securite_Observabilite.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 3607636,
+      "modified_time": "2026-08-24T09:50:36.000Z",
+      "original_url": "https://docs.google.com/document/d/1-o7AJ5yfawVRE90ZiM1Mg3M6SkypxO6U/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB11",
+      "proposed_volumes": [
+        "V12",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1m330hZgGaPJqUNXl2migpi5TkjSmJygI",
+      "name": "Tome_5_Lab_10_RAG_Production_Hybrid_Search_Reranking_ACL_Evaluation.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 3075495,
+      "modified_time": "2026-08-24T09:36:35.000Z",
+      "original_url": "https://docs.google.com/document/d/1m330hZgGaPJqUNXl2migpi5TkjSmJygI/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB10",
+      "proposed_volumes": [
+        "V11",
+        "V13"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1635W_UUji8vkxwH3jP7IZjgLbx9Q0jbh",
+      "name": "Tome_5_Lab_09_Serving_LLM_Production_vLLM_KServe_Autoscaling_Canary_SLO.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 2511290,
+      "modified_time": "2026-08-24T09:24:45.000Z",
+      "original_url": "https://docs.google.com/document/d/1635W_UUji8vkxwH3jP7IZjgLbx9Q0jbh/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB09",
+      "proposed_volumes": [
+        "V15"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1PqvlYsHjFVvx6LOBmPvArBfw5vEWbHbz",
+      "name": "Tome_5_Lab_08_Fine_Tuning_LLM_SFT_LoRA_QLoRA_Training_Hub_Model_Registry.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1980069,
+      "modified_time": "2026-08-24T08:54:36.000Z",
+      "original_url": "https://docs.google.com/document/d/1PqvlYsHjFVvx6LOBmPvArBfw5vEWbHbz/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB08",
+      "proposed_volumes": [
+        "V10"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1P1DCw5DnR5CoohUha-L9pV82YlS9Cctm",
+      "name": "Tome_5_Lab_07_Entrainement_Distribue_GPU_Trainer_Ray_Kueue_Checkpoints.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1614533,
+      "modified_time": "2026-08-24T08:38:53.000Z",
+      "original_url": "https://docs.google.com/document/d/1P1DCw5DnR5CoohUha-L9pV82YlS9Cctm/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB07",
+      "proposed_volumes": [
+        "V10",
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1jLN0YYLk6v0Q2hu1ISqyoN19jyG-vWvS",
+      "name": "Tome_5_Lab_06_AI_Pipelines_Model_Registry_Kueue_MLflow_Lifecycle.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 1232923,
+      "modified_time": "2026-08-24T07:49:46.000Z",
+      "original_url": "https://docs.google.com/document/d/1jLN0YYLk6v0Q2hu1ISqyoN19jyG-vWvS/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB06",
+      "proposed_volumes": [
+        "V14"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1vQsZgKtyYTlOTSu_f4eiKIg4Kgczpg2T",
+      "name": "Tome_5_Lab_05_OpenShift_AI_DataScienceCluster_Workbench_ModelServing_RAG (1).docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 595800,
+      "modified_time": "2026-08-23T21:53:37.000Z",
+      "original_url": "https://docs.google.com/document/d/1vQsZgKtyYTlOTSu_f4eiKIg4Kgczpg2T/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB05",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_COPY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1IeXHVyuFlaDnFBNKO9yXer2fcBoqBHAc",
+      "name": "Tome_5_Lab_05_OpenShift_AI_DataScienceCluster_Workbench_ModelServing_RAG.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 595800,
+      "modified_time": "2026-08-23T21:21:14.000Z",
+      "original_url": "https://docs.google.com/document/d/1IeXHVyuFlaDnFBNKO9yXer2fcBoqBHAc/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB05",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_PRIMARY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1atWWAGJbyFqBdY2LFTZFvSWZ93ChEJT4",
+      "name": "Tome_5_Lab_04_Migration_OpenShift_Preparation_OpenShift_AI.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 587151,
+      "modified_time": "2026-08-23T21:05:32.000Z",
+      "original_url": "https://docs.google.com/document/d/1atWWAGJbyFqBdY2LFTZFvSWZ93ChEJT4/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB04",
+      "proposed_volumes": [
+        "V16"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "1-AwvAht6PGQpYu9jrL5beub15AHDl9iz",
+      "name": "Tome_5_Lab_02_Migration_Plateforme_IA_Kubernetes (1).docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 9194903,
+      "modified_time": "2026-08-23T20:55:08.000Z",
+      "original_url": "https://docs.google.com/document/d/1-AwvAht6PGQpYu9jrL5beub15AHDl9iz/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB02",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_COPY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "12MTxPfOkfxbgv8oDVIC6IkT10isfRDth",
+      "name": "Tome_5_Lab_02_Migration_Plateforme_IA_Kubernetes.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 9194903,
+      "modified_time": "2026-08-23T20:43:47.000Z",
+      "original_url": "https://docs.google.com/document/d/12MTxPfOkfxbgv8oDVIC6IkT10isfRDth/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB02",
+      "proposed_volumes": [
+        "V14",
+        "V16"
+      ],
+      "preliminary_dedup": "PARSED_TEXT_DUPLICATE_PRIMARY",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "T5",
+      "source_id": "17BJ5SUBl3cOGUYUIjzITZpFuU256JyrT",
+      "name": "Tome_5_Lab_01_Plateforme_IA_Locale_RAG_Observabilite.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "size_bytes": 8370338,
+      "modified_time": "2026-08-23T20:26:30.000Z",
+      "original_url": "https://docs.google.com/document/d/17BJ5SUBl3cOGUYUIjzITZpFuU256JyrT/edit?usp=drivesdk&ouid=110799300827176914370&rtpof=true&sd=true",
+      "source_unit": "T5-LAB01",
+      "proposed_volumes": [
+        "V11",
+        "V14",
+        "V15"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "MANUSCRIPT_DRAFT_UNREVIEWED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1TXUN3uXc_sfsyDZgjh8ECbYsWartFMbm",
+      "name": "1765085644364.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 180033,
+      "modified_time": "2025-12-07T18:26:10.490Z",
+      "original_url": "https://drive.google.com/file/d/1TXUN3uXc_sfsyDZgjh8ECbYsWartFMbm/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1MtSm1327MzYDaL-FtglXKngl9pBI356H",
+      "name": "1764991123261.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 192648,
+      "modified_time": "2025-12-06T17:17:32.858Z",
+      "original_url": "https://drive.google.com/file/d/1MtSm1327MzYDaL-FtglXKngl9pBI356H/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1yWNqSdP3_ctXxAntZV1P2j9TmNpsI20z",
+      "name": "1764931734601.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 101262,
+      "modified_time": "2025-12-05T16:37:10.776Z",
+      "original_url": "https://drive.google.com/file/d/1yWNqSdP3_ctXxAntZV1P2j9TmNpsI20z/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1j_3O3rlNnMaquED6IgIiN2TiOs-gy-Bn",
+      "name": "1764908932942.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 64658,
+      "modified_time": "2025-12-05T16:33:57.460Z",
+      "original_url": "https://drive.google.com/file/d/1j_3O3rlNnMaquED6IgIiN2TiOs-gy-Bn/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1HMtezM95e3kFxpdlB2nPpV6sVOIVkwhz",
+      "name": "1764865143538 (1).gif",
+      "mime_type": "image/gif",
+      "size_bytes": 291607,
+      "modified_time": "2025-12-05T12:43:40.331Z",
+      "original_url": "https://drive.google.com/file/d/1HMtezM95e3kFxpdlB2nPpV6sVOIVkwhz/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "14F5heQO-ArlKzy_EAVPqw8JXK9LYv8zz",
+      "name": "1764865143538.gif",
+      "mime_type": "image/gif",
+      "size_bytes": 291607,
+      "modified_time": "2025-12-05T12:43:29.492Z",
+      "original_url": "https://drive.google.com/file/d/14F5heQO-ArlKzy_EAVPqw8JXK9LYv8zz/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1Up6IQrWKi6FzggOcqFQZlWA4lP3kEIGm",
+      "name": "1764311171618.gif",
+      "mime_type": "image/gif",
+      "size_bytes": 6173492,
+      "modified_time": "2025-12-04T14:43:32.029Z",
+      "original_url": "https://drive.google.com/file/d/1Up6IQrWKi6FzggOcqFQZlWA4lP3kEIGm/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1OGs6KBVNwYo-bKpzGDZ-727tVH4sDaFI",
+      "name": "1764842600919.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 29862218,
+      "modified_time": "2025-12-04T14:09:17.963Z",
+      "original_url": "https://drive.google.com/file/d/1OGs6KBVNwYo-bKpzGDZ-727tVH4sDaFI/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "18YB6PXQzqgU4Fxh-wu-WlcZUFq-JHDXd",
+      "name": "1764488359049.gif",
+      "mime_type": "image/gif",
+      "size_bytes": 301140,
+      "modified_time": "2025-12-04T11:02:03.535Z",
+      "original_url": "https://drive.google.com/file/d/18YB6PXQzqgU4Fxh-wu-WlcZUFq-JHDXd/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1cMCk9I4_DrQihncJ-HFJfAUg9OKHgwhy",
+      "name": "1764819969527.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 257801,
+      "modified_time": "2025-12-04T09:40:09.350Z",
+      "original_url": "https://drive.google.com/file/d/1cMCk9I4_DrQihncJ-HFJfAUg9OKHgwhy/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1r9RG8rel2VBZI476NQm4A4Qmpg5YaV1O",
+      "name": "1763730492949.gif",
+      "mime_type": "image/gif",
+      "size_bytes": 6080093,
+      "modified_time": "2025-12-03T15:59:36.134Z",
+      "original_url": "https://drive.google.com/file/d/1r9RG8rel2VBZI476NQm4A4Qmpg5YaV1O/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1CH91S3OShHkypJHuvptF_CUyHnAGj59n",
+      "name": "1764562268521.gif",
+      "mime_type": "image/gif",
+      "size_bytes": 1348790,
+      "modified_time": "2025-12-03T15:29:23.261Z",
+      "original_url": "https://drive.google.com/file/d/1CH91S3OShHkypJHuvptF_CUyHnAGj59n/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1G2hSkgucCESc4CadJGzeE0KZsF4GB7Et",
+      "name": "1764557631079.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 167941,
+      "modified_time": "2025-12-03T15:17:54.792Z",
+      "original_url": "https://drive.google.com/file/d/1G2hSkgucCESc4CadJGzeE0KZsF4GB7Et/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "Ai_OneAgent",
+      "source_id": "1gJs7cEFGqga-cGtpXcXy-JGElMi4AmMW",
+      "name": "1764735920156.jpg",
+      "mime_type": "image/jpeg",
+      "size_bytes": 179384,
+      "modified_time": "2025-12-03T12:57:03.340Z",
+      "original_url": "https://drive.google.com/file/d/1gJs7cEFGqga-cGtpXcXy-JGElMi4AmMW/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [
+        "V12",
+        "V13",
+        "V18"
+      ],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "THIRD_PARTY_VERIFY_LICENSE",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "THIRD_PARTY_REFERENCE_NOT_CLEARED"
+    },
+    {
+      "folder": "architecteAI",
+      "source_id": "1wdqjgsO_fFW6e4ni4Q-vpJvlkIi71nA-",
+      "name": "tome1-6.txt",
+      "mime_type": "text/plain",
+      "size_bytes": 4635,
+      "modified_time": "2026-08-23T08:53:43.000Z",
+      "original_url": "https://drive.google.com/file/d/1wdqjgsO_fFW6e4ni4Q-vpJvlkIi71nA-/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "PLAN_OR_ROADMAP"
+    },
+    {
+      "folder": "architecteAI",
+      "source_id": "1TdLW1YOzLm4IFXAs5i62bT3Xb_j-_kWP",
+      "name": "Parcours Architecte Solution AI On-Premise - Private AI.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 685798,
+      "modified_time": "2026-08-23T08:50:57.000Z",
+      "original_url": "https://drive.google.com/file/d/1TdLW1YOzLm4IFXAs5i62bT3Xb_j-_kWP/view?usp=drivesdk",
+      "source_unit": null,
+      "proposed_volumes": [],
+      "preliminary_dedup": "NO_DUPLICATE_ESTABLISHED",
+      "rights": "OWNER_AND_CONTENT_REVIEW_REQUIRED",
+      "publication": "NOT_AUTHORIZED",
+      "source_status": "PLAN_OR_ROADMAP"
+    }
+  ]
+}
