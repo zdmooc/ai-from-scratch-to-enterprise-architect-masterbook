@@ -1,0 +1,87 @@
+# Chapitre 05 — Deep Learning expliqué sans prérequis
+
+> **DRAFT original, non publié.** Le chapitre présente des calculs pédagogiques, pas des benchmarks GPU.
+
+## Objectifs
+
+Comprendre un neurone, le rôle des poids, des couches et des fonctions d'activation, et les principes de l'optimisation. Savoir pourquoi les besoins matériels de l'entraînement diffèrent de ceux de l'inférence.
+
+## 1. Un neurone est un calcul
+
+Un neurone artificiel combine des entrées, des poids et un biais. Il peut ensuite appliquer une fonction d'activation :
+
+$$
+z = \sum_{j=1}^{d}w_jx_j+b, \qquad a=\phi(z).
+$$
+
+Si les entrées sont 2 et 3, les poids 1 et -1 et le biais 2, alors la valeur intermédiaire est 2-3+2 = 1. Avec la fonction ReLU, qui renvoie le maximum de zéro et de sa propre entrée, la sortie vaut 1.
+
+Un seul neurone est limité. Plusieurs neurones peuvent former des couches successives et apprendre des représentations plus complexes.
+
+## 2. Réseaux et transformations
+
+Une première couche calcule par exemple une représentation intermédiaire :
+
+$$
+h=\phi(W_1x+b_1).
+$$
+
+Une deuxième couche en tire une prédiction :
+
+$$
+\widehat y=W_2h+b_2.
+$$
+
+Les tableaux de nombres ont des dimensions qu'il faut rendre compatibles. La non-linéarité est importante : des couches uniquement linéaires successives peuvent se réduire mathématiquement à une seule transformation linéaire.
+
+## 3. Mesurer une erreur
+
+Pour une régression, une fonction de perte élémentaire est :
+
+$$
+L=(\widehat y-y)^2.
+$$
+
+Une prédiction de 5 pour une cible de 3 produit une perte égale à 4. L'entraînement consiste à ajuster les paramètres pour réduire une perte définie sur les exemples, avec un protocole d'évaluation permettant de contrôler la généralisation.
+
+## 4. Descente de gradient
+
+Une étape d'optimisation peut être écrite :
+
+$$
+w_{nouveau}=w_{ancien}-\eta\frac{\partial L}{\partial w}.
+$$
+
+Le symbole eta désigne le taux d'apprentissage. Pour L(w)=(w-3)^2, la dérivée est 2(w-3). À partir de w=0 avec eta=0,1, le nouvel état vaut 0,6 et la perte tombe de 9 à 5,76.
+
+Dans les réseaux multicouches, la rétropropagation utilise la règle de chaîne pour calculer les gradients. La descente de gradient ne garantit pas que chaque étape améliore toujours le résultat : le choix du pas et la forme de la fonction comptent.
+
+## 5. Entraînement et inférence
+
+L'entraînement manipule souvent des activations, gradients et états d'optimiseur en plus des poids. L'inférence applique les paramètres obtenus à de nouvelles entrées et peut utiliser d'autres caches suivant l'architecture.
+
+Les GPU sont adaptés à de nombreux calculs parallèles, sans être obligatoires pour tous les modèles. Un système ne doit pas être dimensionné à partir du seul nombre de paramètres.
+
+## 6. Exercices et corrigés
+
+**A.** Calculer ReLU pour x=(1,4), w=(2,-1), b=3.
+
+*Correction.* La combinaison vaut 2-4+3=1 ; ReLU vaut 1.
+
+**B.** Pour L(w)=(w-2)^2, w=0 et eta=0,25, calculer une étape.
+
+*Correction.* Le gradient initial est -4, le nouveau w vaut 1, la perte diminue de 4 à 1.
+
+**C.** Un réseau réussit sur ses données d'entraînement et échoue sur des cas inconnus. Que faut-il examiner ?
+
+*Correction.* La généralisation, la qualité des jeux de validation, un éventuel surapprentissage, des fuites ou un changement de population.
+
+**D.** Faut-il obligatoirement un GPU pour démontrer l'algorithme de gradient ?
+
+*Correction.* Non. Les exercices élémentaires peuvent être calculés à la main ou sur CPU.
+
+## 7. À retenir
+
+La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
+
+**Statut de contrôle :** figures, bibliographie primaire et laboratoire restent à enrichir avant publication. Source de contexte : [Tome 1, chapitre 4](https://drive.google.com/file/d/18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-/view).
