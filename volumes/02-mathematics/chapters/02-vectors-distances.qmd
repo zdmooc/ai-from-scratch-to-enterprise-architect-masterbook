@@ -1,0 +1,92 @@
+# Chapitre 02 — Vecteurs, normes, distances et similarités
+
+> **DRAFT original** — exercices numériques sans données sensibles.
+
+## Objectifs
+
+Représenter une observation par un vecteur ; calculer addition, produit scalaire et norme ; déterminer une distance et une similarité cosinus ; connaître leurs limites.
+
+## 1. Passer des nombres aux vecteurs
+
+Le vecteur $\mathbf{x}=(2,3,4)$ rassemble trois composantes **ordonnées**. Dans une application, elles peuvent représenter des caractéristiques mesurées ; leur ordre et leur unité doivent être documentés.
+
+Pour $\mathbf{u}=(1,2)$ et $\mathbf{v}=(3,4)$ :
+
+$$
+\mathbf{u}+\mathbf{v}=(4,6), \quad 2\mathbf{u}=(2,4).
+$$
+
+L'addition composante par composante suppose des dimensions compatibles. Une implémentation sérieuse refusera une comparaison entre vecteurs de tailles différentes.
+
+## 2. Produit scalaire
+
+Pour deux vecteurs de dimension d :
+
+$$
+\mathbf{u}\cdot\mathbf{v}=\sum_{i=1}^{d}u_iv_i.
+$$
+
+Dans notre exemple, le résultat est $1\times3+2\times4=11$. Le produit scalaire intervient dans la régression linéaire, les réseaux de neurones et les architectures d'attention. Il ne représente pas automatiquement une probabilité.
+
+## 3. Longueur et distance
+
+La norme euclidienne (norme L2) est :
+
+$$
+\|\mathbf{x}\|_2=\sqrt{\sum_{i=1}^{d}x_i^2}.
+$$
+
+La norme de (3,4) vaut 5. La distance euclidienne entre deux vecteurs de même taille est la norme de leur différence :
+
+$$
+d(\mathbf{u},\mathbf{v})=\|\mathbf{u}-\mathbf{v}\|_2.
+$$
+
+Ainsi, la distance entre (1,2) et (4,6) vaut 5. Cette valeur dépend de l'échelle des caractéristiques : une coordonnée mesurée en milliers peut dominer les autres.
+
+## 4. Similarité cosinus
+
+Pour deux vecteurs **non nuls** :
+
+$$
+\operatorname{cosine}(\mathbf{u},\mathbf{v})=
+\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|_2\|\mathbf{v}\|_2}.
+$$
+
+Elle mesure leur orientation relative : 1 pour une même direction, 0 pour des vecteurs orthogonaux, -1 pour des directions opposées. Ces interprétations supposent des vecteurs réels dans un espace euclidien.
+
+Pour (1,0) et (2,0), le résultat vaut 1. Pour (1,0) et (0,1), il vaut 0. Pour un vecteur nul, le cosinus est **indéfini** ; un programme ne doit pas inventer un score.
+
+## 5. Pourquoi cela compte pour le RAG
+
+Dans une base d'embeddings, textes et documents sont convertis en vecteurs appris. Une distance faible ou une similarité élevée peut indiquer que deux contenus sont proches selon **le modèle utilisé**. Cela ne prouve pas que le document trouvé est exact, autorisé ou pertinent pour la question.
+
+La validation de la recherche documentaire reste indispensable. Les volumes 09 et 11 expliqueront embeddings, indexation, reranking et contrôle de provenance.
+
+## 6. Exercices avec corrections
+
+**A.** Additionner (1,2,3) et (4,5,6).
+
+*Correction.* (5,7,9).
+
+**B.** Calculer le produit scalaire de (2,-1) et (3,4).
+
+*Correction.* $2\times3+(-1)\times4=2$.
+
+**C.** Calculer la norme de (0,5) puis la distance de (0,0) à (3,4).
+
+*Correction.* Respectivement 5 et 5.
+
+**D.** Cosinus entre (1,0) et (2,0) ?
+
+*Correction.* 1.
+
+**E.** Quelle réponse doit fournir un programme pour une similarité cosinus avec (0,0) ?
+
+*Correction.* Une erreur explicite, car le dénominateur est nul.
+
+## 7. À expérimenter
+
+Le laboratoire [V02 — vecteurs en Python](../../../labs/v02-vectors/README.md) devra confronter ces calculs à des tests automatisés, incluant le rejet des dimensions incompatibles. Il est prévu pour Python standard, sans GPU.
+
+**Avant publication :** figures originales, tests reproductibles, validation des formules et relecture pédagogique.
