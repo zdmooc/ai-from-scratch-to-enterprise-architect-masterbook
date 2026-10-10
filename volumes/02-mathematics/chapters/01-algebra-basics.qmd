@@ -1,0 +1,118 @@
+# Chapitre 01 — Prérequis d'algèbre et méthode de calcul
+
+> **DRAFT — cours original pour débutant complet.** Aucun résultat matériel, cloud ou métier n'est revendiqué.
+
+## Objectifs
+
+Savoir calculer une expression, manipuler une inconnue, interpréter une fonction, une somme, une moyenne et une puissance ; être capable de lire les premières équations de Machine Learning sans les considérer comme des symboles mystérieux.
+
+## 1. Des nombres aux variables
+
+Un nombre représente une quantité. Une **variable** est un symbole pouvant représenter une quantité encore inconnue, mesurée ou choisie.
+
+L'expression $2x+3$ signifie multiplier x par 2, puis ajouter 3. Si x=4, alors $2x+3=11$.
+
+Une **équation** exprime que deux quantités sont égales. Dans $2x+3=11$, soustraire 3 des deux côtés donne $2x=8$, puis diviser par 2 donne $x=4$.
+
+La même opération doit être appliquée aux deux membres si l'on veut conserver l'égalité. On ne peut pas diviser par une expression qui vaut zéro sans changer le problème.
+
+## 2. Les priorités opératoires
+
+Dans $3+2\times 5$, on multiplie avant d'additionner : le résultat est 13, pas 25. Les parenthèses changent le regroupement : $(3+2)\times5=25$.
+
+Les puissances écrivent des multiplications répétées : $2^3=2\times2\times2=8$. La racine carrée de 9 vaut 3 dans la convention de racine principale, car $3^2=9$.
+
+Une quantité peut être négative. Il faut faire attention à l'écriture de $-x^2$, qui signifie généralement $-(x^2)$, tandis que $(-x)^2=x^2$.
+
+## 3. Fonctions : transformer une entrée en sortie
+
+Une **fonction** applique une règle à une entrée. Écrire $f(x)=2x+1$ signifie : pour chaque entrée du domaine, multiplier par 2 puis ajouter 1.
+
+| x | f(x) |
+|---:|---:|
+| 0 | 1 |
+| 1 | 3 |
+| 2 | 5 |
+| 3 | 7 |
+
+Dans la formation IA, un modèle est souvent représenté par une fonction $f_\theta(x)$ ; l'indice theta indique les paramètres du modèle. L'entrée peut être un nombre, un vecteur, un texte encodé ou une image transformée en tableau.
+
+La fonction peut être très complexe, mais le raisonnement de base reste le même : **données d'entrée → transformation → sortie**.
+
+## 4. Paramètres et inconnues
+
+Pour $f(x)=ax+b$, les valeurs a et b sont des paramètres. Si a et b sont fixés, nous pouvons calculer f pour tout x admissible.
+
+Pendant l'entraînement d'un modèle, certains paramètres sont ajustés. Il faut donc distinguer l'entrée que l'on souhaite prédire, la valeur de sortie attendue et les paramètres à apprendre.
+
+Un **hyperparamètre** est généralement fixé ou sélectionné par une procédure expérimentale plutôt qu'ajusté directement par le même algorithme d'apprentissage des poids.
+
+## 5. Sommes et moyennes
+
+Le symbole sigma est une notation compacte pour une addition répétée :
+
+$$
+\sum_{i=1}^{4}i = 1+2+3+4=10.
+$$
+
+Pour quatre observations $x_1,x_2,x_3,x_4$, la moyenne s'écrit :
+
+$$
+\overline{x}=\frac{1}{4}\sum_{i=1}^{4}x_i.
+$$
+
+Si les observations sont 2, 4, 6 et 8, la moyenne vaut $(2+4+6+8)/4=5$.
+
+La moyenne est simple, mais peut être très sensible à des valeurs extrêmes. C'est pourquoi les statistiques du volume 04 introduiront également la médiane, la variance et les distributions.
+
+## 6. Distance et erreur absolue
+
+La distance entre deux nombres sur une droite peut être mesurée par la valeur absolue de leur différence :
+
+$$
+d(x,y)=|x-y|.
+$$
+
+La valeur absolue efface le signe tout en conservant la grandeur de l'écart. Par exemple, $|3-8|=5$ et $|8-3|=5$.
+
+Cette définition nous permet de mesurer une erreur de prédiction sans faire disparaître artificiellement les erreurs positives et négatives lorsqu'on les additionne.
+
+## 7. Notions d'unités et de dimensions
+
+Un résultat numérique est souvent accompagné d'une unité : secondes, minutes, euros, joules ou octets. Une moyenne de durées exprimées en millisecondes ne doit pas être comparée directement à un objectif en secondes.
+
+Lorsqu'on dimensionne un système d'IA, l'erreur d'un facteur mille sur les unités peut invalider toute la proposition d'architecture. Le lecteur doit toujours préciser l'unité d'un résultat.
+
+## 8. Exercices corrigés
+
+**A.** Résoudre $3x+4=19$.
+
+*Correction.* $3x=15$, donc $x=5$.
+
+**B.** Calculer $f(2)$ pour $f(x)=x^2+2x-1$.
+
+*Correction.* $f(2)=4+4-1=7$.
+
+**C.** Calculer $\sum_{i=1}^{3}2i$.
+
+*Correction.* $2+4+6=12$.
+
+**D.** La prédiction d'un système est 12 minutes et la mesure est 9 minutes. Calculer l'erreur absolue.
+
+*Correction.* $|12-9|=3$ minutes.
+
+**E.** Un serveur consomme 1500 watts pendant 2 heures. Quelle énergie consomme-t-il, en kWh ?
+
+*Correction.* 1500 W = 1,5 kW, donc 1,5 kW × 2 h = 3 kWh. La puissance et l'énergie sont des grandeurs différentes.
+
+## 9. Application aux volumes futurs
+
+- Volume 05 : les paramètres d'une régression et les fonctions de perte.
+- Volume 06 : les poids et biais d'un neurone.
+- Volume 09 : les représentations numériques des tokens.
+- Volume 16 : les débits, unités mémoire et capacités GPU.
+- Volume 20 : les coûts et l'énergie par requête.
+
+Le prochain chapitre élargit la notion de nombre à celle de **vecteur** : au lieu d'un seul x, nous manipulerons plusieurs composantes à la fois.
+
+**Avant publication :** schémas originaux d'axes et fonctions, révision pédagogique et implémentation Python des calculs.
