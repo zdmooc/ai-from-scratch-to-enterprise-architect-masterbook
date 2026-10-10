@@ -33,3 +33,5 @@ jobs:
           python scripts/build_volume.py --volume 03 --format html --dry-run
       - name: Run V01 experiment lab tests
         run: python -m unittest discover -s labs/v01-experiment -p 'test_*.py' -v
+      - name: Run V01 agent guardrails lab tests
+        run: python -m unittest discover -s labs/v01-agent-guardrails -p 'test_*.py' -v

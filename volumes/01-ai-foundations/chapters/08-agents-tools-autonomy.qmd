@@ -237,7 +237,13 @@ Le contrat minimal doit imposer :
 
 Une démo qui montre seulement une réponse correcte ne prouve pas ce contrat. La sécurité doit être vérifiée sur les chemins d'échec.
 
-## 14. Conclusion et ressources
+## 14. Laboratoire de contrôle des outils
+
+Le [laboratoire Python de garde-fous en lecture seule](../../../labs/v01-agent-guardrails/README.md) permet de comparer une règle de permission **imposée par le dispatcher** à une instruction malveillante insérée dans un document. Le programme illustre une liste blanche d'outils, des périmètres de locataires synthétiques, des rôles et une borne d'étapes.
+
+Les tests du laboratoire ne prouvent pas la sécurité d'un agent réel : l'identité et les permissions doivent également être imposées **côté API cible**. La [preuve locale de test](../../../evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md) concerne uniquement le simulateur et les scénarios testés.
+
+## 15. Conclusion et ressources
 
 Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
 

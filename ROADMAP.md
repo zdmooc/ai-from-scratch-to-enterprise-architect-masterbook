@@ -35,3 +35,5 @@ V01 : définition IA, modèles de calcul, IA symbolique vs apprentissage, premi�
 Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R12 : rédaction/approfondissement effectués**, mais chapitres non validés scientifiquement ni publiés. **R13–R22 : non réalisés**. Les PDF/EPUB ne seront produits qu'après clôture éditoriale du contenu, avec contrôle final des droits.
 
 **Jalon R12 (10/10/2026) :** les 12 chapitres V01 existent désormais en premier brouillon, sans prétention à 280 pages déjà produites. Le laboratoire d'évaluation C11 a été reproduit localement : 12/12 tests PASS avec empreintes GitHub identiques ; voir `evidence/V01_EXPERIMENT_LOCAL_TEST_2026-10-10.md`. Les étapes d'harmonisation, figures, sciences, droits, QA et composition restent à réaliser.
+
+**Avancement R13–R14 :** audit initial des lacunes enregistré, à approfondir ; simulateur pédagogique d'agent lecture seule C08 validé localement avec 16 tests PASS (blobs GitHub SHA identiques), laboratoire C11 avec 12 tests PASS. **R13 non clos, R14 partiel**. Aucun PDF, EPUB ou HTML de publication, aucun coût GPU/cloud engagé.

@@ -47,3 +47,6 @@ Douze manuscrits Quarto C01–C12 sont présents, **29 119 mots** approximatifs 
 **R13 reste IN_PROGRESS** : audit statique initial réalisé mais les vérifications et corrections scientifiques/éditoriales ne sont pas closes. **R14–R22 restent ouverts**. Les résultats des 12 tests du laboratoire C11 ne prouvent que leur portée déclarée.
 
 **Aucune pagination PDF, EPUB, HTML finale ou release n'a été produite.**
+
+### Ajout après l'audit initial
+Le laboratoire C08 de simulation d'outils en lecture seule a été créé et ses **16 tests synthétiques ont passé localement avec comparaison SHA**. Voir [preuve V01 Agent Guardrails](../../evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md). Ce contrôle ne clôt ni la relecture scientifique de R13 ni l'ensemble des laboratoires R14.

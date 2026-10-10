@@ -23,6 +23,7 @@ Ce dépôt est la **source éditoriale canonique** de la collection. Il organise
 - [Deux brouillons du volume 03 (Python)](volumes/03-python/chapters/)
 - [LAB V01 — moteur de règles](labs/v01-symbolic-ai/README.md)
 - [LAB V01 — expérimentation mesurable](labs/v01-experiment/README.md)
+- [LAB V01 — agent à outils lecture seule](labs/v01-agent-guardrails/README.md)
 - [LAB V02 — vecteurs](labs/v02-vectors/README.md)
 - [LAB V03 — Python](labs/v03-python-basics/README.md)
 - [Consolidation des 56 sources historiques](sources/consolidation/README.md)
@@ -54,3 +55,5 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 
 ## Suivi de réalisation V01
 - [Itérations R01–R22 et gates](volumes/01-ai-foundations/ITERATION_TRACKER.md) : R01–R12, rédaction en brouillon ; R13–R22 encore ouverts. Aucun PDF/EPUB généré.
+
+**Qualité V01 :** les douze chapitres sont au stade DRAFT, R13 audit initial en cours et R14 labs partiellement testés (C11 : 12 tests, C08 : 16 tests, tous locaux). Voir [registre R13](volumes/01-ai-foundations/R13_GAP_REGISTER.md) et [preuve C08](evidence/V01_AGENT_GUARDRAILS_LOCAL_TEST_2026-10-10.md).
