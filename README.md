@@ -66,3 +66,11 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 - [Carte des prérequis et frontières de chapitres](volumes/01-ai-foundations/READING_MAP.md)
 - [Rapport R13 avec résultats et lacunes](volumes/01-ai-foundations/R13_REVIEW_REPORT_2026-10-10.md)
 - [Guide de rédaction réutilisable pour les 24 volumes](governance/AI_PEDAGOGICAL_STYLE_GUIDE.md)
+
+### R14 — Laboratoires Python complémentaires (Volume 01)
+
+- [Gradient et vérification numérique des dérivées](labs/v01-gradient-descent/README.md) : 17 tests locaux.
+- [Attention Q/K/V et masques](labs/v01-attention-qkv/README.md) : 20 tests locaux.
+- [Preuve des 37 tests locaux avec empreintes Git](evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md).
+
+**R14 n'est pas clos.** L'intégration CI GitHub n'est pas vérifiée ; la publication PDF/EPUB attend la finition du manuscrit.
