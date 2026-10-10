@@ -23,3 +23,11 @@ jobs:
         run: python scripts/build_volume.py --volume 01 --format html --dry-run
       - name: Run V01 symbolic lab tests
         run: python -m unittest discover -s labs/v01-symbolic-ai -p 'test_*.py' -v
+      - name: Run V02 vector lab tests
+        run: python -m unittest discover -s labs/v02-vectors -p 'test_*.py' -v
+      - name: Run V03 introductory statistics lab tests
+        run: python -m unittest discover -s labs/v03-python-basics -p 'test_*.py' -v
+      - name: Check V02 and V03 Quarto preview configuration without writing
+        run: |
+          python scripts/build_volume.py --volume 02 --format html --dry-run
+          python scripts/build_volume.py --volume 03 --format html --dry-run
