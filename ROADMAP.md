@@ -14,8 +14,9 @@
 **Ne pas assimiler les 6 étapes de démarrage aux 24 volumes achevés.** La rédaction complète est un programme long qui doit être suivi séparément volume par volume.
 
 ## État
-- I01 : **INITIALISATION EN COURS** tant que la CI et le build preview ne sont pas exécutés avec succès.
-- I02–I06 : **NOT_STARTED** ; certains documents et projets sources préexistent, sans être automatiquement importés dans le Masterbook.
+- I01 : **STRUCTURE_CI_PASS / QUARTO_RENDER_NOT_YET_PROVEN** ; 24 volumes planifiés et CI statique PASS, mais aucun PDF/EPUB validé.
+- I02 : **IN_PROGRESS** ; dépôt confirmé PRIVATE le 2026-10-10. Rapport archivé dans `sources/audits/`; inventaires structurés : 77 fichiers Drive (61 tomes, 14 Ai_OneAgent, 2 racine), 79 dépôts GitHub ; 34 arborescences examinées / 45 non examinées ; qualification technique, droits et conversions restant à faire.
+- I03–I06 : **NOT_STARTED** ; les sources ne sont pas importées automatiquement et aucun volume n'est achevé.
 
 ## Première livraison utile
 V01 : définition IA, modèles de calcul, IA symbolique vs apprentissage, premières expériences reproductibles, exercices corrigés, classification des systèmes IA selon risques et exigences.

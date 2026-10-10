@@ -14,6 +14,8 @@ Ce dépôt est la **source éditoriale canonique** de la collection. Il organise
 - aucune importation automatique des documents Google Drive, aucune suppression des sources
 
 ## Commencer
+- [Rapport d'audit I02](sources/audits/I02_2026-10-10.md)
+- [Inventaires structurés Drive et GitHub](sources/inventories/README.md)
 - [Sommaire des 24 volumes](MASTER_TOC.md)
 - [Charte et cible éditoriale](MASTER_PLAN.md)
 - [Roadmap](ROADMAP.md)
@@ -36,6 +38,6 @@ Ce dépôt est la **source éditoriale canonique** de la collection. Il organise
 Les dépôts techniques ne sont **ni fusionnés ni supprimés**. Leurs concepts sont expliqués de manière autonome dans les livres; le code complexe et les preuves sont cités avec leurs limitations.
 
 ## Qualité et droits
-Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt public.
+Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt privé sans validation des droits ou autorisation éditoriale.
 
-**Statut :** dépôt en phase d'initialisation, pas encore une collection de livres terminés.
+**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure et CI validées, build réel PDF/EPUB non exécuté ; I02 inventaire en cours (77 fichiers Drive, 79 dépôts GitHub). Aucun des 24 volumes n'est terminé.

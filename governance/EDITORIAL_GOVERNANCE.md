@@ -30,7 +30,7 @@ Adaptation du modèle [Wero/EPI handbook](https://github.com/zdmooc/wero-epi-ref
 - [ ] Gel du commit, version du volume, checksums, release explicitement autorisée
 
 ## Protection des sources
-Ce dépôt est public. Ne pas y pousser :
+Ce dépôt est **privé au 10/10/2026**, mais la confidentialité GitHub ne suffit pas à autoriser toutes les données. Ne pas y pousser sans revue et nécessité :
 - données de santé, personnelles ou client ;
 - secrets, clés, identifiants ;
 - documents privés Drive par défaut ;

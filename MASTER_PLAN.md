@@ -32,7 +32,7 @@ Un script ou une procédure de laboratoire n'est pas la preuve de son exécution
 Les fichiers Google Drive originaux et les autres dépôts GitHub **restent intacts**. Les notions fondamentales nécessaires à la compréhension sont rédigées à neuf dans le livre ; les dépôts spécialisés fournissent les exemples et preuves, sans duplication de code maintenu.
 
 ## Politique de confidentialité / propriété intellectuelle
-Ce dépôt est **PUBLIC** au démarrage. Aucun document privé du Drive, aucun secret, donnée personnelle/de santé, configuration interne, contenu client, média tiers ou extrait non autorisé ne doit y être copié. Tout emprunt doit respecter ses droits, sa licence et l'attribution applicable. L'auteur et la licence de notre propre publication seront décidés avant la première release commerciale.
+Le dépôt a été **PUBLIC à sa création**, puis sa visibilité **PRIVATE** a été vérifiée le **10 octobre 2026**. Cette confidentialité n'autorise pas une republication de matériaux tiers ni un transfert de données sensibles sans justification. Aucun document privé du Drive, aucun secret, donnée personnelle/de santé, configuration interne, contenu client, média tiers ou extrait non autorisé ne doit y être copié. Tout emprunt doit respecter ses droits, sa licence et l'attribution applicable. L'auteur et la licence de notre propre publication seront décidés avant la première release commerciale.
 
 ## Publication
 Une édition indépendante par volume (HTML/PDF/EPUB avec version et SHA de source). Gel et QA avant release, comme le Handbook Wero/EPI. Revalidation des fournisseurs, API, textes légaux et prix avant chaque édition nouvelle.
