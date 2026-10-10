@@ -17,7 +17,7 @@
 | R11 | C11 — Première expérience mesurable | DRAFT_AUTHORED | Chapitre, dataset synthétique, protocole |
 | R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
 | R13 | Consolidation de cohérence et densification C01–C12 | FIRST_PASS_QA_PASS_DEPTH_OPEN | Aucun prérequis manquant, aucune contradiction |
-| R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_LABS_TESTED | Tests exécutés, aucun matériel lourd imposé |
+| R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_37_MORE_TESTS_SHA_PASS | Tests exécutés, aucun matériel lourd imposé |
 | R15 | Schémas et illustrations originaux | PARTIAL_3_SVG_AUTHORED | Lisibilité, licence, version, source |
 | R16 | Études de cas métier et dossiers d'architecture | PARTIAL_REFERENCE_DOSSIER | Métier vs technique, ADR, options |
 | R17 | Évaluations et corrigés de tous les chapitres | NOT_STARTED | Couverture des compétences mesurable |
@@ -61,3 +61,8 @@ Le [mini-projet documentaire](case-study/README.md) contient exigences, décisio
 
 ### R13 — Rapport après harmonisation
 [Rapport R13](R13_REVIEW_REPORT_2026-10-10.md) : 12 chapitres structurés, environ 32 101 mots, 38 liens internes valides, 69 définitions de glossaire, 6 ateliers complémentaires et absence de duplicata exact de paragraphe long. **Première passe PASS**, approfondissement jusqu'au niveau d'un vrai livre et relecture scientifique **encore ouverts**. Aucun PDF/EPUB rendu.
+
+### Mise à jour R14 — gradients et attention
+Deux laboratoires CPU ont été ajoutés : [gradient](../../labs/v01-gradient-descent/README.md) et [attention Q/K/V](../../labs/v01-attention-qkv/README.md). Sur l'environnement Python 3.13.5 de l'assistant, **17 + 20 = 37 tests locaux PASS**, avec correspondance des quatre blobs GitHub (voir [preuve R14](../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md)).
+
+**R14 demeure partiel** : exercices supplémentaires, intégration CI GitHub et relecture scientifique non clôturés. Aucun GPU ni CRC mobilisé, aucun PDF/EPUB produit.
