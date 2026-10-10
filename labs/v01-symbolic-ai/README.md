@@ -1,6 +1,6 @@
 # V01 — LAB : premier moteur de règles en Python (standard library)
 
-**Statut : DRAFT / pas de preuve runtime GitHub Actions pour ce dépôt privé.**
+**Statut : DRAFT / reproduction locale des 7 tests PASS (Python 3.13.5, 10/10/2026) / GitHub Actions privées toujours bloquées avant runner.**
 
 ## Intention
 
@@ -24,7 +24,7 @@ python labs/v01-symbolic-ai/rule_engine.py
 Exemple de sortie attendue : `investigation_candidate`, `read_events_permitted`, `audit_required` et `PAYMENT_MUTATION_ALLOWED: False`.
 
 ## Critères d'acceptation
-- [ ] Les 7 tests passent sur une version de Python annoncée et consignée.
+- [x] Reproduction des 7 tests exécutée localement avec Python 3.13.5, le 10/10/2026 ; aucune CI GitHub et aucun CRC testé.
 - [ ] Sans `requester_authenticated`, aucune investigation possible n'est déduite.
 - [ ] Aucune permission de mutation n'apparaît dans les faits inférés.
 - [ ] Un cycle de règles se termine au point fixe.
@@ -32,3 +32,5 @@ Exemple de sortie attendue : `investigation_candidate`, `read_events_permitted`,
 
 ## Limites
 Le programme montre **une inférence pédagogique**, non la gestion d'autorisations réelles. Une permission telle que `read_events_permitted` n'est qu'un fait déduit ; le système cible doit imposer l'autorisation au niveau de l'API et du compte de service. Le lab n'a ni négation, ni retrait de faits, ni temporalité, ni analyse de conflits. Ne pas réutiliser tel quel pour des décisions opérationnelles.
+
+[Trace de validation locale et limites](../../evidence/V01_SYMBOLIC_LAB_LOCAL_TEST_2026-10-10.md).

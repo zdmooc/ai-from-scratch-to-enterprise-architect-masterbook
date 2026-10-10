@@ -15,8 +15,11 @@
 
 ## État
 - I01 : **STRUCTURE_VALIDATED / CI_PRE_PRIVATE_PASS / PRIVATE_RUNNER_BLOCKED_UNDIAGNOSED / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a réussi sur le dernier commit public `65069e1`. Depuis le passage privé, les exécutions se terminent en échec sans aucune étape exécutée ni runner affecté ; raison précise à vérifier dans Actions et facturation/limites GitHub. Ne pas attribuer ces échecs au code sans logs.
-- I02 : **IN_PROGRESS** ; dépôt confirmé PRIVATE le 2026-10-10. Rapport archivé dans `sources/audits/`; inventaires structurés : 77 fichiers Drive (61 tomes, 14 Ai_OneAgent, 2 racine), 79 dépôts GitHub ; 34 arborescences examinées / 45 non examinées ; qualification technique, droits et conversions restant à faire.
-- I03–I06 : **NOT_STARTED** ; les sources ne sont pas importées automatiquement et aucun volume n'est achevé.
+- I02 : **TREE_INVENTORY_COMPLETE / CONTENT_REVIEW_OPEN** ; visibilité PRIVATE confirmée, 77 fichiers Drive et 79 dépôts GitHub inventoriés ; **79/79 arbres examinés**, aucune ligne de code ou équation de l'ensemble des sources certifiée. Voir `sources/audits/I02_GITHUB_COVERAGE_MATRIX_2026-10-10.md`. Droits, doublons, conversions et qualification technique restent à traiter.
+- I03 : **NOT_STARTED** ; aucune copie Word/PDF source importée, contrôles de licence/conversion en attente.
+- I04 : **FIRST_PASS_TOC_DRAFT** ; 288 chapitres planifiés dans `catalog/chapters.json` et sommaires individuels, revue détaillée des prérequis ouverte.
+- I05 : **V01_DRAFT_IN_PROGRESS / LOCAL_LAB_REPRODUCTION_PASS / PUBLICATION_NOT_PROVEN** ; 3 brouillons originaux V01 + un lab Python et 7 tests reproduits localement sous Python 3.13.5. Compilation Quarto HTML/PDF/EPUB non vérifiée.
+- I06 : **NOT_STARTED** ; aucun des 24 volumes achevé, aucune publication.
 
 ## Première livraison utile
 V01 : définition IA, modèles de calcul, IA symbolique vs apprentissage, premières expériences reproductibles, exercices corrigés, classification des systèmes IA selon risques et exigences.

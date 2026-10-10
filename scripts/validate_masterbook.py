@@ -26,13 +26,34 @@ def validate():
         data = path.read_text(encoding="utf-8")
         assert f"V{v['id']}" in data, f"wrong volume marker in {path}"
         assert "PLANNED" in data or v["status"] != "PLANNED", f"draft marker missing {path}"
+
+    chapters = json.loads((ROOT / "catalog" / "chapters.json").read_text(encoding="utf-8"))
+    assert chapters["chapters_total"] == 288
+    assert len(chapters["volumes"]) == 24
+    for v, details in zip(volumes, chapters["volumes"]):
+        assert details["volume"] == v["id"]
+        assert details["title"] == v["title"]
+        assert len(details["chapters"]) == 12
+        assert [c["id"] for c in details["chapters"]] == [f"C{i:02d}" for i in range(1, 13)]
+        assert len({c["title"] for c in details["chapters"]}) == 12
+        assert (ROOT / "volumes" / v["slug"] / "CHAPTER_PLAN.md").is_file()
+    manuscripts = sorted((ROOT / "volumes" / "01-ai-foundations" / "chapters").glob("*.qmd"))
+    assert len(manuscripts) >= 3, "V01 first 3 chapters missing"
+    for source in manuscripts:
+        assert len(source.read_text(encoding="utf-8")) >= 5000, f"draft unexpectedly short: {source}"
+        assert "DRAFT" in source.read_text(encoding="utf-8"), f"draft label missing: {source}"
+    for path in ("labs/v01-symbolic-ai/rule_engine.py",
+                 "labs/v01-symbolic-ai/test_rule_engine.py",
+                 "catalog/chapters.json"):
+        assert (ROOT / path).is_file(), f"missing {path}"
+
     for required in ("MASTER_TOC.md", "MASTER_PLAN.md", "ROADMAP.md",
                      "sources/GOOGLE_DRIVE_INVENTORY.md",
                      "sources/INTERNAL_GITHUB_SOURCES.md",
                      "sources/PUBLIC_GITHUB_REFERENCES.md",
                      "governance/EDITORIAL_GOVERNANCE.md"):
         assert (ROOT / required).is_file(), f"missing {required}"
-    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} parts=6 page_target={total} status=EDITORIAL_BOOTSTRAP")
+    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} chapters_planned=288 v01_drafts={len(manuscripts)} parts=6 page_target={total} status=EDITORIAL_DRAFT")
 
 if __name__ == "__main__":
     validate()

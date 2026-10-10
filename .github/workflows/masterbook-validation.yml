@@ -21,3 +21,5 @@ jobs:
         run: python scripts/validate_masterbook.py
       - name: Check V01 preview configuration without writing
         run: python scripts/build_volume.py --volume 01 --format html --dry-run
+      - name: Run V01 symbolic lab tests
+        run: python -m unittest discover -s labs/v01-symbolic-ai -p 'test_*.py' -v
