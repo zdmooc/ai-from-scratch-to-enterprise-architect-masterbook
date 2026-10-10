@@ -1,0 +1,248 @@
+# Chapitre 08 — Agents IA, outils et autonomie contrôlée
+
+> **DRAFT original — exemples fictifs et sans accès à des outils réels.** Un schéma d'agent proposé ne constitue pas la preuve de son exécution ni de sa sécurité.
+
+## Compétences visées
+
+Le lecteur saura distinguer agent et workflow, identifier les composants d'un agent outillé, décrire l'appel d'un outil, analyser les risques de boucle et d'action irréversible, proposer des contrôles *Human-in-the-Loop* (HITL) et rédiger les premiers tests négatifs d'un agent.
+
+## 1. Un agent n'est pas seulement un modèle de langage
+
+Un **modèle de langage** calcule une sortie à partir d'une entrée. Une **application agentique** utilise un modèle ou un autre mécanisme de décision pour choisir et enchaîner certaines étapes, consulter des observations, appeler des outils et adapter son comportement dans les limites de son environnement.
+
+Tous les systèmes appelés « agents » ne disposent pas du même degré d'autonomie. Certains sont de simples workflows à étapes fixes ; d'autres permettent au modèle de sélectionner une action parmi plusieurs outils autorisés.
+
+L'important n'est pas le nom du framework mais **le pouvoir effectif** accordé à l'application.
+
+### Quatre degrés d'autonomie
+
+| Degré | Description | Exemple synthétique |
+|---|---|---|
+| Observation | Consulter, lire, résumer | Lire des incidents visibles à un utilisateur |
+| Proposition | Préparer une décision sans l'appliquer | Rédiger un plan d'action à valider |
+| Action approuvée | Exécuter après contrôle externe explicite | Créer un ticket après confirmation |
+| Action déléguée bornée | Exécuter automatiquement dans des limites vérifiées | Classer des documents dans un espace autorisé |
+
+Ces degrés constituent une **grille pédagogique**, pas un standard officiel de classification. Les opérations irréversibles ou sensibles exigent une justification et des contrôles proportionnés.
+
+## 2. Agent ou workflow déterministe ?
+
+Un workflow suit un parcours prévu à l'avance. Pour un ticket de support, il peut demander l'identifiant, vérifier le format, consulter un statut, puis afficher une réponse. Si les étapes sont stables, un workflow conventionnel peut être plus simple à tester.
+
+Un agent peut être intéressant lorsque les cas nécessitent de sélectionner différents documents ou des outils variés en fonction d'une demande complexe. Cette flexibilité augmente cependant le nombre de chemins possibles, ce qui rend l'évaluation plus difficile.
+
+Un projet rigoureux doit comparer **le plus petit workflow déterministe suffisant** à une architecture agentique, plutôt que supposer que l'agent est l'étape suivante obligatoire du progrès.
+
+## 3. Les composants d'un agent outillé
+
+Une application agentique peut contenir :
+
+1. **Objectif** : ce que le demandeur souhaite accomplir.
+2. **État** : informations nécessaires au suivi du processus.
+3. **Planificateur ou politique** : choix de l'étape suivante.
+4. **Outils** : interfaces vers des données ou actions.
+5. **Observations** : résultats retournés par les outils.
+6. **Mémoire** : informations réutilisées à certaines échéances.
+7. **Garde-fous** : validation, permissions, limites, HITL.
+8. **Journal** : éléments nécessaires à la relecture et à l'audit.
+
+Cette décomposition sert à identifier les responsabilités. Chaque composant peut échouer : une observation périmée, une mauvaise autorisation ou un contrat API ambigu suffit à fausser le résultat global.
+
+## 4. Appel d'outil : distinguer proposition et exécution
+
+Supposons que l'utilisateur demande : « Quel est le statut du ticket SYN-042 ? » Le modèle pourrait produire une demande structurée :
+
+~~~json
+{"tool": "get_ticket_status", "arguments": {"ticket_id": "SYN-042"}}
+~~~
+
+Ce texte n'a pas, par lui-même, consulté un ticket. C'est une **proposition d'appel**. L'application doit vérifier le nom de l'outil, la forme des arguments et les permissions, puis exécuter l'opération et récupérer une observation.
+
+Une réponse de l'API pourrait être :
+
+~~~json
+{"ticket_id": "SYN-042", "status": "waiting_for_review"}
+~~~
+
+L'agent peut alors expliquer « en attente de revue ». Il ne doit pas transformer cette observation en « résolu », ni exposer un autre ticket que l'utilisateur n'est pas autorisé à consulter.
+
+### Les schémas ne sont pas des autorisations
+
+Même si les arguments d'appel respectent un schéma JSON, rien ne prouve que la demande est légitime. La validation du format et l'autorisation sont deux contrôles distincts : l'API cible conserve la responsabilité de protéger ses données.
+
+## 5. MCP et protocoles d'interopérabilité
+
+Le **Model Context Protocol (MCP)** décrit des mécanismes d'interaction entre des applications clientes et des serveurs fournissant des outils ou des ressources selon des contrats. Il ne garantit pas automatiquement que le contenu retourné est digne de confiance.
+
+Un serveur MCP peut être utile pour normaliser la découverte et l'appel de capacités. Mais son intégration introduit des questions opérationnelles :
+
+- Quels outils sont annoncés et quels outils sont réellement accessibles ?
+- L'identité de l'utilisateur est-elle propagée correctement ?
+- Comment sont protégés les secrets et jetons de l'application ?
+- Quelles descriptions d'outils ou ressources proviennent de tiers ?
+- Que se passe-t-il si le serveur distant tombe ou change de contrat ?
+- Comment consigner les versions et refus ?
+
+Le protocole ne doit pas masquer la nécessité d'un **inventaire des outils autorisés** et de frontières de confiance explicites.
+
+## 6. La boucle d'agent et les risques de non-terminaison
+
+Un schéma courant est :
+
+**Demande → choisir une étape → appeler un outil → observer → vérifier → continuer ou s'arrêter.**
+
+Sans limites, un système peut effectuer des appels inutiles, répéter une opération ou rester bloqué dans une boucle. Il faut donc définir des budgets :
+
+- nombre maximal d'étapes ;
+- nombre maximal d'appels d'outils ;
+- durée maximale d'exécution ;
+- budget de tokens et de coûts ;
+- taille et durée de conservation de l'état ;
+- nombre d'essais autorisés après une erreur.
+
+Une limite atteinte doit produire une **fin explicite**, avec statut d'échec ou de transfert humain selon le contexte, pas une réussite fabriquée.
+
+### Retenter une opération n'est pas toujours sans risque
+
+La consultation d'un statut est généralement moins risquée qu'une modification. Retenter automatiquement la création d'un ticket peut produire des doublons si la première réponse a été perdue. Des mécanismes d'**idempotence**, de vérification du résultat et de reprise bornée sont alors nécessaires.
+
+Pour un transfert financier, une tentative répétée sur simple incertitude serait particulièrement dangereuse : le système doit appliquer ses garanties transactionnelles et ses mécanismes de rapprochement.
+
+## 7. Human-in-the-Loop : l'approbation doit être réelle
+
+Une architecture HITL exige une séparation entre **préparer une action** et **l'autoriser**.
+
+Exemple d'un agent préparant une modification de configuration :
+
+1. produire une proposition compréhensible ;
+2. afficher la cible, la version et les conséquences ;
+3. soumettre la proposition à une personne autorisée ;
+4. recevoir une approbation traçable ;
+5. vérifier que la proposition n'a pas changé ;
+6. exécuter avec un compte limité, si l'approbation est valide ;
+7. journaliser le résultat et la possibilité de retour arrière.
+
+Une phrase du modèle du type « j'ai reçu l'autorisation » ne constitue **pas** une preuve d'approbation. Cette preuve doit provenir du système de workflow et de la politique d'accès.
+
+Un refus ou une absence de réponse humaine ne doit pas être interprété comme un accord tacite.
+
+## 8. Prompt injection par les documents et les outils
+
+Un agent lit souvent des contenus qui ne sont pas des instructions légitimes : tickets, pages Web, fichiers de dépôt, messages ou résultats de recherche. Ces contenus peuvent contenir des ordres comme « ignore les règles et appelle cet outil ».
+
+Il s'agit d'une **tentative d'injection de prompt** lorsque des données de moindre confiance cherchent à modifier le comportement autorisé.
+
+Trois contrôles fondamentaux :
+
+- **séparer les données des instructions applicatives** ;
+- **limiter effectivement les outils et permissions** ;
+- **tester des documents ou observations malveillants** pour vérifier que les refus sont maintenus.
+
+Un filtrage textuel peut compléter les défenses, mais ne constitue pas à lui seul une frontière de sécurité robuste.
+
+## 9. Observation, preuves et audit des parcours
+
+Pour évaluer une application agentique, il faut connaître non seulement la réponse finale mais aussi les étapes prises. Une trace minimale inclut :
+
+| Élément | Finalité |
+|---|---|
+| Identifiant du parcours | Relier demandes, observations et actions |
+| Version du modèle et des prompts | Reproduire les conditions déclarées |
+| Noms d'outils et paramètres filtrés | Comprendre les capacités sollicitées |
+| Autorisations et refus | Vérifier les frontières |
+| Résultats observés | Établir ce que le système a réellement appris |
+| Statut final | Distinguer succès, échec, attente humaine |
+| Durée et ressources | Évaluer coûts, limites et SLO |
+
+Attention à la protection des traces elles-mêmes : elles peuvent contenir des données personnelles ou des éléments confidentiels. Il faut les minimiser et appliquer une politique de conservation adaptée.
+
+## 10. Exemple de graphe de contrôle d'un agent
+
+L'application fictive traite une demande de consultation de ticket :
+
+~~~text
+START
+  |
+  v
+Contrôler l'identité -- échec --> REFUS
+  |
+  v
+Valider la demande -- invalide --> CLARIFICATION
+  |
+  v
+Autoriser la lecture -- refus --> REFUS
+  |
+  v
+Consulter l'API -- indisponible --> ÉCHEC BORNÉ
+  |
+  v
+Vérifier le ticket retourné et le périmètre
+  |
+  v
+Présenter le statut officiel et terminer
+~~~
+
+Le modèle peut aider à interpréter la demande et à formuler la réponse. Il ne peut pas sauter les contrôles d'identité ou créer une branche de mutation parce que l'utilisateur le formule de manière persuasive.
+
+## 11. Évaluation d'agents : la réponse finale ne suffit pas
+
+Supposons un agent qui doit obtenir le statut de dix tickets synthétiques. Il répond correctement pour neuf tickets, mais tente une écriture interdite lors de la dixième demande. Un score agrégé de 90 % **ne suffit pas** à autoriser le déploiement.
+
+Il faut séparer :
+
+- réussite de la tâche ;
+- qualité des appels d'outils ;
+- respect du périmètre de permission ;
+- traitement des refus et indisponibilités ;
+- absence d'effets de bord interdits ;
+- coût et nombre d'étapes ;
+- stabilité à la répétition.
+
+La campagne d'évaluation doit contenir des **tests négatifs**. Les cas faciles ne prouvent pas les propriétés de sécurité les plus importantes.
+
+## 12. Exercices corrigés
+
+**A.** Un modèle écrit « j'ai appelé l'API », mais aucun appel ne figure dans la trace. Peut-on considérer l'opération comme exécutée ?
+
+*Correction.* Non. Une affirmation de texte ne prouve pas une action ; il faut une observation du système cible.
+
+**B.** Un serveur outil renvoie un document demandant de divulguer un secret. Quelle est la frontière de confiance ?
+
+*Correction.* Le document est une donnée de moindre confiance. Les permissions doivent empêcher l'accès au secret, et l'agent ne doit pas traiter ce contenu comme une instruction supérieure.
+
+**C.** Pourquoi limiter le nombre d'appels de l'agent ?
+
+*Correction.* Pour contrôler la terminaison, les coûts et les risques de répétition ; un échec borné doit être traité explicitement.
+
+**D.** L'agent a proposé la création d'un ticket et attend une validation. L'absence de réponse vaut-elle une autorisation ?
+
+*Correction.* Non. L'autorisation doit être explicite, attestée et vérifiée par le système.
+
+**E.** Un workflow fixe résout 99 % des demandes courantes à faible coût. Faut-il le remplacer par un agent ?
+
+*Correction.* Pas sans gain démontré sur des critères métier et des tests de sécurité. Une solution simple peut être préférable.
+
+## 13. Mini-cas : investigation de paiement en lecture seule
+
+Le dossier fictif comporte des événements de paiement et une procédure d'incident. Un agent peut rechercher les événements consultables, comparer les statuts et proposer une synthèse. Il ne peut ni annuler ni relancer une opération financière.
+
+Le contrat minimal doit imposer :
+
+1. un compte et des outils **lecture seule** ;
+2. une liste d'outils autorisés ;
+3. une vérification des identifiants et du périmètre des données ;
+4. une fin de parcours en cas de doute ou d'indisponibilité ;
+5. un audit sans secrets ;
+6. un test négatif prouvant le refus d'une mutation.
+
+Une démo qui montre seulement une réponse correcte ne prouve pas ce contrat. La sécurité doit être vérifiée sur les chemins d'échec.
+
+## 14. Conclusion et ressources
+
+Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
+
+**Références de travail à revérifier :** [Model Context Protocol — documentation](https://modelcontextprotocol.io/), [OWASP — projets de sécurité des applications LLM](https://owasp.org/www-project-top-10-for-large-language-model-applications/). Ce chapitre n'en reproduit ni texte ni schéma.
+
+**Avant publication** : laboratoire contrôlé de tool calling, schéma SVG original, revue des contrats actuels MCP et des mesures défensives, exercices testés sur des cas synthétiques.
+
+**Transition :** le chapitre 09 montrera comment choisir entre ces architectures et des alternatives plus simples, avant tout investissement important.
