@@ -37,29 +37,33 @@ def validate():
         assert [c["id"] for c in details["chapters"]] == [f"C{i:02d}" for i in range(1, 13)]
         assert len({c["title"] for c in details["chapters"]}) == 12
         assert (ROOT / "volumes" / v["slug"] / "CHAPTER_PLAN.md").is_file()
-    manuscripts = sorted((ROOT / "volumes" / "01-ai-foundations" / "chapters").glob("*.qmd"))
-    assert len(manuscripts) == 6, "V01 must have exactly 6 draft chapters"
-    for source in manuscripts:
-        assert len(source.read_text(encoding="utf-8")) >= 2800, f"draft unexpectedly short: {source}"
-        assert "DRAFT" in source.read_text(encoding="utf-8"), f"draft label missing: {source}"
-    drafted = {"01": 6, "02": 2, "03": 2}
-    for volume, expected in drafted.items():
-        parent = next(v for v in volumes if v["id"] == volume)
-        files = sorted((ROOT / "volumes" / parent["slug"] / "chapters").glob("*.qmd"))
-        assert len(files) == expected, f"V{volume}: expected {expected} drafts, found {len(files)}"
-        assert parent["status"] == "DRAFT"
-        for i, path in enumerate(files, start=1):
-            assert path.name.startswith(f"{i:02d}-"), f"V{volume}: expected C{i:02d}"
-            draft = path.read_text(encoding="utf-8")
-            assert "DRAFT" in draft and len(draft) >= 2800, f"draft invalid: {path}"
-    for item in chapters["volumes"]:
-        expected = drafted.get(item["volume"], 0)
-        observed = sum(chapter["status"] == "DRAFT_REVIEW_REQUIRED" for chapter in item["chapters"])
-        assert observed == expected, f"status mismatch for V{item['volume']}"
-        if not expected:
-            assert next(v for v in volumes if v["id"] == item["volume"])["status"] == "PLANNED"
-    assert chapters["chapters_drafted"] == 10
-    assert chapters["chapters_planned_not_written"] == 278
+    # Manuscript counts follow the catalog; avoid hard-coded 5/6/7 chapter gates.
+    drafted = {
+        entry["volume"]: sum(ch["status"] == "DRAFT_REVIEW_REQUIRED"
+                             for ch in entry["chapters"])
+        for entry in chapters["volumes"]
+    }
+    total_drafted = sum(drafted.values())
+    assert chapters["chapters_drafted"] == total_drafted
+    assert chapters["chapters_planned_not_written"] == 288 - total_drafted
+    for volume in volumes:
+        expected = drafted[volume["id"]]
+        folder = ROOT / "volumes" / volume["slug"] / "chapters"
+        manuscripts = sorted(folder.glob("*.qmd")) if folder.exists() else []
+        assert len(manuscripts) == expected, (
+            f"V{volume['id']}: expected {expected} draft files, got {len(manuscripts)}")
+        assert volume["status"] == ("DRAFT" if expected else "PLANNED"), (
+            f"V{volume['id']}: status inconsistent with drafted chapters")
+        for number, source in enumerate(manuscripts, start=1):
+            assert source.name.startswith(f"{number:02d}-"), (
+                f"V{volume['id']}: unexpected filename {source.name}")
+            data = source.read_text(encoding="utf-8")
+            assert "DRAFT" in data and len(data) >= 2800, f"invalid draft {source}"
+            import re
+            headings = [int(m.group(1)) for m in re.finditer(r"^## (\\d+)\\.", data, re.M)]
+            assert headings == list(range(1, len(headings) + 1)), (
+                f"V{volume['id']}: nonsequential numbered section in {source}")
+            assert data.count("$$") % 2 == 0, f"unbalanced display math in {source}"
 
     mapping = json.loads((ROOT / "sources" / "consolidation" /
                           "historical_manuscript_mapping_2026-10-10.json").read_text(encoding="utf-8"))
@@ -83,7 +87,7 @@ def validate():
                      "sources/PUBLIC_GITHUB_REFERENCES.md",
                      "governance/EDITORIAL_GOVERNANCE.md"):
         assert (ROOT / required).is_file(), f"missing {required}"
-    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} chapters_planned=288 v01_drafts={len(manuscripts)} parts=6 page_target={total} status=EDITORIAL_DRAFT drafted=10")
+    print(f"MASTERBOOK_STRUCTURE_PASS volumes={len(volumes)} chapters_planned=288 drafted={total_drafted} parts=6 page_target={total} status=EDITORIAL_DRAFT")
 
 if __name__ == "__main__":
     validate()
