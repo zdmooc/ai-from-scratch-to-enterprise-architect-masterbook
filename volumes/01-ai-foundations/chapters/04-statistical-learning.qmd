@@ -1,0 +1,108 @@
+# Chapitre 04 — Apprentissage statistique et données d'entraînement
+
+> **DRAFT pédagogique original — non publié.** Les données numériques sont synthétiques.
+
+## Objectifs
+
+Savoir identifier les observations, les variables d'entrée, les labels et les prédictions ; comprendre comment un modèle apprend à partir d'exemples ; effectuer une première évaluation en évitant les fuites de données ; expliquer ce qu'une métrique signifie pour un métier.
+
+## 1. Transformer une question en problème mesurable
+
+Un service fictif veut prévoir le temps nécessaire au traitement d'un dossier. « Rendre le processus intelligent » est trop vague. « Estimer sa durée à partir des informations disponibles lors de son arrivée » est une question testable.
+
+La distinction entre les données disponibles **au moment de la prédiction** et les informations connues seulement **après l'événement** est essentielle. Entraîner un modèle avec la date de clôture d'un dossier pour prévoir sa durée à l'ouverture introduirait une fuite temporelle.
+
+## 2. Comprendre les données
+
+| Dossier | Documents reçus, x | Durée réelle, y (minutes) |
+|---|---:|---:|
+| A | 1 | 3 |
+| B | 2 | 5 |
+| C | 3 | 7 |
+| D | 4 | 9 |
+
+Chaque dossier est une **observation** ; x est une **feature** ; y est la **cible**. Nous proposons une première prédiction linéaire :
+
+$$
+\widehat y = ax+b.
+$$
+
+Pour les paramètres a = 2 et b = 1, la prédiction retrouve ici exactement les observations. Ce jeu a été fabriqué à cette fin : une correspondance parfaite sur ces quatre cas ne prouve rien concernant de futurs dossiers.
+
+## 3. Quantifier l'erreur
+
+L'erreur absolue moyenne (MAE) est définie par :
+
+$$
+MAE = \frac{1}{n}\sum_{i=1}^{n}|y_i-\widehat{y_i}|.
+$$
+
+Si notre modèle naïf prédit toujours 6 minutes, les erreurs sont 3, 1, 1, 3 minutes. Leur moyenne vaut 2 minutes. Ce nombre n'est pas automatiquement acceptable : il faut le rapporter à un objectif, à la variabilité et au coût métier de l'erreur.
+
+Une autre possibilité est l'erreur quadratique moyenne (MSE) :
+
+$$
+MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\widehat{y_i})^2.
+$$
+
+Elle pénalise plus fortement les grands écarts. Ni la MAE ni la MSE ne sont « meilleures » universellement : elles répondent à des attentes différentes.
+
+## 4. Supervision, clustering et autres familles
+
+Dans l'**apprentissage supervisé**, des exemples contiennent une cible connue. La régression prédit une quantité numérique ; la classification prédit une catégorie.
+
+En **apprentissage non supervisé**, on peut regrouper des observations ou rechercher une représentation utile sans labels fournis pour chaque ligne. Cette distinction ne couvre pas tous les domaines : apprentissage auto-supervisé, semi-supervisé et par renforcement seront expliqués dans la suite de la collection.
+
+La disponibilité des labels et la qualité de leur production sont des contraintes de conception, pas seulement des détails de data science.
+
+## 5. Mémoriser versus généraliser
+
+Il faut distinguer :
+
+1. **Entraînement** : utiliser des exemples pour ajuster les paramètres.
+2. **Validation** : comparer les choix de modèle et les hyperparamètres.
+3. **Test** : évaluer sur des observations indépendantes non utilisées pour ces décisions.
+
+Un modèle peut obtenir une erreur presque nulle sur son entraînement et une erreur élevée sur des observations nouvelles. Ce défaut de généralisation nécessite d'examiner la complexité du modèle, les données, les risques de fuite et l'évolution de la population.
+
+Pour les données ordonnées dans le temps, une séparation chronologique peut être indispensable : tirer aléatoirement des observations futures dans le jeu d'entraînement peut produire des résultats irréalistes.
+
+## 6. Préparer une expérience reproductible
+
+Avant chaque essai, consigner :
+
+- l'objectif métier, sa conséquence en cas d'erreur et le seuil d'acceptation ;
+- les jeux de données, leurs dates, leurs droits, leur version et leur provenance ;
+- la méthode de référence simple, appelée *baseline* ;
+- le découpage d'entraînement, de validation et de test ;
+- les paramètres et métriques, ainsi que les éventuelles différences entre populations ;
+- les coûts et les ressources consommées ;
+- les limites et les vérifications restant à conduire.
+
+Un score numérique élevé n'autorise pas à affirmer qu'un système « comprend » les dossiers. La qualité est une propriété de la tâche, des données et du contexte de déploiement.
+
+## 7. Exercices et corrigés
+
+**A.** Un modèle prédit 3, 4 et 8 minutes ; les mesures sont 2, 6 et 7. Calculer la MAE.
+
+*Correction.* Les erreurs absolues sont 1, 2 et 1 ; MAE = 4/3, soit environ 1,33 minute.
+
+**B.** Une variable « décision finale du gestionnaire » est créée après la clôture du dossier. Peut-on l'utiliser pour prévoir cette décision à l'arrivée ?
+
+*Correction.* Non, pas sans tricher : la variable est indisponible au moment de la prédiction. Il y a fuite d'information.
+
+**C.** Des observations ne disposent d'aucune catégorie, mais on cherche des groupes de comportements similaires. Quelle famille d'approches peut convenir ?
+
+*Correction.* Une méthode non supervisée comme le clustering, suivie d'une validation de la stabilité et de l'utilité des groupes.
+
+**D.** Une MAE diminue de 2,0 à 1,8 minute, mais le coût du service devient dix fois supérieur. Le nouveau modèle est-il nécessairement le meilleur choix ?
+
+*Correction.* Non. Il faut confronter le gain métier, le SLO, le coût, la capacité opérationnelle et les risques.
+
+## 8. Pourquoi ce chapitre prépare l'architecture IA
+
+Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
+
+**À valider avant publication :** équations, tests de code, illustrations originales, références scientifiques primaires, glossaire et lecture par un débutant.
+
+Source historique de cadrage : [Tome 1, chapitre 3 — Machine Learning pour Architecte](https://drive.google.com/file/d/1vsYvwHqSNjdLDKMDktxD1ASlF61Ov0SC/view). Le texte présent est une nouvelle rédaction pédagogique et non une copie du manuscrit Drive.
