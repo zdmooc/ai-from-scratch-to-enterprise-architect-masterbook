@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-10",
+  "stage": "TREE_ONLY_NOT_CONTENT_AUDIT",
+  "results": [
+    {
+      "name": "prorealtime",
+      "status": "TREE_READ",
+      "files": 18,
+      "md": 0,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "odm-cloudnative-2025-2029",
+      "status": "TREE_READ",
+      "files": 135,
+      "md": 14,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "SECURITY_PROVENANCE.md",
+        "odm-docker/Architecture/odm_architecture_bilan.md",
+        "odm-docker/Architecture/oidc/Readme Oidc Integration.md",
+        "odm-docker/Architecture/oidc/pigfideratevskeycloak.md",
+        "odm-docker/Architecture/readmeold.md",
+        "odm-docker/Architecture/ruledesigner.md"
+      ]
+    },
+    {
+      "name": "ansible-ils",
+      "status": "TREE_READ",
+      "files": 39,
+      "md": 3,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "SECURITY.md"
+      ]
+    },
+    {
+      "name": "argocd-complete-masterclass",
+      "status": "TREE_READ",
+      "files": 37,
+      "md": 10,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "docker-podman-complete-masterclass",
+      "status": "TREE_READ",
+      "files": 31,
+      "md": 5,
+      "py": 1,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "kafka-socle-gouvernance-lab",
+      "status": "TREE_READ",
+      "files": 53,
+      "md": 17,
+      "py": 2,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/01-ARCHITECTURE.md",
+        "docs/02-GOVERNANCE.md"
+      ]
+    },
+    {
+      "name": "argocd-expert-pack",
+      "status": "TREE_READ",
+      "files": 94,
+      "md": 44,
+      "py": 1,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/governance/O5_PLAN.md",
+        "docs/governance/OWNERSHIP.md",
+        "evidence/CLAIM_EVIDENCE_MATRIX.md"
+      ]
+    },
+    {
+      "name": "kafka-data-engineer-kafkaops-topic-service-crc",
+      "status": "TREE_READ",
+      "files": 88,
+      "md": 27,
+      "py": 16,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/10-architecture.md",
+        "docs/30-security.md"
+      ]
+    },
+    {
+      "name": "modernis-dat-repo",
+      "status": "TREE_READ",
+      "files": 62,
+      "md": 38,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "adr/004-s3-storage.md",
+        "docs/HYPOTHESES_CONSTRAINTS.md",
+        "governance/COMITE_ARCHI_TEMPLATE.md",
+        "governance/CR_COMITE_TEMPLATE.md",
+        "governance/PROD_ARCH_REVIEW.md",
+        "rfp/CDC-S3-Storage.md",
+        "security/COMPLIANCE_CHECKLIST.md",
+        "security/SECRETS_MANAGEMENT.md",
+        "security/SECURITY_SHEET.md",
+        "security/THREAT_MODEL.md"
+      ]
+    },
+    {
+      "name": "java21-jvm-expert-leadtech",
+      "status": "TREE_READ",
+      "files": 84,
+      "md": 33,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "appservers-socle-expert-repo",
+      "status": "TREE_READ",
+      "files": 64,
+      "md": 38,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "SECURITY.md",
+        "docs/01-architecture.md"
+      ]
+    },
+    {
+      "name": "elk-log-data-platform",
+      "status": "TREE_READ",
+      "files": 40,
+      "md": 14,
+      "py": 3,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/01-cadrage-kpis-usages.md",
+        "docs/02-architecture-cible.md",
+        "docs/adr/0003-ilm-and-data-tiers.md"
+      ]
+    },
+    {
+      "name": "dynatrace-observability-senior-project",
+      "status": "TREE_READ",
+      "files": 49,
+      "md": 40,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": [
+        "docs/01-cadrage/00-perimetre-et-objectifs.md",
+        "docs/01-cadrage/01-architecture-cible.md",
+        "docs/02-installation/02-03-oneagent-linux.md",
+        "docs/02-installation/02-04-oneagent-windows.md"
+      ]
+    },
+    {
+      "name": "dynatrace-crc-lab",
+      "status": "TREE_READ",
+      "files": 27,
+      "md": 14,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    },
+    {
+      "name": "pega-docker-repo",
+      "status": "TREE_READ",
+      "files": 11,
+      "md": 1,
+      "py": 0,
+      "truncated": false,
+      "interesting_paths": []
+    }
+  ]
+}
