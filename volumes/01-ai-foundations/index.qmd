@@ -8,7 +8,7 @@
 
 - C01 — Définir l'intelligence artificielle et ses frontières — **DRAFT**
 - C02 — Repères historiques et ruptures scientifiques — **DRAFT**
-- C03 — IA symbolique, logique et moteurs de règles — **DRAFT**, avec [lab Python](../../../labs/v01-symbolic-ai/README.md)
+- C03 — IA symbolique, logique et moteurs de règles — **DRAFT**, avec [lab Python](../../labs/v01-symbolic-ai/README.md)
 
 Les chapitres C04 à C12 restent **PLANNED** ; aucune version n'est publiée. Consulter le [plan détaillé](CHAPTER_PLAN.md) pour leurs intitulés.
 
