@@ -17,8 +17,8 @@
 - I01 : **STRUCTURE_VALIDATED / CI_PRE_PRIVATE_PASS / PRIVATE_RUNNER_BLOCKED_UNDIAGNOSED / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a réussi sur le dernier commit public `65069e1`. Depuis le passage privé, les exécutions se terminent en échec sans aucune étape exécutée ni runner affecté ; raison précise à vérifier dans Actions et facturation/limites GitHub. Ne pas attribuer ces échecs au code sans logs.
 - I02 : **TREE_INVENTORY_COMPLETE / CONTENT_REVIEW_OPEN** ; visibilité PRIVATE confirmée, 77 fichiers Drive et 79 dépôts GitHub inventoriés ; **79/79 arbres examinés**, aucune ligne de code ou équation de l'ensemble des sources certifiée. Voir `sources/audits/I02_GITHUB_COVERAGE_MATRIX_2026-10-10.md`. Droits, doublons, conversions et qualification technique restent à traiter.
 - I03 : **SOURCE_MAPPING_COMPLETE / CONVERSION_NOT_STARTED** ; 56 unités historiques cartographiées vers les 24 volumes (61 fichiers T1-T5). Aucun original Drive importé ni modifié.
-- I04 : **FIRST_PASS_TOC_DRAFT / STATUS_SYNCED** ; 288 chapitres dont 10 en brouillon et 278 à écrire. Sommaires et catalogue synchronisés.
-- I05 : **V01_V02_V03_DRAFT_IN_PROGRESS / LOCAL_LAB_TESTS_PASS / PUBLICATION_NOT_PROVEN** ; 10 chapitres : V01=6, V02=2, V03=2. Tests V02/V03 : 17/17 PASS sous Python 3.13.5, fichiers strictement identiques aux blobs GitHub. Build PDF/EPUB non vérifié ; GitHub Actions privées encore bloquées avant runner.
+- I04 : **FIRST_PASS_TOC_DRAFT / STATUS_SYNCED** ; 288 chapitres dont 16 en brouillon et 272 à écrire. Sommaires et catalogue synchronisés.
+- I05 : **V01_V02_V03_DRAFT_IN_PROGRESS / LOCAL_LAB_TESTS_PASS / PUBLICATION_NOT_PROVEN** ; 16 chapitres : V01=12, V02=2, V03=2. Tests V02/V03 : 17/17 PASS sous Python 3.13.5, fichiers strictement identiques aux blobs GitHub. Build PDF/EPUB non vérifié ; GitHub Actions privées encore bloquées avant runner.
 - I06 : **NOT_STARTED** ; aucun des 24 volumes achevé, aucune publication.
 
 ## Première livraison utile
@@ -32,4 +32,6 @@ V01 : définition IA, modèles de calcul, IA symbolique vs apprentissage, premi�
 - EU AI Act et autres lois : vérification source primaire à la date de publication.
 
 ## Focus Volume 01 — séquence de 22 itérations
-Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R06 : rédaction/approfondissement effectués**, mais chapitres non validés scientifiquement ni publiés. **R07–R22 : non réalisés**. Les PDF/EPUB ne seront produits qu'après clôture éditoriale du contenu, avec contrôle final des droits.
+Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R12 : rédaction/approfondissement effectués**, mais chapitres non validés scientifiquement ni publiés. **R13–R22 : non réalisés**. Les PDF/EPUB ne seront produits qu'après clôture éditoriale du contenu, avec contrôle final des droits.
+
+**Jalon R12 (10/10/2026) :** les 12 chapitres V01 existent désormais en premier brouillon, sans prétention à 280 pages déjà produites. Le laboratoire d'évaluation C11 a été reproduit localement : 12/12 tests PASS avec empreintes GitHub identiques ; voir `evidence/V01_EXPERIMENT_LOCAL_TEST_2026-10-10.md`. Les étapes d'harmonisation, figures, sciences, droits, QA et composition restent à réaliser.

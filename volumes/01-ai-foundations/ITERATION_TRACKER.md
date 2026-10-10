@@ -10,12 +10,12 @@
 | R04 | C04 — Apprentissage statistique | DRAFT_EXPANDED | Vérification formules/métriques et exemples |
 | R05 | C05 — Introduction au Deep Learning | DRAFT_EXPANDED | Calculs, figures et expérimentation pédagogique |
 | R06 | C06 — NLP, Transformers et LLM | DRAFT_AUTHORED | Vérification calcul d'attention, figure et bibliographie |
-| R07 | C07 — IA générative texte, image, audio | NOT_STARTED | Manuscrit, exercices et sources |
-| R08 | C08 — Agents IA et outils | NOT_STARTED | Manuscrit, architecture, tests négatifs |
-| R09 | C09 — Choisir un cas d'usage ou alternative sans IA | NOT_STARTED | Manuscrit, grille de décision |
-| R10 | C10 — Éthique, biais, erreurs et risques | NOT_STARTED | Manuscrit, sources primaires et cas |
-| R11 | C11 — Première expérience mesurable | NOT_STARTED | Chapitre, dataset synthétique, protocole |
-| R12 | C12 — Synthèse, exercices, mini-projet | NOT_STARTED | Manuscrit, corrections, critères PASS/FAIL |
+| R07 | C07 — IA générative texte, image, audio | DRAFT_AUTHORED | Manuscrit, exercices et sources |
+| R08 | C08 — Agents IA et outils | DRAFT_AUTHORED | Manuscrit, architecture, tests négatifs |
+| R09 | C09 — Choisir un cas d'usage ou alternative sans IA | DRAFT_AUTHORED | Manuscrit, grille de décision |
+| R10 | C10 — Éthique, biais, erreurs et risques | DRAFT_AUTHORED | Manuscrit, sources primaires et cas |
+| R11 | C11 — Première expérience mesurable | DRAFT_AUTHORED | Chapitre, dataset synthétique, protocole |
+| R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
 | R13 | Consolidation de cohérence et densification C01–C12 | NOT_STARTED | Aucun prérequis manquant, aucune contradiction |
 | R14 | Laboratoires reproductibles et jeux synthétiques | NOT_STARTED | Tests exécutés, aucun matériel lourd imposé |
 | R15 | Schémas et illustrations originaux | NOT_STARTED | Lisibilité, licence, version, source |
@@ -29,12 +29,12 @@
 
 ## Bilan des premières opérations
 
-- **6 brouillons V01 présents** sur 12 chapitres planifiés.
-- C01–C05 ont reçu des ajouts théoriques, exercices et études de cas ; C06 a été rédigé depuis zéro.
+- **12 brouillons V01 présents** sur 12 chapitres planifiés, sans relecture finale.
+- C01–C05 ont été approfondis ; C06–C12 ont été rédigés depuis zéro. C11 comprend un laboratoire synthétique testé localement (12/12 PASS), mais pas en CI GitHub.
 - Les nouveaux textes sont des **manuscrits originaux** ; le contenu Drive antérieur reste archivé à sa place.
-- Aucun PDF, EPUB, HTML de publication ou calcul de pages n'a été généré au cours de R01–R06.
-- Le laboratoire V01 existant possède des résultats antérieurs de tests locaux, mais sa validation sur le HEAD du dépôt privé reste à confirmer. Le problème GitHub Actions privé n'est pas résolu.
-- **R07–R22 restent ouverts**. Les 22 itérations sont un plan de travail, pas une promesse que les tâches sont de taille égale ni que les chapitres en brouillon sont achevés.
+- Aucun PDF, EPUB, HTML de publication ou calcul de pages n'a été généré au cours de R01–R12.
+- Les laboratoires ont des contrôles locaux tracés ; le nouveau lab de C11 a 12 tests PASS avec correspondance de SHAs Git. Une validation intégrée sur GitHub Actions reste bloquée avant runner. Le problème GitHub Actions privé n'est pas résolu.
+- **R13–R22 restent ouverts**. Les 22 itérations sont un plan de travail, pas une promesse que les tâches sont de taille égale ni que les chapitres en brouillon sont achevés.
 
 ## Conditions de publication
 

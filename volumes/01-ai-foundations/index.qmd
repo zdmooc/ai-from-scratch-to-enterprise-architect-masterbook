@@ -1,6 +1,6 @@
 # V01 — Introduction à l'intelligence artificielle
 
-> **DRAFT_IN_PROGRESS — 6 chapitres de travail sur 12 planifiés ; LIVRE NON TERMINÉ.**  
+> **DRAFT_FULL_FIRST_PASS — 12 chapitres sur 12 rédigés en brouillon ; LIVRE NON TERMINÉ.**  
 > Partie 1/6 : Fondations scientifiques et informatiques.  
 > Pagination cible indicative : **280 pages A4** (non rédigées).
 
@@ -12,8 +12,14 @@
 - C04 — Apprentissage statistique et données d'entraînement — **DRAFT**
 - C05 — Deep Learning expliqué sans prérequis — **DRAFT**
 - C06 — Premiers repères sur NLP, Transformers et LLM — **DRAFT**
+- C07 — IA générative : textes, images, audio et limites — **DRAFT**
+- C08 — Agents IA, outils et autonomie contrôlée — **DRAFT**
+- C09 — Panorama des cas d'usage et alternatives sans IA — **DRAFT**
+- C10 — Éthique, risques, biais et erreurs des systèmes IA — **DRAFT**
+- C11 — Concevoir une première expérimentation mesurable — **DRAFT**, avec [laboratoire Python](../../labs/v01-experiment/README.md)
+- C12 — Synthèse, exercices corrigés et mini-projet — **DRAFT**
 
-Les chapitres C07 à C12 restent **PLANNED** ; aucune version n'est publiée. Consulter le [plan détaillé](CHAPTER_PLAN.md) pour leurs intitulés.
+**Tous les chapitres C01–C12 existent en brouillon, aucun n'est encore validé ou publié.** Consulter le [plan détaillé](CHAPTER_PLAN.md) et le [suivi des 22 itérations](ITERATION_TRACKER.md).
 
 ## Finalité
 
@@ -44,4 +50,4 @@ Ce volume est une composante de la collection *AI From Scratch to Enterprise Arc
 - Sources publiques primaires datées, statut de preuve et droits de réutilisation vérifiés.
 - QA HTML, PDF, EPUB et version gelée avant une release.
 
-**État réel du manuscrit :** six chapitres en brouillon, six chapitres absents. Laboratoire symbolique recopié et testé localement ; compilation HTML/PDF/EPUB non validée.
+**État réel du manuscrit :** douze chapitres rédigés en brouillon ; approfondissement, harmonisation, validation des labs, figures, relecture scientifique et publication restent ouverts. Laboratoire symbolique recopié et testé localement ; compilation HTML/PDF/EPUB non validée.

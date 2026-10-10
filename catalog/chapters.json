@@ -1,6 +1,6 @@
 {
   "collection": "Bible IA 2026–2030",
-  "status": "I04_TOC_AND_TEN_DRAFT_MANUSCRIPTS",
+  "status": "I04_FIRST_PASS_COMPLETE_V01_ALL_12_DRAFTS",
   "chapters_total": 288,
   "volumes": [
     {
@@ -49,37 +49,37 @@
         {
           "id": "C07",
           "title": "IA générative : textes, images, audio et limites",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C08",
           "title": "Agents IA, outils et autonomie contrôlée",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C09",
           "title": "Panorama des cas d'usage et alternatives sans IA",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C10",
           "title": "Éthique, risques, biais et erreurs des systèmes IA",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C11",
           "title": "Concevoir une première expérimentation mesurable",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         },
         {
           "id": "C12",
           "title": "Synthèse, exercices corrigés et mini-projet",
-          "status": "PLANNED",
+          "status": "DRAFT_REVIEW_REQUIRED",
           "estimated_pages": null
         }
       ]
@@ -1948,6 +1948,6 @@
       ]
     }
   ],
-  "chapters_drafted": 10,
-  "chapters_planned_not_written": 278
+  "chapters_drafted": 16,
+  "chapters_planned_not_written": 272
 }

@@ -18,10 +18,11 @@ Ce dépôt est la **source éditoriale canonique** de la collection. Il organise
 - [Inventaires structurés Drive et GitHub](sources/inventories/README.md)
 - [Sommaire des 24 volumes](MASTER_TOC.md)
 - [288 chapitres planifiés](catalog/chapters.json)
-- [Six brouillons du volume 01](volumes/01-ai-foundations/chapters/)
+- [Douze chapitres en brouillon du volume 01](volumes/01-ai-foundations/chapters/)
 - [Deux brouillons du volume 02 (mathématiques)](volumes/02-mathematics/chapters/)
 - [Deux brouillons du volume 03 (Python)](volumes/03-python/chapters/)
 - [LAB V01 — moteur de règles](labs/v01-symbolic-ai/README.md)
+- [LAB V01 — expérimentation mesurable](labs/v01-experiment/README.md)
 - [LAB V02 — vecteurs](labs/v02-vectors/README.md)
 - [LAB V03 — Python](labs/v03-python-basics/README.md)
 - [Consolidation des 56 sources historiques](sources/consolidation/README.md)
@@ -49,7 +50,7 @@ Les dépôts techniques ne sont **ni fusionnés ni supprimés**. Leurs concepts 
 ## Qualité et droits
 Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt privé sans validation des droits ou autorisation éditoriale.
 
-**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure validée, CI réussie avant passage privé ; nouvelles exécutions CI en échec avant démarrage des étapes (diagnostic en cours) ; build réel PDF/EPUB non exécuté ; I02 inventaire des arborescences terminé (77 fichiers Drive, 79 dépôts GitHub), audit de fond encore ouvert ; I04 288 titres de chapitres en brouillon ; I03 56 unités Drive cartographiées ; I04 10 chapitres en brouillon sur 288 ; I05 17 tests V02/V03 reproduits localement avec contrôle SHA ; aucun volume publié. Aucun des 24 volumes n'est terminé.
+**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure validée, CI réussie avant passage privé ; nouvelles exécutions CI en échec avant démarrage des étapes (diagnostic en cours) ; build réel PDF/EPUB non exécuté ; I02 inventaire des arborescences terminé (77 fichiers Drive, 79 dépôts GitHub), audit de fond encore ouvert ; I04 288 titres de chapitres en brouillon ; I03 56 unités Drive cartographiées ; I04 16 chapitres en brouillon sur 288 ; I05 17 tests V02/V03 reproduits localement avec contrôle SHA ; aucun volume publié. Aucun des 24 volumes n'est terminé.
 
 ## Suivi de réalisation V01
-- [Itérations R01–R22 et gates](volumes/01-ai-foundations/ITERATION_TRACKER.md) : R01–R06, rédaction en brouillon ; R07–R22 à réaliser. Aucun PDF/EPUB généré.
+- [Itérations R01–R22 et gates](volumes/01-ai-foundations/ITERATION_TRACKER.md) : R01–R12, rédaction en brouillon ; R13–R22 encore ouverts. Aucun PDF/EPUB généré.

@@ -1,6 +1,6 @@
 # Plan détaillé préliminaire — V01: Introduction à l'intelligence artificielle
 
-**État : V01_C01_TO_C06_DRAFT_REVIEW_REQUIRED / NOT_PUBLISHED.** 12 chapitres proposés, cible indicative 280 pages A4 pour l'ensemble du volume.
+**État : V01_C01_TO_C12_DRAFT_REVIEW_REQUIRED / NOT_PUBLISHED.** 12 chapitres proposés, cible indicative 280 pages A4 pour l'ensemble du volume.
 
 1. **C01** — Définir l'intelligence artificielle et ses frontières — `DRAFT_REVIEW_REQUIRED`
 2. **C02** — Repères historiques et ruptures scientifiques — `DRAFT_REVIEW_REQUIRED`
@@ -8,12 +8,12 @@
 4. **C04** — Apprentissage statistique et données d'entraînement — `DRAFT_REVIEW_REQUIRED`
 5. **C05** — Deep Learning expliqué sans prérequis — `DRAFT_REVIEW_REQUIRED`
 6. **C06** — Premiers repères sur NLP, Transformers et LLM — `DRAFT_REVIEW_REQUIRED`
-7. **C07** — IA générative : textes, images, audio et limites — `PLANNED`
-8. **C08** — Agents IA, outils et autonomie contrôlée — `PLANNED`
-9. **C09** — Panorama des cas d'usage et alternatives sans IA — `PLANNED`
-10. **C10** — Éthique, risques, biais et erreurs des systèmes IA — `PLANNED`
-11. **C11** — Concevoir une première expérimentation mesurable — `PLANNED`
-12. **C12** — Synthèse, exercices corrigés et mini-projet — `PLANNED`
+7. **C07** — IA générative : textes, images, audio et limites — `DRAFT_REVIEW_REQUIRED`
+8. **C08** — Agents IA, outils et autonomie contrôlée — `DRAFT_REVIEW_REQUIRED`
+9. **C09** — Panorama des cas d'usage et alternatives sans IA — `DRAFT_REVIEW_REQUIRED`
+10. **C10** — Éthique, risques, biais et erreurs des systèmes IA — `DRAFT_REVIEW_REQUIRED`
+11. **C11** — Concevoir une première expérimentation mesurable — `DRAFT_REVIEW_REQUIRED`
+12. **C12** — Synthèse, exercices corrigés et mini-projet — `DRAFT_REVIEW_REQUIRED`
 
 ## Critères de validation éditoriale
 
