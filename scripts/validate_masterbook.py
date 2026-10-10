@@ -66,7 +66,7 @@ def validate():
             assert data.count("$") % 2 == 0, f"unbalanced display math in {source}"
             # Check that each local Markdown asset link resolves from its source
             # file directory. External links are reviewed separately.
-            local_links = re.findall(r"!?\\[[^\\]]*\\]\\(([^)]+)\\)", data)
+            local_links = re.findall(r"!?\[[^\]]*\]\(([^)]+)\)", data)
             for target in local_links:
                 if target.startswith(("https://", "http://", "#", "mailto:")):
                     continue
