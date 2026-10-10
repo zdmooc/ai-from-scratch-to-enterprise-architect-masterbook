@@ -6,6 +6,8 @@
 
 Comprendre un neurone, le rôle des poids, des couches et des fonctions d'activation, et les principes de l'optimisation. Savoir pourquoi les besoins matériels de l'entraînement diffèrent de ceux de l'inférence.
 
+> **Rôle de ce chapitre — mécanique des réseaux.** Les poids, activations et gradients sont présentés sans GPU. Le [C06](06-language-transformers-llms.qmd) applique des représentations et des mécanismes d'attention au langage ; les mathématiques seront détaillées dans le Volume 02.
+
 ## 1. Un neurone est un calcul
 
 Un neurone artificiel combine des entrées, des poids et un biais. Il peut ensuite appliquer une fonction d'activation :

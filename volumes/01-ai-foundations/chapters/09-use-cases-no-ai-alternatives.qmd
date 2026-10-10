@@ -6,6 +6,8 @@
 
 Identifier le besoin réel d'une application, déterminer quand l'IA n'est pas nécessaire, comparer des options avec les mêmes critères et rédiger une première décision d'architecture (ADR) justifiable devant un comité.
 
+> **Rôle de ce chapitre — décider avant de déployer.** Le [C01](01-what-is-ai.qmd) définit les concepts ; ici, on compare les options et les alternatives sans IA. Le [C11](11-first-measurable-experiment.qmd) montre comment produire les mesures nécessaires, puis le [C12](12-capstone-and-exercises.qmd) transforme le choix en dossier.
+
 ## 1. Le point de départ : quelle décision veut-on améliorer ?
 
 Une organisation présente parfois une solution avant d'avoir identifié le problème : « Nous voulons un chatbot IA », « il nous faut des agents autonomes » ou « le service doit utiliser un modèle open source ».

@@ -6,6 +6,8 @@
 
 Le lecteur saura distinguer agent et workflow, identifier les composants d'un agent outillé, décrire l'appel d'un outil, analyser les risques de boucle et d'action irréversible, proposer des contrôles *Human-in-the-Loop* (HITL) et rédiger les premiers tests négatifs d'un agent.
 
+> **Rôle de ce chapitre — orchestrer des outils.** La présence d'un modèle ne donne aucun droit d'action. Le [C03](03-symbolic-ai-rules.qmd) explique les règles logiques, et le [C12](12-capstone-and-exercises.qmd) montre comment traduire les permissions d'un agent en exigences d'architecture.
+
 ## 1. Un agent n'est pas seulement un modèle de langage
 
 Un **modèle de langage** calcule une sortie à partir d'une entrée. Une **application agentique** utilise un modèle ou un autre mécanisme de décision pour choisir et enchaîner certaines étapes, consulter des observations, appeler des outils et adapter son comportement dans les limites de son environnement.

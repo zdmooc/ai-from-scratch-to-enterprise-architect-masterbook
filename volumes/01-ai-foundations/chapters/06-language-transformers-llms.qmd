@@ -6,6 +6,8 @@
 
 Après lecture, le lecteur doit pouvoir expliquer pourquoi une machine convertit du texte en nombres, définir token, tokenizer, embedding, contexte et attention, distinguer pré-entraînement et inférence, calculer une petite pondération d'attention et repérer les limites d'un système de langage.
 
+> **Rôle de ce chapitre — transformer le texte en calcul.** Tokenisation, vecteurs et attention sont présentés comme fondements, et non comme une garantie de véracité. Le [C07](07-generative-ai-multimodal.qmd) traite la production multimodale ; le [C08](08-agents-tools-autonomy.qmd) traite les outils et l'action.
+
 ## 1. Pourquoi le langage est difficile à traiter
 
 Une même demande peut prendre plusieurs formes : « mon paiement reste en attente », « je n'ai pas reçu la confirmation » ou « je ne sais pas si l'opération est passée ». Le système doit reconnaître que ces formulations peuvent se rapporter à un problème proche, sans décider trop tôt qu'elles signifient exactement la même chose.

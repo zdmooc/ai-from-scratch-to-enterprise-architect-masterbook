@@ -6,6 +6,8 @@
 
 Comprendre pourquoi l'IA ne commence pas avec les LLM ; distinguer les vagues d'approches symboliques, statistiques et neuronales ; reconnaître les limites de l'idée selon laquelle « le plus récent est toujours le meilleur ».
 
+> **Rôle de ce chapitre — chronologie et critique des sources.** La portée des travaux historiques est expliquée ici. Les règles sont approfondies au [C03](03-symbolic-ai-rules.qmd), les réseaux neuronaux au [C05](05-deep-learning-introduction.qmd) et les Transformers au [C06](06-language-transformers-llms.qmd).
+
 ## 1. Avant la naissance du terme : calcul, logique et langage
 
 L'histoire de l'IA combine plusieurs disciplines : logique, mathématiques, psychologie cognitive, théorie de la décision, informatique et linguistique.

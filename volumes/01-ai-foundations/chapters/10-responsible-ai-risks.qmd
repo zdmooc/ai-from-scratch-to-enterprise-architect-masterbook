@@ -6,6 +6,8 @@
 
 Reconnaître les risques de biais, confidentialité, sécurité, sûreté, manque d'explicabilité et surconfiance ; distinguer erreur statistique et injustice ; analyser les conséquences d'une décision ; construire un registre des risques et préparer un contrôle humain proportionné.
 
+> **Rôle de ce chapitre — enjeux et contrôles de risque.** Les concepts d'inférence sont introduits ailleurs ; ici, on examine conséquences, permissions, données et responsabilité. Le [C12](12-capstone-and-exercises.qmd) contient la matrice de traçabilité d'un cas fictif.
+
 ## 1. Pourquoi une IA « utile » peut néanmoins être inacceptable
 
 Un système peut produire un bon résultat moyen mais échouer précisément dans les situations importantes. Un assistant de conseil médical générant des informations fausses ou un système de tri de dossiers défavorisant systématiquement un groupe pourrait présenter des conséquences graves malgré de bonnes notes globales.

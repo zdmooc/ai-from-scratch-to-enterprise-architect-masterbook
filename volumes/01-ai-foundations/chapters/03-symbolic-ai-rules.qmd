@@ -12,6 +12,8 @@ Après lecture, le lecteur doit :
 4. expliquer une conclusion à partir de règles déclenchées ;
 5. tester la terminaison, la reproductibilité et le refus des permissions.
 
+> **Rôle de ce chapitre — logique explicite.** Le programme de règles calcule des déductions sur des faits synthétiques : il n'effectue pas de contrôle IAM réel. Pour les résultats appris depuis des données, lire le [C04](04-statistical-learning.qmd) ; pour les droits des outils d'agents, consulter le [C08](08-agents-tools-autonomy.qmd).
+
 ## 1. Formaliser une connaissance
 
 Dans un moteur de règles, on distingue les **faits** observés des **règles** qui déduisent d'autres faits. Prenons ces trois propositions fictives :

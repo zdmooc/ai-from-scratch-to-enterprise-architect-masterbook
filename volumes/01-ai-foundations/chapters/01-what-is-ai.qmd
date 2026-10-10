@@ -16,6 +16,8 @@
 
 Aucun prérequis mathématique ni expérience en programmation. Les quelques expressions symboliques seront expliquées en français.
 
+> **Rôle de ce chapitre — vocabulaire commun.** Les familles IA sont définies ici, sans prétendre sélectionner la meilleure option pour un besoin réel. L'arbitrage détaillé est conduit au [C09 — cas d'usage](09-use-cases-no-ai-alternatives.qmd), puis appliqué au [C12 — mini-projet](12-capstone-and-exercises.qmd).
+
 ## 1. Commencer par un problème, pas par un modèle
 
 Une entreprise fictive reçoit la question : *« Pourquoi mon paiement n'a-t-il pas été confirmé ? »* Pour y répondre de manière fiable, il faut connaître le **statut de référence** du paiement, son historique d'événements et les procédures pertinentes.

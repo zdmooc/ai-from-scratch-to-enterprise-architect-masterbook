@@ -6,6 +6,8 @@
 
 Savoir identifier les observations, les variables d'entrée, les labels et les prédictions ; comprendre comment un modèle apprend à partir d'exemples ; effectuer une première évaluation en évitant les fuites de données ; expliquer ce qu'une métrique signifie pour un métier.
 
+> **Rôle de ce chapitre — apprendre et mesurer.** Les notions de features, cibles et erreurs préparent le [C11 — protocole expérimental](11-first-measurable-experiment.qmd). Les réseaux neuronaux sont présentés au [C05](05-deep-learning-introduction.qmd). Les résultats du cours sont synthétiques, pas des performances de production.
+
 ## 1. Transformer une question en problème mesurable
 
 Un service fictif veut prévoir le temps nécessaire au traitement d'un dossier. « Rendre le processus intelligent » est trop vague. « Estimer sa durée à partir des informations disponibles lors de son arrivée » est une question testable.

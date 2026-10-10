@@ -2,6 +2,8 @@
 
 > **DRAFT — scénario fictif.** Ce projet pédagogique ne prouve ni le déploiement d'un système réel ni une conformité réglementaire.
 
+> **Rôle de ce chapitre — intégration des acquis.** Les onze premiers chapitres fournissent vocabulaire, techniques, contrôles et métriques. Ce mini-projet **documente des conceptions**, mais ne revendique pas de tests d'intégration ni d'exploitation réels.
+
 ## 1. Compétences visées
 
 Le lecteur doit maintenant pouvoir formuler un besoin, choisir entre règles, ML, RAG et agents, décrire une architecture simple, distinguer données d'autorité et synthèse générée, définir des tests négatifs, comparer le coût des options et reconnaître ce qui reste à prouver.

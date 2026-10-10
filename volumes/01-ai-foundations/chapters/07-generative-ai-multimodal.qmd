@@ -6,6 +6,8 @@
 
 À la fin de ce chapitre, le lecteur doit savoir distinguer **génération** et **recherche**, décrire les grandes familles de génération de texte, d'image et d'audio, reconnaître les contraintes de qualité et de droits, choisir une solution proportionnée au besoin et proposer une évaluation simple.
 
+> **Rôle de ce chapitre — créer un contenu.** Le chapitre compare texte, image et audio, et insiste sur la vérification des sorties. Les erreurs et droits sont cadrés au [C10](10-responsible-ai-risks.qmd) ; les appels d'outils, distincts de la génération, sont étudiés au [C08](08-agents-tools-autonomy.qmd).
+
 ## 1. Qu'appelle-t-on génération ?
 
 Une application de recherche retrouve des éléments déjà présents dans une source. Une application générative **produit une nouvelle sortie** à partir d'une requête et d'un modèle. Elle peut fabriquer une phrase qui n'existait dans aucun document, une image qui n'a jamais été photographiée ou un son synthétique.

@@ -2,6 +2,8 @@
 
 > **DRAFT — cours original.** Les données ci-dessous sont entièrement synthétiques ; aucune performance professionnelle n'est revendiquée.
 
+> **Rôle de ce chapitre — preuve expérimentale élémentaire.** On compare deux baselines prévisionnelles sur des données fictives, sans en déduire un gain métier. Le [C04](04-statistical-learning.qmd) définit les métriques ; le [C12](12-capstone-and-exercises.qmd) inclut les critères d'acceptation dans un dossier complet.
+
 ## 1. Objectifs
 
 Formuler une hypothèse testable, construire une baseline, définir un découpage temporel correct, calculer une métrique, proposer des tests négatifs et rédiger un rapport qui distingue résultats attendus, résultats observés et limites.
