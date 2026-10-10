@@ -1,0 +1,199 @@
+# Chapitre 07 — IA générative : textes, images, audio et limites
+
+> **DRAFT — manuscrit pédagogique original**, exemples et entreprises fictifs. Aucun résultat de modèle, de générateur d'image ou de service vocal n'est revendiqué comme observé.
+
+## Résultats d'apprentissage
+
+À la fin de ce chapitre, le lecteur doit savoir distinguer **génération** et **recherche**, décrire les grandes familles de génération de texte, d'image et d'audio, reconnaître les contraintes de qualité et de droits, choisir une solution proportionnée au besoin et proposer une évaluation simple.
+
+## 1. Qu'appelle-t-on génération ?
+
+Une application de recherche retrouve des éléments déjà présents dans une source. Une application générative **produit une nouvelle sortie** à partir d'une requête et d'un modèle. Elle peut fabriquer une phrase qui n'existait dans aucun document, une image qui n'a jamais été photographiée ou un son synthétique.
+
+Le terme *nouveau* ne signifie pas automatiquement *original au sens juridique* ni *véridique*. Une sortie peut imiter fortement un motif connu, violer une contrainte éditoriale, contredire une source ou introduire des faits inventés. Il faut séparer quatre questions :
+
+1. **Format** : la sortie est-elle du texte, une image, un signal audio, une vidéo ou une structure de données ?
+2. **Tâche** : veut-on créer, résumer, transformer, traduire, compléter ou transcrire ?
+3. **Critère de réussite** : quel résultat est utile et comment le vérifie-t-on ?
+4. **Droit et provenance** : quels contenus ont été fournis, sous quelles autorisations, et quelle publication est permise ?
+
+Pour un cas métier, la réponse à ces questions précède le choix du modèle.
+
+## 2. Le texte : compléter une séquence n'est pas vérifier des faits
+
+Un grand modèle de langage peut produire une séquence de tokens conditionnée par les informations qui lui sont fournies. Il peut par exemple reformuler une procédure, classer un message, composer un brouillon de réponse ou générer du code.
+
+Son efficacité pratique dépend du **contexte**, de son entraînement, du procédé de décodage et de la qualité de la tâche. Il peut être très convaincant sur un sujet qu'il traite mal. Ce problème est parfois qualifié d'*hallucination* : la sortie affirme ou laisse supposer un élément non soutenu par les informations pertinentes.
+
+La réponse « le dossier est résolu » est dangereuse si le système officiel annonce « en cours ». L'application doit donc vérifier les faits importants contre une **source de référence**, et pas seulement demander au modèle de « répondre honnêtement ».
+
+### Trois modes d'utilisation du texte
+
+| Besoin | Approche envisageable | Test décisif |
+|---|---|---|
+| Reformuler un texte fourni | Génération conditionnée sur ce texte | Les informations sont-elles conservées sans ajout trompeur ? |
+| Résumer une collection de procédures | Recherche + génération avec citations | Les affirmations sont-elles soutenues par les passages autorisés ? |
+| Produire du code | Génération + tests et revue de sécurité | Le code répond-il à la spécification et résiste-t-il aux entrées adverses ? |
+
+La génération ne supprime donc pas les tests : elle en change les objets et parfois les coûts.
+
+## 3. L'image : pixels, descriptions et modèles génératifs
+
+Un générateur d'images produit une représentation visuelle à partir d'une entrée, souvent une description textuelle, une image de référence ou les deux. Des familles de modèles utilisent notamment l'apprentissage de représentations visuelles et des mécanismes de génération itérative tels que la **diffusion**.
+
+L'intuition simplifiée d'une approche de diffusion consiste à apprendre un procédé qui transforme progressivement une représentation bruitée vers une sortie visuelle structurée, conditionnée par une demande. Cette intuition ne constitue pas la description mathématique complète d'un système de diffusion latent ou multimodal.
+
+L'image générée peut répondre à l'intention esthétique sans respecter tous les détails demandés : un diagramme contenant des labels exacts, un document contractuel ou un schéma de sécurité peut nécessiter une **production structurée et vérifiable**, plutôt qu'un rendu approximatif.
+
+### Pourquoi un diagramme d'architecture exige un autre niveau de contrôle
+
+Supposons qu'une équipe demande une image montrant le flux « API → authentification → autorisation → base documentaire → génération ». Une illustration agréable peut inverser une flèche ou omettre l'autorisation, ce qui déformerait la sécurité du système.
+
+La bonne pratique est d'établir d'abord **le modèle logique** : composants, liens, directions, responsabilités et frontières. La figure peut ensuite être produite à partir d'un format maintenable et relue. La beauté visuelle ne doit pas masquer une erreur d'architecture.
+
+## 4. Audio, transcription et synthèse vocale
+
+L'IA appliquée à l'audio inclut plusieurs tâches différentes :
+
+- **ASR (Automatic Speech Recognition)** : convertir une parole en transcription ;
+- **TTS (Text-to-Speech)** : produire une parole synthétique à partir d'un texte ;
+- **Synthèse sonore** : produire d'autres types de sons ;
+- **Analyse audio** : détecter ou classer des phénomènes acoustiques ;
+- **Interactions vocales** : combiner reconnaissance, logique applicative et génération de réponse.
+
+La transcription d'une réunion ne garantit pas l'identification correcte des intervenants, des montants, des négations ou des noms propres. Une erreur portant sur un nombre ou une consigne peut être beaucoup plus grave qu'une erreur de ponctuation.
+
+Une voix synthétique ne doit pas être présentée comme celle d'une personne réelle sans respecter ses droits et le cadre applicable. Les risques incluent usurpation, divulgation, erreurs de compréhension et réutilisation non consentie d'enregistrements.
+
+### Exemple fictif : interface vocale de support
+
+Un usager demande oralement l'état d'un ticket. Le système transcrit la demande, vérifie l'identité, consulte la source autorisée et lit la réponse. Nous devons évaluer séparément :
+
+1. la **transcription** ;
+2. la **compréhension de la demande** ;
+3. la **requête métier autorisée** ;
+4. la **fidélité de la réponse** ;
+5. la **qualité de restitution audio** ;
+6. la **protection des enregistrements**.
+
+Un test d'ensemble peut échouer malgré la réussite de cinq composants sur six.
+
+## 5. Une application multimodale : plusieurs entrées et sorties
+
+Une application *multimodale* utilise plusieurs modalités comme texte, image, audio ou vidéo. Un modèle peut analyser une image et rédiger une description, ou produire une réponse textuelle après avoir reçu une question audio. Une architecture peut aussi combiner plusieurs modèles spécialisés plutôt qu'un unique grand modèle.
+
+Exemple pédagogique : un technicien fournit la photographie d'un équipement avec une description du défaut. Le système doit établir si l'image est exploitable, extraire les informations pertinentes, consulter la documentation autorisée et proposer des vérifications **sans ordonner une manipulation dangereuse**.
+
+L'absence d'image, une faible qualité optique ou un document non accessible doivent conduire à un résultat explicitement limité.
+
+## 6. Transformer une demande en spécification vérifiable
+
+Considérons la demande : « Générer une illustration de support pour une formation à la sécurité ». Il faut préciser le public, la licence des données d'entrée, le format, les éléments obligatoires, les éléments interdits et les critères de relecture.
+
+Une spécification possible :
+
+- **Entrées** : description originale et aucun portrait d'une personne réelle.
+- **Sortie** : illustration pédagogique sans identité de marque ni texte réglementaire approximatif.
+- **Validation** : vérification humaine des objets et du sens.
+- **Licence** : documenter les conditions d'utilisation de l'outil et les droits liés aux sources.
+- **Accessibilité** : légende textuelle et description alternative.
+
+Ce contrat rend la qualité observable. Sans lui, l'évaluation reste une préférence esthétique difficile à défendre.
+
+## 7. Évaluation : qualité, fidélité et contraintes
+
+La qualité d'une sortie générative est multidimensionnelle. Il peut être utile de définir une grille commune :
+
+| Dimension | Question | Contrôle |
+|---|---|---|
+| Exactitude | Les faits sont-ils soutenus ? | Sources, tests ciblés, experts métier |
+| Adéquation | La sortie répond-elle à la tâche ? | Critères d'acceptation explicites |
+| Cohérence | Pas de contradiction interne ? | Relecture et tests sur cas difficiles |
+| Sécurité | Aucun contenu ou accès interdit ? | Red teaming, permissions, filtrage |
+| Droits | Peut-on utiliser et publier ce contenu ? | Inventaire des licences et données |
+| Coût/latence | La solution respecte-t-elle le budget ? | Mesures sur un workload déclaré |
+| Accessibilité | La sortie est-elle utilisable ? | Alternatives textuelles et relecture |
+
+Une moyenne globale peut cacher une défaillance critique. Une sortie très bien notée visuellement peut rester inexploitable pour des raisons de droits ou de sécurité. Les seuils doivent refléter cette asymétrie.
+
+## 8. Rôle du prompt et de la configuration
+
+Le *prompt* définit une partie de la demande et du contexte. Il peut aider à préciser le format attendu, délimiter le rôle de la sortie et demander une justification.
+
+Mais un prompt ne constitue pas un contrôle d'autorisation. Il ne permet pas non plus de garantir que la sortie sera exactement déterministe, sauf dans la mesure où l'architecture et la configuration le permettent et où des tests le confirment.
+
+Pour un service soumis à un contrat d'API, il faut valider la sortie par une structure déclarée, traiter les échecs de parsing et enregistrer la version du modèle ainsi que les paramètres de génération.
+
+## 9. Droit d'auteur, confidentialité et traçabilité
+
+Il faut distinguer les droits sur les **entrées**, les règles du fournisseur de modèle et les droits éventuels sur la **sortie** selon les juridictions et conditions contractuelles applicables.
+
+Un texte disponible publiquement n'est pas nécessairement librement reproductible. De même, rendre un dépôt GitHub privé n'autorise pas à copier sans examen des œuvres tierces ou des données personnelles.
+
+Avant de publier une image, une voix ou un document généré, l'équipe doit examiner :
+
+1. la provenance des contenus de référence ;
+2. les droits de reproduction, transformation et diffusion ;
+3. les risques de ressemblance excessive ou d'usurpation ;
+4. la confidentialité des données traitées ;
+5. l'existence et les limites des métadonnées de provenance ;
+6. la possibilité de retirer ou corriger une sortie litigieuse.
+
+Les obligations précises doivent être revérifiées dans les sources juridiques à la date de publication.
+
+## 10. Architecture de référence d'une création contrôlée
+
+Le parcours minimal d'une génération de contenu peut être décrit ainsi :
+
+**Demande → validation d'entrée → politique de droits → sélection de modèle → génération → validation de résultat → revue requise → publication contrôlée → journal d'audit.**
+
+La validation peut échouer à plusieurs étapes. La publication ne doit pas être automatique lorsque le contexte exige une responsabilité humaine ou juridique.
+
+L'architecture doit également gérer l'indisponibilité du service, les modifications de modèles et les changements de politiques de fournisseurs. Un modèle remplaçable réduit le risque de dépendance commerciale mais suppose de normaliser les contrats et les tests de non-régression.
+
+## 11. Atelier d'analyse des risques
+
+Une équipe fictive veut diffuser chaque semaine une vidéo pédagogique produite en partie par IA et contenant une voix synthétique.
+
+**Travail :** déterminer les entrées, les autorisations, la chaîne de génération, la validation et les limites d'automatisation.
+
+**Correction guidée :**
+
+- établir une liste de sujets et un objectif pédagogique approuvés ;
+- rédiger un script vérifié plutôt que laisser une narration improviser des faits techniques ;
+- n'utiliser que des éléments visuels et audio dont la provenance et les droits sont maîtrisés ;
+- contrôler le contenu final et les éventuelles erreurs introduites lors de la synthèse vocale ;
+- consigner les versions et les autorisations de publication ;
+- conserver une procédure de retrait, correction et signalement des erreurs.
+
+Une diffusion entièrement automatique serait difficile à justifier si les risques, droits et critères de contrôle n'ont pas été maîtrisés.
+
+## 12. Exercices corrigés
+
+**Exercice A.** Une recherche retrouve la procédure exacte mais sans génération. Est-ce une application d'IA générative ?
+
+*Correction.* Non, pas du seul fait de la recherche. Une recherche vectorielle peut utiliser du ML pour indexer, sans générer une réponse nouvelle.
+
+**Exercice B.** Un modèle produit un schéma visuellement attractif mais avec une flèche de sécurité inversée. Peut-il être diffusé tel quel ?
+
+*Correction.* Non. Le diagramme doit respecter les invariants de l'architecture, être corrigé et revérifié.
+
+**Exercice C.** Une transcription remplace « quinze » par « cinquante ». Quelles mesures l'application doit-elle prévoir ?
+
+*Correction.* Évaluer particulièrement les nombres et entités critiques, vérifier contre les sources d'autorité et prévoir une confirmation humaine pour les actions sensibles.
+
+**Exercice D.** Une image a été générée à partir d'un visuel tiers dont la licence est inconnue. Est-elle automatiquement libre de droits ?
+
+*Correction.* Non. Il faut examiner la provenance et les droits avant toute réutilisation ou diffusion.
+
+**Exercice E.** Deux modèles produisent des sorties de qualité comparable, mais l'un coûte cinq fois plus cher et répond plus lentement. Que faut-il mesurer ?
+
+*Correction.* Le gain métier, les cas difficiles, la latence sous charge, la robustesse, les droits, les ressources et les coûts réels ; aucune conclusion universelle n'est possible sans protocole.
+
+## 13. Autoévaluation et synthèse
+
+Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
+
+**Références de travail à qualifier avant publication** : [Hugging Face — documentation des tâches](https://huggingface.co/tasks), [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) ; les versions, licences et passages précis devront être vérifiés dans la bibliographie finale.
+
+**Suite :** le chapitre 08 présente les applications capables d'utiliser des outils : les agents ne sont pas simplement des modèles génératifs, car ils introduisent des **capacités d'action et des responsabilités supplémentaires**.
