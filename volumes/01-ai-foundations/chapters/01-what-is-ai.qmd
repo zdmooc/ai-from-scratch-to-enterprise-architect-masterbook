@@ -143,6 +143,205 @@ Le lecteur sait-il définir en une phrase la différence entre l'entraînement e
 
 S'il manque l'un de ces éléments, il est utile de refaire le scénario des paiements avant de poursuivre.
 
+## 10. Choisir une solution : l'arbre de décision avant la technologie
+
+Dans une équipe, une demande d'« intelligence artificielle » arrive souvent avant l'explication du besoin réel. Il faut alors transformer l'intention en **décision d'architecture vérifiable**. Le premier entretien ne consiste donc pas à choisir un fournisseur de LLM ; il consiste à découvrir la décision que le système doit aider à prendre.
+
+### Question 1 — La réponse est-elle déjà définie par une règle ?
+
+Une entreprise fictive doit déterminer si une facture respecte un plafond contractuel. Si le plafond, la devise, la date et les exceptions sont connus et gouvernés, un **moteur de règles** ou un programme déterministe est généralement une meilleure base qu'un générateur de texte. Un LLM peut aider un utilisateur à comprendre la règle, mais il ne doit pas inventer le résultat du contrôle.
+
+Un exercice d'architecture utile consiste à réécrire la demande sous la forme suivante :
+
+> « Pour **tel utilisateur**, à partir de **telles entrées**, produire **tel résultat**, avec **tel niveau de preuve**, avant **tel délai**, sans avoir le droit de **telle action**. »
+
+Si cette phrase ne peut pas être complétée, le projet manque d'éléments de cadrage.
+
+### Question 2 — La solution doit-elle inférer une relation à partir d'exemples ?
+
+Un service de maintenance souhaite estimer la probabilité d'une panne selon des mesures de température, de vibration et d'historique. Une règle fixe peut constituer un premier système de référence. L'apprentissage supervisé devient intéressant si des exemples représentatifs permettent d'améliorer l'évaluation **sur de nouvelles observations**.
+
+La décision dépend notamment de la qualité des étiquettes : une base historique qui mélange des pannes réelles, des tickets dupliqués et des défauts de collecte ne donne pas automatiquement des labels fiables. Avant de lancer l'entraînement, il faut comprendre comment les catégories ont été établies.
+
+### Question 3 — Faut-il produire du langage libre ?
+
+Une recherche classique permet de retrouver des documents et peut répondre au besoin sans génération. Si l'utilisateur a besoin de synthétiser plusieurs passages, de reformuler ou de poser des questions en langage naturel, une génération ancrée sur les sources peut apporter de la valeur. Mais la **réponse doit être vérifiable** : la citation doit renvoyer à un extrait existant, pertinent et autorisé.
+
+Dans les scénarios sensibles, une réponse du type « je ne dispose pas des informations suffisantes » est parfois préférable à une explication plausible.
+
+### Question 4 — La solution doit-elle agir sur des systèmes ?
+
+Si une application peut modifier un dossier, créer un ticket ou déployer une configuration, elle a des effets de bord. Nous devons alors définir les droits dans les systèmes cibles, les approbations humaines, la journalisation et les règles de reprise. L'agent n'est pas un niveau de maturité obligatoire du RAG : il est un **choix d'orchestration** justifié seulement par le besoin.
+
+### Matrice de choix pédagogique
+
+| Besoin vérifiable | Base à comparer d'abord | L'IA peut-elle être utile ? | Contrôle à conserver |
+|---|---|---|---|
+| Appliquer un barème contractuel | Calcul et règles explicites | Pour expliquer une décision, éventuellement | Barème versionné et test unitaire |
+| Retrouver une procédure | Recherche par mots-clés et filtres | Embeddings et RAG si pertinents | ACL, date du document et citation exacte |
+| Prévoir une quantité inconnue | Moyenne ou modèle statistique simple | ML si amélioration hors échantillon | Évaluation, surveillance, contrôle métier |
+| Décrire une image | Métadonnées et saisie structurée | Vision si la tâche le justifie | Validation humaine des cas critiques |
+| Effectuer une action multi-étapes | Workflow déterministe | Agent outillé si variabilité nécessaire | Autorisation API, audit, HITL, rollback |
+
+Le tableau exprime des options d'architecture, non un classement universel. Une organisation peut combiner plusieurs lignes : par exemple, une recherche documentaire pour établir les sources, un LLM pour rédiger un résumé et un moteur de règles pour valider l'autorisation d'envoyer ce résumé.
+
+## 11. Du besoin métier au système de confiance
+
+Prenons un second scénario : un **assistant documentaire pour une équipe de support informatique**. Les utilisateurs sont autorisés à consulter les procédures correspondant à leur métier. Ils demandent parfois « comment réinitialiser un compte », mais l'assistant ne peut pas lui-même réinitialiser un compte de production.
+
+Le service doit pouvoir distinguer au moins quatre types de résultats :
+
+1. La réponse provient d'une procédure existante, dans la version attendue et accessible à l'utilisateur.
+2. Les documents existent, mais sont insuffisants ou contradictoires.
+3. Un document existe, mais l'utilisateur n'a pas le droit d'y accéder.
+4. Le sujet ne relève pas du système : il faut une escalade humaine ou un autre canal.
+
+Les catégories 2, 3 et 4 ne doivent pas être « améliorées » par un texte inventé. Leur traitement constitue déjà une partie de la valeur du système.
+
+### Frontières de confiance
+
+Une architecture élémentaire peut être décrite par la chaîne suivante :
+
+**Utilisateur → authentification → API de l'application → autorisation documentaire → recherche → génération contrôlée → vérification des citations → réponse et audit.**
+
+Les documents retrouvés ne sont pas des instructions de confiance équivalentes à celles de l'application. Un extrait documentaire pourrait contenir des phrases malveillantes demandant au modèle de divulguer des données ou d'appeler un outil. Une architecture défensive sépare donc **contenu consulté** et **politique de contrôle**.
+
+De la même manière, une instruction « ne partage jamais d'information confidentielle » placée dans un prompt ne suffit pas : l'application doit filtrer les documents par permission **avant** de transmettre leur contenu au modèle.
+
+### Source de vérité et réponse générée
+
+Imaginons qu'une procédure documentaire annonce un délai de cinq jours, mais que le système contractuel de référence indique dix jours pour le dossier traité. La réponse correcte ne peut pas être obtenue en choisissant au hasard le texte le plus convaincant. L'architecture doit décider **quelle source fait autorité pour quel fait**, comment résoudre les contradictions et quand s'abstenir.
+
+Cette notion de **source de vérité** traversera les volumes 11 (RAG), 17 (données), 18 (sécurité) et 23 (systèmes critiques).
+
+## 12. Mesurer un service : un exemple chiffré entièrement fictif
+
+Supposons qu'un service de 100 questions soit testé avec des cas préparés par l'équipe. Pour 75 cas, il existe une réponse documentaire valide. Pour 15 cas, l'information manque. Pour 10 cas, l'information existe mais n'est pas autorisée pour l'utilisateur de test.
+
+Ce corpus n'est **pas** représentatif d'un service réel ; nous l'utilisons pour expliquer ce qu'il faut mesurer.
+
+Une bonne évaluation ne demande pas seulement « combien de phrases semblent correctes ? ». Elle distingue :
+
+- **Questions répondables** : la réponse et ses citations sont-elles exactes ?
+- **Questions sans réponse accessible** : le système sait-il s'abstenir ?
+- **Questions non autorisées** : les documents sont-ils bien exclus avant récupération ?
+- **Performance** : le délai de réponse reste-t-il acceptable aux charges nominales et en pointe ?
+- **Fiabilité opérationnelle** : que se passe-t-il si le moteur de recherche ou le service LLM est indisponible ?
+
+Supposons que, sur les 75 questions répondables, 60 réponses soient jugées correctes selon une grille humaine explicite. Le taux de réponses correctes *dans cette sous-population* vaut :
+
+\[
+\frac{60}{75}=0{,}8=80\,\%.
+\]
+
+Ce calcul ne prouve rien sur les 25 autres questions. Il ne donne pas non plus une précision de classification au sens statistique sans une définition de la matrice d'erreurs. Pour mesurer un service global, nous devrons définir une métrique par catégorie ainsi qu'une politique d'agrégation qui n'efface pas les défaillances graves.
+
+Autre exemple : un service respecte le délai de réponse de deux secondes sur 95 requêtes parmi 100. On peut dire que **95 % de cet échantillon** respectent le seuil. On ne peut pas en déduire automatiquement un SLA de 95 % sur un mois de production. Il faudrait une période représentative, des charges différentes, des mesures d'indisponibilité, une politique de percentiles et un objectif contractualisé.
+
+### L'alternative sans IA est-elle évaluée ?
+
+Oui, impérativement. Un moteur de recherche documentaire classique, bien indexé et doté de filtres robustes, peut parfois délivrer une meilleure valeur à moindre coût. Il faut donc comparer **au moins une baseline** sans LLM. Sinon, nous risquons d'attribuer à l'IA un bénéfice qui provient simplement d'une meilleure organisation des documents.
+
+## 13. Six exigences non fonctionnelles à documenter
+
+Une application IA peut répondre correctement à quelques questions et rester impropre à l'exploitation. L'architecte doit formaliser des **exigences non fonctionnelles (NFR)** testables :
+
+| Domaine | Question de cadrage | Exemple de critère à définir |
+|---|---|---|
+| Sécurité | Qui peut accéder à quelles données et opérations ? | Aucune récupération de document hors ACL ; tests négatifs |
+| Disponibilité | Le service peut-il être interrompu ? | Cible mensuelle et stratégie de dégradation |
+| Performance | Qu'est-ce qu'un délai acceptable ? | P95 et P99 sous une charge déclarée |
+| Résilience | Que faire si le LLM devient indisponible ? | Réponse d'indisponibilité explicite, pas de mutation |
+| Observabilité | Peut-on comprendre un échec ? | Corrélation requête, sources, modèle, coût et version |
+| Coût et sobriété | Quelle ressource est acceptable pour produire une réponse fiable ? | Budget par requête et empreinte à mesurer |
+
+Le **P95** représente une valeur sous laquelle se trouvent au moins 95 % des mesures de la distribution considérée selon la convention retenue. Sans définition du périmètre (réseau inclus ou non, charge, cache froid/chaud), la valeur n'est pas directement comparable entre solutions.
+
+L'empreinte carbone d'une réponse n'est pas identique à la consommation instantanée du GPU : une estimation sérieuse doit préciser le périmètre, l'énergie opérationnelle et, selon l'étude, la fabrication des équipements et la durée d'amortissement. Ces notions seront approfondies au volume 20.
+
+## 14. Qui fait quoi ? Les rôles autour d'un produit IA
+
+Le titre « architecte IA » ne signifie pas que la même personne entraîne les modèles, administre les nœuds Kubernetes, valide les risques réglementaires et décide de la politique documentaire.
+
+- Le **propriétaire métier** définit le processus cible et les erreurs acceptables.
+- Le **responsable des données** traite provenance, qualité, propriété et droits d'accès.
+- L'**ingénieur ML / IA** conçoit ou adapte le composant de modélisation et son évaluation.
+- L'**ingénieur plateforme** fournit les capacités d'exécution, de supervision, de sécurité et de livraison.
+- Les **équipes sécurité, risques et conformité** établissent les contrôles applicables et les exigences d'audit.
+- L'**architecte de solution** assemble la vue d'ensemble, arbitre les alternatives et documente les décisions.
+
+Dans une petite organisation, plusieurs rôles peuvent être assumés par les mêmes personnes. Cela n'efface pas les responsabilités et les validations nécessaires. L'architecte n'est pas propriétaire de toutes les décisions métiers et juridiques.
+
+### Le minimum d'une décision d'architecture (ADR)
+
+Un ADR court peut documenter :
+
+**Contexte** — les employés doivent retrouver des procédures autorisées et poser des questions sur leurs contenus.
+
+**Options** — recherche traditionnelle ; recherche hybride sans génération ; recherche enrichie par une synthèse générative.
+
+**Critères** — confidentialité, fidélité, accessibilité, coût, latence et traçabilité.
+
+**Décision provisoire** — expérimenter les deux premières options sur un corpus de test autorisé avant d'introduire une génération.
+
+**Conséquences** — aucune promesse de réponse en langage naturel tant que les tests ne démontrent pas un gain mesurable et une gestion des refus suffisante.
+
+Ce document d'exemple ne prouve pas qu'un projet réel a retenu l'option. Il enseigne à **expliciter les compromis** et la réversibilité.
+
+## 15. Atelier guidé : choisir une approche sans code ni GPU
+
+Le lecteur est chargé d'examiner quatre propositions fictives. Pour chacune, il doit remplir une mini-fiche de décision.
+
+**Cas A — Vérification d'un plafond.** Un système contrôle qu'un montant se situe dans une limite définie par un contrat et un calendrier.
+
+**Cas B — Prévision de stock.** Un centre technique prévoit une consommation future à partir d'une série de relevés.
+
+**Cas C — Aide documentaire.** Des techniciens consultent des procédures versionnées, dont certaines sont confidentielles.
+
+**Cas D — Automatisation d'un ticket.** L'application peut proposer une correction, mais doit demander l'accord de l'opérateur avant toute écriture.
+
+Pour chaque cas, renseigner :
+
+| Champ | Réponse attendue |
+|---|---|
+| Action et utilisateur | Qui demande quoi, à quel moment ? |
+| Données disponibles | Quelles sources, avec quels droits ? |
+| Solution de référence | Quelle solution fonctionnerait sans IA générative ? |
+| Composant IA candidat | Est-il nécessaire ? Quelle valeur ajoute-t-il ? |
+| Erreur critique | Quel résultat serait inacceptable ? |
+| Test négatif | Comment prouver un refus ou une abstention ? |
+| Décision | Expérimenter, rejeter, reporter ou autoriser sous conditions |
+
+### Proposition de correction
+
+- **Cas A** : privilégier une règle déterministe, avec des tests de seuil et de dates. Un LLM n'est pas nécessaire au calcul.
+- **Cas B** : commencer par une baseline statistique et une évaluation chronologique. Envisager du ML si le gain est démontré sur des données nouvelles.
+- **Cas C** : évaluer d'abord l'indexation et les ACL ; envisager un RAG si les tests confirment le gain, sans déléguer l'autorisation documentaire au modèle.
+- **Cas D** : définir un workflow avec contrôle d'accès côté API et une approbation humaine attestée. Un agent peut être envisagé pour l'orchestration mais ne doit pas obtenir un droit d'écriture implicite.
+
+La bonne réponse n'est pas obligatoirement « choisir une IA ». Savoir dire **non** à une solution complexe lorsque le problème ne le requiert pas fait partie de la compétence d'architecte.
+
+## 16. Autoévaluation et vocabulaire utile
+
+Répondre sans consulter les pages précédentes :
+
+1. Une base documentaire contenant la vérité métier est-elle équivalente au contexte d'un LLM ?
+2. Un modèle excellent sur son entraînement a-t-il nécessairement une bonne qualité en production ?
+3. L'existence d'une citation suffit-elle pour prouver la fidélité d'une réponse ?
+4. Une consigne de sécurité dans un prompt vaut-elle une permission imposée par l'API ?
+5. Un agent est-il toujours préférable à un workflow déterministe ?
+6. À quoi sert une baseline sans IA ?
+7. Quelle est la différence entre une mesure sur un jeu de test et un SLA de production ?
+8. Pourquoi faut-il connaître l'auteur et la date d'un document utilisé par un RAG ?
+
+**Réponses attendues.** Non, le corpus de référence et le contexte injecté sont deux objets différents ; non, la généralisation doit être évaluée ; non, il faut contrôler que la citation existe et soutient réellement l'affirmation ; non, les permissions doivent être imposées côté systèmes ; non, l'agent n'est qu'une option ; une baseline rend le bénéfice de l'IA mesurable ; le SLA concerne un périmètre et une période convenus ; provenance et fraîcheur aident à établir si un document est utilisable.
+
+**Glossaire.** *Algorithme* : suite d'opérations définies. *Modèle* : représentation utilisée pour effectuer une tâche, éventuellement apprise à partir de données. *Entraînement* : ajustement de paramètres. *Inférence* : application du modèle à une entrée nouvelle. *RAG* : récupération de sources puis génération conditionnée par ces sources. *Agent* : application orchestrant un état et des actions ou outils. *ACL* : règles de contrôle d'accès. *Baseline* : solution de référence servant à juger une amélioration. *NFR* : exigence non fonctionnelle. *ADR* : enregistrement d'une décision d'architecture et de ses motifs.
+
+**Critère de sortie du chapitre.** Le lecteur doit pouvoir compléter une fiche de cadrage, sélectionner une solution de référence, nommer les sources qui font autorité et décrire un test montrant qu'une action interdite est réellement refusée. La lecture seule ne valide pas la compétence : les exercices doivent être relus et, lorsque possible, évalués.
+
+---
+
 ## Références de travail et limites
 
 - [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — structure de progression didactique, **pas reproduction de texte**.
