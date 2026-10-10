@@ -1,0 +1,112 @@
+# Chapitre 02 — Repères historiques et ruptures scientifiques
+
+> **DRAFT — texte pédagogique original.** Les dates indiquent des jalons reconnus, pas une chronologie exhaustive ni une garantie que les méthodes plus anciennes aient disparu.
+
+## Objectifs
+
+Comprendre pourquoi l'IA ne commence pas avec les LLM ; distinguer les vagues d'approches symboliques, statistiques et neuronales ; reconnaître les limites de l'idée selon laquelle « le plus récent est toujours le meilleur ».
+
+## 1. Avant la naissance du terme : calcul, logique et langage
+
+L'histoire de l'IA combine plusieurs disciplines : logique, mathématiques, psychologie cognitive, théorie de la décision, informatique et linguistique.
+
+Bien avant l'existence de réseaux neuronaux géants, une question était déjà centrale : **comment représenter un problème de façon qu'une machine puisse enchaîner des opérations et produire une réponse vérifiable ?** La logique formelle, les algorithmes et les modèles probabilistes en donnent plusieurs réponses complémentaires.
+
+En 1950, Alan Turing publie *Computing Machinery and Intelligence* et discute de la possibilité de parler de pensée chez les machines à travers un dispositif de conversation connu sous le nom de *jeu de l'imitation*. Ce texte fondateur est un jalon intellectuel, non une preuve qu'un dialogue suffit à mesurer toutes les formes d'intelligence.
+
+En 1956, un projet de recherche d'été organisé à Dartmouth contribue à installer le terme **Artificial Intelligence** comme identité d'un domaine. Dès cette époque, les chercheurs envisagent des problèmes tels que le raisonnement, le langage et l'apprentissage.
+
+### Pourquoi cette distinction est importante
+
+Pour un architecte de 2026, il serait incorrect d'opposer « vraie IA » et « simples règles » de façon absolue. La manipulation de connaissances structurées, la planification et les règles appartiennent aussi à l'histoire technique de l'IA. Dans un SI réglementé, elles restent des outils puissants.
+
+## 2. Première famille : symboles, règles et recherche
+
+Dans une démarche symbolique, on définit des entités, des relations, des conditions et des transformations. Une règle « si A et B alors C » exprime une relation que le moteur peut utiliser pour déduire de nouveaux faits.
+
+Un système expert peut associer des connaissances spécialisées à un moteur d'inférence. Ces systèmes rendent généralement plus facile l'explication de *quelle règle* a été appliquée. Ils ne résolvent pas automatiquement la difficulté de formuler toutes les exceptions possibles ni l'ambiguïté du monde réel.
+
+La recherche dans un espace d'états repose sur une autre idée. Si l'on dispose d'un état initial, d'actions possibles et d'un objectif, on peut explorer des chemins d'action. Les problèmes de jeu, de navigation ou de planification se prêtent souvent à cette formulation.
+
+Dans l'entreprise, le moteur de règles et les workflows structurés conservent un rôle important : validation de champs, seuils contractuels, permissions, échéances et traçabilité.
+
+## 3. Deuxième famille : apprendre à partir d'exemples
+
+Une autre approche consiste à ajuster des paramètres à partir d'observations. Les travaux autour du perceptron, à la fin des années 1950, illustrent cette volonté de construire des modèles pouvant apprendre des séparations entre certaines catégories de données.
+
+L'apprentissage statistique prend une importance croissante avec des méthodes variées : régression, arbres, réseaux neuronaux, machines à vecteurs de support et ensembles.
+
+Un modèle peut être très utile sans « comprendre » comme une personne. Il peut apprendre qu'une combinaison de variables prédit une catégorie avec une précision suffisante pour le métier, tout en restant incertain sur les cas rares.
+
+Le progrès du domaine ne suit pas une courbe régulière. Les cycles d'attentes excessives, de limitations matérielles et de difficulté à généraliser ont conduit à des périodes de ralentissement souvent appelées **hivers de l'IA**.
+
+## 4. Deep Learning, calcul et grandes données
+
+À partir des années 1980, les algorithmes de rétropropagation du gradient sont fortement diffusés dans la littérature sur les réseaux neuronaux, facilitant l'apprentissage de représentations intermédiaires dans des réseaux multicouches. Ces techniques se développent progressivement, avec des résultats dépendants du calcul et de la disponibilité des données.
+
+En 1997, **Deep Blue** bat Garry Kasparov dans un match d'échecs. Cette démonstration concerne un système spécialisé de recherche et d'évaluation ; ce n'est pas la même architecture qu'un LLM moderne.
+
+En 2012, **AlexNet** réalise un résultat marquant au défi ImageNet. Cela met en évidence le potentiel d'un entraînement neuronal profond avec GPU, volumes de données et optimisation. Le résultat ne signifie pas que le Deep Learning est optimal pour toute tâche.
+
+Cette histoire permet une conclusion d'architecte : la réussite d'une méthode dépend souvent d'un **ensemble de conditions** — représentation du problème, données, matériel, critères de qualité, coût — et non d'une découverte algorithmique isolée.
+
+## 5. Attention, Transformers et IA générative
+
+En 2017, l'article *Attention Is All You Need* propose l'architecture **Transformer**, dont l'attention permet de modéliser des relations entre éléments d'une séquence sans reproduire exactement la structure des réseaux récurrents précédents.
+
+Les architectures Transformer se développent ensuite dans le traitement du langage, puis dans d'autres modalités. La génération de texte à grande échelle devient accessible au public sous diverses interfaces ; le lancement grand public de ChatGPT fin 2022 contribue à accélérer cet usage.
+
+Un LLM ne remplace pas les règles de contrôle : il complète potentiellement des systèmes qui doivent toujours protéger les identités, les données, la conformité et la cohérence transactionnelle.
+
+La notion d'**agent** décrit une autre évolution d'architecture : coupler modèle, outils, état et décisions de workflow. La date d'apparition commerciale d'un framework d'agents ne signifie pas que la planification automatique ou la notion d'agent logiciel sont nées à cette date.
+
+## 6. Trois trajectoires à comparer
+
+| Question | Approche symbolique | Approche statistique / ML | LLM et agents outillés |
+|---|---|---|---|
+| Où se trouve la connaissance ? | Faits et règles explicites | Paramètres ajustés, variables | Paramètres, contexte, sources et outils |
+| Comment corriger ? | Modifier une règle et retester | Réentraîner ou recalibrer | Changer prompt, modèle, RAG, outil ou workflow |
+| Quel test est indispensable ? | Règles, exceptions, non-régression | Performance hors échantillon | Qualité, ancrage, autorisations, effets de bord |
+| Que reste-t-il à gouverner ? | Version du corpus de règles | Données, modèle, métriques | Données + modèle + outils + état + audits |
+
+**Il n'y a pas de migration obligatoire** d'une colonne à la suivante. On peut les combiner pour tirer parti de leurs qualités complémentaires.
+
+## 7. Cas fil rouge : traitement d'une réclamation de paiement
+
+Imaginons un dossier fictif où un client conteste une opération :
+
+- Le système de référence conserve les événements et la situation officielle.
+- Un moteur de règles vérifie les conditions de recevabilité selon une politique explicite.
+- Un détecteur statistique signale une anomalie éventuelle avec un score et un seuil gouvernés.
+- Un RAG récupère les procédures applicables à ce type de dossier.
+- Un agent propose une chronologie explicative et prépare un brouillon de ticket, sous réserve des permissions et des approbations.
+
+L'ensemble illustre **la coexistence de plusieurs générations d'approches**. Ce modèle d'architecture est une étude de cas, pas une affirmation qu'un opérateur bancaire particulier possède cette architecture.
+
+## 8. Exercices et corrigés
+
+**Exercice 1.** Un service a besoin de vérifier qu'un champ ISO 20022 appartient à une liste de codes autorisés. Un LLM est-il nécessaire ?
+
+*Correction.* Non, pas pour cette règle explicite. Une validation déterministe, avec contrat et tests, est plus facile à justifier, à reproduire et à maintenir.
+
+**Exercice 2.** Un modèle classe des images à partir d'exemples annotés. Quelle famille historique convient le mieux ?
+
+*Correction.* Apprentissage supervisé ; si le modèle est un réseau à nombreuses couches, il relève aussi du Deep Learning.
+
+**Exercice 3.** Pourquoi un résultat de benchmark sur un autre dataset ou un autre GPU ne prouve-t-il pas notre SLA ?
+
+*Correction.* Parce que la performance dépend des données, des paramètres, du profil de charge, du runtime, de la version du modèle et de l'environnement. Il faut mesurer la cible sous conditions représentatives.
+
+**Exercice 4.** Comment distinguer une capacité d'agent annoncée d'une capacité réellement autorisée ?
+
+*Correction.* Inspecter les contrats d'outils, les comptes de service, les permissions et les journaux ; exécuter des tests négatifs prouvant que l'action interdite est refusée.
+
+## 9. Références documentaires pour révision
+
+- Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
+- Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955/1956), archive historique.
+- Rumelhart, Hinton et Williams (1986), travaux de propagation des erreurs.
+- Vaswani et al., [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (2017).
+- [Microsoft — AI for Beginners](https://github.com/microsoft/AI-For-Beginners).
+
+**Contrôles restants :** compléter les références bibliographiques exactes, vérifier les dates dans les sources primaires, ajouter une frise SVG originale, faire relire les exemples.

@@ -1,50 +1,153 @@
-# Chapitre 01 — Qu'appelle-t-on intelligence artificielle ?
+# Chapitre 01 — Définir l'intelligence artificielle et ses frontières
 
-> **ÉBAUCHE PÉDAGOGIQUE — non révisée, non publiée.**  
-> Volume 01, chapitre de démonstration du format. Ne pas lui attribuer une pagination finale.
+> **DRAFT — manuscrit original en cours de revue.** Les exemples sont pédagogiques et utilisent des organisations et des données fictives. Les figures, les tests et la bibliographie seront complétés avant toute édition définitive.
 
-## Objectifs
+## Objectifs d'apprentissage
 
-À la fin de ce chapitre, le lecteur devra pouvoir distinguer un programme déterministe, un modèle appris sur des données, un système d'IA générative et un agent doté d'outils. Il devra aussi savoir pourquoi un résultat convaincant n'est pas toujours correct.
+À la fin de ce chapitre, le lecteur doit pouvoir :
 
-## 1. Quatre types de systèmes à ne pas confondre
+1. distinguer un **algorithme**, une **règle métier**, un **modèle statistique**, une **IA générative** et un **agent outillé** ;
+2. identifier la donnée, l'entraînement, l'inférence, la politique d'accès et les tests d'un système ;
+3. comparer une solution fondée sur des règles à une solution qui apprend ;
+4. détecter une promesse d'IA qui confond performance, fiabilité et autonomie ;
+5. formuler un besoin métier suffisamment précis pour décider si l'IA est utile.
 
-**Règle déterministe.** Un programme suit une règle explicite. Exemple : si une facture dépasse un plafond contractuel, une validation humaine est exigée. Tant que les entrées et le code sont identiques, la réponse est déterminée par les mêmes règles.
+### Prérequis
 
-**Machine Learning (ML).** On entraîne un modèle sur des observations pour apprendre une relation statistique. Une banque fictive peut entraîner un classifieur d'anomalies sur des opérations **synthétiques**, puis évaluer ses faux positifs et faux négatifs. Les prédictions ne doivent pas outrepasser les contrôles réglementaires.
+Aucun prérequis mathématique ni expérience en programmation. Les quelques expressions symboliques seront expliquées en français.
 
-**IA générative.** Un modèle de langage produit une sortie en fonction d'un contexte et d'un mécanisme statistique de génération. Son texte fluide n'établit ni sa vérité ni sa conformité ; il faut des données de référence et des validations.
+## 1. Commencer par un problème, pas par un modèle
 
-**Agent IA.** Une application combine modèle, état, outils et politiques d'autorisation afin d'effectuer des étapes de travail. L'outil peut être consultatif ou agir sur un système : dans les cas sensibles, les droits d'accès, la limitation d'autonomie et l'approbation humaine sont primordiaux.
+Une entreprise fictive reçoit la question : *« Pourquoi mon paiement n'a-t-il pas été confirmé ? »* Pour y répondre de manière fiable, il faut connaître le **statut de référence** du paiement, son historique d'événements et les procédures pertinentes.
 
-## 2. Pourquoi une architecture compte
+Une solution possible est une requête SQL suivie d'une explication prédéfinie. Une deuxième utilise un modèle statistique pour détecter un dysfonctionnement probable. Une troisième fait produire une synthèse par un modèle de langage à partir des événements réellement autorisés. Une quatrième donne à un agent la possibilité de consulter plusieurs outils.
 
-Considérons un cas fictif : « expliquer pourquoi un paiement instantané n'a pas été confirmé ». Il faut distinguer les données bancaires faisant autorité, les événements d'infrastructure, les règles du schéma de paiement et les documents d'aide à l'exploitation.
+Ces solutions sont différentes parce qu'elles ne déplacent pas la même responsabilité : *qui définit la logique, qui fournit les connaissances, qui décide, qui a le droit d'agir et comment prouve-t-on que le résultat est correct ?*
 
-Un assistant purement génératif peut proposer une explication plausible mais fausse. Un assistant **avec récupération de sources** peut améliorer la traçabilité, à condition de contrôler les autorisations d'accès et l'actualité de ses documents. Une couche **déterministe** garde la responsabilité des actions critiques (statut officiel du paiement, accès, limites, transactions).
+Le choix d'un système IA n'est donc pas un concours de vocabulaire ou de taille de modèle. C'est une décision technique et organisationnelle qui dépend de la nature du problème.
 
-## 3. Exercice de classification
+## 2. Algorithme, programme, IA : trois concepts reliés
 
-Pour chaque cas, identifier la catégorie dominante :
+Un **algorithme** est une procédure exprimée en étapes exécutables. Calculer une moyenne, parcourir une liste ou appliquer un plafond est algorithmique. Un algorithme n'est pas automatiquement de l'IA.
 
-1. Un calculateur d'intérêts applique une formule contractuelle.
-2. Un modèle prédit une probabilité de fraude à partir d'exemples.
-3. Un assistant résume un rapport et fournit des citations vers les passages utilisés.
-4. Un assistant appelle une API de changement de quota uniquement après une approbation explicite.
+Un **programme déterministe** applique une logique explicite : à état et entrées identiques, il vise le même résultat. Un moteur de règles métier appartient en général à cette famille. Exemple fictif : « si un ordre est marqué *rejeté* dans le système de référence, ne pas annoncer qu'il a réussi ».
 
-### Correction guidée
+L'**intelligence artificielle** est un domaine de recherche et d'ingénierie visant des tâches associées à la perception, la prédiction, la recherche, la décision ou au langage. Elle ne se limite pas à l'apprentissage statistique : logique, planification, recherche heuristique et représentation des connaissances ont une longue histoire dans l'IA.
 
-1. Logiciel déterministe : la formule et les données d'entrée suffisent à calculer le résultat.
-2. Machine Learning : le classifieur apprend à partir d'exemples et doit être évalué.
-3. Application GenAI avec récupération/citations, si le résumé provient réellement d'une recherche documentaire contrôlée.
-4. Agent ou workflow outillé avec **Human-in-the-Loop** ; le contrôle d'autorisation doit être implémenté côté système, pas demandé uniquement au modèle.
+Le **Machine Learning** constitue une partie du domaine. Au lieu de coder explicitement toutes les règles reliant une entrée à une sortie, on ajuste les paramètres d'un modèle à partir d'exemples.
 
-## 4. Ce qui reste à approfondir
+Le **Deep Learning** fait partie du Machine Learning et utilise des réseaux neuronaux à plusieurs couches. Il ne garantit pas par lui-même une meilleure performance : cette performance dépend du problème, des données, de l'entraînement et de l'évaluation.
 
-Les chapitres ultérieurs traiteront séparément la théorie de l'apprentissage, l'architecture des modèles, la mesure d'incertitude, la gouvernance des données, la sécurité des outils et la reproductibilité des preuves.
+Une **IA générative** produit du contenu nouveau selon une distribution apprise ou une stratégie de génération. Le texte produit peut être cohérent, faux, incomplet ou contraire à une règle métier : la fluidité d'une réponse ne constitue pas une vérification factuelle.
 
-## Références de cadrage
+Un **agent IA outillé** est une application qui organise des observations et des appels d'outils autour d'un objectif. Ses capacités réelles sont délimitées par les interfaces et les autorisations que le système lui accorde, indépendamment de ses formulations en langage naturel.
 
-- [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — référence pédagogique externe à vérifier avant publication.
-- [Référentiel d'architecture IA interne](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — conception et classification des preuves.
-- [Modèle éditorial Wero](https://github.com/zdmooc/wero-epi-reference-architecture-handbook) — modèle de publication, pas preuve du contenu IA.
+## 3. Apprendre des données : une intuition quantifiable
+
+Supposons trois observations de temps de traitement, en secondes : 2, 4 et 6. Un prédicteur extrêmement simple pourrait retourner leur moyenne :
+
+\[
+\widehat{t} = \frac{2 + 4 + 6}{3} = 4 \text{ s}.
+\]
+
+Cette moyenne est une règle de prédiction calculée sur des observations. Elle ne « comprend » pas les causes d'un incident. Pour décider si ce prédicteur mérite d'être utilisé, il faut évaluer ses erreurs sur des données **non utilisées** pour le concevoir.
+
+Dans un problème supervisé plus riche, nous disposons d'exemples \((x_i,y_i)\) et d'une fonction paramétrée \(f_\theta(x)\). L'entraînement cherche des paramètres \(\theta\) qui minimisent une erreur moyenne :
+
+\[
+L(\theta)=\frac{1}{n}\sum_{i=1}^{n}\ell\bigl(f_\theta(x_i),y_i\bigr).
+\]
+
+- \(x_i\) : observations décrivant un cas ;
+- \(y_i\) : réponse attendue pour ce cas ;
+- \(f_\theta\) : modèle dont les paramètres sont ajustables ;
+- \(\ell\) : mesure d'erreur choisie en fonction du problème.
+
+Il s'agit d'une **abstraction pédagogique**. Elle ne décrit pas tous les types d'apprentissage, et une perte faible à l'entraînement n'implique pas une bonne généralisation. Les volumes 02, 04 et 05 en détailleront les fondements.
+
+## 4. Entraînement et inférence : deux opérations différentes
+
+**L'entraînement** modifie des paramètres du modèle à partir d'un ensemble de données et d'un objectif. Il mobilise du calcul, du stockage, une stratégie de validation et une traçabilité des versions.
+
+**L'inférence** applique le modèle entraîné à de nouvelles entrées. Elle peut nécessiter CPU, GPU, mémoire, accès réseau et garde-fous. Pour un LLM, il faut notamment gérer les tokens, le contexte, la latence et le coût.
+
+Dans les architectures d'entreprise, il existe aussi des opérations qui ne sont ni entraînement ni inférence : authentifier l'utilisateur, récupérer un document autorisé, appliquer une règle de conformité, enregistrer un audit et approuver une action.
+
+> **Principe à retenir :** un système d'IA d'entreprise est une **chaîne de composants et de responsabilités**, pas seulement un fichier contenant des poids de modèle.
+
+## 5. Taxonomie opérationnelle : choisir les composants par rôle
+
+| Famille | Source principale de comportement | Atout | Limite ou risque |
+|---|---|---|---|
+| Recherche SQL / programme | Requête et code explicites | Contrôle et reproductibilité | Couverture limitée aux règles exprimées |
+| Moteur de règles | Conditions gouvernées | Explicabilité des décisions | Maintenance des règles |
+| Modèle ML supervisé | Exemples annotés | Prédictions sur des données variées | Dérive, biais, incertitude |
+| Réseau Deep Learning | Paramètres appris en profondeur | Perception/représentation puissante | Besoin de données, ressources et contrôle |
+| LLM génératif | Pré-entraînement et contexte | Langage et synthèse flexible | Hallucinations et variabilité |
+| RAG | Recherche externe + génération | Accès à une connaissance documentaire actualisable | Mauvaise récupération et droits d'accès |
+| Agent outillé | Workflow, modèle, état et outils | Actions multi-étapes | Permission excessive, boucles et erreurs composées |
+
+Les lignes de ce tableau **ne sont pas des niveaux exclusifs**. Un agent peut utiliser un LLM, du RAG et des règles déterministes. Une application peut employer plusieurs modèles spécialisés.
+
+## 6. De l'IA à l'architecture de solution
+
+On peut représenter l'application bancaire fictive par six zones :
+
+1. **Expérience utilisateur** : portail ou canal API, avec identité connue.
+2. **Orchestration** : contrôle du scénario et conservation de son état.
+3. **Données d'autorité** : statut du paiement et événements vérifiés.
+4. **Connaissances documentaires** : procédures versionnées, accessibles selon des ACL.
+5. **Modèle IA** : synthèse ou suggestion, jamais propriétaire du statut officiel.
+6. **Contrôles transverses** : journal d'audit, politiques, métriques et approbations.
+
+Dans cet exemple, nous pouvons autoriser la **lecture** de l'historique, mais pas autoriser l'agent à déclencher un transfert d'argent. Un prompt disant « tu ne dois pas effectuer de paiement » **ne remplace pas** une véritable interdiction d'accès côté API.
+
+Cette séparation est au cœur des volumes d'architecture, de sécurité, de réglementation et du projet final.
+
+## 7. Mesurer la qualité avant de parler d'autonomie
+
+Un taux global de bonnes réponses est insuffisant dans les cas sensibles. Supposons un assistant de diagnostic qui répond correctement à 95 questions sur 100. Cinq erreurs peuvent être tolérables dans une FAQ de loisir et inacceptables si elles conduisent à une action financière non autorisée.
+
+La qualité d'un système doit se discuter avec au moins quatre familles de critères :
+
+- **Utilité métier** : ce que la réponse permet réellement de faire.
+- **Correction factuelle** : concordance avec la source de référence, citations vérifiables.
+- **Sûreté/sécurité** : refus des accès non autorisés, limite des actions possibles.
+- **Performance et coût** : temps de réponse, ressources consommées, disponibilité.
+
+L'architecture se construit à partir de ces critères, puis se valide sur des cas et scénarios explicites. Elle ne se résume pas à un score obtenu auprès d'un benchmark générique.
+
+## 8. Exercices
+
+**Exercice A — Classer les systèmes.** Un calculateur de TVA, un modèle de détection d'anomalies, un résumé produit par LLM et un agent qui ouvre des tickets ITSM appartiennent-ils à la même catégorie ? Argumenter sans supposer qu'un système est « meilleur » parce qu'il semble plus autonome.
+
+**Exercice B — Entraînement ou inférence ?** Une équipe annote mille rapports, ajuste les poids d'un modèle, puis l'applique à un document inédit. Nommer les trois activités et dire lesquelles modifient les paramètres.
+
+**Exercice C — Limite d'autorisation.** Une application peut lire des événements de paiement et produire un diagnostic, mais ne doit jamais déclencher de virement. Citer deux contrôles techniques qui rendent cette limite vérifiable.
+
+**Exercice D — Raisonner sur un résultat.** Un agent fournit une citation qui pointe vers un document inexistant. Est-ce un défaut de langage, de source, d'évaluation ou de système ? Plusieurs causes peuvent coexister.
+
+### Corrigés guidés
+
+A. Le calculateur applique une règle déterministe ; le détecteur peut être un modèle ML ; le résumeur relève d'une application GenAI ; l'agent ITSM est un système outillé. Certains partagent des composants mais leurs responsabilités diffèrent.
+
+B. L'annotation prépare les données ; l'ajustement est l'entraînement ; l'utilisation sur un nouveau document est l'inférence. Seul l'ajustement décrit ici modifie les paramètres du modèle.
+
+C. Donner au compte technique de l'agent un accès **lecture seule** aux API de paiement et appliquer une politique d'autorisation côté service. Auditer et tester le refus sur une requête qui tente une opération sensible.
+
+D. Une citation fictive est une défaillance de traçabilité du système. Les causes possibles incluent génération non ancrée, absence de validation des citations et documents non contrôlés. Il faut déterminer les causes par des tests et non deviner.
+
+## 9. Contrôle de maîtrise
+
+Le lecteur sait-il définir en une phrase la différence entre l'entraînement et l'inférence ? Peut-il citer une alternative **sans modèle IA** à un cas d'usage ? Peut-il justifier pourquoi la fluidité d'un LLM ne prouve pas une information ? Peut-il démontrer que les autorisations d'un agent se configurent hors du prompt ?
+
+S'il manque l'un de ces éléments, il est utile de refaire le scénario des paiements avant de poursuivre.
+
+## Références de travail et limites
+
+- [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — structure de progression didactique, **pas reproduction de texte**.
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — langage des risques et de la gouvernance, à citer précisément dans les chapitres spécialisés.
+- [Architecture IA Maya](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — cas internes d'architecture, sans prétendre que les designs sont tous déployés.
+- [Source Drive T1-C01](https://drive.google.com/file/d/1KyvpmOuIFU4JI0ldcZDZdNnvwCk3sf_2/view) — contexte historique du parcours d'architecte, origine non copiée.
+
+**À faire avant publication :** revue scientifique, diagrammes originaux, vérification technique des références et test des prérequis lecteurs.

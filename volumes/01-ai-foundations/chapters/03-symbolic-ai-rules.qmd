@@ -1,0 +1,131 @@
+# Chapitre 03 — IA symbolique, logique et moteurs de règles
+
+> **DRAFT — cas et code originaux, sans données réelles de paiements.** Une illustration d'IA symbolique, pas un moteur bancaire prêt pour la production.
+
+## Objectifs
+
+Après lecture, le lecteur doit :
+
+1. représenter un fait et une règle conditionnelle ;
+2. distinguer inférence logique, entraînement statistique et action ;
+3. exécuter un mini-moteur de règles en Python standard ;
+4. expliquer une conclusion à partir de règles déclenchées ;
+5. tester la terminaison, la reproductibilité et le refus des permissions.
+
+## 1. Formaliser une connaissance
+
+Dans un moteur de règles, on distingue les **faits** observés des **règles** qui déduisent d'autres faits. Prenons ces trois propositions fictives :
+
+- A : le système signale un statut de paiement inconnu ;
+- B : le demandeur a été authentifié ;
+- C : une investigation en lecture seule peut être proposée.
+
+Une règle possible est :
+
+\[
+A \land B \Rightarrow C.
+\]
+
+La flèche désigne ici une **implication de règles**, non une garantie sur le monde. L'architecture suppose que les faits A et B proviennent de sources autorisées et fiables. Si l'authentification n'est pas validée, la règle ne doit pas conclure C.
+
+Une règle *si A alors C* n'autorise pas l'inverse *si C alors A*. Cette erreur de logique, appelée **affirmation du conséquent**, est courante dans les raisonnements superficiels.
+
+## 2. Représenter explicitement les faits
+
+Pour un premier laboratoire, un fait peut être une chaîne de caractères : `payment_status_unknown`, `requester_authenticated` ou `readonly_investigation_allowed`. Dans un vrai système, les faits auraient des identifiants, une date, une provenance, une portée et une durée de validité.
+
+Un ensemble de faits indique seulement quelles propositions sont présentes dans notre petit monde d'exercice. L'absence d'un fait ne signifie pas automatiquement que son contraire est vrai.
+
+Deux stratégies classiques :
+
+- **Chaînage avant** : partir des faits connus, déclencher les règles applicables et continuer jusqu'à un point fixe.
+- **Chaînage arrière** : partir d'une question cible, rechercher quelles prémisses pourraient la démontrer, puis essayer de les établir.
+
+Nous utiliserons le chaînage avant, car il est plus simple à observer.
+
+## 3. Algorithme de chaînage avant
+
+Les étapes principales sont :
+
+1. Charger les faits observés.
+2. Examiner chaque règle dans un ordre déterministe.
+3. Vérifier si toutes ses prémisses sont présentes.
+4. Si la conclusion n'est pas encore connue, l'ajouter et enregistrer l'explication.
+5. Recommencer tant qu'un nouveau fait est produit.
+
+Sur un ensemble fini de règles et de conclusions, notre version **monotone** termine : elle ajoute des faits sans jamais les retirer.
+
+Ce moteur ne sait pas gérer les exceptions complexes, les rétractions ou les conflits temporels. Il les laisserait au système qui l'utilise, ou à un moteur plus avancé doté de mécanismes spécifiques.
+
+## 4. Application au scénario pédagogique
+
+Règles définies par l'équipe fictive :
+
+| Règle | Conditions | Conclusion déduite |
+|---|---|---|
+| R01 | statut inconnu ET demandeur authentifié | investigation possible |
+| R02 | investigation possible ET périmètre lecture seule | lecture des événements autorisée |
+| R03 | lecture des événements autorisée | audit requis |
+
+Ces règles expriment la **logique didactique** d'un petit moteur. Elles ne remplacent pas des contrôles techniques réels : même si `read_events_permitted` est déduit, c'est toujours l'API qui doit vérifier l'identité et la permission. Aucune règle ne peut déduire un droit de paiement ou une écriture transactionnelle.
+
+## 5. Laboratoire Python
+
+Le code et les tests sont disponibles dans [LAB V01 — Chaînage avant](../../../labs/v01-symbolic-ai/README.md). Il n'utilise que Python et `unittest`, sans accès au cloud, à des données clients ni à une application de paiement.
+
+Depuis la racine du Masterbook :
+
+```bash
+python -m unittest discover -s labs/v01-symbolic-ai -p "test_*.py" -v
+python labs/v01-symbolic-ai/rule_engine.py
+```
+
+La commande doit montrer un diagnostic de lecture seule, accompagné d'une trace des règles appliquées. **Ce résultat attendu n'est pas une preuve runtime tant que l'exécution n'a pas été observée et archivée.**
+
+## 6. Explicabilité et provenance
+
+Un moteur qui répond seulement « investigation possible » reste insuffisant si la décision doit être contrôlée. L'explication minimale inclut :
+
+- la liste de faits d'entrée ;
+- les règles déclenchées et leur version ;
+- l'ordre des conclusions ;
+- l'origine et l'horodatage des faits si disponibles ;
+- le contrat de l'action véritablement autorisée.
+
+Un système de règles est souvent présenté comme « explicable ». Il est toutefois possible de produire une grande quantité de règles difficiles à maintenir ou de masquer les hypothèses derrière des champs d'entrée non contrôlés. L'explication de la règle n'est donc pas une preuve de la vérité de la donnée.
+
+## 7. Règles vs modèle statistique
+
+On pourrait apprendre un modèle à prédire qu'une investigation a des chances de détecter une anomalie. Cela changerait le problème : il faudrait des exemples représentatifs, des labels de qualité et une mesure d'erreur.
+
+La règle `payment_status_unknown AND requester_authenticated` relève plutôt d'une **politique explicite**. Son efficacité ne se mesure pas en précision statistique, mais en complétude des cas prévus, conformité, non-régression et respect des autorisations.
+
+Dans une architecture hybride, le modèle peut fournir un **score d'intérêt**, tandis qu'un moteur déterministe conserve la responsabilité des permissions.
+
+## 8. Exercice à réaliser
+
+Ajouter une règle qui conclut `manual_review_required` si une investigation est possible, mais que les événements ne sont pas accessibles. Définir d'abord un fait explicite comme `events_unavailable` : l'absence de `events_available` ne suffit pas à prouver leur indisponibilité.
+
+Écrire un test unitaire qui confirme le résultat attendu et vérifier que ce test ne déduit **jamais** un droit de modification.
+
+### Correction indicative
+
+Créer une règle :
+
+```python
+Rule(
+    "R04",
+    frozenset({"investigation_candidate", "events_unavailable"}),
+    "manual_review_required",
+)
+```
+
+Pour le test, fournir les faits correspondants, lancer `forward_chain`, puis vérifier la présence de la conclusion. Le cas `events_unavailable` doit provenir d'un contrôle réel côté application dans un système de production.
+
+## 9. Limites et suites
+
+Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la négation, pas de quantificateurs, pas de raisonnement probabiliste, pas de temporalité avancée. Les chapitres suivants du volume élargiront la comparaison avec l'apprentissage à partir de données.
+
+La suite de la collection reliera moteurs de règles, bases de connaissances, RAG, outils d'agents et architectures d'entreprise, tout en préservant le contrôle déterministe sur les actions sensibles.
+
+**À faire avant publication :** exécuter le lab dans l'environnement CI approuvé, documenter un schéma original du chaînage avant, vérifier les tests négatifs et relire la qualité pédagogique.
