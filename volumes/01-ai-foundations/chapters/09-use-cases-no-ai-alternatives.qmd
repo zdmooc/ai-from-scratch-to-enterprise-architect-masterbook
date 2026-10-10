@@ -119,6 +119,10 @@ Un contrat d'évaluation peut inclure :
 | Résilience | Que faire lorsque le modèle ou la base tombe ? |
 | Énergie | Quelles ressources et quelles mesures comparer ? |
 
+![Schéma original du choix entre moteur de règles, modèle ML, génération et agent](../../../diagrams/v01/architecture-options.svg)
+
+*Figure pédagogique originale : ces familles ne sont pas exclusives ; elles sont évaluées selon le besoin et les risques.*
+
 ## 8. Comparer des options avec une grille multicritère
 
 Exemple fictif d'aide documentaire :

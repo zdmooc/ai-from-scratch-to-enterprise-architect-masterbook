@@ -21,6 +21,10 @@ Avant de commencer, définir :
 
 L'objectif doit être approuvé avant de regarder les résultats. Sinon l'équipe risque de reformuler les critères jusqu'à donner artificiellement l'impression de réussir.
 
+![Découpage chronologique synthétique J01–J10 et comparaison de deux baselines](../../../diagrams/v01/chronological-evaluation.svg)
+
+*Figure pédagogique originale : la méthode de persistance est évaluée à un pas ; les valeurs futures ne sont pas accessibles à l'instant de prédiction.*
+
 ## 3. Notre dataset synthétique
 
 Nous créons dix observations fictives ordonnées par jour :

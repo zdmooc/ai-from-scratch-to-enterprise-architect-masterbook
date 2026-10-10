@@ -156,6 +156,10 @@ Pour évaluer une application agentique, il faut connaître non seulement la ré
 
 Attention à la protection des traces elles-mêmes : elles peuvent contenir des données personnelles ou des éléments confidentiels. Il faut les minimiser et appliquer une politique de conservation adaptée.
 
+![Schéma original des frontières de confiance d'un agent à outils en lecture seule](../../../diagrams/v01/agent-trust-boundaries.svg)
+
+*Figure pédagogique originale : les permissions sont imposées hors du prompt, et les documents externes restent de moindre confiance. Schéma de conception, non preuve de sécurité runtime.*
+
 ## 10. Exemple de graphe de contrôle d'un agent
 
 L'application fictive traite une demande de consultation de ticket :

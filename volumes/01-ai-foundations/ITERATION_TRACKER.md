@@ -18,7 +18,7 @@
 | R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
 | R13 | Consolidation de cohérence et densification C01–C12 | INITIAL_AUDIT_IN_PROGRESS | Aucun prérequis manquant, aucune contradiction |
 | R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_LABS_TESTED | Tests exécutés, aucun matériel lourd imposé |
-| R15 | Schémas et illustrations originaux | NOT_STARTED | Lisibilité, licence, version, source |
+| R15 | Schémas et illustrations originaux | PARTIAL_3_SVG_AUTHORED | Lisibilité, licence, version, source |
 | R16 | Études de cas métier et dossiers d'architecture | NOT_STARTED | Métier vs technique, ADR, options |
 | R17 | Évaluations et corrigés de tous les chapitres | NOT_STARTED | Couverture des compétences mesurable |
 | R18 | Relecture scientifique et vérification des formules | NOT_STARTED | Revue indépendante ou traçable |
@@ -52,3 +52,6 @@ Un volume n'est déclarable `RELEASED` que lorsque ses 12 chapitres sont rédig�
 - [LAB C11 — expérimentation](../../labs/v01-experiment/README.md) : **12/12** tests locaux PASS, code SHA-identique à GitHub.
 - [LAB C08 — lecture seule des outils](../../labs/v01-agent-guardrails/README.md) : **16/16** tests locaux PASS, code SHA-identique à GitHub. Ceci ne prouve pas une sécurité IAM/MCP de production.
 - **R14 reste PARTIEL** : labs complémentaires, figures, datasets pédagogiques, corrections et validation intégrée sur runner restent à faire.
+
+### R15 — Figures commencées
+Trois SVG originaux et éditables sont présents dans [diagrams/v01](../../diagrams/v01/README.md) et référencés depuis C08/C09/C11. La vérification visuelle et le rendu Quarto ne sont **pas encore réalisés**, et plusieurs figures manquent. **R15 reste ouvert.**
