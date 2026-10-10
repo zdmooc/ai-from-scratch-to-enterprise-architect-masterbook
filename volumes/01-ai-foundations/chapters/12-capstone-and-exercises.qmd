@@ -266,7 +266,46 @@ L'exercice évalue **la capacité à argumenter et borner une architecture**, pa
 
 Un projet n'est pas « terminé » parce que les cases sont remplies : les hypothèses majeures doivent être testées et discutées.
 
-## 17. Suite de la collection
+## 17. Atelier supplémentaire — assurer la traçabilité du besoin jusqu'au test
+
+### Relier les exigences aux risques
+
+La qualité du dossier ne dépend pas de sa longueur mais de la capacité à **suivre chaque exigence** jusqu'à sa conception, son contrôle et sa preuve. Une exigence oubliée dans la matrice de vérification peut être invisible lors d'une soutenance alors même qu'elle est critique.
+
+Exemple de traçabilité à partir du [dossier de référence du mini-projet](../case-study/README.md) :
+
+| Exigence | Risque principal | Composant responsable | Test prévu |
+|---|---|---|---|
+| F01 — identité | Accès non authentifié | API + fournisseur d'identité | Refus d'une session invalide |
+| F02 — droits documentaires | Divulgation hors ACL | Service documentaire | T03 |
+| F04 — version des sources | Procédure périmée | Référentiel et index | T04 |
+| F05 — abstention | Réponse inventée | Validation de réponse | T02 |
+| F07 — pas de mutation | Action interdite | Compte et API cible | T08 |
+| F08 — mode dégradé | Panne génératrice | Orchestration | T07 |
+
+**Ces tests sont à exécuter.** Aucun tableau ne donne le droit de remplacer un statut NOT_EXECUTED par PASS sans observation du système, preuve conservée et version identifiée.
+
+### Les trois types de livrables de l'architecte
+
+1. **Livrables de décision** : cadrage, options, contraintes et ADR.
+2. **Livrables de conception** : composants, flux, frontières de confiance, contrats et scénarios d'échec.
+3. **Livrables de validation** : exigences vérifiables, jeux de test, observations, rapports d'écarts et décisions de remédiation.
+
+Une architecture pédagogique peut compléter les deux premières catégories tout en gardant la troisième comme **travail à réaliser**. Cette distinction empêche de présenter une preuve de papier comme une preuve de production.
+
+### Exercice de soutenance contradictoire
+
+Le comité demande : « Pourquoi ne pas déployer immédiatement un agent capable de modifier des configurations pour accélérer les incidents ? »
+
+**Réponse attendue.** Le besoin initial est documentaire et n'exige aucune mutation. Avant d'étendre l'autonomie, il faudrait une nouvelle analyse de risques, un contrat d'API, une politique IAM, un workflow d'approbation, des tests négatifs et un mécanisme de reprise. Pour le périmètre présent, un outil de lecture seule constitue une frontière proportionnée et plus facile à valider.
+
+### Un critère de fin honnête
+
+Le lecteur peut déclarer son dossier « prêt à discuter » lorsque les choix et hypothèses sont explicites. Il ne peut pas déclarer le système « déployé et sécurisé » tant que les tests d'intégration, les validations opérationnelles et les responsables autorisés n'ont pas confirmé ces propriétés.
+
+Le passage à l'étape suivante de la collection dépendra de la maîtrise des fondamentaux : source de vérité, baseline, NFR, permission réelle et interprétation correcte des résultats.
+
+## 18. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 

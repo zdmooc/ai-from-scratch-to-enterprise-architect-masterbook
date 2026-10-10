@@ -214,7 +214,49 @@ Notre premier lab utilise des calculs élémentaires sur CPU : il prépare la m�
 
 *Correction.* Non. Les risques, sous-populations et critères éliminatoires sont à évaluer séparément.
 
-## 14. Synthèse
+## 14. Atelier supplémentaire — incertitude et qualité d'un benchmark
+
+### Ce que notre résultat ne mesure pas
+
+La diminution de MAE de 2,5 à 1,5 minute est correcte pour les quatre observations synthétiques utilisées. Elle ne dit rien sur sa stabilité dans une population plus large. Une comparaison crédible doit prendre en compte :
+
+- la diversité des périodes et des activités ;
+- le nombre de cas et leur indépendance ;
+- les données manquantes et les erreurs de mesure ;
+- les changements de comportement ou de politique ;
+- les coûts de calcul et de maintenance ;
+- les sous-populations où la méthode échoue.
+
+Le protocole de prévision **à un pas** est un choix explicite. Si l'équipe doit produire toutes les prédictions en avance, il faudra repenser la baseline B : utiliser des observations futures reviendrait à introduire une fuite de données.
+
+### Répéter l'expérience sans changer ses règles
+
+Dans un système réel, une évaluation temporelle peut répéter le protocole sur plusieurs fenêtres : entraîner ou recalibrer sur une période antérieure et tester sur une période ultérieure. Cette famille d'approches est parfois nommée *rolling-origin evaluation* ou validation à origine glissante, avec des variantes qu'il faut préciser.
+
+Pour comparer correctement, chaque fenêtre doit respecter l'instant où les données sont disponibles et conserver les mêmes définitions de métriques. Les résultats peuvent être présentés séparément, puis agrégés si l'agrégation est justifiée.
+
+Une moyenne d'erreurs sur plusieurs fenêtres ne dispense pas de montrer les **périodes dégradées** ou les erreurs extrêmes importantes pour le métier.
+
+### Construire un rapport interprétable
+
+| Affirmation | Statut du chapitre |
+|---|---|
+| Les données du cours sont synthétiques | Établi par construction |
+| Les calculs manuels de MAE valent 2,5 et 1,5 | Vérifiés pour le tableau |
+| La baseline B gagne sur les quatre jours de test | Vrai pour cet échantillon |
+| Le gain se maintient sur un service réel | Non établi |
+| Les coûts cloud/GPU sont économiquement acceptables | Non mesurés |
+| Le laboratoire s'exécute sans erreur en CI GitHub | À revérifier sur runner |
+
+### Exercice
+
+Deux modèles ont la même MAE globale. L'un sous-estime fortement les cas rares les plus coûteux, l'autre répartit ses erreurs de façon plus régulière. Peut-on les déclarer équivalents ?
+
+**Correction.** Non. La MAE agrégée masque les conséquences et la distribution des erreurs. Il faut examiner les sous-populations, les percentiles ou d'autres critères appropriés, puis relier les résultats à la décision métier.
+
+Pour le mini-projet documentaire du [chapitre 12](12-capstone-and-exercises.qmd), les critères de refus d'accès sont éliminatoires : aucune moyenne de qualité ne peut les compenser.
+
+## 15. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 

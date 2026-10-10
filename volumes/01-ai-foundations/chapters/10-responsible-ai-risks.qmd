@@ -188,7 +188,39 @@ Le classement de priorité dépend de la probabilité et de l'impact dans le con
 
 *Correction.* Outils et permissions limités, séparation entre données et instructions, validation d'actions sensibles et interdiction côté API.
 
-## 13. Conclusion et références
+## 13. Atelier supplémentaire — prioriser sans masquer l'incertitude
+
+### Pourquoi une matrice de risques demande un contexte
+
+Une équipe fictive évalue un assistant documentaire. Elle a recensé le risque de source périmée, le risque de divulgation hors permissions, le coût d'inférence et le risque de réponse erronée.
+
+Une approche pédagogique consiste à noter, sur une échelle documentée, **la probabilité envisagée** et **l'impact potentiel**, puis à décider quels risques exigent des contrôles éliminatoires. Un produit des deux notes peut aider au tri, mais **ce n'est pas une mesure objective** de risque si les échelles et données ne sont pas justifiées.
+
+| Risque | Événement redouté | Contrôle préventif | Preuve attendue |
+|---|---|---|---|
+| Source ancienne | Conseil incompatible avec procédure actuelle | Version et date d'effet | Test de retrait d'une source |
+| Document hors ACL | Extrait confidentiel divulgué | Filtrage côté service | Test d'accès non autorisé |
+| Citation inventée | Réponse présentée comme sourcée | Validation des références | Test de citation inexistante |
+| Coût non borné | Consommation incontrôlée | Quotas et budgets | Mesure sous charge représentative |
+| Action hors périmètre | Modification non autorisée | Compte en lecture seule | Refus par l'API cible |
+
+Le risque de divulgation ne doit pas être déclaré « résolu » parce qu'un prompt contient un avertissement. Le contrôle doit se trouver à la frontière d'accès effective, avec des tests positifs et négatifs.
+
+### Différencier contrôle, preuve et acceptation
+
+Une **mesure proposée** est un document de conception. Une **preuve** est un résultat observé avec une méthode. Une **acceptation de risque** est une décision confiée à une autorité compétente, dans un périmètre donné.
+
+Ces trois statuts ne sont pas interchangeables. Un contrôle peut être techniquement mis en place tout en laissant un risque résiduel que l'équipe responsable doit comprendre et traiter.
+
+### Exercice
+
+Un développeur affirme : « notre modèle respecte le RGPD, parce qu'il n'affiche aucun nom ». L'argument suffit-il ?
+
+**Correction.** Non. Il manque notamment l'analyse des traitements, des données, de leur base légale, des destinataires, de la rétention, des droits et des possibilités de réidentification. Une démonstration d'interface ne remplace pas une analyse juridique et technique du traitement.
+
+L'[étude de cas du chapitre 12](12-capstone-and-exercises.qmd) transforme ces risques en tests et décisions d'architecture. Les obligations de droit seront datées et contrôlées dans l'itération bibliographique avant publication.
+
+## 14. Conclusion et références
 
 La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de communication. Elle influence les données, les méthodes, la sécurité, les droits des utilisateurs et les décisions de mise en service.
 
