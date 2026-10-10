@@ -1,0 +1,116 @@
+# Chapitre 01 — Installer Python et un environnement reproductible
+
+> **DRAFT original — tutoriel débutant.** Les commandes sont proposées, pas prétendues exécutées sur le poste du lecteur.
+
+## Ce que le lecteur saura faire
+
+Installer et identifier une version de Python, créer un environnement isolé, comprendre pourquoi les dépendances doivent être figées, lancer son premier programme, interpréter une sortie et vérifier qu'un exercice produit le même résultat sur une autre machine.
+
+## 1. Pourquoi Python dans un parcours IA ?
+
+Python est un langage utilisé aussi bien pour les scripts, les API et les opérations sur les données que pour une grande partie de l'écosystème scientifique de l'IA. Ses bibliothèques spécialisées sont utiles, mais **une première expérience pédagogique n'a besoin d'aucun modèle ni de GPU**.
+
+Nous commencerons avec la bibliothèque standard ; NumPy, pandas et PyTorch viendront dans les chapitres et volumes suivants.
+
+## 2. Qu'est-ce qu'un interpréteur ?
+
+Le programme nommé « Python » lit et exécute les instructions d'un fichier. La version de cet interpréteur est importante : certains langages, bibliothèques ou systèmes ne sont pas compatibles avec toutes les versions.
+
+Vérification habituelle dans un terminal :
+
+~~~bash
+python --version
+~~~
+
+Sur certains systèmes, la commande est plutôt \`python3 --version\` ou, sur Windows, \`py --version\`. Le choix d'un exécutable n'est pas universel : il faut vérifier celui qui est réellement disponible sur son ordinateur.
+
+L'exemple du livre doit mentionner sa version testée et éviter d'affirmer qu'un paquet fonctionne sur n'importe quel environnement.
+
+## 3. Premier programme
+
+Créer le fichier \`hello_ai.py\` :
+
+~~~python
+message = "Bonjour, Bible IA"
+print(message)
+~~~
+
+Puis l'exécuter dans le terminal :
+
+~~~bash
+python hello_ai.py
+~~~
+
+La sortie attendue est :
+
+~~~text
+Bonjour, Bible IA
+~~~
+
+Savoir distinguer **code source, commande d'exécution et résultat observé** sera important dans toute la collection.
+
+## 4. Environnement virtuel
+
+Un environnement virtuel empêche les dépendances d'un projet d'interférer facilement avec celles d'un autre :
+
+~~~bash
+python -m venv .venv
+~~~
+
+Sous Bash, activer avec \`source .venv/bin/activate\` sur Linux/macOS ou \`source .venv/Scripts/activate\` sous Windows avec Git Bash si les scripts appropriés sont disponibles. En PowerShell, la commande diffère : \`.venv\\Scripts\\Activate.ps1\`. Ces commandes dépendent de l'environnement du lecteur.
+
+Pour un projet à dépendances, commencer par inventorier les bibliothèques et les versions ; un simple \`pip freeze\` fige un environnement mais ne garantit pas à lui seul la portabilité entre plateformes.
+
+Les premiers laboratoires n'installent rien : moins de dépendances signifie aussi moins de causes d'échec.
+
+## 5. Organiser un projet
+
+Une petite structure propre suffit :
+
+~~~text
+mon-premier-projet/
+  README.md
+  hello_ai.py
+  test_hello_ai.py
+  .gitignore
+~~~
+
+Le README explique les prérequis et les commandes. Le code réalise une tâche claire. Les tests vérifient un comportement. Le .gitignore évite de versionner des fichiers temporaires et l'environnement virtuel.
+
+## 6. Exemple : une fonction plutôt qu'un script opaque
+
+~~~python
+def double(nombre: float) -> float:
+    return nombre * 2
+
+assert double(3) == 6
+assert double(-2) == -4
+~~~
+
+Une fonction nommée se teste, se réutilise et s'explique plus facilement qu'une longue suite d'instructions non structurées.
+
+Le mot clé \`assert\` convient pour illustrer un contrôle dans un exemple, mais les projets industriels utilisent une véritable suite de tests ; le chapitre 10 en détaillera les principes.
+
+## 7. Exercices corrigés
+
+**A.** Pourquoi indiquer la version de Python dans un laboratoire ?
+
+*Correction.* Elle permet de reproduire l'environnement et d'identifier certaines incompatibilités.
+
+**B.** Quel est l'intérêt d'un environnement virtuel ?
+
+*Correction.* Isoler les dépendances et réduire les conflits avec les autres projets.
+
+**C.** Un script affiche un résultat, mais ne documente pas ses données d'entrée. Est-ce reproductible ?
+
+*Correction.* Non, pas suffisamment. Il faut préciser les entrées, la version du code, l'environnement et les commandes de validation.
+
+**D.** Quelle différence entre Git et GitHub ?
+
+*Correction.* Git est un logiciel de gestion de versions distribué ; GitHub est un service d'hébergement et de collaboration reposant notamment sur Git.
+
+## 8. Suite
+
+Le prochain chapitre explique variables, types, expressions, comparaisons et nombres flottants. Le laboratoire de ce volume mettra en pratique ces concepts sans installer de framework IA.
+
+**Avant publication :** reproduire les commandes sur Windows, Linux et macOS, corriger les variantes d'activation et ajouter des captures originales si nécessaires.
