@@ -122,7 +122,159 @@ Rule(
 
 Pour le test, fournir les faits correspondants, lancer `forward_chain`, puis vérifier la présence de la conclusion. Le cas `events_unavailable` doit provenir d'un contrôle réel côté application dans un système de production.
 
-## 9. Limites et suites
+## 9. ET, OU, NON et implication : la logique des règles
+
+La logique propositionnelle classique repose sur des propositions pouvant être vraies ou fausses. Les principaux opérateurs sont :
+
+- \(A\land B\) : A **ET** B, vrai lorsque les deux sont vraies.
+- \(A\lor B\) : A **OU** B, vrai lorsqu'au moins une proposition est vraie.
+- \(\neg A\) : **NON** A, l'inverse de A dans une logique à deux valeurs.
+- \(A\Rightarrow B\) : **si A, alors B** ; lorsque A est vraie, B doit l'être.
+
+### Table de vérité
+
+| A | B | A ET B | A OU B |
+|---|---|---|---|
+| Faux | Faux | Faux | Faux |
+| Faux | Vrai | Faux | Vrai |
+| Vrai | Faux | Faux | Vrai |
+| Vrai | Vrai | Vrai | Vrai |
+
+Une implication n'est pas une équivalence. De « si un administrateur est habilité, il peut lire certaines informations », on ne peut pas conclure que tous les lecteurs de ces informations sont administrateurs.
+
+Les règles d'un système peuvent encoder des conditions de décision. En revanche, le fait qu'un moteur pédagogique **déduise** une permission ne remplace pas les contrôles d'identité et d'autorisation imposés par le système qui fournit les données.
+
+## 10. La différence entre inconnu et faux
+
+Le mini-moteur du laboratoire utilise uniquement des **faits positifs**. Lorsqu'une proposition est absente de son ensemble de faits, il ne dispose pas de cette proposition. Il ne prouve pas automatiquement sa négation.
+
+Cette nuance est particulièrement importante dans les systèmes distribués : une API peut ne pas avoir répondu, mais cela ne prouve ni la réussite ni l'échec de l'opération côté serveur.
+
+### Deux hypothèses courantes
+
+L'**hypothèse du monde fermé** permet, dans certains systèmes, de traiter une proposition absente comme fausse à des fins de calcul. L'**hypothèse du monde ouvert** ne déduit pas la négation d'une proposition en l'absence de preuve.
+
+Dans un SI opérationnel, il faut choisir une politique adaptée. Par exemple, le serveur peut décider **de ne pas accorder un accès tant que la preuve d'autorisation manque**. Cela ne l'oblige pas à conclure que l'utilisateur est malveillant ou que la demande est invalide en tout contexte.
+
+### Exercice
+
+Une authentification est en cours. Peut-on déduire le fait explicite « l'utilisateur n'est pas authentifié » seulement parce que la preuve d'authentification n'est pas encore disponible ?
+
+**Correction.** Non : l'information peut être incomplète. En revanche, un système peut refuser provisoirement une opération jusqu'à ce que le contrôle requis soit confirmé. Il faut distinguer **connaissance d'un fait** et **politique de refus en cas d'incertitude**.
+
+## 11. Comprendre le point fixe et la terminaison
+
+Le chaînage avant part de faits connus, applique les règles et ajoute des conclusions nouvelles jusqu'à ce qu'aucune règle ne produise de fait inédit.
+
+Voici le déroulement conceptuel de notre exemple :
+
+~~~text
+Départ :
+  payment_status_unknown
+  requester_authenticated
+  readonly_scope
+
+R01 : deux prémisses présentes
+  => investigation_candidate
+
+R02 : investigation_candidate + readonly_scope
+  => read_events_permitted
+
+R03 : read_events_permitted
+  => audit_required
+
+Passage supplémentaire :
+  aucun nouveau fait, point fixe atteint
+~~~
+
+Le moteur s'arrête parce qu'il travaille avec un nombre **fini** de règles et ne supprime pas ses conclusions : chaque itération qui change l'ensemble ajoute au moins un fait nouveau, et il n'y a qu'un nombre fini de conclusions distinctes à ajouter.
+
+Un cycle de deux règles peut être inoffensif :
+
+~~~text
+R10 : A => B
+R11 : B => A
+~~~
+
+Lorsque A est déjà connu, le moteur ajoute B une fois. Il n'a ensuite rien de nouveau à produire. Mais un moteur prenant en charge des retraits de faits, des dates, des effets externes ou des exceptions exige un autre raisonnement de terminaison.
+
+## 12. Tracer l'origine d'une conclusion
+
+Un moteur explique idéalement pourquoi il conclut. Le laboratoire enregistre les prémisses et la règle appliquée dans une structure de trace, plutôt que d'afficher seulement la décision finale.
+
+Cette explication reste cependant différente d'une **preuve de vérité des données**. Un fait reçu d'une API peut être incorrect, périmé ou mal attribué, et un moteur parfaitement cohérent peut alors dériver une conclusion fausse par rapport au monde réel.
+
+L'architecture doit distinguer :
+
+1. **Correction du calcul** : les règles ont-elles été appliquées comme défini ?
+2. **Fiabilité des faits** : les entrées proviennent-elles de bonnes sources ?
+3. **Légitimité de l'action** : les droits nécessaires sont-ils réellement imposés ?
+4. **Traçabilité** : sait-on expliquer la conclusion, la version de règle et le moment où elle a été produite ?
+
+La présence d'un journal ne garantit pas qu'il est complet, protégé et correctement interprété. L'auditabilité nécessite une politique de collecte, d'intégrité et de rétention.
+
+## 13. Les règles dans une architecture IA hybride
+
+Une application peut associer plusieurs méthodes. Une base documentaire retrouve une procédure, un LLM propose une synthèse, un classifieur statistique estime un risque et un moteur déterministe impose des contrôles d'accès ou des décisions explicites.
+
+Le rôle du moteur de règles ne doit pas être confondu avec celui du modèle :
+
+- Une sortie du LLM représente du **contenu proposé**, à vérifier.
+- Un score statistique représente une **estimation**, à évaluer et calibrer si nécessaire.
+- Une règle représente une **condition explicite**, qui dépend néanmoins de la qualité des faits d'entrée.
+- L'autorisation réelle d'un appel API représente un **contrôle du système cible**, indépendant des affirmations du prompt.
+
+Si un agent possède un jeton autorisant une écriture en production, lui demander de ne pas écrire dans son prompt n'élimine pas la capacité. Le principe du moindre privilège doit s'appliquer au jeton et au serveur.
+
+## 14. Atelier guidé : investiguer sans inventer
+
+### Situation
+
+Dans un système fictif, le statut d'un dossier est inconnu. L'utilisateur est authentifié, mais le service qui fournit les événements répond explicitement « indisponible ». L'application doit proposer une revue manuelle, pas inventer un historique d'événements.
+
+**Travail demandé** :
+
+1. Identifier les faits observés et leurs sources.
+2. Définir une règle pour proposer une revue manuelle.
+3. Expliquer pourquoi l'absence du fait « événements disponibles » ne suffit pas à prouver une panne.
+4. Concevoir deux tests : refus sans authentification et absence de droit de mutation.
+5. Préciser ce qui resterait à ajouter à une application réellement exploitée.
+
+### Correction
+
+Les faits sont les suivants :
+
+~~~text
+payment_status_unknown
+requester_authenticated
+events_unavailable
+~~~
+
+On ajoute une règle :
+
+~~~text
+R04 : investigation_candidate ET events_unavailable
+      => manual_review_required
+~~~
+
+La règle initiale R01 peut d'abord produire une investigation candidate, puis R04 une revue manuelle. L'absence du fait « événements disponibles » pourrait simplement venir d'une requête non lancée : elle n'équivaut pas à un fait explicite d'indisponibilité.
+
+Sans authentification confirmée, le laboratoire n'établit pas l'investigation candidate. Aucune règle ne doit permettre une modification du dossier. Dans une vraie application, les services d'authentification et les API cibles doivent imposer ces interdictions.
+
+### Grille de réussite
+
+| Compétence | Insuffisant | Attendu |
+|---|---|---|
+| Analyse d'une règle | Confond conditions et conclusion | Conditions et déduction identifiées |
+| Raisonnement sur l'inconnu | Absence interprétée comme une preuve | Distingue inconnu, refus et panne |
+| Contrôle de sécurité | Fait confiance au prompt | Vérifie les droits côté système |
+| Traçabilité | Ne conserve qu'un message | Lie données, règle, date et décision |
+| Reproductibilité | Pas de tests négatifs | Couvre refus, terminaison et reprise |
+
+La correction prépare le lecteur au chapitre suivant : les modèles statistiques permettent d'estimer des propriétés difficiles à exprimer uniquement par des règles, sans remplacer les contrôles déterministes qui protègent les actions sensibles.
+
+
+## 15. Limites et suites
 
 Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la négation, pas de quantificateurs, pas de raisonnement probabiliste, pas de temporalité avancée. Les chapitres suivants du volume élargiront la comparaison avec l'apprentissage à partir de données.
 
