@@ -329,7 +329,17 @@ Le dimensionnement d'une plateforme ne peut donc pas se limiter au nombre de par
 
 **Exercice corrigé.** Deux groupes d'utilisateurs disposent du même modèle mais de limites de contexte respectives de 2 000 et 4 000 tokens. Peut-on conclure que la consommation mémoire totale double ? **Non.** La matrice dense des scores, si elle est matérialisée et comparable, croît ici par un facteur quatre, tandis que les autres postes de mémoire peuvent avoir d'autres lois de croissance ; il faut mesurer le système réel.
 
-## 20. Synthèse et lectures de référence
+## 20. Exemple corrigé — attention à deux positions
+
+Pour une seule tête, l'attention par produit scalaire pondéré calcule $\operatorname{softmax}(QK^\top/\sqrt{d_k})V$, ligne par ligne. Choisissons **deux tokens fictifs**, $d_k=1$, $Q=\begin{bmatrix}1\\0\end{bmatrix}$, $K=\begin{bmatrix}1\\0\end{bmatrix}$ et $V=\begin{bmatrix}2\\4\end{bmatrix}$. Les scores sont $\begin{bmatrix}1&0\\0&0\end{bmatrix}$.
+
+La première ligne donne les poids $(e/(e+1),1/(e+1))\simeq(0{,}7311,0{,}2689)$ et une sortie $0{,}7311(2)+0{,}2689(4)\simeq2{,}5378$. La deuxième ligne, dont les scores sont identiques, donne les poids $(0{,}5,0{,}5)$ et la sortie 3. Aucune probabilité affichée ici n'est une probabilité de vérité de la réponse.
+
+**Exercice corrigé.** Quel changement apporte un masque causal lorsque la première position ne doit pas consulter la seconde ? Son score pour la seconde position devient $-\infty$ **avant softmax** : ses poids sont alors $(1,0)$ et sa sortie vaut 2. Pour la deuxième position, les deux positions demeurent accessibles et la sortie reste 3. En implémentation, le masque doit intervenir dans les scores ; supprimer a posteriori un poids sans renormalisation ne calcule pas la même attention.
+
+**Limites.** Cet exercice ne représente ni plusieurs têtes, ni projections apprises, ni positions, ni couches résiduelles. L'attention n'est pas en elle-même une preuve d'explication causale.
+
+## 21. Synthèse et lectures de référence
 
 **À retenir :** les mots deviennent des tokens ; les tokens sont transformés en représentations numériques ; l'attention combine des informations selon des poids appris ; un Transformer organise plusieurs de ces calculs ; un modèle de langage apprend des régularités statistiquement utiles, sans garantir la vérité de chaque sortie.
 
