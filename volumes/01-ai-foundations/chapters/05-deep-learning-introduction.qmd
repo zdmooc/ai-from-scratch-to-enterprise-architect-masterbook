@@ -433,4 +433,3 @@ Une chaîne d'inférence inclut les mêmes transformations de données que celle
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
-Source historique de cadrage : [Tome 1, chapitre 4](https://drive.google.com/file/d/18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-/view).

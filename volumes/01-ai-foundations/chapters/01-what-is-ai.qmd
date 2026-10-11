@@ -404,5 +404,4 @@ Répondre sans consulter les pages précédentes :
 - [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — structure de progression didactique, **pas reproduction de texte**.
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — langage des risques et de la gouvernance, à citer précisément dans les chapitres spécialisés.
 - [Architecture IA Maya](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — cas internes d'architecture, sans prétendre que les designs sont tous déployés.
-- [Source Drive T1-C01](https://drive.google.com/file/d/1KyvpmOuIFU4JI0ldcZDZdNnvwCk3sf_2/view) — contexte historique du parcours d'architecte, origine non copiée.
 
