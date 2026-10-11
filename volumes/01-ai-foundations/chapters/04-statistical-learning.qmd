@@ -413,4 +413,4 @@ Le suivi d'un service doit relier **métrique de qualité**, **population**, **v
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
-Source historique de cadrage : [Tome 1, chapitre 3 — Machine Learning pour Architecte](https://drive.google.com/file/d/1vsYvwHqSNjdLDKMDktxD1ASlF61Ov0SC/view). Le texte présent est une nouvelle rédaction pédagogique et non une copie du manuscrit Drive.
+**Pour vérifier les notions :** [scikit-learn — calibration des probabilités](https://scikit-learn.org/stable/modules/calibration.html) et [calibration_curve](https://scikit-learn.org/stable/modules/generated/sklearn.calibration.calibration_curve.html). Ces ressources distinguent l'analyse de calibration d'une métrique générale telle que le score de Brier : une bonne valeur de Brier ne prouve pas, seule, une meilleure calibration.

@@ -400,6 +400,6 @@ Pour éviter l'accumulation de file, la capacité moyenne soutenue de transcript
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 
-**Références de travail à qualifier avant publication** : [Hugging Face — documentation des tâches](https://huggingface.co/tasks), [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) ; les versions, licences et passages précis devront être vérifiés dans la bibliographie finale.
+**Lectures et sources de référence :** [Hugging Face — catalogue des tâches IA](https://huggingface.co/tasks) pour distinguer ASR, génération de texte et image ; Lewis et al., [*Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*](https://arxiv.org/abs/2005.11401), 2020, pour les fondements d'une génération augmentée par recherche ; [NIST AI RMF 1.0](https://www.nist.gov/itl/ai-risk-management-framework) pour la gestion des risques. Ces références n'attestent pas les performances ou droits d'un système créé pour notre mini-projet.
 
 **Suite :** le chapitre 08 présente les applications capables d'utiliser des outils : les agents ne sont pas simplement des modèles génératifs, car ils introduisent des **capacités d'action et des responsabilités supplémentaires**.

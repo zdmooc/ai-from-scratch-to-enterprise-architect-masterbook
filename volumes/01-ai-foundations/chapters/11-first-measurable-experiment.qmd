@@ -413,3 +413,5 @@ Une équipe annonce 100 % de réussite après avoir adapté son assistant jusqu'
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
 Le chapitre 12 réunit ces réflexes dans un mini-projet d'architecture.
+
+**Lecture complémentaire :** [scikit-learn — validation croisée et découpage des séries temporelles](https://scikit-learn.org/stable/modules/cross_validation.html#time-series-split). Cette ressource illustre pourquoi un mélange aléatoire de périodes peut produire une estimation trompeuse de la généralisation temporelle.

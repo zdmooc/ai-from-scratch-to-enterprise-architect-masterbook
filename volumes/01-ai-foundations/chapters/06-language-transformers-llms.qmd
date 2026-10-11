@@ -336,6 +336,6 @@ Le dimensionnement d'une plateforme ne peut donc pas se limiter au nombre de par
 **Références de travail :**
 
 - Vaswani et al., [*Attention Is All You Need*](https://arxiv.org/abs/1706.03762), 2017 — article de recherche initial, et non validation de notre système.
-- Source historique personnelle : [T1-C05 — Transformers, attention, Q/K/V et architecture des LLM](https://drive.google.com/file/d/1ZxS42sTx1-p2HR9zntJJwCWCCLwszGTF/view) — cadrage de notions, pas de reproduction automatique du texte.
+- Vaswani et al. étudient notamment des tâches de traduction dans un cadre expérimental défini : leur article ne garantit ni la vérité d'un modèle de langage ultérieur, ni sa sécurité, ni son empreinte énergétique. Les calculs simplifiés de ce cours restent des exemples originaux.
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — cadre de gestion des risques pour les systèmes IA ; détails étudiés au volume 19.
 
