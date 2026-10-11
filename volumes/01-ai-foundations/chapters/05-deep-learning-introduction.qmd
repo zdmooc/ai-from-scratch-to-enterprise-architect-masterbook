@@ -429,7 +429,17 @@ Une équipe normalise un dataset complet, puis le découpe en entraînement et t
 
 Une chaîne d'inférence inclut les mêmes transformations de données que celles prévues lors de l'entraînement. Si l'API change une unité, un encodage ou un ordre de variables, un réseau mathématiquement correct peut produire des résultats erronés. Le **contrat de préparation des entrées** est donc une partie de l'architecture, pas un détail du notebook.
 
-## 20. À retenir
+## 20. Contrôle numérique — une étape de gradient
+
+Prenons une régression à un paramètre $\hat y=wx$ et une perte quadratique sur **un seul exemple** : $L(w)=\frac12(wx-y)^2$. Avec $x=2$, $y=4$ et $w_0=1$, on obtient $\hat y_0=2$ et $L(w_0)=\frac12(2-4)^2=2$.
+
+La dérivée s'obtient par la règle de chaîne : $\frac{dL}{dw}=(wx-y)x$. Au point $w_0=1$, elle vaut $(2-4)\times2=-4$. Pour un taux $\eta=0{,}1$, l'actualisation donne $w_1=w_0-\eta\frac{dL}{dw}=1-0{,}1(-4)=1{,}4$. La nouvelle prédiction vaut $2{,}8$ et la perte $\frac12(2{,}8-4)^2=0{,}72$, inférieure à 2.
+
+**Exercice corrigé.** Avec $\eta=1$, que se passe-t-il ? On obtient $w_1=5$, une prédiction de 10 et une perte de 18 : le pas trop grand **aggrave** l'objectif. La direction locale donnée par le gradient ne garantit pas qu'un pas arbitraire réduise la perte. Un contrôle élémentaire consiste à comparer la dérivée analytique avec $(L(w+h)-L(w-h))/(2h)$ pour un petit $h>0$, sans prétendre que cette approximation est exacte pour tout $h$.
+
+**Application d'architecture.** Consigner taux d'apprentissage, unité de la perte, version des données et reproductibilité ; un entraînement convergent sur l'échantillon ne prouve ni généralisation ni sécurité en production.
+
+## 21. À retenir
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
