@@ -286,7 +286,56 @@ Une figure décrit correctement quatre composants sur cinq mais représente le m
 
 **Correction :** non. L'invariant de sécurité est violé. Il faut rectifier le flux avant de réutiliser l'illustration.
 
-## 16. Autoévaluation et synthèse
+## 16. Créer une évaluation multimodale qui ne récompense pas les erreurs
+
+Une application de traitement multimodal peut sembler très performante en démonstration parce que quelques photos et enregistrements ont été sélectionnés pour être faciles. Un véritable protocole doit contenir les cas **ordinaires**, les cas **difficiles** et les demandes qui ne doivent pas recevoir de réponse automatique.
+
+Nous reprenons notre exemple de maintenance sur des équipements fictifs, sans consignes d'exploitation réelles. Le petit corpus de validation comporte douze cas :
+
+| Type de cas | Nombre | Comportement attendu |
+|---|---:|---|
+| Image nette, audio clair, procédure accessible | 4 | Association correcte, transcription et référence |
+| Photo floue ou partiellement masquée | 2 | Signaler l'incertitude visuelle |
+| Négation dans l'audio | 2 | Préserver le sens et ne pas inverser la consigne |
+| Identifiant de dossier sensible visible | 2 | Appliquer la politique de confidentialité |
+| Procédure absente ou non autorisée | 2 | S'abstenir de recommander une intervention |
+
+Ces douze observations constituent un **plan d'évaluation**, non une campagne exécutée. Elles permettent de définir avant l'essai ce qui sera observé et ce qui sera considéré comme un échec.
+
+### Distinguer les niveaux de réussite
+
+Une fiche finale peut respecter le format demandé tout en échouant à rattacher le bon enregistrement audio à la bonne photo. À l'inverse, un système peut reconnaître correctement l'objet sans disposer de la procédure officielle à citer.
+
+Nous proposons donc plusieurs contrôles indépendants :
+
+- **Association** : la paire image–audio est-elle bien celle du corpus de référence ?
+- **Transcription** : les mots sensibles, notamment négations et identifiants, sont-ils correctement reconnus ?
+- **Description** : les objets cités se trouvent-ils réellement dans la scène ?
+- **Provenance** : les sources de procédure sont-elles disponibles, autorisées et versionnées ?
+- **Action** : aucune intervention n'est-elle suggérée comme déjà exécutée sans preuve ?
+- **Confidentialité** : les sorties et les journaux respectent-ils les droits du cas ?
+
+Une moyenne unique peut masquer un échec grave. Le rapport devrait distinguer les statistiques générales des **erreurs éliminatoires**, telles que l'exposition de données confidentielles ou l'inversion d'une consigne critique.
+
+### Le problème des évaluateurs automatiques
+
+Un modèle évaluateur peut lui-même produire une note incorrecte, être sensible à la formulation ou favoriser un certain style. Il faut le considérer comme un **outil d'évaluation à vérifier**, et non comme un juge infaillible.
+
+Pour un corpus pédagogique, un évaluateur automatique peut vérifier des contraintes déterministes : présence d'un ID de source connu, format d'un champ, longueur maximale. Une validation humaine formée reste utile pour les ambiguïtés visuelles ou sémantiques. Les critères de contrôle sont définis avant l'essai pour limiter les ajustements opportunistes.
+
+**Exercice corrigé.** L'application décrit correctement dix images sur douze et révèle un identifiant protégé dans un seul cas. La note moyenne suffit-elle à autoriser le service ? **Non.** La divulgation doit être examinée comme un défaut de confidentialité, indépendant du score descriptif.
+
+## 17. Concevoir un traitement multimodal sobre
+
+Traiter systématiquement une vidéo entière avec un grand modèle peut être coûteux et inutile pour une tâche ponctuelle. Une architecture proportionnée peut sélectionner les informations utiles, avec des limites claires.
+
+Par exemple, l'équipe peut commencer par : identification de la demande, collecte des métadonnées autorisées, choix des segments nécessaires, transcription ciblée, contrôle de la source, puis génération éventuelle d'une synthèse. Cette conception doit préserver les informations critiques : réduire la quantité d'images ou de son peut aussi supprimer un événement important.
+
+Le coût d'un traitement doit inclure au minimum la capture, la transmission, le stockage, les transformations, l'inférence, les corrections humaines et la rétention. Une comparaison environnementale exige un périmètre énergétique défini et des résultats de qualité comparables.
+
+**Exercice corrigé.** Deux pipelines donnent une précision descriptive identique, mais l'un transfère toutes les vidéos dans un service tiers sans nécessité métier. Lequel choisir ? **La précision seule ne permet pas de décider.** Il faut analyser le besoin, les droits sur les données, la minimisation, la localisation des traitements, la sécurité, les coûts et les émissions selon une méthode explicite.
+
+## 18. Autoévaluation et synthèse
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 

@@ -341,7 +341,70 @@ Pour chaque scénario, il faut définir **l'identité**, **les ressources autori
 
 La grille évalue **les étapes et les droits**, pas simplement la beauté de la réponse finale. Elle prépare les exigences et tests d'architecture du chapitre 12.
 
-## 18. Conclusion et ressources
+## 18. Comprendre l'accumulation des risques dans une longue chaîne d'outils
+
+Un agent peut effectuer plusieurs étapes : choisir un document, rechercher un ticket, résumer une procédure, soumettre un brouillon, puis produire une réponse finale. Même si chaque étape paraît fiable, la probabilité de réussir **l'ensemble du parcours** peut être plus faible.
+
+Supposons, uniquement pour l'exercice, cinq étapes indépendantes, chacune ayant une probabilité de succès de 98 %. Alors la probabilité que les cinq réussissent est :
+
+\[
+P(\text{cinq succès})=0{,}98^5\approx0{,}9039,
+\]
+
+soit environ **90,39 %**. Pour dix étapes indépendantes de même qualité :
+
+\[
+P(\text{dix succès})=0{,}98^{10}\approx0{,}8171,
+\]
+
+soit environ **81,71 %**.
+
+Ce calcul ne constitue **pas** une mesure d'un agent réel. L'indépendance peut être fausse : une source documentaire incorrecte peut contaminer plusieurs étapes, tandis qu'une étape de vérification peut détecter une erreur précédente. Les taux réels doivent être mesurés sur des parcours complets et non déduits de cette simple formule.
+
+### Fiabilité locale et fiabilité de bout en bout
+
+Un appel d'outil réussi signifie seulement qu'un contrat précis a été respecté, selon le contrôle choisi. Une opération peut répondre avec HTTP 200 et contenir une information métier ancienne ou erronée. Un agent peut recevoir le bon document et en produire une interprétation incorrecte.
+
+Le protocole d'évaluation doit donc regarder **les décisions intermédiaires**, les **permissions** et le **résultat final**, avec des cas d'échec prédéfinis. Les journaux nécessaires à cette évaluation doivent être limités pour ne pas collecter plus de données sensibles que prévu.
+
+### Budget d'étapes et dégradation
+
+Pour éviter une boucle interminable, une exécution peut être bornée par un nombre maximal d'outils, une durée et une enveloppe de coût. Ces limites doivent être décidées selon le besoin. Atteindre la limite n'est pas un succès : le système doit retourner un état explicite, par exemple « tâche incomplète, budget atteint », avec les observations autorisées déjà recueillies.
+
+Un mécanisme de reprise est parfois utile, mais ne doit pas répéter aveuglément des actions avec effets de bord. La réconciliation et l'idempotence nécessitent des garanties **du service cible**, pas du seul modèle.
+
+**Exercice corrigé.** Une équipe vante 99 % de réussite pour chacun de dix outils, puis annonce 99 % de succès pour tout le parcours. La conclusion est-elle valide ? **Non.** Même sous une hypothèse favorable d'indépendance, la réussite conjointe vaudrait \(0{,}99^{10}\approx90{,}44\,\%\). Les dépendances entre étapes peuvent produire d'autres résultats.
+
+## 19. Définir un contrat de délégation et de supervision humaine
+
+Une personne peut déléguer la recherche documentaire, la préparation d'un brouillon ou la consultation d'un statut ; cela ne signifie pas qu'elle délègue automatiquement une décision juridique, une autorisation financière ou une action de production.
+
+Un contrat d'autonomie minimal répond à six questions :
+
+| Dimension | Question à résoudre |
+|---|---|
+| Objectif | Quel résultat l'agent doit-il atteindre ? |
+| Données | Quelles sources peut-il recevoir, à quel moment ? |
+| Outils | Quelles opérations sont explicitement permises ? |
+| Limites | Combien d'appels, quel temps, quel budget ? |
+| Supervision | Quelles actions demandent approbation effective ? |
+| Preuve | Comment connaît-on le résultat réellement obtenu ? |
+
+### Quand une confirmation humaine a une valeur
+
+Une demande de confirmation est utile lorsque la personne peut réellement comprendre la cible, les effets attendus et les risques de l'action, disposer des permissions nécessaires et choisir le refus. Si le système présente une centaine d'actions opaques à approuver en quelques secondes, la revue humaine risque de n'être qu'une validation mécanique.
+
+Le contrôle de la personne ne doit pas reposer sur une phrase déclarative du modèle : l'approbation doit être enregistrée dans un workflow habilité, associée à une opération précise et, si besoin, réévaluée à l'exécution.
+
+### Corrigé : lecture autorisée, écriture interdite
+
+Un technicien demande à l'agent d'expliquer pourquoi un ticket est en attente. Le dossier nécessite de consulter l'API de tickets et une procédure disponible au demandeur. La réponse peut être construite à partir de ces sources ; aucun droit d'écriture n'est justifié.
+
+Plus tard, le technicien demande à l'agent de modifier la priorité du ticket. C'est **une nouvelle capacité**, avec une autre politique et éventuellement une approbation. Elle ne doit pas être acquise implicitement parce que l'agent savait déjà lire le ticket.
+
+Dans une architecture d'entreprise, cette séparation de lecture et d'écriture simplifie l'évaluation du risque, la traçabilité et la réversibilité.
+
+## 20. Conclusion et ressources
 
 Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
 
