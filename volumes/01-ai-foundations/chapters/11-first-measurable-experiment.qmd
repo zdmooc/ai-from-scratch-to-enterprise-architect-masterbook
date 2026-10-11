@@ -514,7 +514,29 @@ Ici, toutes les erreurs non nulles valent une minute : $\operatorname{MSE}_A=5/5
 
 **Décision d'architecte.** Dans une expérimentation réelle, conserver la définition de la cible, les horodatages de disponibilité des variables, la version des méthodes, le protocole de split, les erreurs par cas et les critères de rejet. La mesure de cinq cas fictifs illustre une méthode de calcul, non une preuve de production.
 
-## 21. Synthèse
+## 21. Pourquoi un intervalle statistique ne répare pas une mauvaise expérience
+
+Une estimation peut être calculée correctement tout en répondant à une mauvaise question. Prenons une évaluation fictive où un assistant réussit 90 questions sur 100. La fréquence observée est $\hat p=0{,}90$. Si les questions étaient des observations indépendantes et représentatives d'une population stable, l'erreur-type approximative de cette fréquence serait $\sqrt{\hat p(1-\hat p)/100}=\sqrt{0{,}0009}=0{,}03$. Cette quantité n'est **pas** une garantie sur une question particulière.
+
+Une approximation normale donnerait $\hat p\pm1{,}96\times0{,}03$, soit environ $[0{,}8412;0{,}9588]$. Pour des proportions, particulièrement près de 0 ou de 1 ou avec un petit effectif, un intervalle de Wilson est généralement préférable ; le chapitre présente déjà sa formule. Mais aucune de ces méthodes ne corrige le fait d'avoir sélectionné uniquement des questions faciles, ni une contamination du jeu de test.
+
+Supposons maintenant que 80 questions concernent des procédures publiques et 20 des procédures confidentielles. Un assistant réussit les 80 publiques et seulement 10 confidentielles. Sa réussite globale est toujours de 90 %, mais son taux de réussite sur les demandes confidentielles n'est que $10/20=50\,\%$. Une décision d'architecture qui ne regarderait que les 90 % ignorerait une différence de risque majeure.
+
+### Exercice corrigé : taille du test et dépendance
+
+Un évaluateur répète exactement les mêmes dix questions dix fois, et obtient 90 réponses correctes sur 100 appels. Peut-il déclarer avoir testé 100 questions indépendantes ?
+
+**Correction.** Non. Il a observé 100 appels mais seulement dix questions distinctes. Les résultats associés à une même question peuvent être corrélés. La formule de l'erreur-type précédente repose sur une hypothèse d'indépendance qui n'est pas démontrée par ces répétitions. Définir l'unité d'échantillonnage, regrouper les répétitions, et utiliser un protocole adapté aux dépendances.
+
+### Exercice corrigé : conclusion publiable
+
+Une équipe écrit : « Notre outil est fiable à 90 % et peut être exploité sans supervision. »
+
+**Correction.** Une conclusion défendable serait : « Sur 100 questions du jeu d'évaluation décrit, 90 réponses ont satisfait notre grille de jugement. Cette observation ne préjuge pas de la qualité sur d'autres populations et ne démontre ni le respect des habilitations ni l'absence de dommages. L'ouverture du service reste conditionnée aux tests de sécurité et aux décisions des responsables. »
+
+Ce raisonnement s'applique aussi aux comparaisons d'agents, aux modèles de classification et aux mesures de bénéfice économique : une moyenne ne suffit jamais à démontrer un contrôle éliminatoire.
+
+## 22. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
