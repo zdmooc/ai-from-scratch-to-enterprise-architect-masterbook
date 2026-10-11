@@ -258,7 +258,73 @@ Deux modèles ont la même MAE globale. L'un sous-estime fortement les cas rares
 
 Pour le mini-projet documentaire du [chapitre 12](12-capstone-and-exercises.qmd), les critères de refus d'accès sont éliminatoires : aucune moyenne de qualité ne peut les compenser.
 
-## 15. Synthèse
+## 15. Atelier approfondi — validation à un pas et prévision multi-horizon
+
+Le laboratoire a montré une prédiction à un pas où l'observation du jour J est disponible **avant** la prédiction du jour J+1. Ce protocole ne convient pas à tous les besoins. Une direction d'exploitation peut demander le lundi matin les estimations des quatre prochains jours, alors qu'aucun de ces résultats n'est connu : il s'agit d'un problème de prévision **multi-horizon**.
+
+| Protocole | Information admise | Produit |
+|---|---|---|
+| Un pas | Observations connues jusqu'au jour précédent | Prochain jour |
+| Plusieurs pas en une fois | Historique connu à la date de coupure | Ensemble des jours futurs |
+
+Le même modèle peut être performant dans un cas et non dans l'autre. La différence provient de la **disponibilité réelle des observations**, et non du nom donné à l'algorithme.
+
+### Calculer sans regarder le futur
+
+Au soir de J06, la dernière durée accessible est 7 minutes. Pour prédire d'un seul coup J07–J10 par simple persistance, nous devons annoncer les valeurs \((7,7,7,7)\), car les observations des jours J07, J08 et J09 n'ont pas encore eu lieu.
+
+Les valeurs réelles ultérieures sont \((6,8,7,9)\). Les erreurs absolues sont \((1,1,0,2)\), d'où :
+
+\[
+MAE_{\text{multi-horizon}}=\frac{1+1+0+2}{4}=1\ \mathrm{minute}.
+\]
+
+La méthode à un pas du cours avait une MAE de 1,5 minute. Il serait incorrect d'en conclure que la prévision multi-horizon est **toujours** supérieure : l'exemple de quatre cas fictifs est beaucoup trop petit, et le résultat dépend de la forme particulière de la série.
+
+Pour un véritable benchmark, l'équipe doit garder la date de coupure visible, publier les performances **par horizon** et ne jamais utiliser une valeur future pour composer une entrée passée.
+
+### Fiche de disponibilité des variables
+
+| Variable candidate | Moment de disponibilité | Risque |
+|---|---|---|
+| Catégorie initiale d'un ticket | Création | Erreur de saisie |
+| Priorité initiale | Création | Modification ultérieure possible |
+| Durée finale de résolution | Clôture | Cible, donc interdite à la création |
+| Nombre final de transferts | Clôture | Fuite d'information future |
+| Dernière note de résolution | Clôture | Fuite temporelle et texte sensible |
+| Tickets ouverts à l'instant T | T, sous réserve de disponibilité | Cohérence temporelle et calcul |
+
+Un modèle qui prédit très bien une clôture grâce à la **date de clôture** n'a pas accompli une prouesse : il a vu une information qui devrait lui être interdite au moment de l'estimation.
+
+### Validation à plusieurs fenêtres
+
+Sur un historique significatif, on peut répéter l'expérience à plusieurs dates de coupure. Chaque fenêtre sépare les périodes d'ajustement, de choix éventuel d'hyperparamètres et d'évaluation. Les métriques doivent être calculées de façon identique et conservées **par fenêtre**, même lorsque le résultat global est présenté.
+
+Un modèle peut gagner dans une période et perdre dans une autre. Cette observation ne prouve pas nécessairement une erreur de code. Les données, populations et processus peuvent avoir changé ; il faut analyser les régimes, la saisonnalité et les cas extrêmes.
+
+### Exercices et corrigés
+
+**A.** Pourquoi la dernière valeur réelle de J07 ne peut-elle pas servir à prédire J08 le soir de J06 ? Parce que J07 est encore dans le futur à cette date.
+
+**B.** Un algorithme gagne sur quatre jours et perd sur les quatre suivants. Que faut-il présenter ? Les résultats par fenêtre, les distributions d'erreur, les conditions du changement et l'incertitude, pas seulement une moyenne.
+
+**C.** Un modèle diminue la MAE mais surestime les urgences critiques. Peut-il être retenu sur sa moyenne ? Non : les erreurs et conséquences critiques doivent être analysées séparément.
+
+**D.** Pourquoi garder la dernière valeur observée comme baseline ? Pour mesurer si un modèle plus sophistiqué produit un gain sur une méthode minimale qu'il est honnête d'essayer de battre.
+
+## 16. Rédiger la conclusion exacte d'un POC
+
+Trois formulations se ressemblent mais ne disent pas la même chose.
+
+**Incorrect :** « Notre IA accroît la productivité de 40 %. » L'expérience ne mesure aucun temps de travail réellement économisé.
+
+**Insuffisant :** « Le modèle améliore la qualité de 40 %. » Le modèle, la métrique et le protocole ne sont pas définis.
+
+**Correct dans ce cadre :** « Sur quatre observations synthétiques de prévision à un pas, la baseline de dernière valeur obtient une MAE de 1,5 minute contre 2,5 minutes pour la moyenne historique fixe, soit une réduction relative de 40 % de cette erreur particulière. Ce résultat ne démontre aucun gain métier. »
+
+Une conclusion exploitable conserve date, version du code, définition de la tâche, séparation temporelle, nombre de cas, métrique, valeurs observées et limitations. Sans ces informations, on ne pourra ni vérifier ni comparer l'essai.
+
+## 17. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 

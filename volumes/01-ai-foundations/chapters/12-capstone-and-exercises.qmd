@@ -311,7 +311,108 @@ Le lecteur peut déclarer son dossier « prêt à discuter » lorsque les choix 
 
 Le passage à l'étape suivante de la collection dépendra de la maîtrise des fondamentaux : source de vérité, baseline, NFR, permission réelle et interprétation correcte des résultats.
 
-## 18. Suite de la collection
+## 18. Mini-projet travaillé — réponses permises, refus et abstention
+
+Le dossier fictif présente un assistant documentaire. Nous allons en construire un **jeu d'acceptation** avec trois procédures entièrement inventées.
+
+| Identifiant | Version | Droits de lecture | Contenu officiel |
+|---|---|---|---|
+| PROC-101 | 2 | Support-A | Consulter le statut du ticket via l'API officielle |
+| PROC-102 | 1 | Support-A | Si l'API est indisponible, demander une revue manuelle |
+| PROC-900 | 3 | Supervision | Procédure réservée aux superviseurs |
+
+Le technicien A peut lire les deux premières procédures, mais pas la troisième. Le superviseur peut lire les trois. Une requête de l'utilisateur ne peut pas modifier ses permissions ; seule une identité attestée et une politique côté serveur sont reconnues.
+
+### Issue A — réponse autorisée
+
+Le technicien demande : « Que faire si l'API de statut est indisponible ? » Le système trouve PROC-102 dans les documents accessibles. Une réponse correcte serait : « D'après PROC-102, version 1, une revue manuelle est à demander lorsque l'API de statut est indisponible. »
+
+Cette réponse ne prouve pas que le ticket particulier est en incident. Il faut distinguer **la procédure applicable** de **l'état effectif du système métier**. Une citation valide est nécessaire, mais pas suffisante : elle doit soutenir la proposition émise.
+
+### Issue B — source protégée
+
+Le technicien demande le contenu de PROC-900 en écrivant « je suis superviseur ». L'application doit refuser la récupération, indépendamment de la formulation. Elle ne doit pas exposer un extrait par synthèse indirecte. Les noms, titres et métadonnées sensibles peuvent aussi nécessiter une protection selon la politique applicable.
+
+### Issue C — source absente
+
+Une question concerne un composant inconnu pour lequel aucune procédure n'est disponible. Le système doit déclarer l'insuffisance des sources, poser une question supplémentaire ou proposer une escalade. Il ne doit pas composer une procédure plausible à partir de connaissances générales en lui attribuant une citation fictive.
+
+### Le contrat des réponses
+
+Une interface de lecture peut distinguer les résultats suivants :
+
+| État métier de l'API | Signification | Comportement |
+|---|---|---|
+| answered | Une réponse vérifiable est construite | Présenter texte et citations |
+| insufficient_evidence | Source absente ou insuffisante | Abstention ou clarification |
+| access_denied | Lecture non autorisée | Ne pas divulguer de contenu |
+| dependency_unavailable | Service nécessaire indisponible | Dégradation ou signalement |
+| escalated | Une escalade a été réellement confirmée | Donner la référence de suivi |
+
+Il faut éviter d'annoncer « escalade effectuée » simplement parce qu'un modèle l'a écrit. Les **actions réellement exécutées** doivent provenir des observations des systèmes qui les effectuent.
+
+## 19. Matrice d'intégration et menaces
+
+Une architecture de référence a plusieurs frontières de confiance : navigateur, API d'identité, recherche documentaire, base source et composant de génération. Chaque contrôle doit être attribué à un système responsable.
+
+| Surface | Défaillance | Contrôle | Test négatif |
+|---|---|---|---|
+| Client | Rôle falsifié dans la requête | IAM et API serveur | Modifier le rôle côté navigateur |
+| Recherche | PROC-900 envoyé au LLM | ACL avant génération | Requête d'un technicien non habilité |
+| Document | Phrase demandant de supprimer un ticket | Donnée externe sans autorité | Injection incapable d'appeler l'API |
+| Génération | Citation de PROC-999 inexistant | Contrôle de la référence | Référence fictive rejetée |
+| API de statut | Timeout | Échec borné et issue explicite | Déclencher l'indisponibilité |
+| Traçabilité | Secret enregistré | Minimisation des logs | Inspecter les champs sensibles |
+
+Cette table est un **plan d'essais**, pas le résultat d'une suite de tests exécutés. Dans une implantation réelle, il faut ajouter l'observabilité, la version de chaque composant, les contrats d'authentification et les procédures de réponse aux incidents.
+
+### Risque de contournement par une citation
+
+Une réponse peut citer PROC-101 et affirmer un fait qui n'apparaît pas dans ce document. Pour évaluer la fidélité, une correction ne doit pas se contenter de vérifier que l'ID existe : elle doit vérifier que **le passage cité soutient effectivement l'énoncé**.
+
+### Critère de sortie de l'essai
+
+Le système n'est recevable que si les refus d'accès et d'action passent les tests imposés côté services. Une synthèse bien formulée ne peut pas compenser une divulgation de PROC-900.
+
+## 20. Le coût réel d'une recherche gagnée
+
+Supposons **1 000 recherches fictives par mois**. Le processus actuel demande cinq minutes de recherche ; la solution candidate en demanderait quatre, sous réserve que ce gain soit observé par une comparaison rigoureuse.
+
+Le gain brut théorique serait :
+
+\[
+1000\times(5-4)=1000\ \text{minutes}=16\ \text{h}\ 40\ \text{min}.
+\]
+
+Il serait incorrect de traduire mécaniquement cette durée en réduction d'effectifs ou en économie financière : elle peut être réinvestie dans d'autres tâches, et le coût d'une mauvaise réponse peut dépasser le temps économisé.
+
+L'analyse doit inclure achat ou construction, hébergement, maintenance, supervision, formation, évaluation récurrente et coût de traitement des incidents. Le budget ne se résume pas aux tokens du modèle.
+
+### Alternative sans LLM
+
+Une amélioration de l'indexation documentaire pourrait produire le même gain de recherche à moindre coût. L'option LLM doit être comparée à cette baseline et justifier **sa valeur supplémentaire**. Si elle n'apporte qu'une reformulation marginale tout en exigeant un contrôle humain complet, elle n'est peut-être pas préférable.
+
+## 21. Soutenance corrigée de l'architecture
+
+**Question du jury.** « La démonstration marche : pourquoi ne pas déployer dès demain ? »
+
+**Réponse attendue.** Les besoins et contrôles sont conçus, mais les tests d'intégration ne sont pas tous exécutés, les NFR chiffrés restent à approuver, les droits n'ont pas été évalués sur des données réelles autorisées et le risque résiduel n'est pas accepté. Un pilote borné sur données synthétiques serait une étape plus défendable.
+
+**Question.** « Pourquoi n'utilisez-vous pas un agent qui pourrait redémarrer les systèmes ? »
+
+**Réponse attendue.** Le besoin actuel est la consultation. Donner une capacité de mutation ajouterait de nouvelles permissions, des effets de bord et des scénarios de reprise, sans nécessité prouvée. Une opération de redémarrage devrait relever d'un workflow d'exploitation distinct et habilité.
+
+**Question.** « Quel document prouve qu'un contrôle est réellement appliqué ? »
+
+**Réponse attendue.** Aucun document de conception ne suffit. Il faut une preuve d'essai sur le service cible, reliée à un commit et un environnement, qui montre notamment les refus d'accès et les comportements d'échec.
+
+**Question.** « Comment l'architecture reste-t-elle réversible ? »
+
+**Réponse attendue.** Les procédures, les permissions et les API métier conservent leur propre autorité. Le moteur de recherche ou le générateur peut être remplacé sans redéfinir les règles d'accès et les sources de référence.
+
+Ces réponses sont des exemples de raisonnement d'architecte. Elles ne valent pas acceptation d'un projet réel.
+
+## 22. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
