@@ -307,7 +307,71 @@ Un fournisseur écrit : « Notre produit utilise l'architecture Transformer, don
 
 **Correction.** Non. Une publication établit la portée de ses propres expériences. Un produit ultérieur exige ses propres évaluations sur les tâches, versions, données, ressources, risques et conditions d'exploitation pertinentes.
 
-## 17. Références documentaires pour révision
+## 17. Étudier l'histoire comme une série de décisions techniques
+
+Les grands jalons de l'IA ne sont pas seulement des dates à mémoriser. Ils montrent comment une équipe choisit un **mode de représentation**, un **protocole de mesure** et un **environnement d'exécution** adaptés à la technologie disponible.
+
+### Étude A — Représenter la connaissance sous forme de règles
+
+Une organisation fictive des années 1980 veut reproduire certains raisonnements de spécialistes. Elle formalise des conditions : si un dossier possède telles caractéristiques, alors demander une vérification supplémentaire ; si une exception s'applique, arrêter le traitement.
+
+Ce type de système peut fonctionner correctement sur des cas bornés dont les connaissances sont explicites. Les difficultés augmentent lorsque les règles se contredisent, que les experts ne sont pas d'accord ou que le domaine change rapidement.
+
+**Problème architectural durable :** à qui appartient la vérité des règles ? Comment les modifier, vérifier leur cohérence et conserver les justifications ? Ces questions demeurent pertinentes dans les applications modernes, même lorsqu'un LLM aide à trouver une procédure.
+
+### Étude B — Apprendre un comportement à partir d'exemples
+
+Une autre équipe possède de nombreux dossiers historiques avec une étiquette de résultat. Au lieu de programmer chaque exception à la main, elle veut ajuster un modèle à partir de ces exemples.
+
+Cette évolution change la nature de la preuve. Pour des règles, on inspecte les conditions explicites et les tests des cas. Pour un modèle appris, on doit en plus vérifier **la représentativité des observations**, la définition des labels et les erreurs sur des cas indépendants.
+
+Un système peut apprendre fidèlement une pratique historique inadaptée. Le fait d'obtenir une bonne précision sur le passé ne signifie pas que la décision est souhaitable, juste ou conforme.
+
+### Étude C — D'un article d'architecture à un service de génération
+
+La publication *Attention Is All You Need* (2017) présente une architecture de traitement de séquences fondée sur des mécanismes d'attention. Elle n'est pas, en elle-même, une démonstration de fiabilité universelle des assistants conversationnels d'entreprise.
+
+Entre une idée de recherche et un service concret interviennent d'autres systèmes : traitement des données, modèles entraînés, hébergement, sécurité, gestion des coûts, récupération de connaissances, contrôle des réponses et supervision.
+
+**Question de lecture.** Qu'est-ce qui est réellement prouvé dans un article : une propriété mathématique, un résultat sur des tâches définies, ou la conformité d'un produit futur ?
+
+**Correction.** Il faut inspecter les protocoles de l'article. Une publication peut apporter une définition mathématique et des résultats expérimentaux dans un périmètre précis ; elle ne certifie pas un produit qui réutilise ultérieurement un composant architectural.
+
+## 18. Relier les vagues technologiques sans croire à leur remplacement total
+
+Les paradigmes de l'IA ne se sont pas succédé comme des produits où le plus récent élimine totalement l'ancien. Des outils de raisonnement symbolique, des statistiques, des modèles neuronaux et des moteurs de recherche restent utiles aujourd'hui pour des raisons différentes.
+
+Une architecture documentaire peut combiner :
+
+- une **politique explicite** pour déterminer les droits de lecture ;
+- un **moteur de recherche** pour retrouver une procédure pertinente ;
+- un **modèle statistique** pour classer les résultats ;
+- un **modèle génératif** pour produire une synthèse ;
+- un **contrôle déterministe** pour valider les références affichées.
+
+La combinaison ne supprime pas les faiblesses des composants. Elle peut au contraire multiplier les chemins d'erreur. Elle doit être évaluée de bout en bout.
+
+### Exercice de classification historique
+
+Pour chaque exigence ci-dessous, choisir la technique initiale la plus simple et expliquer ce que les méthodes plus récentes apporteraient ou non :
+
+| Exigence | Première technique à évaluer | Raisonnement |
+|---|---|---|
+| Vérifier un barème contractuel explicite | Règles | Décision définie, auditabilité |
+| Prévoir une durée selon un historique | Baseline statistique puis ML | Comparaison mesurée nécessaire |
+| Retrouver une procédure versionnée | Recherche gouvernée | Source officielle et droits |
+| Produire un résumé de plusieurs documents | Recherche puis génération contrôlée | Utilité à mesurer et sources à vérifier |
+| Redémarrer un service critique | Workflow habilité | La permission ne vient pas du modèle |
+
+**Correction générale.** Aucune ligne n'impose d'ajouter un LLM. Le choix dépend de la valeur réelle, des conséquences de l'erreur et de la simplicité vérifiable de la solution.
+
+### Ce que cette histoire enseigne à l'architecte
+
+L'innovation ne se mesure pas à la seule nouveauté du modèle. Elle se mesure à un problème résolu dans des conditions expliquées : données, métriques, risques, coûts, gouvernance et droits.
+
+Lorsque le lecteur passe au chapitre 03, il étudie les règles non comme un vestige historique, mais comme un outil encore pertinent pour certaines décisions. Les chapitres suivants approfondissent les représentations apprises et les modèles génératifs sans dévaloriser les mécanismes explicites qui les entourent.
+
+## 19. Références documentaires pour révision
 
 - Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
 - Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955/1956), archive historique.
