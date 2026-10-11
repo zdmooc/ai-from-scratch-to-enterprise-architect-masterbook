@@ -40,3 +40,6 @@ jobs:
         run: python -m unittest discover -s labs/v01-gradient-descent -p 'test_*.py' -v
       - name: Test QKV attention lab
         run: python -m unittest discover -s labs/v01-attention-qkv -p 'test_*.py' -v
+
+      - name: Validate SVG source diagrams
+        run: python scripts/validate_svg_sources.py
