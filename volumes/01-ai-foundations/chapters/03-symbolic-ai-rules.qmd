@@ -409,7 +409,19 @@ Un auditeur demande de reproduire une décision prise le mois précédent. Le mo
 
 **Réponse.** Non. Il faut connaître la version applicable à l'époque, les données disponibles alors et les règles de transition. Une nouvelle politique ne peut pas être supposée rétroactivement applicable sans justification.
 
-## 19. Limites et suites
+## 19. Démonstration — fermeture d'un ensemble de faits
+
+Considérons trois règles de Horn positives : $A\land B\Rightarrow C$, $C\Rightarrow D$ et $D\land E\Rightarrow F$. La base initiale est $S_0=\{A,B,E\}$. L'opérateur de conséquence immédiate $T$ ajoute les conclusions des règles dont tous les antécédents sont présents ; on conserve les faits antérieurs : $S_{k+1}=S_k\cup T(S_k)$.
+
+Au premier passage, $A$ et $B$ donnent $C$, donc $S_1=\{A,B,C,E\}$. Au deuxième, $C$ donne $D$, donc $S_2=\{A,B,C,D,E\}$. Au troisième, $D$ et $E$ donnent $F$, donc $S_3=\{A,B,C,D,E,F\}$. Un nouveau passage ne produit rien : $S_4=S_3$. C'est un **point fixe**.
+
+Sur un univers fini de faits et sans suppression, la suite est croissante et s'arrête au plus après autant d'ajouts distincts que de faits possibles. Cette garantie **ne s'étend pas sans conditions** aux fonctions créant indéfiniment de nouveaux termes, à certaines formes de négation ni aux effets externes.
+
+**Exercice.** Retirer $B$ des faits initiaux. Peut-on encore déduire $F$ avec les règles ci-dessus ? **Corrigé :** non. On dispose de $A$ et $E$, mais jamais de $C$, $D$ ou $F$. Un moteur incrémental qui avait matérialisé $F$ doit donc invalider les conséquences dépendantes de $B$ : réexécuter seulement les ajouts serait incorrect.
+
+**Interprétation architecturale.** Une déduction n'est ni une autorisation d'accès ni une commande. Toute opération sensible doit vérifier les habilitations et l'état présents au moment de l'action.
+
+## 20. Limites et suites
 
 Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la négation, pas de quantificateurs, pas de raisonnement probabiliste, pas de temporalité avancée. Les chapitres suivants du volume élargiront la comparaison avec l'apprentissage à partir de données.
 
