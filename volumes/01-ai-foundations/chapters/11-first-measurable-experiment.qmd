@@ -469,9 +469,9 @@ Une moyenne d'erreur isolée ne permet pas de déterminer si la nouvelle méthod
 
 L'erreur absolue d'une prédiction $\hat y_i$ est $e_i=|y_i-\hat y_i|$ ; l'erreur absolue moyenne vaut
 
-$
+\[
 \operatorname{MAE}=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat y_i|.
-$
+\]
 
 | Cas | Réel | A | Erreur A | B | Erreur B | Gain de B ($e_A-e_B$) |
 |---|---:|---:|---:|---:|---:|---:|
@@ -490,9 +490,9 @@ La comparaison est *appariée* : les deux méthodes rencontrent les mêmes dossi
 
 La MSE pénalise davantage les grandes erreurs :
 
-$
+\[
 \operatorname{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2.
-$
+\]
 
 Ici, toutes les erreurs non nulles valent une minute : $\operatorname{MSE}_A=5/5=1\ \mathrm{min}^2$ et $\operatorname{MSE}_B=3/5=0{,}6\ \mathrm{min}^2$. L'unité carrée rappelle qu'il ne faut pas interpréter directement une MSE comme une durée. Les RMSE correspondantes sont $1$ minute et $\sqrt{0{,}6}\simeq0{,}775$ minute.
 
