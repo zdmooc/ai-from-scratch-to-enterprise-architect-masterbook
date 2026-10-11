@@ -350,7 +350,86 @@ Définir le profil des opérations, la taille des données, la précision, les l
 
 **Correction.** La valeur métier du délai gagné, la charge réelle, la qualité attendue et les coûts complets (exploitation, indisponibilité, maintenance et éventuellement énergie). Les deux chiffres seuls ne permettent pas de décider.
 
-## 18. À retenir
+## 18. De la régression à la classification : probabilités et perte logarithmique
+
+La régression du laboratoire cherche à prédire une valeur numérique. Dans une **classification binaire**, nous voulons par exemple produire un score entre 0 et 1 pour estimer la probabilité d'appartenance à une catégorie, sous les hypothèses et limites du modèle.
+
+Une fonction fréquemment employée pour transformer un nombre réel \(z\) en valeur dans l'intervalle ouvert \((0,1)\) est la sigmoïde :
+
+\[
+\sigma(z)=\frac{1}{1+e^{-z}}.
+\]
+
+Pour \(z=0\), nous avons \(\sigma(0)=0{,}5\). Une prédiction proche de 1 ne signifie toutefois pas automatiquement que sa probabilité est **calibrée** : il faut confronter les scores à des observations indépendantes.
+
+### Mesurer une prédiction probabiliste
+
+Pour un label binaire \(y\in\{0,1\}\) et une sortie \(p\) strictement comprise entre 0 et 1, une perte possible est la **binary cross-entropy** :
+
+\[
+L(y,p)=-\big[y\ln(p)+(1-y)\ln(1-p)\big].
+\]
+
+Lorsque la vérité est \(y=1\), cette expression se simplifie en \(-\ln(p)\). Ainsi, une prédiction \(p=0{,}8\) donne une perte d'environ 0,2231, tandis que \(p=0{,}2\) produit une perte d'environ 1,6094. Le modèle est davantage pénalisé lorsqu'il attribue une faible probabilité à l'événement effectivement observé.
+
+Pour \(y=0\), la perte devient \(-\ln(1-p)\) : cette fois, une prédiction proche de 1 est fortement pénalisée.
+
+Les implémentations numériques doivent prendre en compte les situations où des probabilités s'approchent de 0 ou 1, pour éviter des logarithmes invalides et des débordements. Les frameworks emploient souvent des formulations stables utilisant directement les logits, plutôt que de calculer naïvement le logarithme d'une valeur arrondie à zéro.
+
+### Exercice corrigé
+
+Deux exemples positifs reçoivent les scores \(0{,}8\) et \(0{,}7\). La perte moyenne vaut :
+
+\[
+-\frac{\ln(0{,}8)+\ln(0{,}7)}{2}\approx0{,}2899.
+\]
+
+Si le second score descend à 0,1, sa contribution augmente considérablement. Cela illustre pourquoi une moyenne de classification probabiliste exige une définition claire des labels et de la métrique.
+
+La précision des probabilités et la calibration seront étudiées plus en détail dans le chapitre 04 et les volumes consacrés au Machine Learning.
+
+## 19. Normaliser les variables sans introduire une fuite de données
+
+Un modèle numérique peut recevoir des caractéristiques très différentes : un montant en euros de plusieurs centaines de milliers et un ratio proche de 0,01. Sans traitement approprié, l'échelle des variables peut compliquer l'optimisation de certains modèles.
+
+Une normalisation fréquente pour une variable quantitative est :
+
+\[
+x_{\mathrm{normalisé}}=\frac{x-\mu_{\mathrm{train}}}{s_{\mathrm{train}}},
+\]
+
+où la moyenne \(\mu_{\mathrm{train}}\) et l'écart-type \(s_{\mathrm{train}}\) sont calculés **uniquement sur la période d'entraînement**.
+
+### Exemple de calcul
+
+Supposons des montants synthétiques d'entraînement de 100, 200 et 300 unités. La moyenne vaut 200. L'écart-type de population de ces trois valeurs vaut :
+
+\[
+s=\sqrt{\frac{(100-200)^2+(200-200)^2+(300-200)^2}{3}}
+=\sqrt{\frac{20000}{3}}\approx81{,}65.
+\]
+
+Une nouvelle observation valant 250 est alors transformée en :
+
+\[
+z=\frac{250-200}{81{,}65}\approx0{,}6124.
+\]
+
+Si nous recalculions la moyenne et l'écart-type avec les **observations futures du test**, les transformations utiliseraient des informations qui n'étaient pas disponibles lors de l'entraînement. Le protocole ne serait plus indépendant.
+
+Les paramètres de normalisation doivent être conservés et versionnés avec le modèle. En cas de changement significatif de distribution, une nouvelle calibration ou un nouvel entraînement peut être nécessaire, mais le choix doit respecter la séparation des données.
+
+### Exercice corrigé
+
+Une équipe normalise un dataset complet, puis le découpe en entraînement et test. Que faut-il corriger ?
+
+**Correction.** Calculer les statistiques uniquement sur l'entraînement, puis appliquer **ces mêmes statistiques** à la validation et au test. Cela évite de laisser les données réservées à l'évaluation influencer les transformations.
+
+### Dernier point d'architecture
+
+Une chaîne d'inférence inclut les mêmes transformations de données que celles prévues lors de l'entraînement. Si l'API change une unité, un encodage ou un ordre de variables, un réseau mathématiquement correct peut produire des résultats erronés. Le **contrat de préparation des entrées** est donc une partie de l'architecture, pas un détail du notebook.
+
+## 20. À retenir
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
