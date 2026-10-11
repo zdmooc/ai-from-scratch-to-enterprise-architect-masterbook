@@ -251,7 +251,63 @@ La décision est justifiée par **la tâche**, **les données**, **les conséque
 
 ---
 
-## 15. Références documentaires pour révision
+## 15. Éviter les anachronismes dans une histoire de l'IA
+
+Pour analyser correctement un résultat scientifique, il faut comprendre **les moyens disponibles à son époque**. Une démonstration de recherche symbolique sur un espace limité ne doit pas être décrite comme si elle avait utilisé les mêmes données, architectures neuronales ou accélérateurs que les produits actuels.
+
+Les changements les plus importants ne se résument pas à l'invention d'un unique algorithme. Ils résultent souvent de plusieurs progrès conjoints : capacité de calcul, disponibilité des données, méthodes d'entraînement, outillage logiciel, environnement économique et protocoles d'évaluation.
+
+### Trois comparaisons historiques
+
+**Recherche par règles et exploration d'états.** Elle permet de représenter des conditions et des objectifs explicitement. Sa limite peut être la croissance de l'espace de recherche ou la difficulté d'énumérer les connaissances du monde.
+
+**Machine Learning statistique.** Des modèles peuvent apprendre depuis des observations, mais leur résultat dépend des hypothèses, des données, des labels et de leur généralisation. La réussite sur une population n'est pas nécessairement transférable à une autre.
+
+**Modèles de langage de grande taille.** Ils génèrent des séquences en exploitant des régularités apprises et un contexte fourni. Leur flexibilité améliore certaines interfaces, mais n'efface ni les erreurs factuelles, ni les droits d'accès, ni la nécessité de critères de qualité.
+
+Une comparaison historique honnête doit répondre à la question : **« Quelle tâche était résolue, avec quelles ressources et comment mesurait-on le résultat ? »**
+
+### L'importance des benchmarks
+
+Les jeux de test rendent certains progrès quantifiables. Mais un benchmark ne représente jamais l'ensemble des besoins d'entreprise.
+
+Une étude peut annoncer une amélioration spectaculaire sur des images préclassées tout en laissant ouvertes les questions de robustesse à des conditions nouvelles, de sécurité, d'acceptation par les utilisateurs, d'énergie ou de latence d'un service.
+
+Il faut distinguer : performance sur benchmark, reproduction indépendante, démonstration de laboratoire, industrialisation et adoption. Ce sont des **types de preuves différents**.
+
+## 16. Atelier : enquêter sur une rupture scientifique
+
+Le lecteur choisit un article historique identifié dans la bibliographie et remplit une fiche :
+
+| Champ | Question |
+|---|---|
+| Question de recherche | Quel problème l'article cherche-t-il à résoudre ? |
+| Hypothèse et méthode | Quels algorithmes ou représentations propose-t-il ? |
+| Données | Quels exemples, tâches et restrictions ? |
+| Mesure | Quelle métrique et quelle baseline ? |
+| Reproduction | Que faut-il disposer pour tenter de reproduire ? |
+| Portée | Quelles conclusions l'article soutient-il ? |
+| Limites | Quels usages l'article ne permet-il pas de garantir ? |
+
+### Correction guidée : le Transformer de 2017
+
+**Question.** L'article étudie une architecture de traitement de séquences fondée sur l'attention.
+
+**Méthode.** Les modules d'attention et transformations neuronales permettent de traiter des relations entre éléments de séquences sans dépendre de la récurrence telle qu'utilisée dans certaines architectures précédentes.
+
+**Mesure.** Les résultats présentés dans l'article portent sur des tâches et conditions expérimentales définies. Pour reproduire un résultat précis, il faut consulter la version de l'article, ses datasets, paramètres et protocoles exacts.
+
+**Portée.** Il s'agit d'une avancée architecturale marquante.
+
+**Limites.** Cela ne prouve pas qu'une application quelconque utilisant un Transformer sera correcte, sécurisée, conforme ou économiquement viable.
+
+### Exercice corrigé
+
+Un fournisseur écrit : « Notre produit utilise l'architecture Transformer, donc il possède une fiabilité démontrée par l'article de 2017. » Cette conclusion est-elle justifiée ?
+
+**Correction.** Non. Une publication établit la portée de ses propres expériences. Un produit ultérieur exige ses propres évaluations sur les tâches, versions, données, ressources, risques et conditions d'exploitation pertinentes.
+
+## 17. Références documentaires pour révision
 
 - Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
 - Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955/1956), archive historique.

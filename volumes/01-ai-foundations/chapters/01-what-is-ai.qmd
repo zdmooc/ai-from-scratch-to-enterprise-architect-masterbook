@@ -323,7 +323,62 @@ Pour chaque cas, renseigner :
 
 La bonne réponse n'est pas obligatoirement « choisir une IA ». Savoir dire **non** à une solution complexe lorsque le problème ne le requiert pas fait partie de la compétence d'architecte.
 
-## 16. Autoévaluation et vocabulaire utile
+## 16. Comprendre l'architecture comme un ensemble de contrats
+
+Une application IA d'entreprise n'est pas un modèle isolé. On peut décomposer un service en **contrats vérifiables** : qui appelle, quelle entrée est admise, quelle réponse est autorisée, quel résultat est conservé et que se passe-t-il en cas d'erreur.
+
+Prenons une question de support fictive : « Mon ticket est-il clôturé ? » La réponse n'appartient pas à l'histoire du modèle. Elle dépend d'un enregistrement de ticket dans un service de référence.
+
+Les composants possèdent des responsabilités distinctes :
+
+| Contrat | Service responsable | Propriété observable |
+|---|---|---|
+| Identité | Fournisseur d'identité / passerelle | Session valide et périmètre attesté |
+| Lecture | API métier | Ticket accessible à cette identité |
+| Source | Base des tickets | État daté ou versionné |
+| Formulation | Application de réponse | Texte fidèle à l'observation |
+| Validation | Service applicatif | Absence de citation ou statut inventé |
+| Journal | Plateforme d'observabilité | Événement corrélable et minimisé |
+
+L'absence d'un contrat explicite peut laisser le modèle accomplir une tâche qu'il ne devrait pas assumer. Le cas typique consiste à demander au LLM de **décider d'une permission**, alors qu'il devrait seulement expliquer un refus imposé par le service cible.
+
+### Exemple de contrat de sortie
+
+Une réponse peut contenir le statut de consultation, le texte explicatif, la liste des références vérifiées et un code d'erreur éventuel. Si le service métier répond « non disponible », le contrat interdit de transformer cet état en « fermé » ou « ouvert » par simple prédiction linguistique.
+
+**Exercice.** Pourquoi la réponse « je suis autorisé » fournie par un utilisateur ne peut-elle pas servir de preuve d'accès ?
+
+**Correction.** Elle est du contenu utilisateur, pas une attestation d'identité ni une décision de politique. Les droits doivent être évalués par les services responsables.
+
+## 17. Reconnaître les quatre principales erreurs d'un débutant
+
+### Erreur 1 — « IA = chatbot »
+
+Un moteur de prévision, un programme de reconnaissance d'image, un filtre statistique ou une stratégie de recherche peuvent faire partie d'un système IA sans interface conversationnelle. Inversement, une interface de chat peut être construite à partir de règles et ne pas utiliser de LLM.
+
+### Erreur 2 — « Plus le modèle est gros, plus le système est fiable »
+
+La taille d'un modèle ne décrit ni la qualité des données, ni la calibration, ni la sécurité de ses outils, ni la pertinence pour une tâche. Comparer plusieurs modèles exige un protocole d'évaluation commun.
+
+### Erreur 3 — « Si la réponse semble plausible, elle est vérifiée »
+
+Une réponse générée peut être cohérente dans sa formulation tout en contredisant la source officielle. Une citation doit exister et **soutenir l'affirmation exacte**. Le refus ou l'abstention constituent parfois la meilleure réponse.
+
+### Erreur 4 — « Un prompt peut interdire une action »
+
+Une instruction de prompt influence le comportement du modèle, mais ne remplace pas les permissions effectives d'un compte, la validation de paramètres ou l'approbation humaine nécessaire à une action sensible.
+
+### Mise en pratique : classer des affirmations
+
+**A.** « Une prédiction statistique peut être testée sur des données jamais vues. » Correct, avec un protocole indépendant et pertinent.
+
+**B.** « Une application sans LLM n'utilise jamais d'IA. » Faux ; de nombreuses méthodes d'IA ne sont pas génératives.
+
+**C.** « Un LLM qui décrit correctement une règle peut l'appliquer en toute sécurité sans contrôle externe. » Faux ; une règle d'autorisation doit être appliquée dans le système qui possède les ressources et les droits.
+
+**D.** « Une étude d'architecture peut conclure que la meilleure solution ne nécessite pas de modèle IA. » Correct ; la complexité doit être justifiée par une valeur mesurée.
+
+## 18. Autoévaluation et vocabulaire utile
 
 Répondre sans consulter les pages précédentes :
 
