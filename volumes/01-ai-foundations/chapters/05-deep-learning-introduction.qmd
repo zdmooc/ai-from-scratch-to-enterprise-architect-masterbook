@@ -439,7 +439,23 @@ La dérivée s'obtient par la règle de chaîne : $\frac{dL}{dw}=(wx-y)x$. Au po
 
 **Application d'architecture.** Consigner taux d'apprentissage, unité de la perte, version des données et reproductibilité ; un entraînement convergent sur l'échantillon ne prouve ni généralisation ni sécurité en production.
 
-## 21. À retenir
+## 21. Vérification numérique d'un gradient par différences finies
+
+L'exercice précédent établit analytiquement le gradient de $L(w)=\frac12(2w-4)^2$. Une vérification indépendante peut estimer la dérivée à l'aide des seules valeurs de la fonction, avec la différence centrée :
+
+\[
+g_h(w)=\frac{L(w+h)-L(w-h)}{2h}.
+\]
+
+Pour $w=1$ et $h=0{,}01$, on calcule $L(1{,}01)=\frac12(2{,}02-4)^2=1{,}9602$ et $L(0{,}99)=\frac12(1{,}98-4)^2=2{,}0402$. Donc $g_h(1)=(1{,}9602-2{,}0402)/0{,}02=-4$, en accord avec la dérivée analytique $(2w-4)\times2=-4$.
+
+Dans cet exemple **quadratique**, la différence centrée est exacte en arithmétique idéale, pour tout $h$ non nul. Pour une fonction générale suffisamment régulière, elle comporte habituellement une erreur de troncature d'ordre $h^2$. En arithmétique flottante, prendre un $h$ extrêmement petit peut également accentuer l'erreur d'arrondi par soustraction de valeurs voisines.
+
+**Exercice corrigé.** Remplacer la perte par $L(w)=w^3$ et évaluer en $w=2$ avec $h=0{,}1$. La dérivée analytique vaut $3w^2=12$. La différence centrée vaut $((2{,}1)^3-(1{,}9)^3)/0{,}2=(9{,}261-6{,}859)/0{,}2=12{,}01$. L'écart de 0,01 illustre l'approximation : une concordance numérique est un contrôle utile, pas une preuve générale de justesse d'un algorithme de rétropropagation.
+
+**À retenir pour l'architecte :** un test unitaire de gradient sur quelques fonctions connues, des contrôles de forme et d'unités, ainsi que des tests de reproductibilité réduisent les erreurs de mise en œuvre. Ils ne remplacent pas les mesures de généralisation sur un jeu indépendant.
+
+## 22. À retenir
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
