@@ -536,7 +536,25 @@ Une équipe écrit : « Notre outil est fiable à 90 % et peut être exploité s
 
 Ce raisonnement s'applique aussi aux comparaisons d'agents, aux modèles de classification et aux mesures de bénéfice économique : une moyenne ne suffit jamais à démontrer un contrôle éliminatoire.
 
-## 22. Synthèse
+## 22. Expérience corrigée — comparer des modèles sans fuite temporelle
+
+Dans un service fictif, on prédit chaque matin le nombre de demandes du lendemain. Les observations chronologiques sont : lundi 10, mardi 12, mercredi 14, jeudi 16, vendredi 18, samedi 20. Une baseline « dernière valeur connue » prédit pour jeudi 14, vendredi 16 et samedi 18 ; les valeurs réalisées sont 16, 18 et 20. Sa MAE sur ces trois prévisions vaut $(2+2+2)/3=2$ demandes.
+
+Une autre approche estime une tendance à partir des trois premiers jours. Les différences successives y valent $12-10=2$ et $14-12=2$. Avec la règle explicite $\hat y_{t+1}=y_t+2$, elle prédit 16, 18 et 20 pour les trois jours testés : MAE nulle dans cet exemple construit.
+
+**Attention au protocole.** L'égalité de ces différences ne garantit pas une tendance future. En outre, si l'équipe a choisi le « +2 » en examinant les six jours, les résultats test ne sont plus indépendants du choix du modèle. Pour illustrer loyalement l'évaluation, la règle doit être fixée sur les trois premiers jours et appliquée sans changement aux suivants ; chaque prédiction n'utilise que les observations disponibles à son instant d'émission.
+
+### Exercices corrigés
+
+**1. Pourquoi un mélange aléatoire est-il risqué ?** Parce qu'une ligne d'entraînement plus récente peut contenir une information indisponible à la date de la prédiction testée. La séparation doit reproduire l'ordre des décisions.
+
+**2. Si le dimanche vaut 11, quelle est l'erreur de la tendance ?** La tendance prévoit $20+2=22$ : son erreur absolue est $|22-11|=11$. Le succès sur trois jours ne constitue pas une preuve de robustesse aux changements de régime.
+
+**3. Quelle baseline aurait prédit dimanche ?** La dernière valeur observée, 20 ; son erreur absolue vaut $|20-11|=9$. Elle se trompe également, mais moins que la tendance ce jour-là.
+
+**4. Que doit conserver une fiche de preuve ?** Les horodatages des observations et des prédictions, les règles fixées avant le test, les versions des données et transformations, le code, les sorties par cas et les limites de généralisation. Ces chiffres sont pédagogiques, non issus d'un système exploité.
+
+## 23. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
