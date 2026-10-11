@@ -293,7 +293,84 @@ Dans une application de décision sensible, une correction automatique des score
 
 Une note de risques utile contient la **définition du problème**, les sous-populations pertinentes et légalement analysables, la provenance et la qualité des labels, les matrices d'erreurs, les intervalles d'incertitude, les conséquences observées, les alternatives et les mesures proposées. Elle ne remplace ni une analyse juridique datée ni une validation de terrain.
 
-## 15. Conclusion et références
+## 15. Étude de cas — gérer un incident de confidentialité dans un RAG
+
+Imaginons un service documentaire interne qui récupère des passages depuis des procédures classifiées et demande à un LLM de les résumer. Un technicien découvre que son assistant affiche une phrase appartenant à un document réservé à une autre équipe.
+
+Ce résultat ne doit pas être réduit à une simple « hallucination ». Une hallucination consiste à produire un contenu non étayé ; ici, le risque est la **divulgation d'un contenu véritable qui aurait dû rester inaccessible**.
+
+### Identifier les frontières potentiellement défaillantes
+
+Une analyse technique doit considérer plusieurs hypothèses :
+
+1. Le service de recherche a renvoyé un document hors permission.
+2. Les métadonnées de classification ou les ACL étaient périmées.
+3. Une mise en cache a réutilisé le contexte d'un autre utilisateur.
+4. Le générateur a reçu un historique de conversation mal isolé.
+5. Les journaux ont stocké puis exposé des passages confidentiels.
+6. La réponse a été construite à partir d'une source accessible, mais les permissions de cette source ont changé entre la récupération et la restitution.
+
+On ne peut pas identifier la cause en examinant uniquement la phrase affichée. Il faut étudier, avec une autorisation appropriée, les traces des appels, les permissions, les versions des documents et les périmètres des services.
+
+### Réponse à incident : de la limitation à l'apprentissage
+
+| Phase | Objectif | Question vérifiable |
+|---|---|---|
+| Détection | Confirmer la nature du défaut | Quel contenu, quel demandeur, quelle règle d'accès ? |
+| Limitation | Réduire l'exposition | Peut-on désactiver la génération ou isoler une source ? |
+| Préservation | Conserver des preuves minimisées | Quelles traces sont nécessaires et protégées ? |
+| Correction | Réparer le contrôle défaillant | ACL, cache, index, sessions ou configuration ? |
+| Validation | Rejouer des tests négatifs | La fuite est-elle reproduite puis empêchée ? |
+| Reprise | Restaurer sous autorité compétente | Qui accepte le risque résiduel ? |
+
+Il faut également évaluer les obligations contractuelles et légales de notification avec les spécialistes compétents selon les faits et le contexte. Ce livre ne prétend pas fixer un délai de notification universel.
+
+### Conséquences pour le design
+
+Une règle utile est de filtrer par autorisation **avant** de transmettre les passages au modèle. Mais la sécurité d'un système réel exige une défense en profondeur : contrôle à la source, isolation des identités, validation de la version des ACL, journalisation appropriée, tests inter-périmètres et procédure de reprise.
+
+Supprimer une phrase de la réponse sans corriger la récupération n'est pas suffisant : le modèle pourrait avoir déjà reçu un contenu qu'il ne devait pas traiter.
+
+**Exercice corrigé.** Un programme masque les noms propres après la génération, mais les documents complets sont envoyés à un service externe sans filtrage. La fuite est-elle résolue ?
+
+**Réponse.** Non. Le masquage tardif peut diminuer certaines expositions visibles, mais la transmission antérieure est déjà survenue. Il faut examiner la nécessité des données, leur autorisation, les destinataires et les contrôles avant l'envoi.
+
+## 16. Évaluer les contrôles sans confondre conformité et preuve technique
+
+Un service IA peut disposer d'une charte d'usage, d'une matrice de risques, de règles d'accès et d'une procédure de gestion d'incident. Ces documents sont utiles, mais leurs existences ne prouvent pas automatiquement que les contrôles fonctionnent.
+
+Nous distinguons quatre types d'éléments :
+
+- **Exigence** : ce qui doit être respecté.
+- **Contrôle conçu** : le mécanisme prévu pour satisfaire l'exigence.
+- **Résultat de test** : ce qui a été observé sur un système et des cas identifiés.
+- **Décision de gouvernance** : acceptation, blocage ou plan de remédiation selon l'autorité concernée.
+
+### Matrice de traçabilité minimale
+
+| Exigence | Contrôle | Test négatif | Résultat du projet fictif |
+|---|---|---|---|
+| Pas de document hors droits | ACL côté recherche et source | Question sur document interdit | Non exécuté |
+| Pas d'action sans approbation | Limite d'outils côté API | Demande de mutation interdite | Non exécuté |
+| Réponse fidèle aux sources | Vérification des citations | Citation inexistante | Non exécuté |
+| Traces minimisées | Politique de journalisation | Requête avec texte sensible | Non exécuté |
+| Mode dégradé sûr | Arrêt ou recherche seule | Modèle indisponible | Non exécuté |
+
+Pourquoi écrire explicitement **non exécuté** ? Parce qu'un tableau dont toutes les colonnes sont remplies peut produire une fausse impression de validation. Dans notre cas pratique, les tests sont des intentions pédagogiques, pas des preuves d'intégration.
+
+### L'analyse de risques doit suivre les changements
+
+Un changement de modèle, de fournisseur, de politique de conservation, de permissions ou de source documentaire peut modifier le périmètre des risques. Une revue initiale ne dispense pas de surveiller et de réévaluer les contrôles après les changements importants.
+
+La responsabilité est distribuée : l'équipe métier définit les usages autorisés, la sécurité conçoit et vérifie ses mesures, l'exploitation surveille les incidents, et les responsables habilités prennent les décisions d'acceptation. Un assistant ne peut pas s'auto-déclarer conforme.
+
+### Exercice corrigé
+
+Une équipe possède un registre de risques approuvé, mais n'a jamais testé le refus d'accès à un document confidentiel. Peut-elle qualifier ce contrôle de « prouvé » ?
+
+**Réponse.** Non. Elle dispose d'une conception et d'une décision documentaire ; il lui manque l'observation du comportement effectif du service. Le registre peut mentionner le contrôle comme prévu, mais non comme validé par exécution.
+
+## 17. Conclusion et références
 
 La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de communication. Elle influence les données, les méthodes, la sécurité, les droits des utilisateurs et les décisions de mise en service.
 
