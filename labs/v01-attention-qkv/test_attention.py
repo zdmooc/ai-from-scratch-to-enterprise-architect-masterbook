@@ -98,5 +98,24 @@ class AttentionTests(unittest.TestCase):
         self.assertEqual(weights,((0.5,0.5),))
 
 
+    def test_chapter_06_two_token_worked_example(self):
+        # Independent regression check for the numerical derivation in chapter 06.
+        queries = ((1,), (0,))
+        keys = ((1,), (0,))
+        values = ((2,), (4,))
+        weights, outputs = attention(queries, keys, values)
+        first = math.e / (math.e + 1)
+        self.assertAlmostEqual(weights[0][0], first)
+        self.assertAlmostEqual(weights[0][1], 1 - first)
+        self.assertAlmostEqual(outputs[0][0], 4 - 2 * first)
+        self.assertAlmostEqual(outputs[1][0], 3)
+        masked_weights, masked_outputs = attention(
+            queries, keys, values, mask=causal_mask(2)
+        )
+        self.assertEqual(masked_weights[0], (1.0, 0.0))
+        self.assertEqual(masked_outputs[0], (2.0,))
+        self.assertAlmostEqual(masked_outputs[1][0], 3)
+
+
 if __name__ == '__main__':
     unittest.main()
