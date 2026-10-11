@@ -74,3 +74,5 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 - [Preuve des 37 tests locaux avec empreintes Git](evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md).
 
 **R14 n'est pas clos.** L'intégration CI GitHub n'est pas vérifiée ; la publication PDF/EPUB attend la finition du manuscrit.
+
+**R15 — 11/10/2026 :** six schémas SVG originaux pour V01, dont nouveaux diagrammes [neurone/gradient, QKV, RAG](diagrams/v01/README.md), reliés aux chapitres C05, C06 et C12. Rendu visuel et composition restent à valider.

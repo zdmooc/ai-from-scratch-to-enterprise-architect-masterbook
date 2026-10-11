@@ -18,7 +18,7 @@
 | R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
 | R13 | Consolidation de cohérence et densification C01–C12 | FIRST_PASS_QA_PASS_DEPTH_OPEN | Aucun prérequis manquant, aucune contradiction |
 | R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_37_MORE_TESTS_SHA_PASS | Tests exécutés, aucun matériel lourd imposé |
-| R15 | Schémas et illustrations originaux | PARTIAL_3_SVG_AUTHORED | Lisibilité, licence, version, source |
+| R15 | Schémas et illustrations originaux | PARTIAL_6_SVG_AUTHORED | Lisibilité, licence, version, source |
 | R16 | Études de cas métier et dossiers d'architecture | PARTIAL_REFERENCE_DOSSIER | Métier vs technique, ADR, options |
 | R17 | Évaluations et corrigés de tous les chapitres | NOT_STARTED | Couverture des compétences mesurable |
 | R18 | Relecture scientifique et vérification des formules | NOT_STARTED | Revue indépendante ou traçable |
@@ -66,3 +66,6 @@ Le [mini-projet documentaire](case-study/README.md) contient exigences, décisio
 Deux laboratoires CPU ont été ajoutés : [gradient](../../labs/v01-gradient-descent/README.md) et [attention Q/K/V](../../labs/v01-attention-qkv/README.md). Sur l'environnement Python 3.13.5 de l'assistant, **17 + 20 = 37 tests locaux PASS**, avec correspondance des quatre blobs GitHub (voir [preuve R14](../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md)).
 
 **R14 demeure partiel** : exercices supplémentaires, intégration CI GitHub et relecture scientifique non clôturés. Aucun GPU ni CRC mobilisé, aucun PDF/EPUB produit.
+
+### R15 — Six figures au 11 octobre 2026
+Trois SVG originaux supplémentaires ont été créés et insérés dans C05 (neurone/gradient), C06 (Q/K/V/softmax), C12 (RAG et ACL). Au total, **six schémas sont versionnés**. Relecture visuelle, accessibilité et rendu Quarto restent **à contrôler**. Aucun livre PDF/EPUB généré.

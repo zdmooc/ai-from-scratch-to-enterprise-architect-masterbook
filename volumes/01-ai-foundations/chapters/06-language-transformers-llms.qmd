@@ -78,6 +78,10 @@ Les termes *Query*, *Key* et *Value* représentent trois ensembles de vecteurs :
 
 Cette explication est une analogie pédagogique. Mathématiquement, Q, K et V résultent de transformations de représentations numériques et sont appris dans le contexte du modèle.
 
+![Schéma original Q/K/V avec produits scalaires, softmax et somme pondérée](../../../diagrams/v01/qkv-attention-worked-example.svg)
+
+*Figure originale — un Query, deux Keys et deux Values ; l'exemple n'applique pas de masque. Les valeurs sont indépendantes des scores calculés.*
+
 ## 7. Attention simplifiée : un calcul guidé
 
 Le mécanisme de *scaled dot-product attention* peut s'écrire :

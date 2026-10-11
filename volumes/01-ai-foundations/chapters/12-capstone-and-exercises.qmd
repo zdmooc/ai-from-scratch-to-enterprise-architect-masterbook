@@ -110,6 +110,10 @@ Le choix doit être documenté dans un ADR, avec une baseline et des critères d
 
 Une source de vérité est responsable d'un type de fait donné. Elle ne transforme pas le LLM en moteur transactionnel.
 
+![Schéma original d'un RAG documentaire avec ACL avant récupération et validation des citations](../../../diagrams/v01/rag-trust-boundaries.svg)
+
+*Figure originale de conception — le filtrage des droits précède la génération. Elle ne constitue pas une preuve d'exécution des contrôles sur un système réel.*
+
 ## 8. Décrire le flux nominal
 
 1. Le demandeur ouvre une session et se fait authentifier.

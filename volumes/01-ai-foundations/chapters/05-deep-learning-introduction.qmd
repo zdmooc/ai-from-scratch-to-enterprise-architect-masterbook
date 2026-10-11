@@ -82,6 +82,10 @@ Les GPU sont adaptés à de nombreux calculs parallèles, sans être obligatoire
 
 *Correction.* Non. Les exercices élémentaires peuvent être calculés à la main ou sur CPU.
 
+![Schéma original d'un neurone, du calcul avant et du retour du gradient](../../../diagrams/v01/neural-network-backprop.svg)
+
+*Figure originale — principe de propagation et de mise à jour. Elle ne représente pas une implémentation de réseau profond en production.*
+
 ## 7. Comprendre les formes des données : vecteurs, matrices et tenseurs
 
 Un réseau neuronal ne manipule pas seulement des nombres isolés. Ses opérations portent sur des tableaux. Un **vecteur** est un tableau de dimension un, une **matrice** un tableau de dimension deux ; le terme **tenseur**, en informatique du Deep Learning, désigne plus généralement un tableau multidimensionnel.
