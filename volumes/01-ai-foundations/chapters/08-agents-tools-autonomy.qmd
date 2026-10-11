@@ -347,6 +347,4 @@ Un agent est une **architecture de workflow et d'accès aux outils**, dont certa
 
 **Références de travail à revérifier :** [Model Context Protocol — documentation](https://modelcontextprotocol.io/), [OWASP — projets de sécurité des applications LLM](https://owasp.org/www-project-top-10-for-large-language-model-applications/). Ce chapitre n'en reproduit ni texte ni schéma.
 
-**Avant publication** : laboratoire contrôlé de tool calling, schéma SVG original, revue des contrats actuels MCP et des mesures défensives, exercices testés sur des cas synthétiques.
-
 **Transition :** le chapitre 09 montrera comment choisir entre ces architectures et des alternatives plus simples, avant tout investissement important.

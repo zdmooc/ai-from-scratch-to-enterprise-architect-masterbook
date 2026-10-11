@@ -328,6 +328,4 @@ Une conclusion exploitable conserve date, version du code, définition de la tâ
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
-**Avant publication :** exécuter et enregistrer le laboratoire sur le commit final, recontrôler chaque formule, ajouter une figure originale montrant la séparation temporelle et relire les conditions d'utilisation du protocole.
-
 Le chapitre 12 réunit ces réflexes dans un mini-projet d'architecture.

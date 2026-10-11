@@ -295,4 +295,3 @@ Cette démarche produit une décision compréhensible, sans prétendre qu'une si
 
 Le bon architecte choisit parfois un LLM, parfois du ML, parfois des règles, et parfois une amélioration de processus sans IA. Les critères, les preuves et la réversibilité comptent plus que le nom du fournisseur.
 
-**Avant publication :** matrice d'options chiffrée à partir d'un corpus synthétique, ADR relu, références d'architecture et figures originales. Aucun coût ou gain fictif ne doit être présenté comme mesuré.

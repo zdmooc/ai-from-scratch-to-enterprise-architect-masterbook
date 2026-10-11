@@ -339,6 +339,4 @@ Un modèle présente une MSE plus faible que son concurrent sur le train, mais u
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
-**À valider avant publication :** équations, tests de code, illustrations originales, références scientifiques primaires, glossaire et lecture par un débutant.
-
 Source historique de cadrage : [Tome 1, chapitre 3 — Machine Learning pour Architecte](https://drive.google.com/file/d/1vsYvwHqSNjdLDKMDktxD1ASlF61Ov0SC/view). Le texte présent est une nouvelle rédaction pédagogique et non une copie du manuscrit Drive.

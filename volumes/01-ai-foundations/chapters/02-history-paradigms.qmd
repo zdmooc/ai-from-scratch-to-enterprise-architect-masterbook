@@ -315,4 +315,3 @@ Un fournisseur écrit : « Notre produit utilise l'architecture Transformer, don
 - Vaswani et al., [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (2017).
 - [Microsoft — AI for Beginners](https://github.com/microsoft/AI-For-Beginners).
 
-**Contrôles restants :** compléter les références bibliographiques exactes, vérifier les dates dans les sources primaires, ajouter une frise SVG originale, faire relire les exemples.

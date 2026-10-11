@@ -354,4 +354,4 @@ Définir le profil des opérations, la taille des données, la précision, les l
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
-**Statut de contrôle :** figures, bibliographie primaire et laboratoire restent à enrichir avant publication. Source de contexte : [Tome 1, chapitre 4](https://drive.google.com/file/d/18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-/view).
+Source historique de cadrage : [Tome 1, chapitre 4](https://drive.google.com/file/d/18TLeXZzbbtvgNSNnf_xBjP02Af1_xYl-/view).

@@ -406,4 +406,3 @@ Répondre sans consulter les pages précédentes :
 - [Architecture IA Maya](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — cas internes d'architecture, sans prétendre que les designs sont tous déployés.
 - [Source Drive T1-C01](https://drive.google.com/file/d/1KyvpmOuIFU4JI0ldcZDZdNnvwCk3sf_2/view) — contexte historique du parcours d'architecte, origine non copiée.
 
-**À faire avant publication :** revue scientifique, diagrammes originaux, vérification technique des références et test des prérequis lecteurs.

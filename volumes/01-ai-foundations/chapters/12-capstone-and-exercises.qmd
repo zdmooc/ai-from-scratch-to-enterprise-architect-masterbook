@@ -503,5 +503,3 @@ La note ne remplace pas une revue de mini-projet. Un excellent score avec un rai
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
-Avant sa publication, nous devrons compléter les schémas, les labs, les exercices, la bibliographie et la relecture. La cible d'environ 280 pages A4 ne sera évaluée qu'une fois la rédaction complète gelée. Aucun PDF ou EPUB n'est nécessaire pendant ce travail de manuscrit.
-

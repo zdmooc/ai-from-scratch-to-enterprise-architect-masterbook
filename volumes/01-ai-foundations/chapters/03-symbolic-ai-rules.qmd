@@ -275,7 +275,6 @@ Sans authentification confirmée, le laboratoire n'établit pas l'investigation 
 
 La correction prépare le lecteur au chapitre suivant : les modèles statistiques permettent d'estimer des propriétés difficiles à exprimer uniquement par des règles, sans remplacer les contrôles déterministes qui protègent les actions sensibles.
 
-
 ## 15. Règles de décision : conflit, exceptions et priorité
 
 Le chaînage avant présenté jusqu'ici ajoute des conclusions positives. Il devient plus difficile à exploiter lorsque plusieurs règles recommandent des résultats incompatibles.
@@ -342,4 +341,3 @@ Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la n
 
 La suite de la collection reliera moteurs de règles, bases de connaissances, RAG, outils d'agents et architectures d'entreprise, tout en préservant le contrôle déterministe sur les actions sensibles.
 
-**À faire avant publication :** exécuter le lab dans l'environnement CI approuvé, documenter un schéma original du chaînage avant, vérifier les tests négatifs et relire la qualité pédagogique.

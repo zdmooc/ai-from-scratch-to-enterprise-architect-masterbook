@@ -299,6 +299,4 @@ La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de
 
 **Références primaires à contrôler avant la version finale :** [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework), [texte du règlement européen sur l'IA sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj), [RGPD sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [DORA sur EUR-Lex](https://eur-lex.europa.eu/eli/reg/2022/2554/oj), [ISO/IEC 42001 — notice ISO](https://www.iso.org/standard/81230.html).
 
-**Avant publication** : tableau de conformité daté, revue des définitions de fairness et des biais, cas de test documentés et contrôle des droits de toute donnée d'exercice.
-
 **Transition :** le chapitre 11 montrera comment organiser un premier POC où les critères, le jeu de test et les résultats sont reproductibles.

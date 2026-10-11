@@ -282,5 +282,3 @@ La surprise informationnelle d'un token de probabilité \(p\) peut s'écrire \(-
 - Source historique personnelle : [T1-C05 — Transformers, attention, Q/K/V et architecture des LLM](https://drive.google.com/file/d/1ZxS42sTx1-p2HR9zntJJwCWCCLwszGTF/view) — cadrage de notions, pas de reproduction automatique du texte.
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — cadre de gestion des risques pour les systèmes IA ; détails étudiés au volume 19.
 
-**À faire avant publication :** figures vectorielles originales, vérification des équations et exemples numériques, glossaire, citations bibliographiques exactes et relecture technique par domaine.
-
