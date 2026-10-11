@@ -122,15 +122,15 @@ Les fonctions d'activation ne sont pas choisies au hasard. Leurs propriétés in
 
 Pour établir le mécanisme sans GPU, imaginons une fonction de perte d'un seul paramètre :
 
-$
+$$
 L(w)=(w-4)^2.
-$
+$$
 
 Sa dérivée est :
 
-$
+$$
 \frac{dL}{dw}=2(w-4).
-$
+$$
 
 À partir de \(w_0=0\), avec un taux d'apprentissage de 0,25 :
 
@@ -147,12 +147,12 @@ Dans un réseau comportant plusieurs couches, un poids de la première couche in
 
 Sur une chaîne simplifiée \(x\rightarrow z\rightarrow y\rightarrow L\), on peut écrire :
 
-$
+$$
 \frac{dL}{dx}=
 \frac{dL}{dy}
 \frac{dy}{dz}
 \frac{dz}{dx}.
-$
+$$
 
 Cette écriture introduit l'intuition de la rétropropagation sans demander au lecteur de maîtriser dès aujourd'hui l'algèbre matricielle et le calcul différentiel. Le volume 02 les étudiera de manière rigoureuse ; le volume 06 montrera une implémentation complète.
 
