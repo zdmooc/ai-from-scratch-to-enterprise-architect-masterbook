@@ -14,11 +14,11 @@
 **Ne pas assimiler les 6 étapes de démarrage aux 24 volumes achevés.** La rédaction complète est un programme long qui doit être suivi séparément volume par volume.
 
 ## État
-- I01 : **STRUCTURE_VALIDATED / CI_PRE_PRIVATE_PASS / PRIVATE_RUNNER_BLOCKED_UNDIAGNOSED / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a réussi sur le dernier commit public `65069e1`. Depuis le passage privé, les exécutions se terminent en échec sans aucune étape exécutée ni runner affecté ; raison précise à vérifier dans Actions et facturation/limites GitHub. Ne pas attribuer ces échecs au code sans logs.
+- I01 : **STRUCTURE_VALIDATED / PUBLIC_CI_PASS_2026_10_11 / QUARTO_RENDER_NOT_PROVEN** ; 24 volumes planifiés. La CI a repris sur runner GitHub après le passage en public le 11/10/2026 ; run `38118052494` SUCCESS avec laboratoires et contrôle SVG. Les échecs d'avant réouverture sont conservés comme historique ; leur cause exacte n'a pas été établie.
 - I02 : **TREE_INVENTORY_COMPLETE / CONTENT_REVIEW_OPEN** ; visibilité PRIVATE confirmée, 77 fichiers Drive et 79 dépôts GitHub inventoriés ; **79/79 arbres examinés**, aucune ligne de code ou équation de l'ensemble des sources certifiée. Voir `sources/audits/I02_GITHUB_COVERAGE_MATRIX_2026-10-10.md`. Droits, doublons, conversions et qualification technique restent à traiter.
 - I03 : **SOURCE_MAPPING_COMPLETE / CONVERSION_NOT_STARTED** ; 56 unités historiques cartographiées vers les 24 volumes (61 fichiers T1-T5). Aucun original Drive importé ni modifié.
 - I04 : **FIRST_PASS_TOC_DRAFT / STATUS_SYNCED** ; 288 chapitres dont 16 en brouillon et 272 à écrire. Sommaires et catalogue synchronisés.
-- I05 : **V01_V02_V03_DRAFT_IN_PROGRESS / LOCAL_LAB_TESTS_PASS / PUBLICATION_NOT_PROVEN** ; 16 chapitres : V01=12, V02=2, V03=2. Tests V02/V03 : 17/17 PASS sous Python 3.13.5, fichiers strictement identiques aux blobs GitHub. Build PDF/EPUB non vérifié ; GitHub Actions privées encore bloquées avant runner.
+- I05 : **V01_V02_V03_DRAFT_IN_PROGRESS / LOCAL_LAB_TESTS_PASS / PUBLICATION_NOT_PROVEN** ; 16 chapitres : V01=12, V02=2, V03=2. Tests V02/V03 : 17/17 PASS sous Python 3.13.5, fichiers strictement identiques aux blobs GitHub. Build PDF/EPUB non réalisé par décision éditoriale ; GitHub Actions publiques maintenant validées.
 - I06 : **NOT_STARTED** ; aucun des 24 volumes achevé, aucune publication.
 
 ## Première livraison utile
@@ -44,3 +44,5 @@ Voir [le tableau V01](volumes/01-ai-foundations/ITERATION_TRACKER.md). **R01–R
 
 
 **R14 — progrès du 10/10/2026.** Les laboratoires C05 (dérivées et gradient) et C06 (attention Q/K/V) ont été créés avec leurs guides et 37 tests locaux PASS (17 + 20). Les quatre SHA des fichiers testés correspondent aux blobs GitHub ; voir `evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md`. Le Volume 01 reste en DRAFT. **CI GitHub et tests d'intégration non prouvés ; R14 PARTIAL.** Aucun PDF/EPUB généré.
+
+**R14/R15 — 11/10/2026 :** validation publique [run 38118052494](https://github.com/zdmooc/ai-from-scratch-to-enterprise-architect-masterbook/actions/runs/38118052494) SUCCESS : tests V01/V02/V03, gradients, attention Q/K/V, contrôle syntaxique/accessibilité de six SVG. Trois nouvelles figures intégrées à C05/C06/C12. **R14 partiel (couverture pédagogique) ; R15 partiel (rendu visuel non contrôlé)**. Aucun PDF/EPUB/HTML de publication produit. Voir `governance/CI_STATUS_2026-10-11.md`.

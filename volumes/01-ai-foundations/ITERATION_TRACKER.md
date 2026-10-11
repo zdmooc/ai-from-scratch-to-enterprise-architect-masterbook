@@ -1,6 +1,6 @@
 # Volume 01 — Suivi des 22 itérations de réalisation
 
-**Date de dernière mise à jour : 10 octobre 2026.** Dépôt GitHub **privé**. Cible de pagination **280 pages A4 indicative** ; aucune mesure réelle de pagination tant que le volume n'est pas composé. Le terme **RÉDACTION EFFECTUÉE** ne signifie ni `REVIEWED`, ni `VERIFIED`, ni `RELEASED`.
+**Date de dernière mise à jour : 11 octobre 2026.** Dépôt GitHub **public**. Cible de pagination **280 pages A4 indicative** ; aucune mesure réelle de pagination tant que le volume n'est pas composé. Le terme **RÉDACTION EFFECTUÉE** ne signifie ni `REVIEWED`, ni `VERIFIED`, ni `RELEASED`.
 
 | Itération | Livrable principal | Statut au 10/10/2026 | Gate encore ouvert |
 |---|---|---|---|
@@ -17,8 +17,8 @@
 | R11 | C11 — Première expérience mesurable | DRAFT_AUTHORED | Chapitre, dataset synthétique, protocole |
 | R12 | C12 — Synthèse, exercices, mini-projet | DRAFT_AUTHORED | Manuscrit, corrections, critères PASS/FAIL |
 | R13 | Consolidation de cohérence et densification C01–C12 | FIRST_PASS_QA_PASS_DEPTH_OPEN | Aucun prérequis manquant, aucune contradiction |
-| R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_37_MORE_TESTS_SHA_PASS | Tests exécutés, aucun matériel lourd imposé |
-| R15 | Schémas et illustrations originaux | PARTIAL_6_SVG_AUTHORED | Lisibilité, licence, version, source |
+| R14 | Laboratoires reproductibles et jeux synthétiques | PARTIAL_LAB_CI_PASS | Tests exécutés, aucun matériel lourd imposé |
+| R15 | Schémas et illustrations originaux | PARTIAL_6_SVG_XML_CI_PASS | Lisibilité, licence, version, source |
 | R16 | Études de cas métier et dossiers d'architecture | PARTIAL_REFERENCE_DOSSIER | Métier vs technique, ADR, options |
 | R17 | Évaluations et corrigés de tous les chapitres | NOT_STARTED | Couverture des compétences mesurable |
 | R18 | Relecture scientifique et vérification des formules | NOT_STARTED | Revue indépendante ou traçable |
@@ -33,7 +33,7 @@
 - C01–C05 ont été approfondis ; C06–C12 ont été rédigés depuis zéro. C11 comprend un laboratoire synthétique testé localement (12/12 PASS), mais pas en CI GitHub.
 - Les nouveaux textes sont des **manuscrits originaux** ; le contenu Drive antérieur reste archivé à sa place.
 - Aucun PDF, EPUB, HTML de publication ou calcul de pages n'a été généré au cours de R01–R12.
-- Les laboratoires ont des contrôles locaux tracés ; le nouveau lab de C11 a 12 tests PASS avec correspondance de SHAs Git. Une validation intégrée sur GitHub Actions reste bloquée avant runner. Le problème GitHub Actions privé n'est pas résolu.
+- Les laboratoires ont des contrôles locaux tracés ; le nouveau lab de C11 a 12 tests PASS avec correspondance de SHAs Git. La suite de laboratoires est maintenant exécutée avec succès sur runner GitHub public ([preuve CI du 11/10](../../governance/CI_STATUS_2026-10-11.md)). Les échecs de la période privée sont historiques.
 - **R13–R22 restent ouverts**. Les 22 itérations sont un plan de travail, pas une promesse que les tâches sont de taille égale ni que les chapitres en brouillon sont achevés.
 
 ## Conditions de publication
@@ -69,3 +69,6 @@ Deux laboratoires CPU ont été ajoutés : [gradient](../../labs/v01-gradient-de
 
 ### R15 — Six figures au 11 octobre 2026
 Trois SVG originaux supplémentaires ont été créés et insérés dans C05 (neurone/gradient), C06 (Q/K/V/softmax), C12 (RAG et ACL). Au total, **six schémas sont versionnés**. Relecture visuelle, accessibilité et rendu Quarto restent **à contrôler**. Aucun livre PDF/EPUB généré.
+
+### Validation publique GitHub Actions du 11 octobre
+Le [run 38118052494](https://github.com/zdmooc/ai-from-scratch-to-enterprise-architect-masterbook/actions/runs/38118052494) a réussi : validation éditoriale, labs V01/V02/V03, gradients et attention, vérification syntaxique/accessibilité des six SVG. **R14 reste partiellement ouvert pour la couverture et la revue des exercices ; R15 reste ouvert pour le rendu graphique réel et la qualité scientifique des figures.** Aucun build de publication Quarto/PDF/EPUB.

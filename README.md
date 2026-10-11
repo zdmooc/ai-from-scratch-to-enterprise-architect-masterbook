@@ -49,9 +49,9 @@ Ce dépôt est la **source éditoriale canonique** de la collection. Il organise
 Les dépôts techniques ne sont **ni fusionnés ni supprimés**. Leurs concepts sont expliqués de manière autonome dans les livres; le code complexe et les preuves sont cités avec leurs limitations.
 
 ## Qualité et droits
-Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt privé sans validation des droits ou autorisation éditoriale.
+Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre et toute référence doivent indiquer la provenance, la date de validité et les limites des essais. Aucun document privé, donnée de santé, secret, contenu confidentiel ou texte/figure tiers non autorisé dans ce dépôt public sans validation des droits ou autorisation éditoriale.
 
-**Statut :** dépôt **PRIVATE** confirmé le 10/10/2026 ; I01 structure validée, CI réussie avant passage privé ; nouvelles exécutions CI en échec avant démarrage des étapes (diagnostic en cours) ; build réel PDF/EPUB non exécuté ; I02 inventaire des arborescences terminé (77 fichiers Drive, 79 dépôts GitHub), audit de fond encore ouvert ; I04 288 titres de chapitres en brouillon ; I03 56 unités Drive cartographiées ; I04 16 chapitres en brouillon sur 288 ; I05 17 tests V02/V03 reproduits localement avec contrôle SHA ; aucun volume publié. Aucun des 24 volumes n'est terminé.
+**Statut au 11/10/2026 :** dépôt **PUBLIC** confirmé sur GitHub ; structure éditoriale et tests des laboratoires réussis dans GitHub Actions ([run 38118052494](https://github.com/zdmooc/ai-from-scratch-to-enterprise-architect-masterbook/actions/runs/38118052494)), incluant gradient, Q/K/V et validation statique des six sources SVG. 24 volumes planifiés, dont 16 chapitres en brouillon (V01=12, V02=2, V03=2) ; **aucun volume achevé ni publié, aucun rendu PDF/EPUB produit**. Voir [état CI du 11 octobre](governance/CI_STATUS_2026-10-11.md).
 
 ## Suivi de réalisation V01
 - [Itérations R01–R22 et gates](volumes/01-ai-foundations/ITERATION_TRACKER.md) : R01–R12, rédaction en brouillon ; R13–R22 encore ouverts. Aucun PDF/EPUB généré.
@@ -73,6 +73,8 @@ Ne jamais assimiler `DESIGNED`, `CI_VERIFIED` et `RUNTIME_PROVEN`. Tout chapitre
 - [Attention Q/K/V et masques](labs/v01-attention-qkv/README.md) : 20 tests locaux.
 - [Preuve des 37 tests locaux avec empreintes Git](evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md).
 
-**R14 n'est pas clos.** L'intégration CI GitHub n'est pas vérifiée ; la publication PDF/EPUB attend la finition du manuscrit.
+**R14 n'est pas clos.** Les laboratoires C05 et C06 passent maintenant également en GitHub Actions ; il reste à homogénéiser les exercices et les contrôles pédagogiques. La publication PDF/EPUB attend la finition du manuscrit.
 
 **R15 — 11/10/2026 :** six schémas SVG originaux pour V01, dont nouveaux diagrammes [neurone/gradient, QKV, RAG](diagrams/v01/README.md), reliés aux chapitres C05, C06 et C12. Rendu visuel et composition restent à valider.
+
+**Attention — exposition publique :** les inventaires historiques du dépôt contiennent des métadonnées de fichiers et références Drive créées avant le passage en public. Il faut confirmer leur périmètre de diffusion et, si besoin, traiter l'historique Git avant une édition définitive. Cette mise à jour n'efface pas les anciennes révisions.
