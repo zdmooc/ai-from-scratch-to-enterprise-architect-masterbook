@@ -607,7 +607,38 @@ Un architecte expérimenté ne doit pas seulement annoncer « RAG », « agent �
 
 Ces questions constituent le passage naturel entre cette introduction et les volumes spécialisés de la collection.
 
-## 25. Suite de la collection
+
+## 25. Épreuve intégratrice corrigée — arbitrer un assistant documentaire
+
+Cette épreuve reprend les notions des douze chapitres. Elle ne prétend pas démontrer une mise en production : les chiffres, les autorisations et les décisions ci-dessous sont fictifs.
+
+### Énoncé
+
+Une équipe d'exploitation souhaite retrouver les procédures valides de redémarrage d'un composant de paiement. Elle dispose d'un index de 2 000 procédures versionnées, dont certaines ne sont accessibles qu'à un groupe restreint. Trois propositions sont étudiées : A, recherche filtrée par droits ; B, recherche filtrée suivie d'une synthèse par LLM ; C, agent autorisé à consulter l'index et à demander le redémarrage d'un service. Le besoin initial exprimé par le métier est **la consultation**, non l'exécution.
+
+Sur un lot de 100 questions préparées avant l'essai, A fournit 82 réponses jugées utiles, B en fournit 89, et C en fournit 90. B cite deux fois une version obsolète ; C tente trois appels de redémarrage, tous refusés par la passerelle. Une vérification de sécurité détecte en outre une réponse de B contenant un extrait d'une procédure non accessible à l'utilisateur. Les résultats ne sont pas des métriques observées dans un système réel.
+
+**Travail demandé :** (1) calculer les taux d'utilité ; (2) dire ce que l'écart permet de conclure ; (3) identifier les critères éliminatoires ; (4) dessiner verbalement le chemin d'autorisation ; (5) choisir une architecture initiale et définir les conditions de réexamen.
+
+### Correction raisonnée
+
+**1. Taux d'utilité.** Sur cet échantillon, A atteint $82/100=82\,\%$, B $89/100=89\,\%$ et C $90/100=90\,\%$. Le gain de B par rapport à A est de **7 points de pourcentage**, ou $7/82\simeq8{,}54\,\%$ de gain relatif sur le taux d'utilité. Ces deux mesures ont des dénominateurs différents : les confondre reviendrait à surestimer l'écart. Les mêmes calculs donnent un écart de 8 points pour C par rapport à A.
+
+**2. Portée de l'observation.** Les taux ne suffisent pas à prouver une supériorité généralisable. Il manque au minimum la représentativité du lot, l'accord entre annotateurs, les intervalles d'incertitude, les résultats appariés par question, les catégories critiques et le protocole exact de génération. On ne peut pas déduire que C est globalement plus sûr parce que son taux brut est le plus élevé.
+
+**3. Critères éliminatoires.** La divulgation observée avec B est une violation du contrôle d'accès à investiguer, même si 89 réponses sont utiles. Les citations obsolètes imposent également de vérifier les versions et les dates de validité. Les trois tentatives de C ne prouvent ni une exécution non autorisée, puisque la passerelle les a refusées, ni l'absence de risque : elles soulignent une **inadéquation au besoin de consultation**. L'absence de mutation autorisée doit être testée séparément.
+
+**4. Chemin de confiance.** L'utilisateur s'authentifie auprès du service ; le service établit une identité et des droits vérifiables ; chaque requête de récupération filtre les documents selon ces droits *avant* de transmettre tout passage au composant de génération. Les métadonnées (identifiant, version, validité et provenance) accompagnent le passage. Le composant génératif ne définit ni les habilitations ni la validité de la procédure. En cas d'échec IAM, aucun nouvel accès ne peut être accordé par défaut. Un service de redémarrage dispose d'une autorisation indépendante et n'est pas exposé au parcours de consultation.
+
+**5. Décision et conditions.** A est la première architecture défendable : elle répond au besoin initial avec moins de possibilités de mutation et sans violation mentionnée dans l'énoncé. Cela ne signifie pas que A serait automatiquement sûre en production ; il faut encore tester ses contrôles. B peut être réexaminée après correction du défaut d'accès, verrouillage de la provenance, évaluation indépendante et preuve d'un bénéfice suffisant en qualité, coût et temps de traitement. C ne devient pertinente que si un nouveau besoin d'action est formellement approuvé, avec contrôles d'outils indépendants du modèle.
+
+### Variante — sensibilité à la composition du jeu
+
+Supposons que les 100 questions comprennent 90 questions fréquentes et 10 critiques. B réussit 89 questions fréquentes mais **aucune** des critiques, alors que A réussit 74 fréquentes et 8 critiques. Les totaux restent 89 et 82, pourtant la lecture métier peut s'inverser. Pour A, le taux sur cas critiques vaut $8/10=80\,\%$ ; pour B, $0/10=0\,\%$. Une métrique globale masque ici une défaillance fondamentale du sous-ensemble critique.
+
+**Conclusion de l'épreuve.** La sélection doit annoncer à l'avance sa population, ses catégories critiques, ses métriques et ses seuils de refus. Elle ne doit pas être réécrite après observation des scores pour favoriser une solution.
+
+## 26. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
