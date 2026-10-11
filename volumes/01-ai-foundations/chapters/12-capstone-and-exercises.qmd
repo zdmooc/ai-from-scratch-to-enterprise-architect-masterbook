@@ -672,7 +672,23 @@ Un service fictif contient deux documents, P (public) et R (restreint). Alice di
 
 **Critère de maîtrise.** Le lecteur doit pouvoir relier chaque exigence de confidentialité à un test négatif, à une assertion observable et à un responsable de décision. Une architecture conçue n'est pas une architecture validée.
 
-## 27. Suite de la collection
+## 27. Examen corrigé — analyser la valeur d'un changement d'architecture
+
+Une équipe envisage de remplacer une recherche documentaire déterministe par un service RAG. Sur **un jeu fictif et commun de 200 questions**, la recherche A fournit 150 réponses utiles, et B en fournit 168. Le coût de traitement du lot est respectivement de 30 € et 72 €. Avant de calculer, on suppose pour cet exercice que les jugements sont faits selon la même grille, sans violation de droits.
+
+**Question 1 — Utilité et variation.** Quels sont les taux observés ? La recherche A obtient $150/200=75\,\%$ et B $168/200=84\,\%$. B gagne **9 points de pourcentage**, et non 9 % de gain relatif. Le gain relatif sur le taux vaut $(84-75)/75=12\,\%$.
+
+**Question 2 — Coûts.** Combien coûte une réponse utile ? Pour A, $30/150=0{,}20$ € ; pour B, $72/168\simeq0{,}429$ €. B ajoute 18 réponses utiles pour 42 € supplémentaires, soit $42/18\simeq2{,}33$ € par réponse utile *additionnelle*. Ce dernier chiffre représente un ratio incrémental et non le coût moyen de B.
+
+**Question 3 — Décision.** B doit-elle être sélectionnée ? Pas automatiquement. Il faut établir une valeur métier par réponse additionnelle, mesurer les erreurs graves et étudier les coûts fixes, la latence, les refus, la sécurité et la stabilité des résultats sur d'autres lots. Un taux d'utilité supérieur n'autorise pas à ignorer une divulgation d'information.
+
+**Question 4 — Conception d'une preuve.** Un responsable présente un échantillon de 200 questions déjà utilisé pour adapter le prompt de B. Le résultat est-il indépendant ? Non. Un protocole acceptable doit figer les deux solutions et les critères avant un nouveau test, comparer les réponses sur les mêmes questions et documenter les causes des désaccords.
+
+**Question 5 — Mise en service.** Quels tests négatifs sont nécessaires ? Au minimum : source absente, document révoqué, document accessible à un autre rôle uniquement, instruction malveillante dans un passage et panne IAM. Chaque test doit vérifier l'absence de divulgation dans le contexte et les sorties, ainsi que le mode dégradé annoncé.
+
+Cette épreuve donne les opérations à effectuer et les limites à défendre en soutenance. Elle n'est pas une preuve qu'un système de banque, d'assurance ou d'OpenShift a été déployé.
+
+## 28. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
