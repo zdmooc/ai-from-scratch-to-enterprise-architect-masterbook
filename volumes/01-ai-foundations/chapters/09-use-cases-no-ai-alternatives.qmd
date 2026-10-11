@@ -381,7 +381,17 @@ Un comité propose de remplacer la dernière phrase par « L'option B est approu
 
 **Correction.** Il manque les critères quantifiés et leurs résultats, les risques résiduels, les coûts, la population évaluée et l'approbation des responsables. La nouveauté du modèle n'est pas une preuve.
 
-## 17. Synthèse
+## 17. Arbitrage chiffré — coût par réponse effectivement utile
+
+Dans un essai fictif, une recherche classique A coûte 200 € pour 1 000 requêtes et fournit 800 réponses utiles. Une solution RAG B coûte 420 € pour le même volume et fournit 900 réponses utiles. Le coût observé par réponse utile est donc $200/800=0{,}25$ € pour A et $420/900\simeq0{,}467$ € pour B. Le surcoût de B est 220 € pour 100 réponses utiles supplémentaires, soit **2,20 € par réponse utile additionnelle**, avant tout autre coût de gestion des incidents.
+
+**Question corrigée.** Peut-on en conclure que A est toujours préférable ? **Non.** Il faut attribuer une valeur à ces 100 réponses additionnelles, contrôler leur qualité et vérifier les risques, les catégories critiques, la latence et la représentativité du test. À l'inverse, affirmer que B est « plus efficace parce que 90 % dépasse 80 % » ignore les coûts et les exigences éliminatoires.
+
+**Seuil pédagogique.** Si chaque réponse additionnelle a une valeur métier nette de 1,50 € et que les hypothèses du test se maintiennent, le bénéfice incrémental brut est $100\times1{,}50=150$ €, inférieur au surcoût de 220 € : la différence nette est de $-70$ €. Ce calcul ne remplace pas une analyse de sécurité ni une projection de charge.
+
+**Architecture.** Exposer séparément volumes entrants, réponses correctes, réponses permises, coûts fixes et variables, révisions et consommation d'énergie. Le dénominateur « requête » peut masquer les réponses inutiles ou refusées ; le dénominateur « réponse utile et autorisée » reflète mieux l'objectif, sous une définition de jugement préétablie.
+
+## 18. Synthèse
 
 **Question centrale :** quel est le système le plus simple qui satisfait les exigences vérifiées, les contraintes de sécurité, la résilience et la valeur métier ?
 
