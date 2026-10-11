@@ -270,7 +270,87 @@ Il va ensuite plus loin avec une régression linéaire y = wx + b sur quatre don
 
 Les [17 tests locaux](../../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md) vérifient ces petits calculs, sans prouver un entraînement de Deep Learning industriel.
 
-## 16. À retenir
+## 16. Rétropropagation calculée sur deux paramètres
+
+Le laboratoire de gradient utilise un paramètre puis une régression linéaire. Nous allons montrer pourquoi **la règle de chaîne** devient nécessaire lorsque plusieurs transformations séparent les paramètres de l'erreur.
+
+Considérons un réseau minimal sans biais ni activation non linéaire :
+
+\[
+z=w_1 x,\qquad \widehat{y}=w_2z,\qquad L=(\widehat{y}-y)^2.
+\]
+
+Prenons \(x=2\), \(y=10\), \(w_1=2\) et \(w_2=2\). Le calcul avant donne \(z=4\), \(\widehat{y}=8\), puis \(L=(8-10)^2=4\).
+
+La dérivée de la perte par rapport à la prédiction est :
+
+\[
+\frac{\partial L}{\partial \widehat{y}}
+=2(\widehat{y}-y)=2(8-10)=-4.
+\]
+
+Le second paramètre agit directement sur la prédiction à travers \(z\) :
+
+\[
+\frac{\partial L}{\partial w_2}
+=\frac{\partial L}{\partial\widehat{y}}
+\frac{\partial\widehat{y}}{\partial w_2}
+=(-4)\times 4=-16.
+\]
+
+Le premier paramètre agit **indirectement**, via deux transformations :
+
+\[
+\frac{\partial L}{\partial w_1}
+=\frac{\partial L}{\partial\widehat{y}}
+\frac{\partial\widehat{y}}{\partial z}
+\frac{\partial z}{\partial w_1}
+=(-4)\times2\times2=-16.
+\]
+
+Pour un taux d'apprentissage de \(0{,}01\), une mise à jour simultanée des deux poids donne :
+
+\[
+w_1'=2-0{,}01(-16)=2{,}16,\qquad
+w_2'=2{,}16.
+\]
+
+La prédiction recalculée devient \(2\times2{,}16\times2{,}16=9{,}3312\), et la nouvelle perte est approximativement \((9{,}3312-10)^2=0{,}4473\). Elle a diminué **dans cet exemple particulier**, mais cela ne démontre pas qu'un taux quelconque diminue toujours la perte.
+
+Le détail important est la **propagation de la dérivée à travers les transformations**. C'est la même logique que les frameworks appliquent à un graphe de calcul plus complexe ; ces frameworks gèrent en plus des tenseurs, des opérations nombreuses et des gradients vectoriels.
+
+### Exercice corrigé
+
+Avec les mêmes données, conserver \(w_1=2\) et remplacer \(w_2=1\). Calculer la perte initiale et le gradient de \(w_2\).
+
+**Correction.** \(z=4\), \(\widehat{y}=4\), \(L=(4-10)^2=36\), puis \(dL/dw_2=2(4-10)\times4=-48\).
+
+Une dérivée négative indique ici qu'augmenter légèrement \(w_2\) diminuerait localement la perte, les autres paramètres étant maintenus fixes.
+
+## 17. Pourquoi la même architecture peut coûter différemment selon le contexte
+
+Une opération sur un grand tenseur peut être très efficace sur GPU tandis qu'un petit calcul scalaire peut ne pas justifier le coût de transfert et d'initialisation d'un accélérateur.
+
+Il faut séparer :
+
+- **Paramètres du modèle** : mémoire nécessaire pour les poids selon leur précision.
+- **États de l'optimiseur** : mémoire supplémentaire pendant certains entraînements.
+- **Activations** : valeurs intermédiaires conservées pour certaines dérivées.
+- **Mini-lots** : nombre d'exemples traités ensemble, avec un effet sur les ressources.
+- **Précision numérique** : compromis entre mémoire, vitesse, stabilité et qualité.
+- **Concurrence d'inférence** : nombre de requêtes servies, avec parfois des caches supplémentaires.
+
+Un million de paramètres en précision 32 bits occupent environ quatre millions d'octets **pour les poids seuls**. Ce nombre n'est ni la mémoire totale d'entraînement ni la VRAM nécessaire pour une charge donnée.
+
+### Critères pour choisir CPU, GPU ou service distant
+
+Définir le profil des opérations, la taille des données, la précision, les latences acceptables, le débit et la charge, puis mesurer **au même niveau de qualité** la consommation, les ressources, les coûts et les échecs. Un GPU disponible n'impose pas de l'utiliser ; un tarif cloud attractif n'est pas une preuve de coût total inférieur.
+
+**Question de synthèse.** Si un modèle produit une réponse deux fois plus vite mais dix fois plus coûteuse, quelle donnée manque encore avant l'arbitrage ?
+
+**Correction.** La valeur métier du délai gagné, la charge réelle, la qualité attendue et les coûts complets (exploitation, indisponibilité, maintenance et éventuellement énergie). Les deux chiffres seuls ne permettent pas de décider.
+
+## 18. À retenir
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 

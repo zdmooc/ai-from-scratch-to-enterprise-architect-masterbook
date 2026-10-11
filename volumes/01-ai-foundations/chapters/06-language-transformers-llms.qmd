@@ -220,7 +220,59 @@ L'exercice consiste à comparer les pondérations sans masque et avec une Key in
 
 Les [20 tests locaux documentés](../../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md) portent uniquement sur les calculs de cet exemple, et non sur le fonctionnement d'un modèle de langage complet.
 
-## 16. Synthèse et lectures de référence
+## 16. Décomposer le coût d'une requête de langage
+
+Un assistant LLM transforme sa demande en tokens, récupère éventuellement des extraits, les ajoute au contexte puis génère des tokens de sortie. Ce processus explique pourquoi le coût ne dépend pas seulement de la longueur de la question visible de l'utilisateur.
+
+Une requête peut contenir :
+
+1. instructions de l'application et politique de sortie ;
+2. historique nécessaire de conversation ;
+3. documents récupérés et citations candidates ;
+4. question courante ;
+5. tokens générés pendant la réponse.
+
+Supposons, à titre entièrement **fictif**, une requête contenant 600 tokens d'instructions, 900 tokens d'historique, 2 000 tokens de documents et 100 tokens de question, avec une réponse de 400 tokens.
+
+Le total en entrée est \(600+900+2000+100=3600\) tokens ; la sortie en contient 400. Un service avec limites distinctes pour l'entrée et la sortie doit être dimensionné selon **ces deux quantités**, et non selon la question de 100 tokens.
+
+Le coût monétaire dépend des tarifs du service effectivement choisi, du cache éventuel, des options du modèle et des autres postes d'infrastructure. Aucun prix n'est déduit de ces nombres fictifs.
+
+### Le problème du contexte trop volumineux
+
+Ajouter dix documents de plus n'est pas forcément utile. Le temps d'inférence, la mémoire et la pertinence peuvent se détériorer, et le modèle peut ignorer des passages critiques. Une bonne application de RAG choisit et vérifie les extraits nécessaires, au lieu d'utiliser la taille maximale de contexte comme stratégie unique.
+
+Un document récupéré contient des **faits potentiels**, pas des instructions autorisées : les frontières de confiance du chapitre 08 restent pertinentes même dans une application sans outil d'écriture.
+
+## 17. Décodage : pourquoi deux réponses peuvent différer
+
+Après le calcul des scores des tokens, une stratégie choisit le token suivant.
+
+### Choix le plus probable
+
+Une méthode de décodage dite *greedy* prend, à chaque étape, l'élément de score le plus élevé après normalisation. Cette méthode peut être relativement simple, mais le choix le plus probable localement ne garantit pas que la **séquence entière** sera optimale ou factuellement exacte.
+
+### Échantillonnage
+
+Une autre méthode tire un token selon une distribution. Des configurations comme température et limitation à certaines probabilités ou à un nombre donné d'options modifient la diversité des sorties.
+
+Un **exemple fictif** : les prochaines unités possibles sont A, B et C avec les probabilités \((0{,}6,0{,}3,0{,}1)\). Un choix greedy prend A. Un tirage probabiliste peut aussi retenir B ou C. Dans les deux cas, ces nombres ne disent **rien** de la vérité de l'affirmation finalement formulée.
+
+Si une application exige une sortie structurée avec un identifiant officiel, elle doit l'obtenir d'un système de référence et valider son format. Réduire la température n'est pas un mécanisme d'autorisation ni une preuve de correction.
+
+### Calcul illustratif
+
+La surprise informationnelle d'un token de probabilité \(p\) peut s'écrire \(-\log p\). Avec des logarithmes naturels, un token de probabilité 0,1 produit une valeur supérieure à celle d'un token de probabilité 0,6. Ce concept aide à comprendre certains critères de modélisation, mais une faible surprise statistique **n'est pas** une garantie de qualité ou de factualité.
+
+### Exercices corrigés
+
+**A.** La question utilisateur compte 100 tokens et les documents ajoutés en comptent 2 000. Peut-on facturer ou dimensionner uniquement les 100 tokens ? **Non** : il faut considérer la totalité du contexte et de la sortie selon le contrat du service.
+
+**B.** Une génération déterministe d'un texte faux est-elle préférable à une génération variable d'un texte vrai ? **Pas sur la seule déterminisme.** Il faut définir un critère de correction et évaluer les deux approches.
+
+**C.** Un modèle renvoie un ticket inexistant avec une confiance de formulation très élevée. Quel contrôle manque ? **Une vérification de l'identifiant et du statut auprès de l'API officielle**, ainsi que l'abstention si la source fait défaut.
+
+## 18. Synthèse et lectures de référence
 
 **À retenir :** les mots deviennent des tokens ; les tokens sont transformés en représentations numériques ; l'attention combine des informations selon des poids appris ; un Transformer organise plusieurs de ces calculs ; un modèle de langage apprend des régularités statistiquement utiles, sans garantir la vérité de chaque sortie.
 
