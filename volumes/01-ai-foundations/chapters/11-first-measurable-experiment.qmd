@@ -324,7 +324,91 @@ Trois formulations se ressemblent mais ne disent pas la même chose.
 
 Une conclusion exploitable conserve date, version du code, définition de la tâche, séparation temporelle, nombre de cas, métrique, valeurs observées et limitations. Sans ces informations, on ne pourra ni vérifier ni comparer l'essai.
 
-## 17. Synthèse
+## 17. Comparer les erreurs sur les mêmes observations
+
+Une amélioration moyenne ne suffit pas à raconter l'histoire d'une expérience. Pour juger de deux prévisions, nous devons aussi observer **les erreurs des deux méthodes sur chaque même cas**.
+
+Reprenons les quatre journées synthétiques du laboratoire :
+
+| Jour | Erreur absolue A | Erreur absolue B | Différence A − B |
+|---|---:|---:|---:|
+| J07 | 1 | 1 | 0 |
+| J08 | 3 | 2 | 1 |
+| J09 | 2 | 1 | 1 |
+| J10 | 4 | 2 | 2 |
+| **Moyenne** | **2,5** | **1,5** | **1,0** |
+
+La différence moyenne appariée vaut :
+
+\[
+\overline{d}=\frac{0+1+1+2}{4}=1\ \text{minute}.
+\]
+
+Elle correspond à la différence des MAE calculées sur les mêmes observations, soit 2,5 − 1,5 = 1 minute.
+
+### Ce que la comparaison appariée apporte
+
+Chaque journée sert de référence commune aux deux méthodes. Nous ne comparons donc pas le modèle A sur quatre jours faciles à B sur quatre jours difficiles. La comparaison devient plus juste, mais n'élimine pas toutes les incertitudes.
+
+En particulier, **quatre observations ne suffisent pas** à démontrer une amélioration générale. Les journées successives peuvent dépendre d'un même incident, d'une saison ou d'une évolution du processus. On ne doit pas les considérer automatiquement comme des tirages statistiquement indépendants.
+
+Sur un corpus important, on peut estimer l'incertitude de la différence avec une méthode adaptée au protocole, en tenant compte de la dépendance temporelle. Un rééchantillonnage naïf de journées indépendantes n'est pas toujours approprié.
+
+### Les erreurs extrêmes ont une importance propre
+
+Considérons une méthode C dont les erreurs absolues valent (0, 0, 0, 6). Sa MAE vaut elle aussi 1,5 minute : elle est égale à celle de B. Pourtant, C présente un cas d'erreur beaucoup plus élevé.
+
+**Exercice corrigé.** Peut-on déclarer B et C équivalentes pour la planification d'une urgence ?
+
+**Réponse.** Non. L'égalité des moyennes ne décrit pas les cas extrêmes, les sous-populations ou le coût des erreurs. L'équipe doit mesurer les scénarios pertinents et les conséquences métier.
+
+## 18. Concevoir un protocole d'expérience qui résiste à la répétition
+
+Une expérience devient peu convaincante lorsque ses règles sont changées **après** la lecture des résultats. Par exemple, une équipe pourrait choisir un jeu de test, constater une défaite de son modèle, modifier ses règles, relancer le test et répéter l'opération jusqu'à obtenir un meilleur score.
+
+Même sans apprentissage automatique explicite, ces retouches adaptent indirectement la solution au jeu de test. Le résultat final risque de surestimer sa qualité sur des cas nouveaux.
+
+### Quatre ensembles ayant des usages distincts
+
+Pour un projet suffisamment riche en données, définir :
+
+1. **Jeu de développement** : vérifier les formats, les cas de base et les fonctions.
+2. **Entraînement** : ajuster les paramètres des modèles apprenants.
+3. **Validation** : choisir les variantes et les hyperparamètres.
+4. **Test final** : évaluer la variante retenue après avoir fixé le protocole.
+
+Dans notre laboratoire sur dix observations, les effectifs ne permettent pas une validation scientifique robuste sur quatre ensembles. Nous avons seulement construit **un exercice transparent**, dont on connaît les limites.
+
+### Définir une fiche de cas
+
+Une équipe pourrait consigner les informations suivantes :
+
+| Champ | Fonction |
+|---|---|
+| Identifiant synthétique | Retrouver le cas sans inclure de donnée client |
+| Instant de prédiction | Déterminer les entrées disponibles |
+| Version des variables | Identifier le schéma et les transformations |
+| Cible de référence | Définir la valeur utilisée pour juger la prédiction |
+| Prédiction baseline | Conserver la sortie de référence |
+| Prédiction candidate | Conserver la sortie de la méthode étudiée |
+| Version de métrique | Reproduire le calcul |
+| Verdict | Appliquer un critère connu avant le test |
+
+Si une variable, la définition de la cible ou une méthode de normalisation change, cette modification doit être traçable. Sans versionnement des transformations, deux résultats ayant la même étiquette de métrique peuvent être incomparables.
+
+### Un essai de LLM demande des tests négatifs
+
+Un assistant documentaire peut réussir toutes les questions dont les réponses figurent dans les sources, mais échouer sur une demande hors permission, une procédure périmée ou une question sans réponse.
+
+Pour cette raison, un corpus de validation doit contenir des **cas qui exigent une abstention ou un refus**, et le modèle ne doit pas être jugé uniquement sur des réponses détaillées et agréables à lire. Les propriétés de sécurité essentielles doivent rester des critères éliminatoires contrôlés côté application.
+
+### Exercice corrigé
+
+Une équipe annonce 100 % de réussite après avoir adapté son assistant jusqu'à répondre parfaitement à ses vingt questions connues. Son taux prouve-t-il qu'elle est prête pour la production ?
+
+**Réponse.** Non. Il décrit les vingt questions sur lesquelles la solution a été adaptée. Il faut un jeu indépendant, des scénarios de refus et d'erreur, des NFR chiffrés et des observations de fonctionnement selon l'environnement cible.
+
+## 19. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
