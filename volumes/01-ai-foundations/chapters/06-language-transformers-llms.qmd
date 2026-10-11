@@ -339,7 +339,19 @@ La première ligne donne les poids $(e/(e+1),1/(e+1))\simeq(0{,}7311,0{,}2689)$ 
 
 **Limites.** Cet exercice ne représente ni plusieurs têtes, ni projections apprises, ni positions, ni couches résiduelles. L'attention n'est pas en elle-même une preuve d'explication causale.
 
-## 21. Synthèse et lectures de référence
+## 21. Démonstration — pourquoi le décodage autoregressif limite le débit
+
+Un modèle causal prédit le prochain token à partir des tokens disponibles, puis répète l'opération. Lors de la **préparation du préfixe** (*prefill*), plusieurs positions connues peuvent être traitées en parallèle. Lors de la **génération** (*decode*), chaque nouveau token dépend des précédents : il existe donc une dépendance séquentielle entre les étapes de génération.
+
+Considérons, à titre purement didactique, une requête produisant 120 tokens. Supposons un temps fixe de préparation de 0,20 seconde et, **par hypothèse simplificatrice**, 0,04 seconde par token généré, sans coûts de transfert ni concurrence. Le temps total estimé est $0{,}20+120\times0{,}04=5{,}00$ secondes. Le débit moyen de sortie calculé en incluant le prefill vaut alors $120/5=24$ tokens par seconde. En ignorant le prefill, le débit propre à la phase de génération serait $1/0{,}04=25$ tokens par seconde. Ces deux chiffres mesurent des choses différentes.
+
+**Exercice corrigé.** Une politique limite la sortie à 60 tokens, sans autre modification. Dans ce modèle simplifié, le temps devient $0{,}20+60\times0{,}04=2{,}60$ secondes. La réduction relative du temps est $(5-2{,}6)/5=48\,\%$, et non 50 %, car le coût fixe ne disparaît pas. Cela **ne prouve pas** qu'une limite plus courte préservera l'utilité des réponses.
+
+**Contre-exemple d'exploitation.** Deux requêtes concurrentes, un long contexte, un cache KV saturé ou un ordonnancement par lots peuvent modifier les temps observés. Dans un service réel, mesurer séparément le *time to first token* (TTFT), la latence totale, le débit en sortie, la variabilité (par exemple P95), l'utilisation mémoire, le nombre de requêtes simultanées et la consommation d'énergie par résultat utile. Les performances dépendent de l'architecture, du modèle, du matériel et du moteur d'inférence.
+
+**Conséquence d'architecture.** La taille de la fenêtre de contexte est une *capacité maximale*, pas une raison de fournir systématiquement plus de documents au modèle. Un système RAG doit privilégier les passages pertinents, autorisés et versionnés ; une entrée très longue peut augmenter les coûts sans améliorer la fidélité.
+
+## 22. Synthèse et lectures de référence
 
 **À retenir :** les mots deviennent des tokens ; les tokens sont transformés en représentations numériques ; l'attention combine des informations selon des poids appris ; un Transformer organise plusieurs de ces calculs ; un modèle de langage apprend des régularités statistiquement utiles, sans garantir la vérité de chaque sortie.
 
