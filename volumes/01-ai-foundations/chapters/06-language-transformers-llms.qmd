@@ -206,7 +206,17 @@ Le contrôle de correction doit considérer séparément :
 
 Cet exercice ne constitue pas une architecture de production, mais une préparation aux concepts de RAG, agents, sécurité et SI critiques.
 
-## 15. Synthèse et lectures de référence
+## 15. Travaux pratiques : calculer une attention Q/K/V
+
+Le [laboratoire Q/K/V en Python](../../../labs/v01-attention-qkv/README.md) permet de reproduire sans GPU le produit scalaire, le facteur de mise à l'échelle, le softmax stable et les masques causaux.
+
+Pour la Query (1, 0), les Keys (1, 0) et (0, 1) et les Values (2, 0) et (0, 2), les poids attendus sont environ **0,66976** et **0,33024**. La sortie vaut environ **(1,33952 ; 0,66048)**.
+
+L'exercice consiste à comparer les pondérations sans masque et avec une Key interdite, puis à identifier ce qui se produit si toutes les Keys sont masquées. Le programme doit refuser ce dernier cas, plutôt que produire une distribution dépourvue de signification.
+
+Les [20 tests locaux documentés](../../../evidence/V01_R14_GRADIENT_ATTENTION_2026-10-10.md) portent uniquement sur les calculs de cet exemple, et non sur le fonctionnement d'un modèle de langage complet.
+
+## 16. Synthèse et lectures de référence
 
 **À retenir :** les mots deviennent des tokens ; les tokens sont transformés en représentations numériques ; l'attention combine des informations selon des poids appris ; un Transformer organise plusieurs de ces calculs ; un modèle de langage apprend des régularités statistiquement utiles, sans garantir la vérité de chaque sortie.
 
