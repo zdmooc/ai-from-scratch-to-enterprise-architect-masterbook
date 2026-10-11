@@ -335,7 +335,81 @@ Un modèle présente une MSE plus faible que son concurrent sur le train, mais u
 
 **Correction :** non. Il faut examiner la généralisation temporelle, la construction du test, les éventuelles fuites et les causes de la divergence. Un modèle qui mémorise l'entraînement ne garantit pas la performance future.
 
-## 16. Pourquoi ce chapitre prépare l'architecture IA
+## 16. Prédire un risque : distinguer score, probabilité et calibration
+
+Un classifieur peut ranger correctement des observations sans que ses scores numériques correspondent aux fréquences réelles des événements. Ce sont deux propriétés différentes : **discrimination** et **calibration**.
+
+Une équipe fictive prédit la probabilité d'un événement binaire. Vingt dossiers synthétiques sont répartis en deux groupes de dix :
+
+| Groupe | Probabilité annoncée pour chaque dossier | Événements réellement observés | Fréquence observée |
+|---|---:|---:|---:|
+| A | 0,20 | 2 sur 10 | 0,20 |
+| B | 0,80 | 6 sur 10 | 0,60 |
+
+Le groupe A est parfaitement calibré **sur cet échantillon** : un score de 0,20 correspond à une fréquence de 20 %. Le groupe B est trop confiant dans le même échantillon : le score annoncé de 0,80 ne correspond qu'à 60 % d'événements. Cela ne signifie pas que les prédictions individuelles du groupe B sont toutes fausses.
+
+### Erreur de calibration attendue
+
+Une mesure pédagogique consiste à agréger les écarts entre confiance moyenne et fréquence observée, en pondérant les groupes par leur proportion :
+
+\[
+ECE=\sum_{g=1}^{G}\frac{n_g}{N}
+\left|\overline{p}_g-\overline{y}_g\right|.
+\]
+
+Ici, les deux groupes contiennent dix dossiers parmi vingt. L'écart du groupe A vaut zéro ; celui du groupe B vaut \(0{,}80-0{,}60=0{,}20\). L'ECE avec **ces deux groupes précisément définis** est donc :
+
+\[
+ECE=\frac{10}{20}\times0+\frac{10}{20}\times0{,}20=0{,}10.
+\]
+
+L'ECE dépend de la constitution des groupes ou *bins*, de la taille de l'échantillon et du protocole. Une ECE faible n'est pas une preuve automatique de sécurité ou d'équité.
+
+### Score de Brier : évaluer les probabilités
+
+Pour des événements binaires \(y_i\) valant 0 ou 1, le score de Brier est la moyenne de \((p_i-y_i)^2\). Plus il est faible, meilleure est la prédiction probabiliste selon cette métrique.
+
+Pour A, deux événements vrais de probabilité 0,20 produisent chacun \((0{,}20-1)^2=0{,}64\) et huit événements faux donnent chacun \(0{,}20^2=0{,}04\). Ainsi :
+
+\[
+B_A=\frac{2\times0{,}64+8\times0{,}04}{10}=0{,}16.
+\]
+
+Pour B, six événements positifs prévus à 0,80 produisent chacun 0,04, et les quatre négatifs chacun 0,64 :
+
+\[
+B_B=\frac{6\times0{,}04+4\times0{,}64}{10}=0{,}28.
+\]
+
+Le score global est donc \((0{,}16+0{,}28)/2=0{,}22\). L'ECE et le score de Brier n'ont pas exactement le même objet : le second tient compte des erreurs des probabilités individuelles, le premier résume des écarts par groupes.
+
+### Calibration ne signifie pas autorisation automatique
+
+Même un score de 0,90 correctement calibré ne doit pas, à lui seul, autoriser une décision grave sur une personne. Le métier doit définir les effets attendus, les droits applicables, les recours et l'usage licite des données.
+
+**Exercice corrigé.** Un modèle attribue 0,70 à dix cas, dont sept se réalisent. Est-il calibré sur ce groupe ? **Réponse :** oui, dans ce petit groupe précis, car la fréquence observée est 70 %. Cela ne permet pas d'affirmer sa calibration globale sur les autres valeurs ni sur une autre population.
+
+## 17. Mesurer une dérive sans confondre cause et symptôme
+
+Un modèle qui réussissait sur les données de l'année précédente peut devenir moins utile si les comportements, les capteurs ou le processus de décision changent.
+
+Trois situations doivent être séparées :
+
+- **Changement des entrées :** les valeurs ou proportions des variables évoluent.
+- **Changement de relation :** la même entrée n'annonce plus les mêmes conséquences.
+- **Changement de référence :** les règles d'annotation ou les critères métier ont changé.
+
+Une variation de la moyenne d'une variable ne prouve pas à elle seule une baisse de qualité. Inversement, un modèle peut perdre en qualité sans grande variation détectable de quelques moyennes simples.
+
+### Exemple de suivi fictif
+
+Une mesure de durée passe d'une moyenne de 5 minutes à 8 minutes après un changement d'organisation. Avant de réentraîner, l'équipe doit vérifier le fonctionnement de la collecte, les modifications de processus, les erreurs de saisie et la pertinence de la cible.
+
+Le suivi d'un service doit relier **métrique de qualité**, **population**, **version du modèle**, **source de données**, **dates de validité** et **incident potentiel**. La décision de recalibrer, réentraîner, ajuster une règle ou abandonner le modèle relève du résultat de l'investigation.
+
+**Exercice corrigé.** Le nombre de tickets augmente pendant une panne majeure, mais la qualité du classifieur reste constante sur les cas correctement étiquetés. Peut-on conclure qu'il a dérivé ? **Réponse :** la distribution de charge a changé, mais il manque des éléments pour affirmer une dérive de sa relation prédictive ; il faut vérifier les métriques adaptées à la tâche.
+
+## 18. Pourquoi ce chapitre prépare l'architecture IA
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 

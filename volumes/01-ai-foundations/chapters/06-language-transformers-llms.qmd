@@ -272,7 +272,64 @@ La surprise informationnelle d'un token de probabilité \(p\) peut s'écrire \(-
 
 **C.** Un modèle renvoie un ticket inexistant avec une confiance de formulation très élevée. Quel contrôle manque ? **Une vérification de l'identifiant et du statut auprès de l'API officielle**, ainsi que l'abstention si la source fait défaut.
 
-## 18. Synthèse et lectures de référence
+## 18. Les positions : pourquoi l'ordre des mots change le sens
+
+Un modèle qui ne recevrait qu'une liste non ordonnée de mots pourrait confondre des phrases contenant les mêmes éléments dans des ordres différents. Ainsi, « le chien mord l'homme » et « l'homme mord le chien » n'attribuent pas le même rôle aux sujets et objets.
+
+Les Transformers manipulent des représentations numériques ; les mécanismes de position servent à apporter une information sur l'ordre ou les distances entre éléments. Il existe plusieurs familles de mécanismes positionnels : absolus, relatifs et autres variantes selon l'architecture.
+
+Le choix d'un encodage de position n'est pas une garantie de compréhension grammaticale. Il définit une information accessible au modèle, que l'entraînement doit encore exploiter correctement.
+
+### Attention bidirectionnelle et masque causal
+
+Dans certaines architectures, une position peut considérer d'autres positions situées avant et après elle. Pour un générateur **autorégressif**, en revanche, une position ne doit pas utiliser des tokens futurs lors du calcul de l'étape concernée.
+
+Le masque causal sur une séquence de trois positions peut s'écrire :
+
+| Query | Key 1 | Key 2 | Key 3 |
+|---|---|---|---|
+| Position 1 | Autorisé | Interdit | Interdit |
+| Position 2 | Autorisé | Autorisé | Interdit |
+| Position 3 | Autorisé | Autorisé | Autorisé |
+
+Ce tableau décrit un **masque de calcul**, pas une politique d'accès à des documents. Il ne faut jamais en déduire que des permissions de sécurité sont appliquées : un mécanisme d'attention peut être causal tout en traitant un contenu que l'utilisateur n'était pas autorisé à consulter.
+
+### Exemple de poids valides sous masque
+
+Supposons, à titre illustratif, une matrice de poids obtenue après application du masque :
+
+\[
+A=
+\begin{bmatrix}
+1 & 0 & 0\\
+0{,}4 & 0{,}6 & 0\\
+0{,}2 & 0{,}3 & 0{,}5
+\end{bmatrix}.
+\]
+
+Chaque ligne somme à un. Les éléments futurs sont nuls. Ces valeurs ont été choisies pour l'explication et ne représentent pas l'inférence d'un modèle entraîné.
+
+**Exercice corrigé.** Une matrice comporte un poids non nul à la colonne 3 de la ligne 1. Respecte-t-elle le masque causal défini ci-dessus ? **Non.** La première position ne doit pas accéder à une Key future.
+
+## 19. Comprendre la croissance des ressources avec la longueur
+
+Dans l'attention dense élémentaire, comparer chacune des \(n\) Queries à \(n\) Keys produit \(n^2\) scores **par tête**, avant prise en compte d'autres opérations.
+
+Pour \(n=2000\), la matrice contient \(4\,000\,000\) scores ; pour \(n=4000\), elle en contient \(16\,000\,000\), soit quatre fois plus.
+
+Cela ne permet **pas** de conclure que tout modèle coûtera systématiquement quatre fois plus cher : les implémentations, optimisations mémoire, techniques d'attention, matériel et stratégies d'inférence sont différents. Le produit \(n^2\) décrit seulement la taille de cette matrice conceptuelle dense.
+
+Pour une matrice de quatre millions de nombres stockés sur quatre octets chacun, l'espace brut des scores serait de seize millions d'octets, soit environ 15,3 MiB. Ce nombre ne comprend ni les autres tenseurs, ni les couches, ni les têtes supplémentaires, ni le cache, ni la mémoire des poids.
+
+### KV cache et génération progressive
+
+Lors de certaines générations autorégressives, les Keys et Values des positions déjà calculées peuvent être conservées pour éviter des recalculs inutiles. Ce **cache** consomme cependant de la mémoire, notamment lorsque plusieurs requêtes sont servies simultanément.
+
+Le dimensionnement d'une plateforme ne peut donc pas se limiter au nombre de paramètres du modèle : longueur des contextes, concurrence, précision numérique, nombre de couches, cache et politique de génération ont aussi une importance.
+
+**Exercice corrigé.** Deux groupes d'utilisateurs disposent du même modèle mais de limites de contexte respectives de 2 000 et 4 000 tokens. Peut-on conclure que la consommation mémoire totale double ? **Non.** La matrice dense des scores, si elle est matérialisée et comparable, croît ici par un facteur quatre, tandis que les autres postes de mémoire peuvent avoir d'autres lois de croissance ; il faut mesurer le système réel.
+
+## 20. Synthèse et lectures de référence
 
 **À retenir :** les mots deviennent des tokens ; les tokens sont transformés en représentations numériques ; l'attention combine des informations selon des poids appris ; un Transformer organise plusieurs de ces calculs ; un modèle de langage apprend des régularités statistiquement utiles, sans garantir la vérité de chaque sortie.
 
