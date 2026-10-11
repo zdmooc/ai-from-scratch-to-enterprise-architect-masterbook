@@ -371,6 +371,18 @@ L'innovation ne se mesure pas à la seule nouveauté du modèle. Elle se mesure 
 
 Lorsque le lecteur passe au chapitre 03, il étudie les règles non comme un vestige historique, mais comme un outil encore pertinent pour certaines décisions. Les chapitres suivants approfondissent les représentations apprises et les modèles génératifs sans dévaloriser les mécanismes explicites qui les entourent.
 
+## 19. Atelier corrigé — tester une affirmation historique
+
+Une présentation affirme : « Le Transformer, inventé en 2017, est le premier modèle utilisant de l'attention et a remplacé toutes les autres formes d'IA. » Cette formulation combine deux erreurs de raisonnement.
+
+D'abord, l'article *Attention Is All You Need* (2017) présente une architecture de traduction reposant fortement sur des mécanismes d'attention, mais **le concept d'attention dans les réseaux neuronaux lui est antérieur**. Par exemple, Bahdanau, Cho et Bengio ont publié *Neural Machine Translation by Jointly Learning to Align and Translate* (prépublication 2014, ICLR 2015), qui explore l'alignement et l'attention dans la traduction neuronale. Ensuite, la popularité du Transformer ne supprime ni les règles déterministes, ni les modèles statistiques simples, ni les contraintes métier.
+
+**Exercice corrigé.** Reformuler l'affirmation sans exagération. **Réponse :** « Vaswani et ses coauteurs ont proposé en 2017 une architecture Transformer fondée sur l'attention, importante dans l'évolution des modèles de séquences ; le choix d'une solution dépend toujours du problème et des preuves d'évaluation. »
+
+**Méthode de vérification.** Séparer l'antériorité d'une idée, la première proposition d'une architecture particulière, la performance sur une tâche et la diffusion commerciale. Une date ou un score de benchmark sans tâche, protocole et source primaire n'établit pas une primauté générale.
+
+**Source primaire complémentaire :** Bahdanau, Cho et Bengio, [*Neural Machine Translation by Jointly Learning to Align and Translate*](https://arxiv.org/abs/1409.0473). Le présent exercice en propose une analyse originale, sans reproduction de l'article.
+
 ## 19. Références documentaires pour révision
 
 - A. M. Turing (1950), [*Computing Machinery and Intelligence*](https://doi.org/10.1093/mind/LIX.236.433), *Mind*, 59(236), 433–460 : proposition du jeu d'imitation et discussion des machines apprenantes.
