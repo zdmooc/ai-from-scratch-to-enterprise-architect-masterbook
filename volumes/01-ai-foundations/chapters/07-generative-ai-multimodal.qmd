@@ -225,7 +225,68 @@ Si le besoin consiste à afficher une photographie, sa transcription vérifiée 
 
 Le [chapitre 10](10-responsible-ai-risks.qmd) approfondit les conséquences des erreurs et le [chapitre 12](12-capstone-and-exercises.qmd) propose les tests d'architecture associés.
 
-## 14. Autoévaluation et synthèse
+## 14. Mesurer une transcription : taux d'erreur sur les mots
+
+La reconnaissance vocale constitue un bon exemple d'IA générative ou de transcription où une impression qualitative ne suffit pas. Nous pouvons mesurer les différences entre une phrase de référence et le texte reconnu.
+
+Le **Word Error Rate (WER)** utilise trois catégories : substitutions \(S\), suppressions \(D\) et insertions \(I\), rapportées au nombre de mots \(N\) de la phrase de référence :
+
+\[
+WER=\frac{S+D+I}{N}.
+\]
+
+Prenons cette phrase de référence synthétique :
+
+> « ne pas redémarrer la pompe aujourd'hui »
+
+Elle contient six mots selon la tokenisation simplifiée de l'exercice : « ne », « pas », « redémarrer », « la », « pompe », « aujourd'hui ».
+
+Supposons que la transcription produite soit :
+
+> « ne pas redémarrer pompe aujourd'hui »
+
+Il manque « la » : nous avons une suppression et aucune substitution ou insertion. Le WER vaut donc \(1/6\approx16{,}7\,\%\).
+
+### Même score, risques différents
+
+Considérons maintenant « pas redémarrer la pompe aujourd'hui », où **« ne »** a disparu. Dans la grammaire française, cette phrase tronquée peut avoir une interprétation différente selon le contexte oral ; elle demande donc une vérification. Plus critique encore : si la transcription perd **« pas »**, elle peut inverser le sens de la consigne.
+
+Deux transcriptions avec exactement **un mot manquant** peuvent avoir le même WER, mais des conséquences radicalement différentes. Pour un service de maintenance ou une prise d'instruction, il faut contrôler en priorité les **négations**, montants, identifiants, dosages, noms propres et actions irréversibles selon le domaine.
+
+Le WER dépend aussi de la manière de normaliser les textes : ponctuation, mots composés, apostrophes, nombres écrits en lettres et variantes orthographiques. Pour comparer deux systèmes, l'équipe doit utiliser **la même normalisation et le même corpus**.
+
+### Exercice corrigé
+
+Référence : « ouvrir le ticket numéro sept ». Transcription : « ouvrir ticket numéro sept ». Nous comptons cinq mots de référence, avec une suppression de « le ».
+
+**Correction :** \(WER=1/5=20\,\%\). Le score ne dit pas si l'action serait sûre : l'identifiant du ticket pourrait nécessiter une vérification auprès de l'utilisateur et du système d'autorité.
+
+## 15. Images générées : fidélité et vérification d'invariants
+
+Pour un contenu graphique, il faut distinguer **qualité perceptive** et **exactitude des contraintes**.
+
+Dans une illustration éducative, des couleurs un peu différentes peuvent être acceptables. Dans un schéma d'architecture, inverser la direction d'une flèche entre un composant d'autorisation et une base de documents change le sens du contrôle.
+
+Nous pouvons créer une grille de vérification d'invariants :
+
+| Contrainte | Vérification |
+|---|---|
+| Tous les composants obligatoires sont présents | Inventaire des libellés |
+| Les flèches correspondent au flux réel | Contrôle des directions |
+| Les permissions sont en amont des données | Inspection des frontières |
+| Le texte technique est exact | Comparaison avec la spécification |
+| Les objets tiers sont autorisés | Examen de provenance et droits |
+| Les éléments visuels restent accessibles | Contraste et description alternative |
+
+Il est souvent préférable de produire d'abord un diagramme **structuré et éditable** à partir des composants et des relations, puis de vérifier le rendu, plutôt que de demander une image dont les flèches seraient difficiles à modifier.
+
+### Exercice corrigé
+
+Une figure décrit correctement quatre composants sur cinq mais représente le modèle de langage comme décideur de permissions. Peut-elle être publiée simplement parce que « 80 % du dessin » semble exact ?
+
+**Correction :** non. L'invariant de sécurité est violé. Il faut rectifier le flux avant de réutiliser l'illustration.
+
+## 16. Autoévaluation et synthèse
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 
