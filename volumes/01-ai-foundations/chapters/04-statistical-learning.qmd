@@ -139,22 +139,22 @@ Nous obtenons :
 
 L'exactitude globale (*accuracy*) vaut :
 
-$
+$$
 \frac{TP+TN}{TP+TN+FP+FN}
 =\frac{6+9}{20}=75\,\%.
-$
+$$
 
 La **précision** sur les alertes vaut :
 
-$
+$$
 P = \frac{TP}{TP+FP} = \frac{6}{9} \approx 66{,}7\,\%.
-$
+$$
 
 Le **rappel** des anomalies vaut :
 
-$
+$$
 R = \frac{TP}{TP+FN} = \frac{6}{8} = 75\,\%.
-$
+$$
 
 La précision indique quelle part des alertes correspond à de véritables anomalies dans cet exemple ; le rappel indique quelle part des anomalies réelles a été détectée. Les deux notions ne sont pas interchangeables.
 
