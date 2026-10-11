@@ -289,7 +289,99 @@ Pour une petite organisation qui traite vingt questions par semaine, une recherc
 
 Cette démarche produit une décision compréhensible, sans prétendre qu'une simple note d'IA démontre la valeur d'un projet.
 
-## 15. Synthèse
+## 15. Décider avec le coût complet et la valeur effectivement obtenue
+
+Une architecture peut produire des réponses plus pertinentes tout en détruisant de la valeur si chaque réponse demande un contrôle humain coûteux ou si le système est rarement utilisé. Il faut comparer **des unités de service réellement équivalentes**.
+
+### Décomposer un coût mensuel
+
+Pour une application documentaire fictive, distinguons les frais fixes d'exploitation et les frais variables d'une demande :
+
+\[
+C_{\mathrm{mensuel}}=C_{\mathrm{fixe}}+N\,c_{\mathrm{variable}}
++C_{\mathrm{revue}}+C_{\mathrm{incidents}},
+\]
+
+avec \(N\) le nombre de demandes mensuelles. Cette expression est un modèle simplifié : elle doit être adaptée pour intégrer, sans double comptage, le développement, les licences, le stockage, le réseau, la sécurité et les coûts de cycle de vie sur la période d'étude.
+
+Considérons une hypothèse entièrement synthétique de **10 000 demandes par mois** :
+
+| Poste | Recherche A | RAG B |
+|---|---:|---:|
+| Frais fixes mensuels | 200 € | 700 € |
+| Coût variable unitaire | 0,002 € | 0,030 € |
+| Revue humaine mensuelle | 150 € | 350 € |
+| Incidents estimés sur ce scénario | 50 € | 100 € |
+
+Le total calculé est :
+
+\[
+C_A=200+10\,000\times0{,}002+150+50=420\ \text{€},
+\]
+
+\[
+C_B=700+10\,000\times0{,}030+350+100=1450\ \text{€}.
+\]
+
+La différence mensuelle vaut \(1030\) €. Elle n'est **ni un tarif cloud actuel ni une estimation applicable à une entreprise réelle**.
+
+Si une évaluation indépendante établissait que B génère 500 réponses utiles supplémentaires par mois par rapport à A, le surcoût par **réponse utile additionnelle** serait :
+
+\[
+\frac{1450-420}{500}=2{,}06\ \text{€}.
+\]
+
+Ce ratio n'est pas un retour sur investissement. Il faut encore déterminer si chaque réponse utile supplémentaire fait réellement économiser du temps, évite une erreur ou procure une autre valeur reconnue par le métier. Les conséquences d'une réponse incorrecte ou confidentielle ne peuvent pas être résumées dans un coût moyen.
+
+### Tester la sensibilité à la charge
+
+Le coût fixe se répartit sur davantage de demandes lorsque l'usage augmente, mais la montée en charge peut déclencher de nouveaux paliers de capacité. La formule linéaire n'est donc valable que **dans un domaine d'hypothèses déclaré**.
+
+Pour \(N=1000\) demandes avec les mêmes coûts fixes, de revue et d'incidents, les totaux hypothétiques seraient \(402\) € pour A et \(1180\) € pour B. Pour \(N=20\,000\), ils seraient \(440\) € et \(1750\) € respectivement, tant qu'aucun palier supplémentaire n'est franchi. L'architecte doit vérifier cette dernière condition plutôt que prolonger la formule indéfiniment.
+
+### Mesurer les ressources sans masquer la qualité
+
+Une solution peut réduire l'énergie par demande en produisant davantage de réponses de faible qualité. Un indicateur plus défendable compare **l'énergie par résultat validé sur un protocole commun**, en explicitant le périmètre de mesure. Les émissions de fabrication, l'hébergement et la durée d'amortissement restent des questions complémentaires.
+
+**Exercice corrigé.** B coûte 1030 € de plus par mois et apporte 250 réponses utiles additionnelles, à critères identiques. Quel est le surcoût par réponse utile additionnelle ?
+
+**Réponse.** \(1030/250=4{,}12\) €. Ce montant ne prouve ni la rentabilité ni la non-rentabilité : il faut le rapprocher d'une valeur métier observée et des risques.
+
+## 16. Un ADR complet : choix d'une première architecture documentaire
+
+**Titre :** ADR — Commencer par une recherche gouvernée avant l'ajout d'un générateur.
+
+**Contexte.** Une équipe technique souhaite retrouver rapidement des procédures versionnées accessibles selon les rôles. Des erreurs de procédure peuvent allonger les incidents ; une fuite de document interne serait inacceptable. Aucun gain de génération par LLM n'a encore été démontré sur la population cible.
+
+**Décideurs.** Responsable du service documentaire, représentant du métier support et responsables habilités de la sécurité et de l'exploitation. Le LLM ne fait pas partie du comité de décision.
+
+**Options.**
+
+- **A — Recherche classique avec index et ACL côté service.** Fournir les références officielles sans synthèse générée.
+- **B — Recherche avec RAG.** Ajouter une étape de récupération de passages autorisés et génération contrôlée.
+- **C — Agent multi-outils.** Introduire une boucle de planification et d'appels d'outils, sous politiques strictes.
+
+**Critères éliminatoires.** Aucune divulgation hors droit, aucune mutation non autorisée, provenance de réponse vérifiable et mode dégradé sûr.
+
+**Décision initiale proposée.** Sélectionner A comme baseline et première option à implémenter. Réserver B à un essai comparatif sur corpus, uniquement si les critères de confidentialité et de provenance sont démontrés. Écarter C pour le besoin limité à la lecture, faute de valeur établie de l'orchestration autonome.
+
+**Conséquences favorables.** Contrôles plus simples à auditer, dépendances réduites, réversibilité facilitée, capacité de mesurer séparément l'apport de la génération.
+
+**Conséquences défavorables.** L'utilisateur peut devoir lire plusieurs documents et composer lui-même une synthèse ; une valeur potentielle de B ne sera pas immédiatement obtenue.
+
+**Plan de preuve.** Vérifier l'accès selon plusieurs rôles, les versions de documents, les réponses sans source, les changements d'ACL, les pannes et les références de citation. Comparer qualité, temps effectivement gagné, coûts complets et erreurs importantes.
+
+**Condition de réexamen.** Une évaluation indépendante avec protocole approuvé démontre un bénéfice mesuré de B à risques et coûts acceptables, ou un nouveau besoin impose réellement plusieurs outils.
+
+**Statut.** Proposition pédagogique ; aucun déploiement ni arbitrage contractuel n'est revendiqué.
+
+### Exercice de revue d'ADR
+
+Un comité propose de remplacer la dernière phrase par « L'option B est approuvée, car elle utilise un modèle de dernière génération. » Quelle information manque ?
+
+**Correction.** Il manque les critères quantifiés et leurs résultats, les risques résiduels, les coûts, la population évaluée et l'approbation des responsables. La nouveauté du modèle n'est pas une preuve.
+
+## 17. Synthèse
 
 **Question centrale :** quel est le système le plus simple qui satisfait les exigences vérifiées, les contraintes de sécurité, la résilience et la valeur métier ?
 
