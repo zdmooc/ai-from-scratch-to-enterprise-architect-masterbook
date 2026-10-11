@@ -276,7 +276,67 @@ Sans authentification confirmée, le laboratoire n'établit pas l'investigation 
 La correction prépare le lecteur au chapitre suivant : les modèles statistiques permettent d'estimer des propriétés difficiles à exprimer uniquement par des règles, sans remplacer les contrôles déterministes qui protègent les actions sensibles.
 
 
-## 15. Limites et suites
+## 15. Règles de décision : conflit, exceptions et priorité
+
+Le chaînage avant présenté jusqu'ici ajoute des conclusions positives. Il devient plus difficile à exploiter lorsque plusieurs règles recommandent des résultats incompatibles.
+
+Dans un processus de traitement de dossier fictif, deux règles peuvent être définies :
+
+- R01 : dossier complet et autorisation valide impliquent « traitement candidat ».
+- R02 : présence d'un gel contractuel implique « traitement interdit ».
+
+Si un dossier remplit les conditions des deux règles, le système ne doit pas laisser **l'ordre d'itération** choisir implicitement entre permettre et interdire. Il faut une politique explicite, par exemple un contrôle d'interdiction évalué en amont de toute action. Dans ce cas, la décision est gouvernée par la règle « une interdiction validée l'emporte sur une autorisation candidate ».
+
+### Traduire la politique en deux phases
+
+La première phase établit des **faits et conclusions de diagnostic** : dossier complet, identité attestée, interdiction présente, contexte applicable. La seconde phase vérifie si le système peut **autoriser l'action**. Une conclusion pédagogique nommée « candidat » ne donne jamais, à elle seule, un droit opérationnel.
+
+Cette séparation évite qu'un nouveau fait d'investigation, déduit par un laboratoire, déclenche indirectement une opération dont le SI ne possède pas l'autorisation.
+
+Pour des règles métier réelles, les exceptions peuvent dépendre de dates d'effet, de versions de contrats, de priorités explicites et de décisions humaines. Un simple ensemble de faits ne représente pas toute cette complexité.
+
+### La table de décision comme outil de vérification
+
+| Dossier complet | Autorisation valide | Interdiction active | Résultat attendu |
+|---|---|---|---|
+| Non | Oui | Non | Refuser ou demander compléments |
+| Oui | Non | Non | Refuser |
+| Oui | Oui | Oui | Refuser |
+| Oui | Oui | Non | Traitement candidat, contrôle final requis |
+
+Le résultat de la dernière ligne reste un **candidat** : le service qui effectuerait une mutation doit imposer les contrôles effectifs et enregistrer le résultat. La table doit devenir des tests unitaires, puis des tests d'intégration.
+
+### Exercice corrigé
+
+Un programme applique R01 puis R02. Il commence par autoriser la demande, puis découvre une interdiction. Pourquoi est-ce problématique si l'autorisation a déjà causé une mutation ?
+
+**Correction :** le système a pris une décision irréversible avant d'examiner l'ensemble des contraintes. Il faut contrôler les interdictions et permissions **avant** l'effet de bord, ou employer un protocole transactionnel approprié. Réordonner arbitrairement les règles sans spécification de priorité ne constitue pas une preuve de sûreté.
+
+## 16. Faire évoluer la connaissance sans perdre les preuves
+
+Un moteur de règles industriel doit préciser comment les changements sont introduits, testés et appliqués. Une règle versionnée doit notamment conserver : identifiant, auteur ou responsable, périmètre, date d'effet, motif de changement, tests associés et conditions de retour arrière.
+
+Une bonne démonstration de non-régression compare au moins :
+
+1. des cas positifs connus ;
+2. des cas négatifs et exceptions ;
+3. des faits manquants ;
+4. des données contradictoires ;
+5. des versions de règles ayant des dates d'effet différentes.
+
+Un test qui valide le seul résultat final ne montre pas toujours **pourquoi** une conclusion a été obtenue. Il peut être nécessaire de comparer les traces des règles effectivement appliquées.
+
+### Explicabilité vs auditabilité
+
+La trace « R01 a produit X à partir de A et B » constitue une explication locale de calcul. L'audit complet demande également de connaître **d'où provenaient A et B**, qui avait le droit de les fournir, et quelle version de R01 était en vigueur. Dans une architecture répartie, ces informations peuvent appartenir à plusieurs systèmes.
+
+Un moteur peut être logiquement correct sur des données fausses ; une piste d'audit peut être complète mais enregistrer une politique mal conçue. Il faut contrôler séparément le moteur, les entrées et la décision métier.
+
+**Exercice.** Une règle a changé hier, mais des dossiers doivent encore être calculés selon la politique applicable lors de leur création. Quelle information manque si le programme ne conserve que le nom courant de la règle ?
+
+**Correction.** Il manque au minimum la version et la date d'effet de la règle, ainsi que la politique déterminant quelle version s'applique à quel événement. Selon le métier, les règles transitoires peuvent nécessiter une décision explicite.
+
+## 17. Limites et suites
 
 Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la négation, pas de quantificateurs, pas de raisonnement probabiliste, pas de temporalité avancée. Les chapitres suivants du volume élargiront la comparaison avec l'apprentissage à partir de données.
 

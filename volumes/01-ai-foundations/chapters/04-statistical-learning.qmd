@@ -260,7 +260,82 @@ Ces éléments préparent les volumes 05 (Machine Learning), 13 (évaluation) et
 
 ---
 
-## 14. Pourquoi ce chapitre prépare l'architecture IA
+## 14. Probabilités conditionnelles : une alerte n'est pas une preuve
+
+Les systèmes de classification sont souvent employés pour des événements rares. Même un modèle apparemment performant peut produire de nombreuses alertes incorrectes si la fréquence de l'événement est faible.
+
+Prenons **1 000 observations fictives**. Une véritable anomalie concerne 20 observations, soit 2 % de l'ensemble. Une méthode de détection reconnaît 90 % des anomalies et signale à tort 5 % des cas ordinaires.
+
+### Établir la matrice de confusion
+
+Il y a 20 anomalies : 90 % de 20 donnent **18 vrais positifs** et **2 faux négatifs**. Il y a 980 cas ordinaires : 5 % de 980 donnent **49 faux positifs** et **931 vrais négatifs**.
+
+| Réalité / prédiction | Alerte | Pas d'alerte | Total |
+|---|---:|---:|---:|
+| Anomalie | 18 | 2 | 20 |
+| Cas ordinaire | 49 | 931 | 980 |
+| Total | 67 | 933 | 1 000 |
+
+La précision des alertes est :
+
+\[
+P(\text{anomalie}\mid\text{alerte})
+=\frac{18}{18+49}
+=\frac{18}{67}
+\approx26{,}87\,\%.
+\]
+
+Le modèle possède pourtant un rappel de 90 % sur les anomalies ! Les deux affirmations sont compatibles : le **taux de base** de l'anomalie étant faible, les faux positifs sont relativement nombreux parmi les alertes.
+
+Le taux de rappel seul ne permet donc pas de dire qu'une alerte « prouve » l'anomalie. Les seuils et le traitement humain doivent être conçus selon la capacité d'analyse et le coût des erreurs.
+
+### Bayes, sans apprendre une formule par cœur
+
+La règle de Bayes permet d'exprimer le même calcul :
+
+\[
+P(A\mid +)
+=\frac{P(+\mid A)\,P(A)}
+{P(+\mid A)\,P(A)+P(+\mid\neg A)\,P(\neg A)}.
+\]
+
+Ici, \(P(A)=0{,}02\), \(P(+\mid A)=0{,}90\) et \(P(+\mid\neg A)=0{,}05\). Le numérateur vaut 0,018 et le dénominateur 0,018 + 0,049 = 0,067, donnant environ 0,2687.
+
+Cette probabilité suppose des taux fiables et une population cohérente avec celle utilisée pour les calculer. Si les données d'évaluation ont été artificiellement équilibrées, il faut éviter d'appliquer naïvement la même précision à une production où les anomalies sont rares.
+
+### Exercice corrigé
+
+Si un lecteur se fie au « 90 % » affiché par une équipe, quelle question doit-il poser immédiatement ?
+
+**Correction :** « 90 % de quoi ? » Il faut préciser la métrique (rappel, accuracy, précision, AUC…), le taux de base, la définition des labels et la population évaluée.
+
+## 15. Variance, dispersion et extrêmes
+
+La MAE résume la taille moyenne des erreurs mais ne décrit pas leur répartition. Considérons deux prédicteurs dont les erreurs absolues sur quatre cas sont :
+
+- Modèle A : (2, 2, 2, 2), soit une MAE de 2.
+- Modèle B : (0, 0, 0, 8), soit également une MAE de 2.
+
+La MAE est identique, mais B échoue gravement sur un cas. Pour un service où la mauvaise prévision d'une pointe est coûteuse, cette différence peut justifier un autre choix.
+
+L'erreur quadratique moyenne sur ces mêmes valeurs est :
+
+\[
+MSE_A=\frac{4+4+4+4}{4}=4,\qquad
+MSE_B=\frac{0+0+0+64}{4}=16.
+\]
+
+La MSE pénalise davantage les erreurs extrêmes. Cependant, choisir une MSE ne résout pas automatiquement le problème : il faut connaître **la distribution des erreurs**, les cas critiques et l'effet métier d'une sous-estimation ou d'une surestimation.
+
+Les erreurs peuvent aussi évoluer avec la période, le site, le type de client ou la quantité prédite. Les sous-groupes d'évaluation doivent être définis de manière pertinente et légitime.
+
+### Exercice corrigé
+
+Un modèle présente une MSE plus faible que son concurrent sur le train, mais une MSE plus élevée sur une période future. Peut-on choisir le premier à partir du train ?
+
+**Correction :** non. Il faut examiner la généralisation temporelle, la construction du test, les éventuelles fuites et les causes de la divergence. Un modèle qui mémorise l'entraînement ne garantit pas la performance future.
+
+## 16. Pourquoi ce chapitre prépare l'architecture IA
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
