@@ -460,7 +460,61 @@ Enfin, un taux de réussite global ne peut pas compenser un **critère éliminat
 
 **Correction.** L'hypothèse d'évaluation indépendante est compromise par les ajustements guidés par le test. Il faut reprendre une mesure sur un jeu indépendant et un protocole gelé.
 
-## 20. Synthèse
+
+## 20. Étude corrigée — comparer deux méthodes sur les mêmes dossiers
+
+Une moyenne d'erreur isolée ne permet pas de déterminer si la nouvelle méthode apporte un gain robuste. Construisons un exemple **entièrement synthétique** avec cinq demandes de support, dont les durées réelles (en minutes) sont $y=(4,6,8,10,12)$. La baseline A prévoit $(5,5,9,9,11)$ et la méthode B prévoit $(4,7,7,11,12)$. Aucune de ces valeurs ne provient d'un système bancaire ou d'un environnement déployé.
+
+### Calculer les pertes observation par observation
+
+L'erreur absolue d'une prédiction $\hat y_i$ est $e_i=|y_i-\hat y_i|$ ; l'erreur absolue moyenne vaut
+
+$
+\operatorname{MAE}=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat y_i|.
+$
+
+| Cas | Réel | A | Erreur A | B | Erreur B | Gain de B ($e_A-e_B$) |
+|---|---:|---:|---:|---:|---:|---:|
+| 1 | 4 | 5 | 1 | 4 | 0 | +1 |
+| 2 | 6 | 5 | 1 | 7 | 1 | 0 |
+| 3 | 8 | 9 | 1 | 7 | 1 | 0 |
+| 4 | 10 | 9 | 1 | 11 | 1 | 0 |
+| 5 | 12 | 11 | 1 | 12 | 0 | +1 |
+| **Total** | | | **5** | | **3** | **+2** |
+
+Donc $\operatorname{MAE}_A=5/5=1$ minute et $\operatorname{MAE}_B=3/5=0{,}6$ minute. Le gain relatif calculé **par rapport à la baseline** est $(1-0{,}6/1)\times100=40\,\%$. Cela ne signifie pas que B est « fiable à 40 % de plus » : on a simplement réduit une métrique spécifique sur cinq exemples construits.
+
+La comparaison est *appariée* : les deux méthodes rencontrent les mêmes dossiers. La différence moyenne vaut $(1+0+0+0+1)/5=0{,}4$ minute, exactement la différence des deux MAE. Ce lien algébrique n'implique pas que le gain se reproduira sur une nouvelle période.
+
+### Distinguer erreur absolue et erreur quadratique
+
+La MSE pénalise davantage les grandes erreurs :
+
+$
+\operatorname{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2.
+$
+
+Ici, toutes les erreurs non nulles valent une minute : $\operatorname{MSE}_A=5/5=1\ \mathrm{min}^2$ et $\operatorname{MSE}_B=3/5=0{,}6\ \mathrm{min}^2$. L'unité carrée rappelle qu'il ne faut pas interpréter directement une MSE comme une durée. Les RMSE correspondantes sont $1$ minute et $\sqrt{0{,}6}\simeq0{,}775$ minute.
+
+**Contre-exemple.** Si B sous-estime une sixième demande de 20 minutes tandis que A la prédit exactement, ses bons résultats précédents ne suffisent plus : sur six cas, la MAE de A devient $5/6\simeq0{,}833$, celle de B devient $(3+20)/6\simeq3{,}833$. Une erreur extrême peut changer la décision et justifie des métriques de queue de distribution.
+
+### Exercices progressifs corrigés
+
+**Exercice 1 — Contrôle des calculs.** Recalculer la somme des erreurs signées de A. Peut-on utiliser cette somme pour évaluer seule la précision ?
+
+**Corrigé.** En prenant $\hat y-y$, les erreurs de A sont $(1,-1,1,-1,-1)$ ; la somme est $-1$ minute et l'erreur moyenne signée vaut $-0{,}2$ minute. Les signes se compensent : ce chiffre ne remplace pas la MAE.
+
+**Exercice 2 — Choix de métrique.** Un service est pénalisé si *une seule* prévision dépasse de plus de dix minutes l'erreur autorisée. La MAE suffit-elle ?
+
+**Corrigé.** Non. Ajouter une contrainte sur le maximum d'erreur absolue et une mesure des dépassements du seuil ; définir aussi ce qu'il advient d'un cas critique. Une faible moyenne n'autorise pas à ignorer une violation éliminatoire.
+
+**Exercice 3 — Protocole loyal.** L'équipe de B a consulté les cinq résultats pour ajuster son modèle. Peut-elle annoncer 40 % de gain comme performance indépendante ?
+
+**Corrigé.** Non. Ces cas ont servi à la sélection ou à l'ajustement. Il faut figer la méthode puis l'évaluer sur de nouvelles observations indépendantes, adaptées au découpage temporel du problème.
+
+**Décision d'architecte.** Dans une expérimentation réelle, conserver la définition de la cible, les horodatages de disponibilité des variables, la version des méthodes, le protocole de split, les erreurs par cas et les critères de rejet. La mesure de cinq cas fictifs illustre une méthode de calcul, non une preuve de production.
+
+## 21. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
