@@ -57,5 +57,26 @@ class ForecastTests(unittest.TestCase):
         self.assertEqual(changed[1], 999)
 
 
+    def test_chapter_11_temporal_leakage_counterexample(self):
+        # Six synthetic consecutive observations from chapter 11.
+        training = (10, 12, 14)
+        holdout = (16, 18, 20)
+        observed_only = rolling_persistence_forecast(training, holdout)
+        self.assertEqual(observed_only, (14, 16, 18))
+        self.assertEqual(mean_absolute_error(holdout, observed_only), 2)
+        # The trend is fixed using training data only, then applied sequentially.
+        trend = training[-1] - training[-2]
+        predictions = []
+        last = training[-1]
+        for actual in holdout:
+            predictions.append(last + trend)
+            last = actual
+        self.assertEqual(tuple(predictions), holdout)
+        self.assertEqual(mean_absolute_error(holdout, predictions), 0)
+        # A regime change on Sunday disproves guaranteed future accuracy.
+        self.assertEqual(abs((holdout[-1] + trend) - 11), 11)
+        self.assertEqual(abs(holdout[-1] - 11), 9)
+
+
 if __name__ == "__main__":
     unittest.main()
