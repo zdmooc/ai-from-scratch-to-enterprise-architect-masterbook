@@ -467,10 +467,10 @@ Une moyenne d'erreur isolée ne permet pas de déterminer si la nouvelle méthod
 
 ### Calculer les pertes observation par observation
 
-L'erreur absolue d'une prédiction $\\hat y_i$ est $e_i=|y_i-\\hat y_i|$ ; l'erreur absolue moyenne vaut
+L'erreur absolue d'une prédiction $\hat y_i$ est $e_i=|y_i-\hat y_i|$ ; l'erreur absolue moyenne vaut
 
 $
-\\operatorname{MAE}=\\frac{1}{n}\\sum_{i=1}^{n}|y_i-\\hat y_i|.
+\operatorname{MAE}=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat y_i|.
 $
 
 | Cas | Réel | A | Erreur A | B | Erreur B | Gain de B ($e_A-e_B$) |
@@ -482,7 +482,7 @@ $
 | 5 | 12 | 11 | 1 | 12 | 0 | +1 |
 | **Total** | | | **5** | | **3** | **+2** |
 
-Donc $\\operatorname{MAE}_A=5/5=1$ minute et $\\operatorname{MAE}_B=3/5=0{,}6$ minute. Le gain relatif calculé **par rapport à la baseline** est $(1-0{,}6/1)\\times100=40\,\%$. Cela ne signifie pas que B est « fiable à 40 % de plus » : on a simplement réduit une métrique spécifique sur cinq exemples construits.
+Donc $\operatorname{MAE}_A=5/5=1$ minute et $\operatorname{MAE}_B=3/5=0{,}6$ minute. Le gain relatif calculé **par rapport à la baseline** est $(1-0{,}6/1)\times100=40\,\%$. Cela ne signifie pas que B est « fiable à 40 % de plus » : on a simplement réduit une métrique spécifique sur cinq exemples construits.
 
 La comparaison est *appariée* : les deux méthodes rencontrent les mêmes dossiers. La différence moyenne vaut $(1+0+0+0+1)/5=0{,}4$ minute, exactement la différence des deux MAE. Ce lien algébrique n'implique pas que le gain se reproduira sur une nouvelle période.
 
@@ -491,18 +491,18 @@ La comparaison est *appariée* : les deux méthodes rencontrent les mêmes dossi
 La MSE pénalise davantage les grandes erreurs :
 
 $
-\\operatorname{MSE}=\\frac{1}{n}\\sum_{i=1}^{n}(y_i-\\hat y_i)^2.
+\operatorname{MSE}=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat y_i)^2.
 $
 
-Ici, toutes les erreurs non nulles valent une minute : $\\operatorname{MSE}_A=5/5=1\ \\mathrm{min}^2$ et $\\operatorname{MSE}_B=3/5=0{,}6\ \\mathrm{min}^2$. L'unité carrée rappelle qu'il ne faut pas interpréter directement une MSE comme une durée. Les RMSE correspondantes sont $1$ minute et $\\sqrt{0{,}6}\\simeq0{,}775$ minute.
+Ici, toutes les erreurs non nulles valent une minute : $\operatorname{MSE}_A=5/5=1\ \mathrm{min}^2$ et $\operatorname{MSE}_B=3/5=0{,}6\ \mathrm{min}^2$. L'unité carrée rappelle qu'il ne faut pas interpréter directement une MSE comme une durée. Les RMSE correspondantes sont $1$ minute et $\sqrt{0{,}6}\simeq0{,}775$ minute.
 
-**Contre-exemple.** Si B sous-estime une sixième demande de 20 minutes tandis que A la prédit exactement, ses bons résultats précédents ne suffisent plus : sur six cas, la MAE de A devient $5/6\\simeq0{,}833$, celle de B devient $(3+20)/6\\simeq3{,}833$. Une erreur extrême peut changer la décision et justifie des métriques de queue de distribution.
+**Contre-exemple.** Si B sous-estime une sixième demande de 20 minutes tandis que A la prédit exactement, ses bons résultats précédents ne suffisent plus : sur six cas, la MAE de A devient $5/6\simeq0{,}833$, celle de B devient $(3+20)/6\simeq3{,}833$. Une erreur extrême peut changer la décision et justifie des métriques de queue de distribution.
 
 ### Exercices progressifs corrigés
 
 **Exercice 1 — Contrôle des calculs.** Recalculer la somme des erreurs signées de A. Peut-on utiliser cette somme pour évaluer seule la précision ?
 
-**Corrigé.** En prenant $\\hat y-y$, les erreurs de A sont $(1,-1,1,-1,-1)$ ; la somme est $-1$ minute et l'erreur moyenne signée vaut $-0{,}2$ minute. Les signes se compensent : ce chiffre ne remplace pas la MAE.
+**Corrigé.** En prenant $\hat y-y$, les erreurs de A sont $(1,-1,1,-1,-1)$ ; la somme est $-1$ minute et l'erreur moyenne signée vaut $-0{,}2$ minute. Les signes se compensent : ce chiffre ne remplace pas la MAE.
 
 **Exercice 2 — Choix de métrique.** Un service est pénalisé si *une seule* prévision dépasse de plus de dix minutes l'erreur autorisée. La MAE suffit-elle ?
 
