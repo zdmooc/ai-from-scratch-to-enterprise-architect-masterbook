@@ -396,7 +396,15 @@ Pour éviter l'accumulation de file, la capacité moyenne soutenue de transcript
 
 **Correction complémentaire.** Si le traitement devient deux fois plus lent à cause d'un changement de modèle, la file peut croître. Il faut mesurer débit, files d'attente, P95 et erreurs à un niveau de qualité comparable avant de modifier l'infrastructure.
 
-## 20. Autoévaluation et synthèse
+## 20. Calcul corrigé — taux d'erreur de transcription
+
+Le taux d'erreur sur les mots (*word error rate*, WER) se calcule en alignant une transcription hypothétique avec sa référence : $\mathrm{WER}=(S+D+I)/N$, avec $S$ substitutions, $D$ suppressions, $I$ insertions et $N$ mots de référence. Prenons la référence **« le client valide son paiement »** (5 mots) et la sortie **« le client annule paiement maintenant »**. Un alignement minimal remplace « valide » par « annule », supprime « son » et insère « maintenant » : $S=1$, $D=1$, $I=1$, donc $\mathrm{WER}=3/5=60\,\%$.
+
+Ce taux n'est pas une « probabilité de transcription correcte » ; il peut dépasser 100 % lorsqu'il y a beaucoup d'insertions. Plusieurs alignements minimaux sont possibles, mais la distance d'édition minimale normalisée reste le critère du calcul.
+
+**Exercice corrigé.** Référence : « ouvrir dossier » ; hypothèse : « ouvrir le dossier ». On compte une insertion et aucun remplacement ni suppression : $\mathrm{WER}=1/2=50\,\%$. Pourtant le sens est proche : le WER ne mesure ni fidélité sémantique ni risque d'une erreur de montant, de négation ou de destinataire. Pour une application sensible, combiner mesures de mots, entités critiques et revue humaine.
+
+## 21. Autoévaluation et synthèse
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 
