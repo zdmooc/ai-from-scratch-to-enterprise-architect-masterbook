@@ -408,7 +408,59 @@ Une équipe annonce 100 % de réussite après avoir adapté son assistant jusqu'
 
 **Réponse.** Non. Il décrit les vingt questions sur lesquelles la solution a été adaptée. Il faut un jeu indépendant, des scénarios de refus et d'erreur, des NFR chiffrés et des observations de fonctionnement selon l'environnement cible.
 
-## 19. Synthèse
+## 19. Mesurer l'incertitude d'un taux de réussite
+
+Un assistant passe 90 tests sur 100. Peut-on affirmer qu'il réussira **exactement 90 % de toutes les demandes futures** ? Non. Les 100 cas sont un échantillon, et le résultat dépend de leur sélection, de leur difficulté et de la méthode de mesure.
+
+Supposons, uniquement pour l'exemple statistique, que chaque test soit un essai binaire indépendant tiré de la **même population de demandes**, selon un protocole fixé à l'avance. La proportion observée est :
+
+\[
+\widehat{p}=\frac{90}{100}=0{,}90.
+\]
+
+L'**intervalle de Wilson** est une manière d'exprimer l'incertitude d'une proportion binaire dans ce cadre. Pour une valeur \(z\) choisie en fonction du niveau de confiance, sa borne centrale et sa demi-largeur s'écrivent :
+
+\[
+m=\frac{\widehat p+z^2/(2n)}{1+z^2/n},
+\qquad
+h=\frac{z\sqrt{\widehat p(1-\widehat p)/n+z^2/(4n^2)}}{1+z^2/n}.
+\]
+
+Avec \(n=100\), \(\widehat p=0{,}90\) et \(z=1{,}96\), le calcul donne un intervalle approximatif :
+
+\[
+[m-h,\ m+h]\approx[0{,}826,\ 0{,}945].
+\]
+
+On peut le présenter pédagogiquement comme un **intervalle de confiance à 95 % selon la méthode de Wilson**, pour la proportion de réussite d'une population respectant nos hypothèses d'échantillonnage.
+
+### Ce que cet intervalle ne prouve pas
+
+Il ne suffit pas d'appliquer une formule statistique pour rendre un jeu de test représentatif. Les conclusions peuvent être invalides si les questions ont été sélectionnées pour être faciles, si plusieurs tests sont quasiment identiques, si le modèle a été entraîné ou adapté sur ces questions ou si le système a changé entre les essais.
+
+Il faut également distinguer **l'interprétation fréquentiste** d'un intervalle de confiance d'une affirmation selon laquelle la probabilité que le paramètre fixé soit dans cet intervalle serait directement 95 %. La garantie porte sur les propriétés de couverture de la méthode sous les hypothèses retenues.
+
+Enfin, un taux de réussite global ne peut pas compenser un **critère éliminatoire**. Une seule divulgation d'un document confidentiel peut rendre le système inacceptable indépendamment de l'intervalle de confiance.
+
+### Corrigés de compréhension
+
+**A.** Le système réussit 90 cas sur 100. La valeur 0,90 est-elle le paramètre exact de toutes les demandes futures ?
+
+**Correction.** Non. C'est une estimation calculée sur le jeu observé, dont la validité externe dépend des cas et des hypothèses.
+
+**B.** Un assistant réussit 900 tests sur 1000, supposés indépendants et représentatifs. L'incertitude statistique sera-t-elle généralement plus faible qu'avec 90 sur 100 ?
+
+**Correction.** Oui, toutes choses comparables, une taille d'échantillon plus grande tend à réduire l'incertitude d'estimation. Mais elle ne corrige pas un biais de sélection ni un défaut des labels.
+
+**C.** Un test de permissions échoue alors que la réussite globale atteint 99 %. Un intervalle de confiance peut-il autoriser le déploiement ?
+
+**Correction.** Non. Les permissions relèvent d'une exigence de sécurité à contrôler séparément ; une moyenne de qualité et son intervalle ne suppriment pas une violation observée.
+
+**D.** Le système gagne sur un jeu utilisé vingt fois pour modifier ses règles. Pourquoi l'intervalle théorique devient-il peu convaincant ?
+
+**Correction.** L'hypothèse d'évaluation indépendante est compromise par les ajustements guidés par le test. Il faut reprendre une mesure sur un jeu indépendant et un protocole gelé.
+
+## 20. Synthèse
 
 Le POC utile part d'un besoin mesurable et produit une **preuve bornée**. Il compare un système simple à une option plus complexe dans des conditions loyales et ne transforme jamais une observation sur quelques exemples en certitude industrielle.
 
