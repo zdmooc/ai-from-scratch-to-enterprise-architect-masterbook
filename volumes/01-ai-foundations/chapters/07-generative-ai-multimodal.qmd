@@ -335,7 +335,68 @@ Le coût d'un traitement doit inclure au minimum la capture, la transmission, le
 
 **Exercice corrigé.** Deux pipelines donnent une précision descriptive identique, mais l'un transfère toutes les vidéos dans un service tiers sans nécessité métier. Lequel choisir ? **La précision seule ne permet pas de décider.** Il faut analyser le besoin, les droits sur les données, la minimisation, la localisation des traitements, la sécurité, les coûts et les émissions selon une méthode explicite.
 
-## 18. Autoévaluation et synthèse
+## 18. Qualité d'une image et fidélité d'un document : deux évaluations différentes
+
+Un modèle génératif peut produire une image esthétiquement convaincante tout en violant une contrainte mesurable. Pour un projet d'architecture, il faut donc séparer l'appréciation perceptive de la **conformité à une spécification**.
+
+Prenons l'exemple fictif d'un schéma présentant les composants suivants : utilisateur, passerelle d'authentification, moteur de recherche, référentiel documentaire et générateur. La règle technique demande que le contrôle d'accès soit **effectué avant** la récupération des documents.
+
+Deux figures peuvent être également lisibles ; si l'une place le contrôle d'accès après l'envoi des passages au modèle, elle ne peut pas illustrer la même architecture. Une excellente note esthétique ne compense pas ce défaut.
+
+### Contrôles automatiques et contrôles humains
+
+| Propriété | Contrôle envisageable | Limite |
+|---|---|---|
+| Présence des cinq composants | Inspecter les libellés d'un dessin structuré | Une image raster peut contenir du texte difficile à extraire |
+| Direction des échanges | Vérifier le graphe des relations | Les flèches visuelles doivent encore être relues |
+| Position du contrôle d'accès | Inspecter les relations de dépendance | La figure ne prouve pas que le service réel applique l'ACL |
+| Lisibilité | Contraste et taille des textes | Besoin d'une revue sur les supports cibles |
+| Exactitude des termes | Comparaison à un glossaire validé | Un terme identique peut être utilisé dans le mauvais contexte |
+| Droit de diffusion | Inventaire des sources et licences | Le format du fichier ne prouve aucun droit de publication |
+
+Un diagramme éditable permet de corriger directement les relations techniques. Le choix du support — SVG, source de diagramme ou image — doit correspondre à l'exigence de maintenance.
+
+### Une spécification d'image utile
+
+Au lieu de demander simplement « représente un agent bancaire », définir : les acteurs à afficher, les frontières de confiance, les composants autorisés, les données qui peuvent traverser chaque frontière, les opérations interdites, l'orientation des flèches et les titres exacts. La figure doit ensuite être comparée à cette spécification par un lecteur compétent.
+
+**Exercice corrigé.** Une image générée représente parfaitement les quatre premières étapes d'un pipeline, mais omet l'authentification. Peut-on la conserver avec une note « illustration approximative » ?
+
+**Réponse.** Pas comme figure normative de l'architecture. L'absence du contrôle principal modifie le sens de la conception. Il faut corriger la figure ou la remplacer par un schéma explicitement limité à un autre sujet.
+
+## 19. Du prototype multimodal au service exploitable
+
+La transition vers la production ne consiste pas à placer le modèle derrière une URL. Un système qui traite de l'audio et des images peut devoir gérer plusieurs types d'échec :
+
+- fichier illisible, format inattendu ou métadonnées incohérentes ;
+- fichier très long ou trop volumineux pour la capacité autorisée ;
+- média de faible qualité, avec confiance ou information insuffisante ;
+- absence de droits de traiter ou de conserver le fichier ;
+- erreur d'association entre plusieurs flux de médias ;
+- saturation du service ou dépendance indisponible ;
+- sortie inexacte malgré la réussite des appels techniques.
+
+Chaque échec doit déboucher sur une **issue applicative explicite** : rejet de l'entrée, besoin de clarification, traitement différé, abstention ou erreur technique. Un statut HTTP favorable n'est pas une preuve d'exactitude du contenu.
+
+### Politique de rétention et minimisation
+
+Conserver toutes les images ou tous les enregistrements « au cas où le modèle en aurait besoin » peut constituer un risque inutile. Le service doit justifier la finalité du traitement, les données strictement nécessaires, les destinataires, les modalités de suppression et la durée de conservation applicable.
+
+Pour un prototype pédagogique, des médias synthétiques suffisent souvent. Une démonstration sur de vraies conversations d'employés exige des autorisations, une information appropriée et des mesures de protection adaptées.
+
+### Exercice de dimensionnement
+
+Une tâche synthétique reçoit 120 fichiers audio de cinq minutes par heure. Le volume total de parole à traiter est :
+
+\[
+120\times5=600\ \text{minutes audio par heure}.
+\]
+
+Pour éviter l'accumulation de file, la capacité moyenne soutenue de transcription doit, sur ce profil simplifié, traiter **plus de dix minutes d'audio par minute réelle**, en tenant compte des pics et de la maintenance. Ce ratio ne détermine ni le modèle, ni le nombre de GPU : ceux-ci dépendent des mesures sur le matériel et des exigences de délai.
+
+**Correction complémentaire.** Si le traitement devient deux fois plus lent à cause d'un changement de modèle, la file peut croître. Il faut mesurer débit, files d'attente, P95 et erreurs à un niveau de qualité comparable avant de modifier l'infrastructure.
+
+## 20. Autoévaluation et synthèse
 
 Le lecteur doit pouvoir expliquer pourquoi **une génération n'est pas une preuve**, pourquoi une figure doit être techniquement validée, pourquoi l'ASR et le TTS sont des tâches différentes et pourquoi une architecture multimodale nécessite des contrôles de bout en bout.
 
