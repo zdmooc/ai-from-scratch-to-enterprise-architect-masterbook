@@ -499,7 +499,115 @@ Le prototype répond correctement à 95 questions sur 100, mais un technicien no
 
 La note ne remplace pas une revue de mini-projet. Un excellent score avec un raisonnement dangereux sur les permissions ou les données doit donner lieu à une correction ciblée avant toute activité réelle.
 
-## 23. Suite de la collection
+## 23. Capstone Green AI — mesurer l'énergie par résultat utile
+
+L'empreinte environnementale d'une application IA ne peut pas être estimée correctement en considérant uniquement le nombre de GPU. Pour comparer des architectures, il faut un **service rendu**, un **périmètre de mesure** et une **qualité minimale**.
+
+Nous reprenons l'assistant documentaire fictif du projet de fin de volume. Les responsables envisagent deux implémentations A et B. Sur la même période pédagogique, toutes deux traitent 10 000 demandes, mais elles ne fournissent pas le même nombre de réponses jugées utiles.
+
+| Hypothèse synthétique | Recherche A | Génération B |
+|---|---:|---:|
+| Requêtes traitées | 10 000 | 10 000 |
+| Réponses utiles selon la même grille | 8 000 | 9 000 |
+| Électricité allouée au périmètre de calcul | 10 kWh | 18 kWh |
+| Nombre d'actions non autorisées tolérées | 0 | 0 |
+
+La **fonctionnalité de référence** est ici une réponse jugée utile et autorisée. La consommation d'électricité par réponse utile est :
+
+\[
+e_A=\frac{10\,000\ \mathrm{Wh}}{8000}=1{,}25\ \mathrm{Wh},
+\]
+
+\[
+e_B=\frac{18\,000\ \mathrm{Wh}}{9000}=2\ \mathrm{Wh}.
+\]
+
+Selon ces **hypothèses inventées**, B produit davantage de réponses utiles, mais utilise plus d'énergie pour chacune d'elles. Cette comparaison ne signifie pas que la recherche serait toujours plus sobre : le résultat dépend des tâches, des modèles, du matériel, de la qualité réelle et du périmètre de comptage.
+
+### Que signifie « électricité allouée » ?
+
+Dans un serveur partagé, un compteur peut mesurer des ressources également utilisées par d'autres applications. Avant de publier un ratio, il faut préciser si le calcul inclut le processeur ou le GPU, les mémoires, le stockage, le réseau, les phases d'attente et la contribution de l'infrastructure du centre de données.
+
+Les estimations d'allocation — part du temps machine, énergie incrémentale ou autre méthode — peuvent changer les résultats. Elles doivent être explicites et reproductibles.
+
+La fabrication des équipements, leur transport, la durée d'usage et les autres éléments du cycle de vie sont **hors de ce simple calcul opérationnel**. Il serait donc incorrect d'appeler ces chiffres « empreinte carbone totale ».
+
+### Convertir une énergie en émissions sous hypothèse
+
+Pour illustrer la méthode et **non** établir un facteur représentatif d'un pays, supposons une intensité de 100 gCO₂e/kWh pour l'électricité consommée pendant notre exercice.
+
+Les émissions opérationnelles d'électricité seraient alors :
+
+\[
+G_A=10\times100=1000\ \mathrm{gCO_2e},
+\]
+
+\[
+G_B=18\times100=1800\ \mathrm{gCO_2e}.
+\]
+
+Ce facteur a été choisi uniquement pour faciliter le calcul. Dans un projet réel, il faut une donnée adaptée à la localisation, la période, la méthode comptable et aux usages, ainsi qu'un périmètre cohérent pour comparer les options.
+
+### Exercices corrigés
+
+**A.** La solution B obtient-elle de meilleurs résultats métier parce qu'elle offre 1000 réponses utiles supplémentaires ? **Pas nécessairement.** Il faut mesurer la valeur des réponses additionnelles, leur contexte et les coûts supplémentaires.
+
+**B.** Si la qualité de B tombe à 6000 réponses utiles pour la même énergie de 18 kWh, que devient son ratio ? **Correction :** \(18\,000/6000=3\) Wh par réponse utile.
+
+**C.** Peut-on classer les deux solutions par leur empreinte carbone complète à partir de ces seuls chiffres ? **Non.** Il manque notamment les équipements et le cycle de vie, ainsi que les facteurs d'émission appropriés.
+
+Le principe à retenir : **comparer des résultats de qualité équivalente, sur le même périmètre, plutôt qu'un nombre brut de tokens ou d'accélérateurs**.
+
+## 24. Capstone SRE — interpréter une latence P95 et un mode dégradé
+
+Une architecture peut donner une excellente durée moyenne tout en restant inutilisable sur les demandes les plus lentes. Pour l'expliquer, supposons 20 requêtes fictives identiques : 18 sont traitées en 100 ms et les deux dernières en 1000 ms.
+
+La moyenne est :
+
+\[
+\overline{t}=\frac{18\times100+2\times1000}{20}=190\ \mathrm{ms}.
+\]
+
+La médiane est 100 ms. Pourtant, avec la **méthode empirique du rang supérieur** (*nearest rank*), le percentile P95 se situe au rang \(\lceil0{,}95\times20\rceil=19\). La dix-neuvième observation ordonnée est 1000 ms ; le P95 vaut donc **1000 ms pour ce jeu et cette convention**.
+
+Ce résultat montre l'importance du protocole de mesure : différentes bibliothèques statistiques peuvent interpoler les percentiles selon des conventions distinctes. Un SLO doit préciser son périmètre, sa période, sa méthode de calcul et la charge à laquelle il s'applique.
+
+### Le mode dégradé comme exigence
+
+Si le générateur est indisponible, le service documentaire peut proposer une recherche directe **lorsque les autorisations et la fiabilité des sources le permettent**. Ce n'est pas simplement une réduction de confort : une dégradation maîtrisée aide à conserver l'accès aux procédures sans inventer de réponses.
+
+Pour ce mini-projet, on distingue :
+
+| Situation | Comportement prévu |
+|---|---|
+| Recherche disponible, génération indisponible | Sources accessibles sans synthèse, si sûres |
+| Référentiel documentaire indisponible | Abstention et message de dépendance en panne |
+| IAM non disponible et session non vérifiable | Aucun accès nouveau accordé par défaut |
+| Document devenu non autorisé | Refus, y compris si présent en cache |
+| Dépassement d'un budget d'appels | Arrêt borné, pas de boucle infinie |
+
+Cette table est une spécification, **pas une preuve runtime**. Une démonstration d'exploitation doit vérifier les mécanismes sur un service déployé, avec des tests de coupure, de retour normal et de cohérence des droits.
+
+### Exercice corrigé
+
+Une équipe déclare « latence moyenne 190 ms, notre P95 est donc forcément inférieur à 200 ms ». Quel est le problème ?
+
+**Correction.** La moyenne n'indique pas le percentile. Notre distribution fictive a une moyenne de 190 ms mais un P95 par rang de 1000 ms. Il faut mesurer la distribution des délais et utiliser la convention de percentile définie.
+
+### Synthèse de soutenance
+
+Un architecte expérimenté ne doit pas seulement annoncer « RAG », « agent » ou « GPU ». Il doit pouvoir répondre simultanément :
+
+- Que fait-on lorsque les sources manquent ?
+- Qui décide qu'un utilisateur a accès au contenu ?
+- Quel niveau de qualité avons-nous réellement mesuré ?
+- Comment le service fonctionne-t-il en cas de panne ?
+- Quel coût total et quelle consommation correspondent à une **réponse utile** ?
+- Quelle preuve permet de passer de la conception à une décision d'exploitation ?
+
+Ces questions constituent le passage naturel entre cette introduction et les volumes spécialisés de la collection.
+
+## 25. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
