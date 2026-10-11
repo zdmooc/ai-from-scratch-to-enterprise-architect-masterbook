@@ -428,7 +428,27 @@ La **précision** vaut $VP/(VP+FP)=15/60=25\,\%$ : trois alertes sur quatre ne c
 
 Ces valeurs n'établissent aucune performance bancaire réelle ; elles montrent pourquoi la prévalence, le coût métier des erreurs et le choix du seuil doivent figurer dans le contrat d'évaluation.
 
-## 19. Pourquoi ce chapitre prépare l'architecture IA
+## 19. Comprendre la calibration avec une décomposition calculée
+
+Un système peut discriminer correctement deux classes sans prédire des probabilités fiables. Imaginons quatre cas indépendants fictifs, associés aux probabilités prédites $p=(0{,}9;0{,}8;0{,}6;0{,}2)$ et aux observations binaires $y=(1;0;1;0)$. Le **score de Brier** s'écrit
+
+\[
+\mathrm{BS}=\frac1n\sum_{i=1}^{n}(p_i-y_i)^2.
+\]
+
+Les erreurs quadratiques sont $(0{,}9-1)^2=0{,}01$, $(0{,}8-0)^2=0{,}64$, $(0{,}6-1)^2=0{,}16$ et $(0{,}2-0)^2=0{,}04$. Leur somme vaut $0{,}85$ ; le score de Brier vaut donc $0{,}85/4=0{,}2125$. Pour une cible binaire, un score plus petit est meilleur, à condition de comparer des évaluations portant sur la même cible et une population comparable.
+
+### Corrigé : pourquoi le seuil change le classement, pas les probabilités
+
+Au seuil de décision $p\geq0{,}5$, le modèle prédit positif pour les trois premiers cas : deux vrais positifs, un faux positif, aucun faux négatif et un vrai négatif. Sa précision est $2/3\simeq66{,}7\,\%$ ; son rappel vaut $2/2=100\,\%$. Abaisser le seuil à 0,1 classe aussi le quatrième cas positif : deux vrais positifs et deux faux positifs ; la précision devient 50 % tandis que le rappel reste 100 %. **Le score de Brier ne change pas**, puisque les quatre probabilités fournies restent les mêmes.
+
+**Exercice 1.** Un modèle émet 0,8 pour chaque dossier d'un groupe de dix, dans lequel huit événements surviennent. Est-il parfaitement calibré sur ce groupe ? **Réponse :** la fréquence observée est bien 0,8 pour ce petit groupe, ce qui est compatible avec une calibration locale ; cela ne prouve pas une calibration globale ou stable dans le temps.
+
+**Exercice 2.** Le taux de fraude réel chute de 10 % à 1 % alors que le système et son seuil ne changent pas. Peut-on réutiliser directement son ancienne précision ? **Réponse :** non. La précision dépend de la prévalence, ainsi que de la sensibilité et de la spécificité sur la nouvelle population. Mesurer à nouveau la matrice de confusion et, si la politique l'exige, recalibrer les probabilités sur des données indépendantes.
+
+**Limite méthodologique.** Quatre observations sont insuffisantes pour valider statistiquement une calibration. L'exemple sert à apprendre les opérations arithmétiques, pas à prouver qu'un modèle fictif est digne de confiance.
+
+## 20. Pourquoi ce chapitre prépare l'architecture IA
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
