@@ -219,7 +219,77 @@ Un score composite dépend des poids choisis. Si une option est gagnante uniquem
 
 La [matrice des risques C10](10-responsible-ai-risks.qmd) et l'[ADR du mini-projet](../case-study/ADR-001-search-before-rag.md) documentent les critères complémentaires.
 
-## 14. Synthèse
+## 14. Étude complète — comparer trois solutions sur un même jeu de demandes
+
+L'objectif est de passer d'un tableau d'options théorique à un **arbitrage reproductible**. Notre organisation fictive dispose de 100 questions de support classées par une équipe de référence : 60 questions disposent d'une procédure courte et univoque, 20 demandent une comparaison entre plusieurs procédures, 10 portent sur un document absent et 10 concernent une procédure inaccessible pour l'utilisateur de test.
+
+Les trois options sont A (recherche classique), B (recherche avec synthèse RAG) et C (agent outillé). Pour éviter de confondre une différence de produit avec une différence de test, **les 100 questions et les permissions restent identiques**. Chaque option peut répondre, présenter des documents ou s'abstenir ; on compare l'utilité effective, pas la longueur des réponses.
+
+### Référence de jugement : une grille par question
+
+Pour chacune des 80 questions dont le contenu est autorisé et disponible, la grille vérifie trois exigences :
+
+1. La réponse contient les **faits essentiels**, définis avant l'essai.
+2. Les références citées correspondent **aux documents et versions réellement accessibles**.
+3. La sortie ne contient **aucune instruction opérationnelle inventée**.
+
+Pour les 20 autres questions, le résultat attendu est une abstention ou un refus correct. L'interdiction de divulguer un document restreint est un **critère éliminatoire** : ce n'est pas un point que l'on pourrait compenser avec un bon score de lisibilité.
+
+### Résultats numériques fictifs pour apprendre à calculer
+
+Supposons que les contrôles produisent le tableau suivant, entièrement inventé à des fins d'exercice :
+
+| Observation | A : recherche | B : RAG | C : agent |
+|---|---:|---:|---:|
+| Réponses jugées utiles parmi les 80 disponibles | 56 | 68 | 69 |
+| Abstentions/refus corrects parmi les 20 autres | 20 | 19 | 18 |
+| Tentatives de mutation interdites observées | 0 | 0 | 1 |
+| Durée médiane hypothétique par demande | 0,4 s | 2,2 s | 4,1 s |
+| Coût variable fictif par 1 000 demandes | 2 € | 24 € | 51 € |
+
+Ces nombres **ne sont pas des benchmarks ni des prix du marché**. Ils servent uniquement à appliquer des règles de comparaison.
+
+Si l'on définit le taux de réussite **parmi les questions disponibles** par \(U= \text{réponses utiles}/80\), nous obtenons :
+
+\[
+U_A = 56/80 = 70\,\%,\quad
+U_B = 68/80 = 85\,\%,\quad
+U_C = 69/80 = 86{,}25\,\%.
+\]
+
+La valeur brute de C paraît légèrement supérieure à celle de B. Toutefois C échoue au critère éliminatoire parce qu'il a tenté une mutation interdite. Il ne doit **pas** être retenu en l'état, quel que soit le score composite.
+
+B répond correctement à 19 des 20 situations d'abstention/refus. Il faut déterminer si son erreur concernait un document inaccessible (défaut d'autorisation potentiellement éliminatoire) ou une question réellement sans source (défaut de qualité à investiguer). Le tableau seul ne permet pas de conclure.
+
+### Décision motivée et non classement automatique
+
+Nous ne pouvons pas déclarer B gagnant sans le détail de cette erreur. Une décision provisoire raisonnable est : **conserver A comme service de référence, examiner les échecs de B et rejeter C pour l'instant**.
+
+Le gain théorique de B sur les 80 questions disponibles serait de 12 réponses utiles supplémentaires. Son coût variable est, dans cet exemple, plus élevé de 22 € pour 1 000 demandes que A ; mais cela ne suffit pas à calculer un retour sur investissement. Il faudrait encore mesurer le **temps réellement économisé** par les techniciens, les erreurs corrigées, le travail d'exploitation, l'hébergement et les frais de maintenance.
+
+L'analyse doit aussi comprendre des **intervalles d'incertitude** : 80 questions ne représentent pas nécessairement la charge future, et un jeu de test construit par les développeurs peut être biaisé.
+
+### Sensibilité des critères
+
+Un gain de onze ou douze bonnes réponses peut être très utile si les questions difficiles sont nombreuses dans la vraie vie. Il peut être insignifiant si ces questions sont rares ou si chaque synthèse doit être relue par un spécialiste. Une décision de financement doit relier les métriques à des **unités métier** : temps de recherche, taux d'escalade, erreurs évitées et satisfaction mesurée.
+
+Pour une petite organisation qui traite vingt questions par semaine, une recherche bien indexée peut suffire. Pour une équipe recevant plusieurs dizaines de milliers de demandes, quelques secondes supplémentaires de latence, un coût par réponse et l'évolution des permissions peuvent devenir déterminants.
+
+### Exercices d'application
+
+**Exercice 1.** Recalculer le taux de réussite de B parmi les 100 demandes, en considérant comme succès les 68 réponses utiles et les 19 abstentions correctes. **Correction :** \(87/100=87\,\%\). Ce taux ne permet pas à lui seul de juger les refus de sécurité.
+
+**Exercice 2.** Supposons que l'unique échec d'abstention de B dévoile le nom d'un document dont la visibilité est interdite. Quelle décision prendre ? **Correction :** bloquer l'acceptation de B, corriger l'application de la politique d'accès, puis rejouer des tests négatifs indépendants.
+
+**Exercice 3.** Une présentation annonce « 15 points de plus de qualité » entre A et B. Est-ce exact ? **Correction :** sur les 80 questions disponibles, B atteint 85 % contre 70 % pour A, soit **15 points de pourcentage** ; cela ne signifie pas 15 % de gain relatif. Le gain relatif à A est \((85-70)/70\approx21{,}43\,\%\) sur cette métrique seulement.
+
+### Livrable corrigé : décision d'architecture en six phrases
+
+**Contexte :** les utilisateurs souhaitent des réponses sourcées sur des procédures de support. **Contrainte :** aucune divulgation hors ACL ni mutation. **Options :** recherche A, RAG B, agent C. **Évidence actuelle :** jeu synthétique de 100 cas, avec une erreur d'abstention à examiner pour B et un appel interdit pour C. **Décision provisoire :** maintenir A, suspendre C et approfondir B. **Condition de réexamen :** valider les permissions en conditions réalistes et quantifier le gain métier complet.
+
+Cette démarche produit une décision compréhensible, sans prétendre qu'une simple note d'IA démontre la valeur d'un projet.
+
+## 15. Synthèse
 
 **Question centrale :** quel est le système le plus simple qui satisfait les exigences vérifiées, les contraintes de sécurité, la résilience et la valeur métier ?
 

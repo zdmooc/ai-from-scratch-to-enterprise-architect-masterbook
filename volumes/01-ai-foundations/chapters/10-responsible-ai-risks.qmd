@@ -222,7 +222,78 @@ Un développeur affirme : « notre modèle respecte le RGPD, parce qu'il n'affic
 
 L'[étude de cas du chapitre 12](12-capstone-and-exercises.qmd) transforme ces risques en tests et décisions d'architecture. Les obligations de droit seront datées et contrôlées dans l'itération bibliographique avant publication.
 
-## 14. Conclusion et références
+## 14. Cas chiffré — détecter une inégalité de performance masquée par la moyenne
+
+L'exactitude globale d'un classifieur peut masquer une différence importante d'erreurs. Nous allons travailler sur deux **populations synthétiques** A et B de 100 dossiers chacune. Elles sont définies ici uniquement pour illustrer une analyse ; aucune caractéristique sensible réelle n'est attribuée à ces groupes.
+
+Un système produit une alerte lorsqu'un dossier mérite une revue. Les données de référence, supposées correctement annotées pour l'exercice, donnent :
+
+| Groupe et résultat | Vrais positifs | Faux négatifs | Faux positifs | Vrais négatifs |
+|---|---:|---:|---:|---:|
+| A | 36 | 4 | 12 | 48 |
+| B | 18 | 12 | 14 | 56 |
+
+Chaque ligne contient bien 100 dossiers. Dans A, 40 dossiers relèvent réellement de l'alerte ; dans B, 30. Ces taux de base différents jouent un rôle dans l'interprétation des métriques.
+
+### Calculer le rappel séparément
+
+Le **rappel** est la proportion des cas réellement positifs que le système détecte :
+
+\[
+R_A=\frac{36}{36+4}=90\,\%,\qquad
+R_B=\frac{18}{18+12}=60\,\%.
+\]
+
+Un tableau regroupant les deux populations masquerait cet écart : le rappel global vaut \(54/(54+16)\approx77{,}14\,\%\). Sans affichage par groupe, le comité pourrait retenir seulement ce chiffre global.
+
+### Calculer la précision des alertes
+
+La **précision** représente la part des alertes qui correspondent à de vrais cas positifs :
+
+\[
+P_A=\frac{36}{36+12}=75\,\%,\qquad
+P_B=\frac{18}{18+14}=56{,}25\,\%.
+\]
+
+Le taux de faux positifs rapporté aux vrais négatifs est également pertinent :
+
+\[
+FPR_A=\frac{12}{12+48}=20\,\%,\qquad
+FPR_B=\frac{14}{14+56}=20\,\%.
+\]
+
+Cet exemple est instructif : les taux de faux positifs **sont identiques**, tandis que les rappels et précisions diffèrent. Il serait donc trompeur de déclarer les deux populations traitées de façon similaire en ne regardant que la colonne des faux positifs.
+
+### Éviter les interprétations hâtives
+
+L'écart de rappel ne prouve pas, à lui seul, l'existence d'une discrimination illégale. Il peut provenir de différences de qualité des données, de conditions d'observation, de difficultés des tâches ou d'autres mécanismes. Il appelle une **investigation ciblée**, où la nature des groupes et la légitimité des critères ont une importance juridique et éthique.
+
+Les métriques de fairness répondent à des questions distinctes ; des critères d'équité ne peuvent pas toujours être simultanément satisfaits lorsque les taux de base diffèrent. Le choix des critères ne doit donc pas être présenté comme une simple opération mathématique sans consultation des experts du domaine.
+
+### Une méthode de remédiation traçable
+
+1. Vérifier que le label de référence a la même signification et la même qualité dans les deux groupes.
+2. Contrôler les pratiques de collecte, les données manquantes et la chronologie.
+3. Examiner les erreurs critiques, les refus et les conséquences pour les personnes.
+4. Comparer modèles, seuils et procédures de revue sans exposer de données non autorisées.
+5. Définir les métriques et contrôles acceptables avec les responsables métier, sécurité et conformité.
+6. Mesurer de nouveau sur des cas indépendants, puis surveiller la dérive.
+
+Dans une application de décision sensible, une correction automatique des scores ou un traitement différencié peut lui-même créer des risques ; les choix nécessitent une analyse appropriée.
+
+### Exercices corrigés
+
+**Exercice A.** Combien de cas positifs réels comporte le groupe B ? **Correction :** \(18+12=30\).
+
+**Exercice B.** Une équipe affirme que le système a « 77 % de rappel sur tout le monde », donc traite les deux groupes de façon équivalente. Quel est le défaut ? **Correction :** la moyenne globale masque 90 % de rappel dans A et 60 % dans B. Il faut analyser les écarts et leurs causes, sans conclure directement à leur origine.
+
+**Exercice C.** Un score de risque est utilisé pour refuser automatiquement l'accès à un service. Que faut-il ajouter ? **Correction :** une évaluation de la légitimité du processus, du cadre applicable, des conséquences des faux résultats, des possibilités de revue et de recours, des droits de traitement et de la supervision.
+
+### Fiche de contrôle à transmettre au comité
+
+Une note de risques utile contient la **définition du problème**, les sous-populations pertinentes et légalement analysables, la provenance et la qualité des labels, les matrices d'erreurs, les intervalles d'incertitude, les conséquences observées, les alternatives et les mesures proposées. Elle ne remplace ni une analyse juridique datée ni une validation de terrain.
+
+## 15. Conclusion et références
 
 La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de communication. Elle influence les données, les méthodes, la sécurité, les droits des utilisateurs et les décisions de mise en service.
 
