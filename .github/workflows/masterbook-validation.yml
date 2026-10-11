@@ -35,3 +35,8 @@ jobs:
         run: python -m unittest discover -s labs/v01-experiment -p 'test_*.py' -v
       - name: Run V01 agent guardrails lab tests
         run: python -m unittest discover -s labs/v01-agent-guardrails -p 'test_*.py' -v
+
+      - name: Test gradient lab
+        run: python -m unittest discover -s labs/v01-gradient-descent -p 'test_*.py' -v
+      - name: Test QKV attention lab
+        run: python -m unittest discover -s labs/v01-attention-qkv -p 'test_*.py' -v
