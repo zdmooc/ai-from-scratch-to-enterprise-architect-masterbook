@@ -373,9 +373,9 @@ Lorsque le lecteur passe au chapitre 03, il étudie les règles non comme un ves
 
 ## 19. Références documentaires pour révision
 
-- Alan Turing, *Computing Machinery and Intelligence* (1950), texte historique.
-- Proposal for the Dartmouth Summer Research Project on Artificial Intelligence (1955/1956), archive historique.
-- Rumelhart, Hinton et Williams (1986), travaux de propagation des erreurs.
+- A. M. Turing (1950), [*Computing Machinery and Intelligence*](https://doi.org/10.1093/mind/LIX.236.433), *Mind*, 59(236), 433–460 : proposition du jeu d'imitation et discussion des machines apprenantes.
+- McCarthy, Minsky, Rochester et Shannon, [proposition de Dartmouth du 31 août 1955](https://www-formal.stanford.edu/jmc/history/dartmouth.pdf), projet d'atelier de l'été 1956. Voir également la [republication commentée dans *AI Magazine* (2006)](https://doi.org/10.1609/aimag.v27i4.1904) ; ne pas confondre les dates.
+- Rumelhart, Hinton et Williams (1986), [*Learning representations by back-propagating errors*](https://doi.org/10.1038/323533a0), *Nature*, 323, 533–536 : travail fondateur sur la rétropropagation.
 - Vaswani et al., [Attention Is All You Need](https://arxiv.org/abs/1706.03762) (2017).
 - [Microsoft — AI for Beginners](https://github.com/microsoft/AI-For-Beginners).
 

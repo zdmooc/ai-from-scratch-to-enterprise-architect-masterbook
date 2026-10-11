@@ -433,3 +433,5 @@ Une chaîne d'inférence inclut les mêmes transformations de données que celle
 
 La qualité d'un réseau dépend de sa formulation, de ses données, de son optimisation et de son évaluation. Les volumes 02, 03 et 06 étendront ces notions vers les mathématiques, Python et l'entraînement réel.
 
+**Références scientifiques :** Rumelhart, Hinton et Williams (1986), [*Learning representations by back-propagating errors*](https://doi.org/10.1038/323533a0), *Nature*, 323, 533–536. Il s'agit d'un article sur l'apprentissage par propagation de gradients, non d'une validation de notre laboratoire ; les exemples numériques du chapitre sont des constructions pédagogiques originales.
+

@@ -401,6 +401,7 @@ Répondre sans consulter les pages précédentes :
 
 ## Références de travail et limites
 
+- OCDE (2024), [*Explanatory memorandum on the updated OECD definition of an AI system*](https://doi.org/10.1787/623da898-en). Une référence de définition des systèmes IA, distincte des choix d'architecture opérationnelle.
 - [Microsoft AI for Beginners](https://github.com/microsoft/AI-For-Beginners) — structure de progression didactique, **pas reproduction de texte**.
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) — langage des risques et de la gouvernance, à citer précisément dans les chapitres spécialisés.
 - [Architecture IA Maya](https://github.com/zdmooc/maya-ai-agentic-architecture-reference) — cas internes d'architecture, sans prétendre que les designs sont tous déployés.
