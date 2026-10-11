@@ -404,7 +404,103 @@ Plus tard, le technicien demande à l'agent de modifier la priorité du ticket. 
 
 Dans une architecture d'entreprise, cette séparation de lecture et d'écriture simplifie l'évaluation du risque, la traçabilité et la réversibilité.
 
-## 20. Conclusion et ressources
+## 20. Spécifier un appel d'outil pour qu'il soit réellement contrôlable
+
+Un agent ne devrait pas transmettre une instruction textuelle arbitraire à une API métier. L'application doit disposer d'un **contrat d'outil** : nom de l'opération, identité, paramètres validés, permissions, limites, erreurs possibles et preuve de résultat.
+
+Prenons un service fictif de lecture du statut d'un ticket. Une demande structurée peut contenir :
+
+~~~json
+{
+  "tool": "read_ticket_status",
+  "arguments": {
+    "ticket_id": "SYN-042"
+  }
+}
+~~~
+
+L'identité du demandeur ne doit pas être considérée comme authentique simplement parce que le modèle transmet un paramètre nommé \`role\`. Elle doit provenir du mécanisme de sécurité de l'application. Le service cible doit vérifier **qui appelle** et **quels tickets sont accessibles**, indépendamment de la formulation.
+
+### Contrat de résultat
+
+Un appel autorisé pourrait retourner :
+
+~~~json
+{
+  "outcome": "found",
+  "ticket_id": "SYN-042",
+  "status": "waiting_for_review",
+  "source": "ticket-service",
+  "observed_at": "2026-10-11T10:00:00Z"
+}
+~~~
+
+Les données sont inventées. Le champ \`observed_at\` indique le moment de l'observation ; il ne certifie pas que le statut restera inchangé. La structure exacte serait à documenter et à versionner dans une application réelle.
+
+Un service de consultation doit également gérer \`not_found\`, \`access_denied\`, \`temporarily_unavailable\` et les erreurs de validation. Le modèle ne doit pas transformer « introuvable » en « fermé » ni présenter « service indisponible » comme une opération métier exécutée.
+
+### Paramètres contrôlés côté application
+
+Un contrat robuste impose :
+
+1. une liste fermée d'opérations autorisées ;
+2. des schémas de paramètres validés avant l'appel ;
+3. un contrôle d'autorisation dans le service cible ;
+4. un nombre et un délai maximal d'appels adaptés au besoin ;
+5. une isolation des identités et des ressources ;
+6. une politique de sortie et de journalisation adaptée aux données.
+
+Le modèle peut proposer un choix d'outil mais ne doit pas pouvoir **inventer un nouvel outil exécutable** en rédigeant du texte.
+
+### Exercice corrigé
+
+Un agent reçoit de la documentation contenant une URL de service interne et propose de l'appeler librement à partir d'un outil HTTP générique. Le système n'a pas prévu d'autoriser cet hôte. La proposition est-elle acceptable ?
+
+**Réponse.** Non. L'outil générique peut ouvrir un chemin d'accès que la politique n'avait pas défini. Le contrôle des destinations, des opérations et des paramètres doit être imposé par l'application et les services réseau, pas décidé depuis un document récupéré.
+
+## 21. Mesurer la réussite des parcours, pas seulement la qualité de la réponse
+
+Pour évaluer un agent, on peut distinguer **les étapes observées** de **l'objectif final**.
+
+Considérons un corpus fictif de 50 tâches de consultation, avec les résultats suivants :
+
+| Catégorie | Nombre de tâches |
+|---|---:|
+| Réponse sourcée correcte, sans action interdite | 38 |
+| Abstention correcte face à une source absente | 5 |
+| Refus correct d'une ressource inaccessible | 4 |
+| Réponse factuellement incorrecte | 2 |
+| Appel d'outil interdit tenté | 1 |
+| **Total** | **50** |
+
+Si les 38 réponses, les 5 abstentions et les 4 refus sont considérés comme conformes aux attentes des cas respectifs, le **taux de scénario réussi** vaut :
+
+\[
+S=\frac{38+5+4}{50}=\frac{47}{50}=94\,\%.
+\]
+
+Cette moyenne ne suffit cependant pas à autoriser le déploiement. L'appel d'outil interdit peut être un **événement éliminatoire**, même si un contrôle technique l'a finalement bloqué. La décision dépend de la politique de sécurité, du type de tentative et des conséquences possibles.
+
+### Distinction entre tentative et effet
+
+Un agent peut tenter une opération interdite sans parvenir à l'exécuter. Les deux observations doivent être distinguées :
+
+- **Tentative non conforme** : le modèle a demandé une action hors périmètre.
+- **Effet interdit exécuté** : le système a réellement permis la mutation ou la divulgation.
+
+Le premier événement informe sur les risques de comportement du modèle. Le second signale une défaillance des contrôles techniques. Il faut vérifier les deux dans une campagne d'évaluation.
+
+### Variations du test
+
+Un seul prompt par tâche donne peu d'informations sur la robustesse. Un protocole plus riche peut tester plusieurs formulations équivalentes, une instruction hostile dans une source, un document obsolète, un outil momentanément indisponible et une limite d'étapes dépassée.
+
+La répétition doit être contrôlée : certaines sorties peuvent varier selon le modèle et la configuration. Une moyenne sur des essais répétés n'efface pas les cas d'échec critiques.
+
+**Exercice corrigé.** Sur 50 tâches, le taux global est de 94 %, mais l'appel interdit a été réellement exécuté. Peut-on conclure que l'agent est « sûr à 94 % » ?
+
+**Réponse.** Non. Une métrique globale de réussite n'est pas une probabilité de sécurité. L'effet interdit représente un incident qui doit bloquer l'acceptation selon la politique définie et déclencher correction, tests négatifs et revue des permissions.
+
+## 22. Conclusion et ressources
 
 Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
 
