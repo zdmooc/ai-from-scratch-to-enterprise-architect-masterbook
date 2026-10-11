@@ -33,8 +33,12 @@ def validate_svg(path: Path):
     assert title is not None and (title.text or "").strip(), f"missing title: {path}"
     assert desc is not None and (desc.text or "").strip(), f"missing description: {path}"
     named = set((root.get("aria-labelledby") or "").split())
-    assert title.get("id") in named and desc.get("id") in named, (
-        f"svg needs labelled title and description: {path}")
+    if named:
+        assert title.get("id") in named and desc.get("id") in named, (
+            f"aria-labelledby does not name title and description: {path}")
+    else:
+        assert (root.get("aria-label") or "").strip(), (
+            f"svg needs aria-label or aria-labelledby: {path}")
     for element in root.iter():
         assert local_name(element.tag) not in BLOCKED, (
             f"blocked SVG element in {path}: {local_name(element.tag)}")
