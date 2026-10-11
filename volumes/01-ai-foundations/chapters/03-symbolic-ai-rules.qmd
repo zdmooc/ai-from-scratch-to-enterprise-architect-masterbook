@@ -335,7 +335,81 @@ Un moteur peut être logiquement correct sur des données fausses ; une piste d'
 
 **Correction.** Il manque au minimum la version et la date d'effet de la règle, ainsi que la politique déterminant quelle version s'applique à quel événement. Selon le métier, les règles transitoires peuvent nécessiter une décision explicite.
 
-## 17. Limites et suites
+## 17. Démontrer une conclusion : faits, règles et provenance
+
+Un moteur de règles ne doit pas seulement donner une conclusion. Il peut aussi montrer **comment** il l'a obtenue, afin qu'un lecteur puisse vérifier les hypothèses et la chaîne de déductions.
+
+Supposons trois faits initiaux, entièrement fictifs :
+
+\[
+F_0=\{\text{identité confirmée},\ \text{dossier complet},\ \text{solde disponible}\}.
+\]
+
+Deux règles de diagnostic s'appliquent :
+
+\[
+R_1:\ \text{identité confirmée}\land\text{dossier complet}
+\Rightarrow\text{dossier recevable},
+\]
+
+\[
+R_2:\ \text{dossier recevable}\land\text{solde disponible}
+\Rightarrow\text{traitement candidat}.
+\]
+
+Au premier passage, les prémisses de R1 sont satisfaites : le moteur ajoute le fait « dossier recevable ». Au passage suivant, R2 devient applicable et ajoute « traitement candidat ». Un nouveau passage n'ajoute plus de conclusion : le **point fixe** est atteint.
+
+| Conclusion | Règle appliquée | Faits justificatifs |
+|---|---|---|
+| Dossier recevable | R1 | Identité confirmée, dossier complet |
+| Traitement candidat | R2 | Dossier recevable, solde disponible |
+
+Une trace complète permet de remonter du résultat final aux données initiales. Elle ne garantit cependant pas que ces données sont vraies. Le système officiel doit encore attester l'identité et le solde au moment pertinent.
+
+### Pourquoi ce calcul termine
+
+Dans cet exemple, les faits possibles sont en nombre fini. Chaque règle **ajoute** des faits sans en retirer. Les ensembles successifs respectent :
+
+\[
+F_0\subseteq F_1\subseteq F_2\subseteq\cdots.
+\]
+
+Une suite croissante d'ensembles inclus dans un ensemble fini atteint finalement un point fixe. Ce résultat dépend des hypothèses : une application permettant la création indéfinie de nouveaux objets ou un flux illimité d'événements exige d'autres contrôles.
+
+### Retrait d'un fait : les conclusions deviennent-elles invalides ?
+
+Si l'information « identité confirmée » est révoquée, il serait dangereux de conserver automatiquement « dossier recevable » puis « traitement candidat ». Ces conclusions dépendent directement ou indirectement de la prémisse retirée.
+
+Un système peut recalculer les conclusions depuis les faits encore valides ou employer un mécanisme de **maintien de vérité** capable de retrouver les conclusions affectées. Notre moteur d'introduction, conçu principalement pour les ajouts, ne démontre pas cette gestion de révocation.
+
+**Exercice corrigé.** Une règle a conclu qu'un dossier pouvait passer à l'étape suivante, mais les droits de son demandeur ont été retirés. Peut-on lancer une action sensible à partir de l'ancienne conclusion ?
+
+**Réponse.** Non. Le service d'action doit vérifier les permissions effectives et les préconditions actuelles ; un résultat historique de déduction n'est pas une autorisation permanente.
+
+## 18. Règles temporelles : date de validité et date de connaissance
+
+Une règle peut être correcte mais appliquée à la mauvaise période. Pour une analyse historique, il faut distinguer :
+
+- **Date de validité métier** : période où la politique ou le fait est applicable.
+- **Date de connaissance** : moment où l'organisation a enregistré l'information.
+- **Version de règle** : texte et paramètres du contrôle effectivement applicables.
+- **Instant de décision** : moment auquel on produit ou rejoue une conclusion.
+
+Supposons qu'une procédure devienne applicable le 1er octobre mais n'entre dans l'index documentaire que le 3 octobre. Si l'on cherche à reproduire **les connaissances disponibles le 2 octobre**, cette procédure ne doit pas être traitée comme si elle était déjà accessible ce jour-là.
+
+Deux questions différentes apparaissent. « Quelle règle était juridiquement applicable au 2 octobre ? » concerne la **validité**. « Quelle règle le système connaissait-il réellement le 2 octobre ? » concerne la **traçabilité des informations disponibles**. Les deux réponses ne sont pas nécessairement identiques.
+
+### Relecture d'une décision
+
+Un dossier de relecture devrait conserver au minimum l'identifiant du cas, les faits accessibles, leur provenance, la version des règles, les dates pertinentes et les conclusions obtenues. Une trace de traitement n'autorise pas automatiquement la conservation illimitée de données personnelles ; les exigences de confidentialité et de rétention restent applicables.
+
+### Exercice corrigé
+
+Un auditeur demande de reproduire une décision prise le mois précédent. Le moteur applique uniquement les règles les plus récentes et obtient un autre résultat. Cela suffit-il à prouver que la décision historique était fausse ?
+
+**Réponse.** Non. Il faut connaître la version applicable à l'époque, les données disponibles alors et les règles de transition. Une nouvelle politique ne peut pas être supposée rétroactivement applicable sans justification.
+
+## 19. Limites et suites
 
 Ce chapitre couvre une IA **symbolique minimaliste** : pas de traitement de la négation, pas de quantificateurs, pas de raisonnement probabiliste, pas de temporalité avancée. Les chapitres suivants du volume élargiront la comparaison avec l'apprentissage à partir de données.
 
