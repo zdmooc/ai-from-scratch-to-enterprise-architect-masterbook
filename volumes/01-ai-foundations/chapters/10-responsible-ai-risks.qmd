@@ -370,7 +370,21 @@ Une équipe possède un registre de risques approuvé, mais n'a jamais testé le
 
 **Réponse.** Non. Elle dispose d'une conception et d'une décision documentaire ; il lui manque l'observation du comportement effectif du service. Le registre peut mentionner le contrôle comme prévu, mais non comme validé par exécution.
 
-## 17. Conclusion et références
+## 17. Étude corrigée — distinguer parité, rappel et base rate
+
+Considérons deux groupes fictifs de 100 dossiers chacun. Le groupe A compte 40 cas réellement positifs : le modèle en détecte 30 et produit 10 faux positifs. Le groupe B compte 10 cas réellement positifs : il en détecte 8 et produit 8 faux positifs.
+
+Pour A, rappel $=30/40=75\,\%$, précision $=30/(30+10)=75\,\%$ et taux d'alertes $=(30+10)/100=40\,\%$. Pour B, rappel $=8/10=80\,\%$, précision $=8/(8+8)=50\,\%$ et taux d'alertes $=(8+8)/100=16\,\%$. Les proportions de cas positifs (*prévalences*) sont de 40 % et 10 %.
+
+**Question 1.** Le groupe B reçoit moins d'alertes : cela suffit-il à démontrer une injustice ? **Corrigé :** non. Les prévalences et les erreurs sont différentes. Il faut définir l'usage, les conséquences de chaque décision, la qualité des labels et le critère d'équité retenu.
+
+**Question 2.** Les rappels 75 % et 80 % sont-ils égaux ? **Corrigé :** non. Une différence observée de cinq points ne suffit toutefois pas à établir une différence systématique sur la population, surtout avec seulement dix positifs dans B.
+
+**Question 3.** Quel risque masque la seule précision globale ? **Corrigé :** un écart entre groupes, des faux négatifs graves ou des labels historiquement biaisés. Documenter les dénominateurs et les incertitudes avant d'attribuer une cause.
+
+Les métriques d'équité peuvent entrer en tension ; aucune ne remplace l'analyse métier, les droits applicables ou la participation des personnes concernées. Ces nombres sont un exercice arithmétique et non une conclusion réglementaire.
+
+## 18. Conclusion et références
 
 La responsabilité ne peut pas être ajoutée après coup comme un paragraphe de communication. Elle influence les données, les méthodes, la sécurité, les droits des utilisateurs et les décisions de mise en service.
 
