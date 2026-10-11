@@ -81,5 +81,14 @@ class GradientTests(unittest.TestCase):
             train_line((0,1),(1,3),steps=True)
 
 
+    def test_chapter_05_finite_difference_derivation(self):
+        loss = lambda w: 0.5 * (2 * w - 4) ** 2
+        self.assertAlmostEqual(loss(1.01), 1.9602)
+        self.assertAlmostEqual(loss(0.99), 2.0402)
+        self.assertAlmostEqual(central_difference(loss, 1, epsilon=0.01), -4)
+        self.assertAlmostEqual(central_difference(lambda w: w**3, 2, epsilon=0.1), 12.01)
+        self.assertEqual(3 * 2**2, 12)
+
+
 if __name__ == '__main__':
     unittest.main()
