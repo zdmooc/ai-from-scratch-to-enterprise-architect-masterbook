@@ -409,7 +409,26 @@ Le suivi d'un service doit relier **métrique de qualité**, **population**, **v
 
 **Exercice corrigé.** Le nombre de tickets augmente pendant une panne majeure, mais la qualité du classifieur reste constante sur les cas correctement étiquetés. Peut-on conclure qu'il a dérivé ? **Réponse :** la distribution de charge a changé, mais il manque des éléments pour affirmer une dérive de sa relation prédictive ; il faut vérifier les métriques adaptées à la tâche.
 
-## 18. Pourquoi ce chapitre prépare l'architecture IA
+## 18. Exercice corrigé — précision et rappel sur une classe rare
+
+Supposons **1 000 opérations fictives**, dont 20 anomalies confirmées. Un classifieur détecte 15 anomalies, en manque 5 et déclenche 45 fausses alertes. Les 935 opérations normales restantes ne sont pas signalées.
+
+| | Réalité : anomalie | Réalité : normale |
+|---|---:|---:|
+| Alerte | 15 (VP) | 45 (FP) |
+| Pas d'alerte | 5 (FN) | 935 (VN) |
+
+La **précision** vaut $VP/(VP+FP)=15/60=25\,\%$ : trois alertes sur quatre ne correspondent pas à une anomalie dans cet échantillon. Le **rappel** vaut $VP/(VP+FN)=15/20=75\,\%$. La **spécificité** vaut $VN/(VN+FP)=935/980\simeq95{,}41\,\%$. L'**exactitude** vaut $(VP+VN)/1000=950/1000=95\,\%$, mesure flatteuse mais insuffisante quand la classe positive est rare.
+
+**Exercice 1.** Que donne le modèle qui ne déclenche jamais d'alerte ? **Corrigé :** 980 bonnes classifications sur 1 000, soit 98 % d'exactitude, mais rappel nul. Sa précision n'est pas définie car il ne prédit aucun positif ; on ne doit pas la présenter sans préciser la convention logicielle.
+
+**Exercice 2.** Une équipe annonce « précision de 95 % » en montrant uniquement les 950 classifications correctes. **Corrigé :** elle confond exactitude globale et précision de la classe anomalie. Il faut afficher la matrice et les dénominateurs.
+
+**Exercice 3.** Le seuil est abaissé et le rappel augmente. La précision augmente-t-elle nécessairement ? **Corrigé :** non ; davantage de vrais positifs peuvent s'accompagner de nombreux faux positifs. Mesurer le nouveau couple précision-rappel et la charge de revue humaine.
+
+Ces valeurs n'établissent aucune performance bancaire réelle ; elles montrent pourquoi la prévalence, le coût métier des erreurs et le choix du seuil doivent figurer dans le contrat d'évaluation.
+
+## 19. Pourquoi ce chapitre prépare l'architecture IA
 
 Choisir un modèle revient aussi à choisir un contrat de données, un protocole d'évaluation, un dispositif de surveillance et des responsables. Les volumes 04 et 05 approfondiront les statistiques et le Machine Learning. Le volume 13 donnera la méthode complète d'évaluation.
 
