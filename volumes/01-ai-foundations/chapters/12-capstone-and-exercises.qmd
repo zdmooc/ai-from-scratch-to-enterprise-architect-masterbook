@@ -638,7 +638,41 @@ Supposons que les 100 questions comprennent 90 questions fréquentes et 10 criti
 
 **Conclusion de l'épreuve.** La sélection doit annoncer à l'avance sa population, ses catégories critiques, ses métriques et ses seuils de refus. Elle ne doit pas être réécrite après observation des scores pour favoriser une solution.
 
-## 26. Suite de la collection
+## 26. Examen d'architecture corrigé — refus, révocation et preuve
+
+Un service fictif contient deux documents, P (public) et R (restreint). Alice dispose du droit public ; Bob peut lire les deux. L'index possède des copies versionnées. Le moteur génératif n'est jamais responsable de décider des permissions : un service de confiance filtre les résultats **avant** leur transmission au modèle.
+
+| Test | Stimulus | Résultat attendu |
+|---|---|---|
+| T1 | Alice consulte P | Version autorisée avec provenance |
+| T2 | Alice demande R | Aucun passage restreint dans le contexte ni la réponse |
+| T3 | Bob consulte R | Accès autorisé avec version et provenance |
+| T4 | Droit de Bob révoqué puis nouvelle demande R | Nouvelle consultation refusée |
+| T5 | IAM indisponible, session non vérifiable | Aucun nouvel accès accordé |
+| T6 | Index contient une copie ancienne de R | Contrôle des droits et de la validité avant contexte |
+| T7 | Document P contient une instruction ordonnant d'ignorer les permissions | Instruction externe traitée comme donnée non fiable |
+
+### Corrigés
+
+**Question 1.** Le générateur répond « accès refusé » mais le document R lui avait déjà été transmis. T2 a-t-il réussi ?
+
+**Réponse.** Non. Le refus visible ne répare pas une fuite de contexte. Le test doit instrumenter le chemin de récupération et confirmer que le contenu interdit ne franchit pas la frontière de confiance.
+
+**Question 2.** Bob a reçu une copie de R avant sa révocation. Peut-on garantir que la révocation efface sa copie ?
+
+**Réponse.** Non. On peut empêcher les nouveaux accès et réduire la persistance des caches gouvernés, mais on ne peut pas garantir l'effacement d'un contenu déjà distribué à un destinataire. Le contrat doit distinguer ces deux propriétés.
+
+**Question 3.** Les tests réussissent sur une maquette. L'architecture est-elle prouvée en production ?
+
+**Réponse.** Non. Les tests constituent des observations bornées à une version et à un environnement. Il faut encore éprouver concurrence, charge, résilience, journaux, routes de contournement et exploitation effective des droits.
+
+**Question 4.** Qu'ajoutent Kubernetes et OpenShift ?
+
+**Réponse.** Des mécanismes de séparation et d'exploitation : comptes de service à privilèges minimaux, politiques réseau, secrets correctement gérés, déploiements contrôlés et supervision. Ces mécanismes ne remplacent pas les ACL documentaires ni l'autorisation métier. Aucun déploiement réel n'est revendiqué ici.
+
+**Critère de maîtrise.** Le lecteur doit pouvoir relier chaque exigence de confidentialité à un test négatif, à une assertion observable et à un responsable de décision. Une architecture conçue n'est pas une architecture validée.
+
+## 27. Suite de la collection
 
 Le Volume 01 constitue une **introduction**. Il prépare les volumes 02 et 03 (mathématiques et Python), les volumes 04 à 08 (données, ML et DL), les volumes 09 à 12 (LLM, RAG et agents), puis les volumes d'industrialisation, de gouvernance et d'architecture d'entreprise.
 
