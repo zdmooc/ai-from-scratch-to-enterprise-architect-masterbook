@@ -399,6 +399,16 @@ Répondre sans consulter les pages précédentes :
 
 ---
 
+## Étude de synthèse — distinguer prédiction et décision
+
+Une équipe fictive souhaite traiter 200 demandes reçues chaque jour. Certaines contiennent un code de procédure valide, d'autres du texte libre. Le service doit **informer** les opérateurs, mais n'a pas le droit de valider automatiquement un paiement.
+
+On peut séparer quatre opérations : (1) vérifier par des règles la présence et le format des champs ; (2) retrouver la procédure correspondant au code, avec contrôle d'accès ; (3) éventuellement classer le texte libre pour suggérer une catégorie ; (4) présenter une recommandation à l'opérateur. Les deux premières peuvent être mises en œuvre sans modèle appris. La troisième peut bénéficier d'une évaluation de ML supervisé contre une baseline de mots-clés ; la quatrième reste soumise à la vérification humaine et à la source faisant autorité.
+
+**Exercice corrigé.** Un modèle classe correctement 180 demandes sur 200. Peut-on lui permettre de valider des paiements ? **Non :** une exactitude apparente de $180/200=90\,\%$ ne documente ni la nature des vingt erreurs ni les droits d'action. La tâche de classification ne correspond d'ailleurs pas à la décision d'exécution. Il faut séparer les responsabilités, tester les faux positifs et définir une politique indépendante de toute suggestion.
+
+**Contre-exemple.** Une règle explicite et stable de vérification d'un identifiant ne devient pas plus fiable par principe parce qu'un LLM reformule le résultat. Le texte généré peut être utile pour l'ergonomie, mais ne doit pas modifier le verdict du validateur.
+
 ## Références de travail et limites
 
 - OCDE (2024), [*Explanatory memorandum on the updated OECD definition of an AI system*](https://doi.org/10.1787/623da898-en). Une référence de définition des systèmes IA, distincte des choix d'architecture opérationnelle.
