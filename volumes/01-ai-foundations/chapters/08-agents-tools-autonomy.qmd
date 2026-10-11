@@ -500,7 +500,19 @@ La répétition doit être contrôlée : certaines sorties peuvent varier selon 
 
 **Réponse.** Non. Une métrique globale de réussite n'est pas une probabilité de sécurité. L'effet interdit représente un incident qui doit bloquer l'acceptation selon la politique définie et déclencher correction, tests négatifs et revue des permissions.
 
-## 22. Conclusion et ressources
+## 22. Exercice corrigé — idempotence et reprise incertaine
+
+Un agent soumet une demande d'ouverture de ticket à une API. La requête est acceptée côté serveur, mais la réponse réseau se perd. Le modèle reçoit une erreur de délai. **Question :** relancer immédiatement une nouvelle création est-il sûr ?
+
+**Correction.** Non : l'absence de réponse n'est pas une preuve d'absence d'effet. Pour une opération qui accepte l'idempotence, le service appelant génère avant l'envoi une clé stable (par exemple un identifiant aléatoire non sensible), la transmet à l'API et réutilise **la même clé** lors de la reprise. L'API doit enregistrer atomiquement la clé et le résultat correspondant, avec une durée de rétention définie. L'appelant consulte d'abord l'état de la transaction si l'API permet cette opération. Changer de clé au deuxième appel peut provoquer deux tickets.
+
+**Contre-exemple.** Un service qui enregistre la clé après avoir créé le ticket, sans transaction atomique, peut tomber entre les deux opérations : il n'offre pas la garantie annoncée. Une clé d'idempotence ne fournit pas à elle seule une sémantique « exactement une fois » sur tous les systèmes aval.
+
+**Test négatif corrigé.** Injecter un délai réseau après la création mais avant la réception de la réponse ; répéter avec la même clé ; vérifier qu'un seul effet métier existe. Puis injecter deux appels simultanés avec la même clé ; vérifier le comportement concurrent et la cohérence du résultat. Enfin, présenter à l'API une clé déjà employée avec une charge différente : l'API doit appliquer une politique explicite de rejet ou de conflit, non réutiliser silencieusement un résultat inadéquat.
+
+**Frontière de confiance.** Le LLM ne doit pouvoir ni inventer de nouveaux droits ni contourner les règles serveur d'idempotence et d'autorisation. Les chiffres et scénarios sont fictifs.
+
+## 23. Conclusion et ressources
 
 Un agent est une **architecture de workflow et d'accès aux outils**, dont certains choix peuvent être guidés par un modèle. L'autonomie réelle se trouve dans les permissions, l'état et les règles du système, pas dans le vocabulaire du prompt.
 
